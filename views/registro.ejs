@@ -1,0 +1,22 @@
+<%# campos oara el sistema de resgistro de visitas %>
+<form action="/registro" method="post">
+    <input type="text" name="nombre" placeholder="Nombre">
+    <input type="number" name="Telefono" placeholder="Telefono">
+    <input type="text" name="Curp" placeholder="Curp">
+    <input type="text" name="Identificacion" placeholder="Seleccione el tipo de identificacion">
+    <input type="text" name="Departamento" placeholder="Departamento">
+    <input type="text" name="Procedencia" placeholder="Procedencia">
+    <input type="number" name="ninos" placeholder="Cuantos niños">
+    <input type="number" name="gafete" placeholder="inserte el numero de gafete">
+    <input type="submit" value="Registrar">
+
+
+    <script>
+        document.querySelector('input[name="Curp"]').addEventListener('input', function(e) {
+            if (e.target.value.length !== 18) {
+                e.target.setCustomValidity('El campo Curp debe tener exactamente 18 caracteres.');
+            } else {
+                e.target.setCustomValidity('');
+            }
+        });
+    </script>

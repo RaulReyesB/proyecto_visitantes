@@ -4,6 +4,14 @@ const index = (req, res) => {
     descripcion: "Bienvenido a Radio y Television Hidalgo"
   })
 }
+const registro = (req, res) => {
+  res.render("registro", {
+    nombrePagina: "Registro",
+    descripcion: "Registrate en Radio y Television Hidalgo"
+  })
+}
+
+
 
 
 export{

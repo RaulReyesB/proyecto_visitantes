@@ -3,6 +3,7 @@ import express from 'express';
 import router from './routes/index.routes.js';
 import { config } from "dotenv";
 
+
 //inicializando express y dandole los atributos a app
 const app=express();
 
@@ -11,6 +12,9 @@ dotenv.config({ path: ".env" });
 
 //habilitando env para poder ocupar variables de entorno 
 dotenv.config({path: "src/.env"})
+
+app.set('view engine', 'ejs')
+app.set('views', 'src/views')
 
 //Definimos la carpeta para los recursos Public
 app.use(express.static("./src/public"));

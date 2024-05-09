@@ -9,7 +9,7 @@ dotenv.config({ path: ".env" });
 dotenv.config({path: "src/.env"})
 const app=express();
 
-app.set('view engine', 'pug')
+app.set('view engine', 'ejs')
 app.set('views', 'src/views')
 
 app.listen(process.env.PORT, () => {

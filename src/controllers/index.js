@@ -5,6 +5,7 @@ const index = (req, res) => {
   })
 }
 
+
 export{
   index
 }

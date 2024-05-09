@@ -5,4 +5,5 @@ router.get("/", index);
 router.get("/registroVisitas");
 router.get("/registro");
 
+
 export default router;

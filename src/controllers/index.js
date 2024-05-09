@@ -11,6 +11,9 @@ const registro = (req, res) => {
   })
 }
 
+
+
+
 export{
   index
 }

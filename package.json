@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "testeo de app_visitantes",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "nodemon src/index.js"
   },
   "author": "TICS_RTH",
   "license": "ISC",
@@ -26,6 +27,7 @@
     "csrf": "^3.1.0",
     "dotenv": "^16.3.1",
     "dropzone": "^5.9.3",
+    "ejs": "^3.1.10",
     "express-validator": "^7.0.1",
     "helmet": "^7.0.0",
     "jsonwebtoken": "^9.0.2",
@@ -34,7 +36,7 @@
     "nodemailer": "^6.9.7",
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
-    "ejs": "^3.1.10",
+    "pug": "^3.0.2",
     "sequelize": "^6.33.0"
   }
 }

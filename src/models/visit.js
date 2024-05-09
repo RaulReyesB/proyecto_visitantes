@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import db from "../config/db.js";
+import db from "../conecction.js";
 
 
 const Visit = db.define("tb_visits",{

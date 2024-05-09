@@ -1,27 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Historial</title>
-    <style>
-      table {
-        width: 100%;
-        border-collapse: collapse;
-      }
-      th,
-      td {
-        border: 1px solid #ddd;
-        padding: 8px;
-      }
-      th {
-        background-color: #4caf50;
-        color: white;
-      }
-      tr:nth-child(even) {
-        background-color: #f2f2f2;
-      }
-    </style>
-  </head>
-  <body>
+
+<head>
+  <title>
+    <%= nombrePagina %>
+  </title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    th {
+      background-color: #4caf50;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+
+<body>
+  <%= descripcion %>
+
     <table>
       <thead>
         <tr>
@@ -38,20 +47,39 @@
       </thead>
       <tbody>
         <% registros.forEach(function(registro) { %>
-        <tr>
-          <td><%= registro.nombre %></td>
-          <td><%= registro.telefono %></td>
-          <td><%= registro.correo %></td>
-          <td><%= registro.curp %></td>
-          <td><%= registro.identificacion %></td>
-          <td><%= registro.departamento %></td>
-          <td><%= registro.procedencia %></td>
-          <td><%= registro.ninos %></td>
-          <td><%= registro.gafete %></td>
-        </tr>
-        <% }); %>
+          <tr>
+            <td>
+              <%= registro.nombre %>
+            </td>
+            <td>
+              <%= registro.telefono %>
+            </td>
+            <td>
+              <%= registro.correo %>
+            </td>
+            <td>
+              <%= registro.curp %>
+            </td>
+            <td>
+              <%= registro.identificacion %>
+            </td>
+            <td>
+              <%= registro.departamento %>
+            </td>
+            <td>
+              <%= registro.procedencia %>
+            </td>
+            <td>
+              <%= registro.ninos %>
+            </td>
+            <td>
+              <%= registro.gafete %>
+            </td>
+          </tr>
+          <% }); %>
       </tbody>
     </table>
-    
-  </body>
+
+</body>
+
 </html>

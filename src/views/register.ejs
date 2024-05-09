@@ -10,55 +10,50 @@
 <body>
     <%= descripcion %>
 
-        <form action="/registros" method="post">
-            <input type="text" name="nombre" placeholder="Nombre">
-            <input type="text" name="Telefono" placeholder="Telefono">
-            <input type="text" name="correo" placeholder="Correo electronico">
-            <input type="text" name="Curp" placeholder="Curp">
-            <select>
-                <option selected disabled>-- Seleccione una opcion --</option>
-                <option>INE</option>
-                <option>Pasaporte</option>
-                <option>Licencia</option>
+        <form action="/registroVisitas" method="POST">
+            <input type="text" name="name" id="" placeholder="Nombre">
+            <input type="text" name="phone" placeholder="Telefono">
+            <input type="text" name="email" placeholder="Correo electronico">
+            <input type="text" name="CURP" placeholder="Curp">
+            <select name="identification" required>
+                <option selected disabled>-- Seleccione una opción --</option>
+                <option value="INE">INE</option>
+                <option value="Pasaporte">Pasaporte</option>
+                <option value="Licencia">Licencia</option>
             </select>
-            <input type="text" name="Departamento" placeholder="Departamento">
-            <input type="text" name="Procedencia" placeholder="Procedencia">
-            <input type="text" name="ninos" placeholder="Cuantos niños">
-            <input type="text" name="gafete" placeholder="inserte el numero de gafete">
-            <input type="submit" value="Registrar">
+            <input type="text" name="department" placeholder="Departamento">
+            <input type="text" name="origin" placeholder="Procedencia">
+            <input type="text" name="children" placeholder="Cuantos niños">
+            <input type="text" name="badge" placeholder="inserte el numero de gafete">
+            <input type="submit" value="Registrar visitante">
 
             <script>
-              document.querySelector('input[name="Curp"]').addEventListener('input', function(e) {
-                if (e.target.value.length !== 18) {
-                    e.target.setCustomValidity('El campo Curp debe tener exactamente 18 caracteres.');
-                } else {
-                    e.target.setCustomValidity('');
-                }
-            });    
-            document.querySelector('input[name="Telefono"]').addEventListener('input', function(e) {
-                if (e.target.value.length !== 10) {
-                    e.target.setCustomValidity('El campo Telefono debe tener exactamente 10 caracteres.');
-                } else {
-                    e.target.setCustomValidity('');
-                }
-            });
+                //validacion par la curp
+                document.querySelector('input[name="Curp"]').addEventListener('input', function (e) {
+                    if (e.target.value.length !== 18) {
+                        e.target.setCustomValidity('El campo Curp debe tener exactamente 18 caracteres.');
+                    } else {
+                        e.target.setCustomValidity('');
+                    }
+                });
+                //validacion par el correo
+                document.querySelector('input[name="email"]').addEventListener('input', function (e) {
+                    if (!e.target.value.includes('@')) {
+                        e.target.setCustomValidity('El campo email debe ser un correo válido.');
+                    } else {
+                        e.target.setCustomValidity('');
+                    }
+                });
 
-            document.querySelector('input[name="correo"]').addEventListener('input', function(e) {
-                if (!e.target.value.includes('@')) {
-                    e.target.setCustomValidity('El campo correo debe tener un arroba.');
-                } else {
-                    e.target.setCustomValidity('');
-                }
-            });
-
-            document.querySelector('input[name="ninos"]').addEventListener('input', function(e) {
-                if (isNaN(e.target.value)) {
-                    e.target.setCustomValidity('El campo niños debe ser un número.');
-                } else {
-                    e.target.setCustomValidity('');
-                }
-            });
-
+                //validacion para el telefono
+                document.querySelector('input[name="phone"]').addEventListener('input', function (e) {
+                    if (e.target.value.length !== 10) {
+                        e.target.setCustomValidity('El campo telefono debe tener exactamente 10 caracteres.');
+                    } else {
+                        e.target.setCustomValidity('');
+                    }
+                });
+                
             </script>
         </form>
 </body>

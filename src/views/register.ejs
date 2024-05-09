@@ -10,16 +10,16 @@
 <body>
     <%= descripcion %>
 
-        <form action="/registros" method="post">
-            <input type="text" name="name" placeholder="Nombre">
+        <form action="/registroVisitas" method="POST">
+            <input type="text" name="name" id="" placeholder="Nombre">
             <input type="text" name="phone" placeholder="Telefono">
             <input type="text" name="email" placeholder="Correo electronico">
             <input type="text" name="CURP" placeholder="Curp">
-            <select>
-                <option selected disabled>-- Seleccione una opcion --</option>
-                <option>INE</option>
-                <option>Pasaporte</option>
-                <option>Licencia</option>
+            <select name="identification" required>
+                <option selected disabled>-- Seleccione una opción --</option>
+                <option value="INE">INE</option>
+                <option value="Pasaporte">Pasaporte</option>
+                <option value="Licencia">Licencia</option>
             </select>
             <input type="text" name="department" placeholder="Departamento">
             <input type="text" name="origin" placeholder="Procedencia">

@@ -42,11 +42,13 @@ const Visit = db.define("tb_visits",{
         },
         entrance: {
             type: DataTypes.DATE,
-            allowNull: false
+            allowNull: false,
+            defaultValue: DataTypes.NOW 
         },
         exit: {
             type: DataTypes.DATE,
-            allowNull: false
+            allowNull: true,
+            defaultValue: null
         }
 })
 

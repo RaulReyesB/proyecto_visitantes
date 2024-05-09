@@ -4,7 +4,8 @@
   "description": "testeo de app_visitantes",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "author": "TICS_RTH",
   "license": "ISC",
@@ -26,6 +27,7 @@
     "csrf": "^3.1.0",
     "dotenv": "^16.3.1",
     "dropzone": "^5.9.3",
+    "ejs": "^3.1.10",
     "express-validator": "^7.0.1",
     "helmet": "^7.0.0",
     "jsonwebtoken": "^9.0.2",

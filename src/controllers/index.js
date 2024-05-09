@@ -14,10 +14,10 @@ const registro = (req, res) => {
 const savedRegister = async (req, res) => {
   console.log('Validar y guardar datos en la base de datos');
 
-  const { name, phone, email, CURP, identification, department, origin, children, badge } = req.body;
+  const { name, phone, email, CURP, identification, department, origin, children, badge,entrance,exit } = req.body;
 
   try {
-    console.log('Datos del registro:', { name, phone, email, CURP, identification, department, origin, children, badge });
+    console.log('Datos del registro:', { name, phone, email, CURP, identification, department, origin, children, badge,entrance,exit });
 
 
     const savedRegister = await new Promise((resolve, reject) => {
@@ -32,7 +32,8 @@ const savedRegister = async (req, res) => {
           origin,
           children,
           badge,
-          id: 1 
+          entrance,
+          exit
         };
         resolve(newRegister);
       }, 2000); 
@@ -53,17 +54,16 @@ const savedRegister = async (req, res) => {
 const updateRegister = async (req, res) => {
   console.log('Validar y actualizar datos en la base de datos');
 
-  const { id, name, phone, email, CURP, identification, department, origin, children, badge } = req.body;
+  const { name, phone, email, CURP, identification, department, origin, children, badge,entrance,exit } = req.body;
 
   try {
-    console.log('Datos de actualización del registro:', { id, name, phone, email, CURP, identification, department, origin, children, badge });
+    console.log('Datos de actualización del registro:', {name, phone, email, CURP, identification, department, origin, children, badge,entrance,exit });
 
     
     const updatedRegister = await new Promise((resolve, reject) => {
       setTimeout(() => {
         
         const updatedData = {
-          id,
           name,
           phone,
           email,
@@ -73,6 +73,8 @@ const updateRegister = async (req, res) => {
           origin,
           children,
           badge,
+          entrance,
+          exit
         };
         resolve(updatedData);
       }, 2000); 
@@ -86,9 +88,6 @@ const updateRegister = async (req, res) => {
     res.status(500).json({ mensaje: "Error al actualizar el registro", error: error.message });
   }
 };
-
-
-
 
 
 const findAllRegister = async (req, res) => {

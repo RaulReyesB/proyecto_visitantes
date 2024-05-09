@@ -20,14 +20,14 @@ const index = (req, res) => {
 };
 const register = (req, res) => {
   res.render("registro", {
-    nombrePagina: "Registro",
+    nombrePagina: "Registro de visitas",
     descripcion: "Registrate en Radio y Television Hidalgo",
   });
 };
 
 const history = (req, res) => {
   res.render("history", {
-    nombrePagina: "Inicio",
+    nombrePagina: "Historial de visitas",
     descripcion: "Historial de visitantes de Radio y Television Hidalgo",
     registros: registros,
   });
@@ -199,4 +199,5 @@ const findAllRegister = async (req, res) => {
   }
 };
 
-export { index, savedRegister, updateRegister, findAllRegister, register, history };
+export { findAllRegister, history, index, register, savedRegister, updateRegister };
+

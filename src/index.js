@@ -3,7 +3,9 @@ import dotenv from 'dotenv';
 import express from 'express';
 import db from './conecction.js';
 import router from './routes/index.routes.js';
-import Visit from './models/visit.js';
+import modelo from './models/visit.js';
+
+
 //setings
 dotenv.config({ path: ".env" });
 

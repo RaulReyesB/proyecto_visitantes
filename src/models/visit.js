@@ -1,3 +1,4 @@
+import { DataTypes } from "sequelize";
 import db from "../config/db.js";
 
 
@@ -38,6 +39,14 @@ const Visit = db.define("tb_visits",{
             type: DataTypes.INTEGER,
             allowNull: false,
             defaultValue: 0,
+        },
+        entrance: {
+            type: DataTypes.DATE,
+            allowNull: false
+        },
+        exit: {
+            type: DataTypes.DATE,
+            allowNull: false
         }
 })
 

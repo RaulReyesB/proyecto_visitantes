@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { index } from "../controllers/index.js";
+import { index, register, history, savedRegister } from "../controllers/index.js";
 const router = Router();
 router.get("/", index);
-router.get("/registroVisitas");
-router.get("/registro");
-router.get("/history");
+router.get("/registroVisitas", register);
+router.get("/registro", savedRegister);
+router.get("/history", history);
 
 export default router;

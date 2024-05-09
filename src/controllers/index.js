@@ -48,7 +48,7 @@ const savedRegister = async (req, res) => {
     badge,
     entrance,
     exit,
-  } = req.body;
+  } = req.body
 
   try {
     console.log("Datos del registro:", {
@@ -102,7 +102,6 @@ const savedRegister = async (req, res) => {
 
 const updateRegister = async (req, res) => {
   console.log("Validar y actualizar datos en la base de datos");
-
   const {
     name,
     phone,

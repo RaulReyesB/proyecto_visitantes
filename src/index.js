@@ -15,7 +15,7 @@ dotenv.config({path: "src/.env"})
 //Definimos la carpeta para los recursos Public
 app.use(express.static("./src/public"));
 
-app.set('view engine', 'pug')
+app.set('view engine', 'ejs')
 app.set('views', 'src/views')
 
 //agregando el puerto para poder levantar el servidor 

@@ -6,7 +6,6 @@ import { config } from "dotenv";
 //setings
 dotenv.config({ path: ".env" });
 
-dotenv.config({path: "src/.env"})
 const app=express();
 
 app.set('view engine', 'ejs')

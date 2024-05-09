@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= nombrePagina %>
+    </title>
+</head>
+
+<body>
+    <%= descripcion %>
+
+        <form action="/registros" method="post">
+            <input type="text" name="nombre" placeholder="Nombre">
+            <input type="text" name="Telefono" placeholder="Telefono">
+            <input type="text" name="correo" placeholder="Correo electronico">
+            <input type="text" name="Curp" placeholder="Curp">
+            <select>
+                <option selected disabled>-- Seleccione una opcion --</option>
+                <option>INE</option>
+                <option>Pasaporte</option>
+                <option>Licencia</option>
+            </select>
+            <input type="text" name="Departamento" placeholder="Departamento">
+            <input type="text" name="Procedencia" placeholder="Procedencia">
+            <input type="text" name="ninos" placeholder="Cuantos niños">
+            <input type="text" name="gafete" placeholder="inserte el numero de gafete">
+            <input type="submit" value="Registrar">
+
+            <script>
+                document.querySelector('input[name="Curp"]').addEventListener('input', function (e) {
+                    if (e.target.value.length !== 18) {
+                        e.target.setCustomValidity('El campo Curp debe tener exactamente 18 caracteres.');
+                    } else {
+                        e.target.setCustomValidity('');
+                    }
+                });
+            </script>
+        </form>
+</body>
+
+</html>

@@ -19,7 +19,7 @@ const index = (req, res) => {
   });
 };
 const register = (req, res) => {
-  res.render("registro", {
+  res.render("register", {
     nombrePagina: "Registro de visitas",
     descripcion: "Registrate en Radio y Television Hidalgo",
   });

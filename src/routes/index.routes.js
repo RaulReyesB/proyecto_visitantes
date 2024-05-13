@@ -1,9 +1,16 @@
 import { Router } from "express";
-import { index, register, history, savedRegister } from "../controllers/index.js";
+import express from 'express';
+
+import { index, register, history, interns, insertVisit} from "../controllers/index.js";
+
 const router = Router();
+
+router.use(express.urlencoded({ extended: true }));
+
 router.get("/", index);
 router.get("/registroVisitas", register);
-router.get("/registro", savedRegister);
+router.post("/registroVisitas", insertVisit);
 router.get("/history", history);
+router.get("/interns", interns);
 
 export default router;

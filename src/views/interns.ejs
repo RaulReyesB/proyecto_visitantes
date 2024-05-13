@@ -10,9 +10,9 @@
 <body>
     <%= descripcion %>
 
-        <form action="/registroVisitas" method="POST">
-            <input type="text" name="name" id="" placeholder="Nombre" required>
-            <input type="text" name="phone" placeholder="Telefono" required>
+        <form action="/registropasantes" method="POST">
+            <input type="text" name="name" id="" placeholder="Nombre">
+            <input type="text" name="phone" placeholder="Telefono">
             <input type="text" name="email" placeholder="Correo electronico">
             <input type="text" name="CURP" placeholder="Curp">
             <select name="identification" required>
@@ -23,12 +23,10 @@
             </select>
             <input type="text" name="department" placeholder="Departamento">
             <input type="text" name="origin" placeholder="Procedencia">
-            <input type="text" name="children" placeholder="Cuantos niños">
-            <input type="text" name="badge" placeholder="inserte el numero de gafete" required>
+            <input type="text" name="badge" placeholder="inserte el numero de gafete">
             <input type="submit" value="Registrar visitante">
 
             <script>
-                //validacion para el curp
                 document.querySelector('input[name="Curp"]').addEventListener('input', function (e) {
                     if (e.target.value.length !== 18) {
                         e.target.setCustomValidity('El campo Curp debe tener exactamente 18 caracteres.');
@@ -36,14 +34,6 @@
                         e.target.setCustomValidity('');
                     }
                 });
-
-                //validacion para el telefono
-                document.querySelector('input[name=phone]').addEventListener('input', function(e){
-                    if(e.target.value.lebght !==10){
-                        e.target.setCustomValidity('El campo telefono debe tener 10 caracteres exactos')
-                    }
-                });
-               
             </script>
         </form>
 </body>

@@ -22,37 +22,45 @@
           <th>Procedencia</th>
           <th>Niños</th>
           <th>Gafete</th>
+          <th>Fecha y Hora de entrada</th>
+          <th>Fecha y Hora de salida </th>
         </tr>
       </thead>
       <tbody>
         <% registros.forEach(function(registro) { %>
           <tr>
             <td>
-              <%= registro.nombre %>
+              <%= registro.name %>
             </td>
             <td>
-              <%= registro.telefono %>
+              <%= registro.phone %>
             </td>
             <td>
-              <%= registro.correo %>
+              <%= registro.email %>
             </td>
             <td>
-              <%= registro.curp %>
+              <%= registro.CURP %>
             </td>
             <td>
-              <%= registro.identificacion %>
+              <%= registro.identification %>
             </td>
             <td>
-              <%= registro.departamento %>
+              <%= registro.department %>
             </td>
             <td>
-              <%= registro.procedencia %>
+              <%= registro.origin %>
             </td>
             <td>
-              <%= registro.ninos %>
+              <%= registro.children %>
             </td>
             <td>
-              <%= registro.gafete %>
+              <%= registro.badge %>
+            </td>
+            <td>
+              <%= registro.createdAt %>
+            </td>
+            <td>
+              <%= registro.updatedAt %>
             </td>
           </tr>
           <% }); %>

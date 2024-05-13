@@ -7,11 +7,11 @@ const router = Router();
 
 router.use(express.urlencoded({ extended: true }));
 
-router.get("/inicio", index);
+router.post("/inicio", authenticateUser);
 router.get("/registroVisitas", register);
 router.post("/registroVisitas", insertVisit);
 router.get("/gistorial", history);
 router.get("/iniciarSesion", login)
-router.post("/iniciarSesion", authenticateUser)
+//router.post("/iniciarSesion", authenticateUser)
 
 export default router;

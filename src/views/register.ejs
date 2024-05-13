@@ -3,12 +3,12 @@
 
 <head>
     <title>
-        <%= nombrePagina %>
+        <%= namePage %>
     </title>
 </head>
 
 <body>
-    <%= descripcion %>
+    <%= description %>
 
         <form action="/registroVisitas" method="POST">
             <input type="text" name="name" id="" placeholder="Nombre">
@@ -28,7 +28,7 @@
             <input type="submit" value="Registrar visitante">
 
             <script>
-                //validacion par la curp
+                //validacion de CURP
                 document.querySelector('input[name="Curp"]').addEventListener('input', function (e) {
                     if (e.target.value.length !== 18) {
                         e.target.setCustomValidity('El campo Curp debe tener exactamente 18 caracteres.');
@@ -36,19 +36,19 @@
                         e.target.setCustomValidity('');
                     }
                 });
-                //validacion par el correo
-                document.querySelector('input[name="email"]').addEventListener('input', function (e) {
-                    if (!e.target.value.includes('@')) {
-                        e.target.setCustomValidity('El campo email debe ser un correo válido.');
+
+                //validacion de telefono 
+                document.querySelector('input[name="phone"]').addEventListener('input', function (e) {
+                    if (e.target.value.length !== 10) {
+                        e.target.setCustomValidity('El campo telefono debe tener exactamente 10 caracteres.');
                     } else {
                         e.target.setCustomValidity('');
                     }
                 });
-
-                //validacion para el telefono
-                document.querySelector('input[name="phone"]').addEventListener('input', function (e) {
-                    if (e.target.value.length !== 10) {
-                        e.target.setCustomValidity('El campo telefono debe tener exactamente 10 caracteres.');
+                //validacion del @ en el correo
+                document.querySelector('input[name="email"]').addEventListener('input', function (e) {
+                    if (e.target.value.indexOf('@') === -1) {
+                        e.target.setCustomValidity('El campo correo debe tener un @.');
                     } else {
                         e.target.setCustomValidity('');
                     }

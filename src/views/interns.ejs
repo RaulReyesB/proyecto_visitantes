@@ -3,14 +3,14 @@
 
 <head>
     <title>
-        <%= nombrePagina %>
+        <%= namePage %>
     </title>
 </head>
 
 <body>
-    <%= descripcion %>
+    <%= description %>
 
-        <form action="/registropasantes" method="POST">
+        <form action="/registroVisitas" method="POST">
             <input type="text" name="name" id="" placeholder="Nombre">
             <input type="text" name="phone" placeholder="Telefono">
             <input type="text" name="email" placeholder="Correo electronico">
@@ -34,6 +34,16 @@
                         e.target.setCustomValidity('');
                     }
                 });
+
+                //validar que el telefono tenga 10 digitos
+                document.querySelector('input[name="phone"]').addEventListener('input', function (e) {
+                    if (e.target.value.length !== 10) {
+                        e.target.setCustomValidity('El campo telefono debe tener exactamente 10 caracteres.');
+                    } else {
+                        e.target.setCustomValidity('');
+                    }
+                });
+
             </script>
         </form>
 </body>

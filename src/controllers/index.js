@@ -1,203 +1,114 @@
-const registros = [
-  {
-    nombre: "jacinta",
-    telefono: "1234567890",
-    correo: "jacinta@gmail.com",
-    curp: "123456789012345678",
-    identificacion: "INE",
-    departamento: "Comunicacion",
-    procedenciaa: "Hidalgo",
-    ninos: "0",
-    gafete: "772",
-  },
-];
+import Visit from "../models/visit.js";
+import User from "../models/user.js";
+import { validationResult, check } from "express-validator";
 
 const index = (req, res) => {
   res.render("index", {
-    nombrePagina: "Inicio",
-    descripcion: "Bienvenido a Radio y Television Hidalgo",
-  });
-};
-const register = (req, res) => {
-  res.render("register", {
-    nombrePagina: "Registro de visitas",
-    descripcion: "Registrate en Radio y Television Hidalgo",
+    namePage: "Inicio",
+    description: "Bienvenido a Radio y Television Hidalgo",
   });
 };
 
-const history = (req, res) => {
+const register = (req, res) => {
+  res.render("register", {
+    namePage: "Registro de visitas",
+    description: "Registrate en Radio y Television Hidalgo",
+  });
+};
+
+const interns = (req, res) => {
+  res.render("interns", {
+    namePage: "Registro de visitas",
+    description: "Registrate en Radio y Television Hidalgo",
+  });
+}
+
+const history = async (req, res) => {
+  const registros = await Visit.findAll();
   res.render("history", {
-    nombrePagina: "Historial de visitas",
-    descripcion: "Historial de visitantes de Radio y Television Hidalgo",
+    namePage: "Historial de visitas",
+    description: "Historial de visitantes de Radio y Television Hidalgo",
     registros: registros,
   });
 };
 
-const savedRegister = async (req, res) => {
-  console.log("Validar y guardar datos en la base de datos");
-
-  const {
-    name,
-    phone,
-    email,
-    CURP,
-    identification,
-    department,
-    origin,
-    children,
-    badge,
-    entrance,
-    exit,
-  } = req.body;
-
+const insertVisit = async (req, res) => {
   try {
-    console.log("Datos del registro:", {
-      name,
-      phone,
-      email,
-      CURP,
-      identification,
-      department,
-      origin,
-      children,
-      badge,
-      entrance,
-      exit,
+    // Crea un nuevo registro utilizando los datos del formulario
+    const newVisit = await Visit.create({
+      name: req.body.name,
+      phone: req.body.phone,
+      email: req.body.email,
+      CURP: req.body.CURP,
+      identification: req.body.identification,
+      department: req.body.department,
+      origin: req.body.origin,
+      children: req.body.children,
+      badge: req.body.badge, // Corregido el nombre del campo
     });
-
-    const savedRegister = await new Promise((resolve, reject) => {
-      setTimeout(() => {
-        const newRegister = {
-          name,
-          phone,
-          email,
-          CURP,
-          identification,
-          department,
-          origin,
-          children,
-          badge,
-          entrance,
-          exit,
-        };
-        resolve(newRegister);
-      }, 2000);
-    });
-
-    console.log("Registro guardado:", savedRegister);
-
-    res
-      .status(201)
-      .json({
-        mensaje: "Registro guardado correctamente",
-        registro: savedRegister,
-      });
+    res.send("Registro exitoso");
   } catch (error) {
     console.error(error);
-    res
-      .status(500)
-      .json({ mensaje: "Error al guardar el registro", error: error.message });
+    res.status(500).send("Error interno del servidor");
   }
 };
 
-const updateRegister = async (req, res) => {
-  console.log("Validar y actualizar datos en la base de datos");
+const authenticateUser = async (req, res) => {
+  console.log(`El usuario está intentando autenticarse`);
 
-  const {
-    name,
-    phone,
-    email,
-    CURP,
-    identification,
-    department,
-    origin,
-    children,
-    badge,
-    entrance,
-    exit,
-  } = req.body;
+  // Validar los datos del formulario
+  await check("name")
+    .notEmpty()
+    .withMessage("El nombre del usuario es requerido")
+    .run(req);
+  await check("password")
+    .notEmpty()
+    .withMessage("La contraseña es requerida")
+    .isLength({ min: 8, max: 20 })
+    .withMessage("La contraseña debe tener entre 8 y 15 caracteres")
+    .run(req);
 
-  try {
-    console.log("Datos de actualización del registro:", {
-      name,
-      phone,
-      email,
-      CURP,
-      identification,
-      department,
-      origin,
-      children,
-      badge,
-      entrance,
-      exit,
+  const { name, password } = req.body;
+  console.log(`El usuario: ${name} está intentando ingresar a la plataforma`);
+  
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    return res.render("login", {
+      namePage: "Iniciar Sesion en Radio y Television Hidalgo",
+      errors: errors.array(),
     });
+  }
 
-    const updatedRegister = await new Promise((resolve, reject) => {
-      setTimeout(() => {
-        const updatedData = {
-          name,
-          phone,
-          email,
-          CURP,
-          identification,
-          department,
-          origin,
-          children,
-          badge,
-          entrance,
-          exit,
-        };
-        resolve(updatedData);
-      }, 2000);
+  const user = await User.findOne({ where: { name } });
+
+  if (!user) {
+    return res.render("login", {
+      namePage: "Iniciar Sesion en Radio y Television Hidalgo",
+      errors: [{ msg: "Usuario no encontrado en el sistema" }],
     });
+  }
 
-    console.log("Registro actualizado:", updatedRegister);
-
-    res
-      .status(200)
-      .json({
-        mensaje: "Registro actualizado correctamente",
-        registro: updatedRegister,
-      });
-  } catch (error) {
-    console.error(error);
-    res
-      .status(500)
-      .json({
-        mensaje: "Error al actualizar el registro",
-        error: error.message,
-      });
+  if (!user.verifyPassword(password)) {
+    console.log("El usuario tiene la contrasena correcta");
+    return res.render("index", {
+      namePage: "Bienvenido a Radio y televion",
+      description: "Pagina de inicio",
+    });
+  } else {
+    console.log("AAAAAAAAAAAAAAAAAAA");
+    return res.render("login", {
+      namePage: "Iniciar Sesion en Radio y Television Hidalgo",
+      errors: [{ msg: "Contraseña incorrecta" }],
+    });
   }
 };
 
-const findAllRegister = async (req, res) => {
-  console.log("Buscar y devolver todos los registros de la base de datos");
-
-  try {
-    const allRegisters = await new Promise((resolve, reject) => {
-      setTimeout(() => {
-        const registros = [
-          { id: 1, name: "Registro 1" },
-          { id: 2, name: "Registro 2" },
-          { id: 3, name: "Registro 3" },
-        ];
-        resolve(registros);
-      }, 2000);
-    });
-
-    console.log("Registros encontrados:", allRegisters);
-
-    res.status(200).json({ registros: allRegisters });
-  } catch (error) {
-    console.error(error);
-    res
-      .status(500)
-      .json({
-        mensaje: "Error al encontrar los registros",
-        error: error.message,
-      });
-  }
+const login = (req, res) => {
+  res.render("login", {
+    namePage: "Iniciar Sesion en Radio y Television Hidalgo",
+    errors: [],
+  });
 };
 
-export { findAllRegister, history, index, register, savedRegister, updateRegister };
-
+export { history, index, register, insertVisit, authenticateUser, login, interns };

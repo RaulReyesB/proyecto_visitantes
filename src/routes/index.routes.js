@@ -1,9 +1,19 @@
 import { Router } from "express";
-import { index, register, history, savedRegister } from "../controllers/index.js";
+import express from 'express';
+
+import { index, register, history, insertVisit, login, authenticateUser, interns} from "../controllers/index.js";
+
 const router = Router();
-router.get("/", index);
+
+router.use(express.urlencoded({ extended: true }));
+
+router.post("/inicio", authenticateUser);
 router.get("/registroVisitas", register);
-router.get("/registro", savedRegister);
-router.get("/history", history);
+router.post("/registroVisitas", insertVisit);
+router.get("/gistorial", history);
+router.get("/iniciarSesion", login)
+router.post("/iniciarSesion", authenticateUser)
+router.get("/internos", interns)
+//router.post("/iniciarSesion", authenticateUser)
 
 export default router;

@@ -14,18 +14,13 @@ const register = (req, res) => {
 };
 
 const history = async (req, res) => {
-  try {
-    const registros = await Visit.findAll(); // Recupera todos los registros de visitas de la base de datos
+    const registros = await Visit.findAll();
     res.render("history", {
       nombrePagina: "Historial de visitas",
       descripcion: "Historial de visitantes de Radio y Television Hidalgo",
-      registros: registros, // Pasa los registros a la vista
+      registros: registros, 
     });
-  } catch (error) {
-    console.error(error);
-    res.status(500).send("Error interno del servidor");
   }
-};
 
 const insertVisit = async (req, res) => {
   try {

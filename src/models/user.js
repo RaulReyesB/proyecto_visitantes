@@ -6,7 +6,7 @@ const User = db.define("tb_users",{
         type: DataTypes.STRING,
         allownull: false
     },
-    pass:{
+    password:{
         type: DataTypes.STRING(15),
         allownull: false
     },

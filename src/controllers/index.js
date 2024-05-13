@@ -1,4 +1,16 @@
-import Visit from "../models/visit.js";
+const registros = [
+  {
+    nombre: "jacinta",
+    telefono: "1234567890",
+    correo: "jacinta@gmail.com",
+    curp: "123456789012345678",
+    identificacion: "INE",
+    departamento: "Comunicacion",
+    procedenciaa: "Hidalgo",
+    ninos: "0",
+    gafete: "772",
+  },
+];
 
 const index = (req, res) => {
   res.render("index", {
@@ -13,42 +25,179 @@ const register = (req, res) => {
   });
 };
 
-const history = async (req, res) => {
-    const registros = await Visit.findAll();
-    res.render("history", {
-      nombrePagina: "Historial de visitas",
-      descripcion: "Historial de visitantes de Radio y Television Hidalgo",
-      registros: registros, 
-    });
-  }
-
-const interns = async (req, res) => {
-  res.render("interns",{
-    nombrePagina: "Practicantes",
-    descripcion: "registra a los practicantes",
+const history = (req, res) => {
+  res.render("history", {
+    nombrePagina: "Historial de visitas",
+    descripcion: "Historial de visitantes de Radio y Television Hidalgo",
+    registros: registros,
   });
-  }
+};
 
+const savedRegister = async (req, res) => {
+  console.log("Validar y guardar datos en la base de datos");
 
-const insertVisit = async (req, res) => {
+  const {
+    name,
+    phone,
+    email,
+    CURP,
+    identification,
+    department,
+    origin,
+    children,
+    badge,
+    entrance,
+    exit,
+  } = req.body;
+
   try {
-    // Crea un nuevo registro utilizando los datos del formulario
-    const newVisit = await Visit.create({
-      name: req.body.name,
-      phone: req.body.phone,
-      email: req.body.email,
-      CURP: req.body.CURP,
-      identification: req.body.identification,
-      department: req.body.department,
-      origin: req.body.origin,
-      children: req.body.children,
-      badge: req.body.badge, // Corregido el nombre del campo
+    console.log("Datos del registro:", {
+      name,
+      phone,
+      email,
+      CURP,
+      identification,
+      department,
+      origin,
+      children,
+      badge,
+      entrance,
+      exit,
     });
-    res.send("Registro exitoso");
+
+    const savedRegister = await new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const newRegister = {
+          name,
+          phone,
+          email,
+          CURP,
+          identification,
+          department,
+          origin,
+          children,
+          badge,
+          entrance,
+          exit,
+        };
+        resolve(newRegister);
+      }, 2000);
+    });
+
+    console.log("Registro guardado:", savedRegister);
+
+    res
+      .status(201)
+      .json({
+        mensaje: "Registro guardado correctamente",
+        registro: savedRegister,
+      });
   } catch (error) {
     console.error(error);
-    res.status(500).send("Error interno del servidor");
+    res
+      .status(500)
+      .json({ mensaje: "Error al guardar el registro", error: error.message });
   }
 };
 
-export { history, index, register, interns, insertVisit };
+const updateRegister = async (req, res) => {
+  console.log("Validar y actualizar datos en la base de datos");
+
+  const {
+    name,
+    phone,
+    email,
+    CURP,
+    identification,
+    department,
+    origin,
+    children,
+    badge,
+    entrance,
+    exit,
+  } = req.body;
+
+  try {
+    console.log("Datos de actualización del registro:", {
+      name,
+      phone,
+      email,
+      CURP,
+      identification,
+      department,
+      origin,
+      children,
+      badge,
+      entrance,
+      exit,
+    });
+
+    const updatedRegister = await new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const updatedData = {
+          name,
+          phone,
+          email,
+          CURP,
+          identification,
+          department,
+          origin,
+          children,
+          badge,
+          entrance,
+          exit,
+        };
+        resolve(updatedData);
+      }, 2000);
+    });
+
+    console.log("Registro actualizado:", updatedRegister);
+
+    res
+      .status(200)
+      .json({
+        mensaje: "Registro actualizado correctamente",
+        registro: updatedRegister,
+      });
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({
+        mensaje: "Error al actualizar el registro",
+        error: error.message,
+      });
+  }
+};
+
+const findAllRegister = async (req, res) => {
+  console.log("Buscar y devolver todos los registros de la base de datos");
+
+  try {
+    const allRegisters = await new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const registros = [
+          { id: 1, name: "Registro 1" },
+          { id: 2, name: "Registro 2" },
+          { id: 3, name: "Registro 3" },
+        ];
+        resolve(registros);
+      }, 2000);
+    });
+
+    console.log("Registros encontrados:", allRegisters);
+
+    res.status(200).json({ registros: allRegisters });
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({
+        mensaje: "Error al encontrar los registros",
+        error: error.message,
+      });
+  }
+};
+
+export { findAllRegister, history, index, register, savedRegister, updateRegister };
+

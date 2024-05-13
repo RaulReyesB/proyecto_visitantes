@@ -6,11 +6,9 @@ Este proyecto es una plataforma de registro de visitantes diseñada para facilit
 ## Características
 - **Registro de Entrada/Salida**: Permite a los visitantes registrarse al entrar y salir.
 - **Historial de Visitantes**: Mantiene un historial de todos los visitantes y sus visitas.
-- **Notificaciones**: Envía notificaciones en tiempo real a los anfitriones cuando sus visitantes llegan.
-- **Reportes**: Genera reportes detallados sobre el tráfico de visitantes.
 
 ## Tecnologías Utilizadas
-- Frontend: React Native para una aplicación móvil multiplataforma.
+- Frontend: EJS como view engine y css.
 - Backend: JavaScript para manejar la lógica del negocio y la base de datos.
 - Base de Datos: MySQL.
 

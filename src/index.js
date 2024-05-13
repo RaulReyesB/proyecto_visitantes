@@ -12,12 +12,12 @@ const app = express();
 
 app.set("view engine", "ejs");
 app.set("views", "src/views");
+app.use(express.static("./src/public"));
 
 app.listen(process.env.PORT, () => {
   console.log("Server on port: " + process.env.PORT);
 });
 
-app.use(express.static("./src/public"));
 
 app.use("/", router);
 try {

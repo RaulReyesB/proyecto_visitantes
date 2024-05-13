@@ -4,23 +4,23 @@ import { validationResult, check } from "express-validator";
 
 const index = (req, res) => {
   res.render("index", {
-    nombrePagina: "Inicio",
-    descripcion: "Bienvenido a Radio y Television Hidalgo",
+    namePage: "Inicio",
+    description: "Bienvenido a Radio y Television Hidalgo",
   });
 };
 
 const register = (req, res) => {
   res.render("register", {
-    nombrePagina: "Registro de visitas",
-    descripcion: "Registrate en Radio y Television Hidalgo",
+    namePage: "Registro de visitas",
+    description: "Registrate en Radio y Television Hidalgo",
   });
 };
 
 const history = async (req, res) => {
   const registros = await Visit.findAll();
   res.render("history", {
-    nombrePagina: "Historial de visitas",
-    descripcion: "Historial de visitantes de Radio y Television Hidalgo",
+    namePage: "Historial de visitas",
+    description: "Historial de visitantes de Radio y Television Hidalgo",
     registros: registros,
   });
 };
@@ -65,7 +65,7 @@ const authenticateUser = async (req, res) => {
 
   if (!errors.isEmpty()) {
     return res.render("login", {
-      nombrePagina: "Iniciar Sesion en Radio y Television Hidalgo",
+      namePage: "Iniciar Sesion en Radio y Television Hidalgo",
       errors: errors.array(),
     });
   }
@@ -77,7 +77,7 @@ const authenticateUser = async (req, res) => {
 
   if (!user) {
     return res.render("login", {
-      nombrePagina: "Iniciar Sesion en Radio y Television Hidalgo",
+      namePage: "Iniciar Sesion en Radio y Television Hidalgo",
       errors: [{ msg: "Usuario no encontrado en el sistema" }],
     });
   }
@@ -85,13 +85,13 @@ const authenticateUser = async (req, res) => {
   if (!user.verifyPassword(password)) {
     console.log("El usuario tiene la contrasena correcta");
     return res.render("index", {
-      nombrePagina: "Bienvenido a Radio y televion",
-      descripcion:"Pagina de inicio"
+      namePage: "Bienvenido a Radio y televion",
+      description:"Pagina de inicio"
     });
   } else {
     console.log("AAAAAAAAAAAAAAAAAAA");
     return res.render("login", {
-      nombrePagina: "Iniciar Sesion en Radio y Television Hidalgo",
+      namePage: "Iniciar Sesion en Radio y Television Hidalgo",
       errors: [{ msg: "Contraseña incorrecta" }],
     });
   }
@@ -99,7 +99,7 @@ const authenticateUser = async (req, res) => {
 
 const login = (req, res) => {
   res.render("login", {
-    nombrePagina: "Iniciar Sesion en Radio y Television Hidalgo",
+    namePage: "Iniciar Sesion en Radio y Television Hidalgo",
     errors: [],
   });
 };

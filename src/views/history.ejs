@@ -22,6 +22,8 @@
           <th>Procedencia</th>
           <th>Niños</th>
           <th>Gafete</th>
+          <th>Fecha y Hora de entrada</th>
+          <th>Fecha y Hora de salida </th>
         </tr>
       </thead>
       <tbody>
@@ -53,6 +55,12 @@
             </td>
             <td>
               <%= registro.badge %>
+            </td>
+            <td>
+              <%= registro.createdAt %>
+            </td>
+            <td>
+              <%= registro.updatedAt %>
             </td>
           </tr>
           <% }); %>

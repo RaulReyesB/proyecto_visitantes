@@ -1,5 +1,4 @@
 import { DataTypes } from "sequelize";
-import bcrypt from "bcryptjs"
 import db from "../conecction.js";
 
 const User = db.define("tb_users", {
@@ -12,9 +11,5 @@ const User = db.define("tb_users", {
     allownull: false,
   },
 });
-
-User.prototype.verifyPassword = function (password) {
-  return bcrypt.compareSync(password, this.password);
-};
 
 export default User;

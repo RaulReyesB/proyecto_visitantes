@@ -1,5 +1,6 @@
 import dotenv from "dotenv";
 import express from "express";
+import session from 'express-session';
 import db from "./conecction.js";
 import router from "./routes/index.routes.js";
 import modelo from "./models/visit.js";
@@ -9,6 +10,13 @@ import Intern from "./models/Intern.js";
 dotenv.config({ path: ".env" });
 
 const app = express();
+
+// Configuración de express-session
+app.use(session({
+  secret: 'rthinformatica', // Cambia esto por una cadena secreta
+  resave: false,
+  saveUninitialized: false,
+}));
 
 app.set("view engine", "ejs");
 app.set("views", "src/views");

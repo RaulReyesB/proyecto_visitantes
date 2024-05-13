@@ -14,7 +14,7 @@ app.set("view engine", "ejs");
 app.set("views", "src/views");
 
 app.listen(process.env.PORT, () => {
-  console.log("Server on port: " + process.env.PORT);
+  console.log("Server on port: http://localhost:" + process.env.PORT);
 });
 
 app.use(express.static("./src/public"));

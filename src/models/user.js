@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import bcrypt from "bcrypt"
+import bcrypt from "bcryptjs"
 import db from "../conecction.js";
 
 const User = db.define("tb_users", {

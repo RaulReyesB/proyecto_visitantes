@@ -61,6 +61,9 @@ const authenticateUser = async (req, res) => {
     .withMessage("La contraseña debe tener entre 8 y 15 caracteres")
     .run(req);
 
+  const { name, password } = req.body;
+  console.log(`El usuario: ${name} está intentando ingresar a la plataforma`);
+  
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
@@ -69,9 +72,6 @@ const authenticateUser = async (req, res) => {
       errors: errors.array(),
     });
   }
-
-  const { name, password } = req.body;
-  console.log(`El usuario: ${name} está intentando ingresar a la plataforma`);
 
   const user = await User.findOne({ where: { name } });
 
@@ -86,7 +86,7 @@ const authenticateUser = async (req, res) => {
     console.log("El usuario tiene la contrasena correcta");
     return res.render("index", {
       namePage: "Bienvenido a Radio y televion",
-      description:"Pagina de inicio"
+      description: "Pagina de inicio",
     });
   } else {
     console.log("AAAAAAAAAAAAAAAAAAA");

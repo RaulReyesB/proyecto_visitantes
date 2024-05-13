@@ -4,7 +4,7 @@ dotenv.config({path:".env"})
 
 const db = new Sequelize(process.env.BD_NAME, process.env.BD_USER, process.env.BD_PASSWORD, {
   host: process.env.BD_HOST,
-  port: "3307",
+  port: "3306",
   dialect: "mysql",
   timezone: '-06:00', // Configura la zona horaria aquí  define: { timestamp: true },
   pool: {

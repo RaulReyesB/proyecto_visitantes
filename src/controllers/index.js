@@ -1,4 +1,5 @@
 import Visit from "../models/visit.js";
+import User from "../models/user.js";
 import { validationResult, check } from "express-validator";
 
 const index = (req, res) => {
@@ -7,6 +8,7 @@ const index = (req, res) => {
     descripcion: "Bienvenido a Radio y Television Hidalgo",
   });
 };
+
 const register = (req, res) => {
   res.render("register", {
     nombrePagina: "Registro de visitas",
@@ -44,9 +46,10 @@ const insertVisit = async (req, res) => {
   }
 };
 
-const authenticateUser = async (req, res, next) => {
+const authenticateUser = async (req, res) => {
   console.log(`El usuario está intentando autenticarse`);
-  //Validar los datos del formulario
+
+  // Validar los datos del formulario
   await check("name")
     .notEmpty()
     .withMessage("El nombre del usuario es requerido")
@@ -57,35 +60,48 @@ const authenticateUser = async (req, res, next) => {
     .isLength({ min: 8, max: 20 })
     .withMessage("La contraseña debe tener entre 8 y 15 caracteres")
     .run(req);
+
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    return res.render("login", {
+      nombrePagina: "Iniciar Sesion en Radio y Television Hidalgo",
+      errors: errors.array(),
+    });
+  }
+
   const { name, password } = req.body;
+  console.log(`El usuario: ${name} está intentando ingresar a la plataforma`);
 
-  let result = validationResult(req);
+  const user = await User.findOne({ where: { name } });
 
-  if (result.isEmpty()) {
-    //desestructurando
-    console.log(`El usuario: ${name} está intentando ingresar a la plataforma`);
+  if (!user) {
+    return res.render("login", {
+      nombrePagina: "Iniciar Sesion en Radio y Television Hidalgo",
+      errors: [{ msg: "Usuario no encontrado en el sistema" }],
+    });
+  }
 
-    const userExists = await User.findOne({ where: { name } });
-
-    if (!userExists) {
-      console.log(`${name}`);
-      res.render("login", {
-        text: "Usuario no encontrado en el sistema",
-      });
-    } else {
-      if (!userExists.verifyPassword(password)) {
-        res.render("login", {
-          nombrePagina: "Iniciar Sesion en Radio y Television Hidalgo",
-          text: "Contraseña incorrecta",
-        });
-      }
-    }
+  if (!user.verifyPassword(password)) {
+    console.log("El usuario tiene la contrasena correcta");
+    return res.render("index", {
+      nombrePagina: "Bienvenido a Radio y televion",
+      descripcion:"Pagina de inicio"
+    });
+  } else {
+    console.log("AAAAAAAAAAAAAAAAAAA");
+    return res.render("login", {
+      nombrePagina: "Iniciar Sesion en Radio y Television Hidalgo",
+      errors: [{ msg: "Contraseña incorrecta" }],
+    });
   }
 };
 
 const login = (req, res) => {
   res.render("login", {
     nombrePagina: "Iniciar Sesion en Radio y Television Hidalgo",
+    errors: [],
   });
 };
+
 export { history, index, register, insertVisit, authenticateUser, login };

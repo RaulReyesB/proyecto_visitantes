@@ -7,7 +7,7 @@ const router = Router();
 
 router.use(express.urlencoded({ extended: true }));
 
-router.get("/", index);
+router.get("/inicio", index);
 router.get("/registroVisitas", register);
 router.post("/registroVisitas", insertVisit);
 router.get("/gistorial", history);

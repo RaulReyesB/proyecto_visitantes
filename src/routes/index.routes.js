@@ -7,10 +7,12 @@ const router = Router();
 
 router.use(express.urlencoded({ extended: true }));
 
-router.get("/inicio", index);
-router.get("/registroVisitas", register);
-router.post("/registroVisitas", insertVisit);
-router.get("/gistorial", history);
+import requireAuth from "../middlewares/auth.js";
+
+router.get("/inicio", requireAuth, index);
+router.get("/registroVisitas", requireAuth, register);
+router.post("/registroVisitas", requireAuth, insertVisit);
+router.get("/historial", requireAuth, history);
 router.get("/iniciarSesion", login)
 router.post("/iniciarSesion", authenticateUser)
 

@@ -1,11 +1,10 @@
-
-import dotenv from 'dotenv';
-import express from 'express';
-import db from './conecction.js';
-import router from './routes/index.routes.js';
-import modelo from './models/visit.js';
-import User from './models/user.js';
-import Intern from './models/Intern.js';
+import dotenv from "dotenv";
+import express from "express";
+import db from "./conecction.js";
+import router from "./routes/index.routes.js";
+import modelo from "./models/visit.js";
+import User from "./models/user.js";
+import Intern from "./models/Intern.js";
 //setings
 dotenv.config({ path: ".env" });
 
@@ -17,6 +16,8 @@ app.set("views", "src/views");
 app.listen(process.env.PORT, () => {
   console.log("Server on port: " + process.env.PORT);
 });
+
+app.use(express.static("./src/public"));
 
 app.use("/", router);
 try {

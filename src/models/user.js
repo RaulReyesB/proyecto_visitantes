@@ -6,7 +6,7 @@ const User = db.define("tb_users",{
         type: DataTypes.STRING,
         allownull: false
     },
-    number_worker:{
+    password:{
         type: DataTypes.STRING,
         allownull: false
     },

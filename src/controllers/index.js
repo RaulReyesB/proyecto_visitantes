@@ -21,6 +21,13 @@ const register = (req, res) => {
   });
 };
 
+//funcion para renderizar la pagina de registro de internos
+const interns = (req, res) => {
+  res.render("interns", {
+    namePage: "Registro de Internos",
+    description: "Regístra los internos de radio y television hidalgo",
+  })
+};
 // Función asincrónica para obtener y renderizar el historial de visitas
 const history = async (req, res) => {
   try {
@@ -76,6 +83,26 @@ const insertVisit = async (req, res) => {
       department: req.body.department,
       origin: req.body.origin,
       children: req.body.children,
+      badge: req.body.badge,
+    });
+    res.send("Registro exitoso");
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Error interno del servidor");
+  }
+};
+
+//funcion para registrar internos
+const insertIntern = async (req, res) => {
+  try {
+    const newIntern = await Intern.create({
+      name: req.body.name,
+      phone: req.body.phone,
+      email: req.body.email,
+      CURP: req.body.CURP,
+      identification: req.body.identification,
+      department: req.body.department,
+      origin: req.body.origin,
       badge: req.body.badge,
     });
     res.send("Registro exitoso");
@@ -157,4 +184,6 @@ export {
   authenticateUser,
   login,
   pendingRecords,
+  interns,
+  insertIntern
 };

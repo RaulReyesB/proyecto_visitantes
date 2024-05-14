@@ -21,7 +21,7 @@
         <th>Niños</th>
         <th>Gafete</th>
         <th>Fecha y Hora de entrada</th>
-        <th>Fecha y Hora de salida</th>
+        <th>Finalizar registro</th>
       </tr>
     </thead>
     <tbody>
@@ -37,12 +37,14 @@
           <td><%= item.children %></td>
           <td><%= item.badge %></td>
           <td><%= item.createdAt %></td>
-          <td><%= item.exit %></td>
+          <td>
+            <a href="/finalizarRegistro/<%= item.id %>" class="finalizar-registro" data-id="<%= item.id %>">Finalizar registro</a>
+          </td>
         </tr>
       <% }); %>
     </tbody>
   </table>
-
+<script src="/src/controllers/pendingRecords.controllers.js"></script>
 </body>
 
 </html>

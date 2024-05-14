@@ -12,6 +12,7 @@ import {
   renderRegisterPage,
   registerUser,
   insertIntern,
+  showHRVisits,
 } from "../controllers/index.js";
 import { requireAuth, requireSuperUser } from "../middlewares/auth.js";
 import { adminUser, toggleStatus } from "../controllers/userControlls.js";
@@ -31,6 +32,7 @@ router.get("/registroUsuario", renderRegisterPage);
 router.post("/registroUsuario", registerUser);
 router.get("/registroInternos", interns);
 router.post("/registroInternos", insertIntern);
+router.get("/hr-visits", showHRVisits);
 
 // Rutas públicas (sin autenticación)
 router.get("/iniciarSesion", login);

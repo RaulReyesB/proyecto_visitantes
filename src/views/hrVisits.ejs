@@ -1,0 +1,47 @@
+<!-- hrVisits.ejs -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= namePage %></title>
+</head>
+<body>
+    <h1><%= namePage %></h1>
+    <p><%= description %></p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Teléfono</th>
+                <th>Correo Electrónico</th>
+                <th>CURP</th>
+                <th>Identificación</th>
+                <th>Origen</th>
+                <th>Niños</th>
+                <th>Número de Pase</th>
+                <th>Fecha de Entrada</th>
+                <th>Fecha de Salida</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% visits.forEach(visit => { %>
+                <tr>
+                    <td><%= visit.name %></td>
+                    <td><%= visit.phone %></td>
+                    <td><%= visit.email %></td>
+                    <td><%= visit.CURP %></td>
+                    <td><%= visit.identification %></td>
+                    <td><%= visit.origin %></td>
+                    <td><%= visit.children %></td>
+                    <td><%= visit.badge %></td>
+                    <td><%= visit.entrance %></td>
+                    <td><%= visit.exit %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>

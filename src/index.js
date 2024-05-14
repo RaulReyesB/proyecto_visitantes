@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 import dotenv from 'dotenv';
 import express from 'express';
@@ -7,6 +8,15 @@ import modelo from './models/visit.js';
 
 
 
+=======
+import dotenv from "dotenv";
+import express from "express";
+import db from "./conecction.js";
+import router from "./routes/index.routes.js";
+import modelo from "./models/visit.js";
+import User from "./models/user.js";
+import Intern from "./models/Intern.js";
+>>>>>>> 0de8748a948e072ebecfb6e19bbd56422aadf176
 //setings
 dotenv.config({ path: ".env" });
 
@@ -14,10 +24,12 @@ const app = express();
 
 app.set("view engine", "ejs");
 app.set("views", "src/views");
+app.use(express.static("./src/public"));
 
 app.listen(process.env.PORT, () => {
   console.log("Server on port: " + process.env.PORT);
 });
+
 
 app.use("/", router);
 try {

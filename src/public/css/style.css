@@ -1,8 +1,5 @@
-
-.body {
-    
-    background-color: #df8116;
-  }
-  
- 
-  
+#table {
+    margin: 23;
+    font-size: large;
+    background-color: aqua;
+}

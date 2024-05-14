@@ -1,6 +1,9 @@
 import Visit from "../models/visit.js";
 import User from "../models/user.js";
 import { validationResult, check } from "express-validator";
+import db from "../conecction.js";
+import  Op  from "sequelize";
+
 
 // Función para renderizar la página de inicio
 const index = (req, res) => {
@@ -21,17 +24,45 @@ const register = (req, res) => {
 // Función asincrónica para obtener y renderizar el historial de visitas
 const history = async (req, res) => {
   try {
-    const registros = await Visit.findAll();
+    // todos los registros de la tabla
+    const allRegistros = await Visit.findAll();
+    
+    // Filtrar los registros donde la salida no es nula
+    const registros = allRegistros.filter(registro => registro.exit !== null);
+
     res.render("history", {
-      namePage: "Historial de visitas",
-      description: "Historial de visitantes de Radio y Television Hidalgo",
-      registros: registros,
+      nombrePagina: "Historial de visitas",
+      descripcion: "Historial de visitantes de Radio y Television Hidalgo",
+      registros: registros
     });
   } catch (error) {
-    console.error(error);
+    console.error('Error al obtener los registros:', error);
     res.status(500).send("Error interno del servidor");
   }
 };
+
+
+// Función asincrónica para obtener y renderizar el historial de visitas
+const pendingRecords = async (req, res) => {
+  try {
+    // todos los registros de la tabla
+    const allpendingRecords = await Visit.findAll();
+    
+    // Filtrar los registros donde la salida no es nula
+    const registros = allpendingRecords.filter(registro => registro.exit === null);
+
+    res.render("pendingRecords", {
+      nombrePagina: "Historial de visitas",
+      descripcion: "Historial de visitas incompletas de Radio y Television Hidalgo",
+      registros: registros
+    });
+  } catch (error) {
+    console.error('Error al obtener los registros:', error);
+    res.status(500).send("Error interno del servidor");
+  }
+};
+
+
 
 // Función asincrónica para procesar el registro de una nueva visita
 const insertVisit = async (req, res) => {
@@ -117,4 +148,4 @@ const login = (req, res) => {
   });
 };
 
-export { history, index, register, insertVisit, authenticateUser, login };
+export { history, index, register, insertVisit, authenticateUser, login, pendingRecords};

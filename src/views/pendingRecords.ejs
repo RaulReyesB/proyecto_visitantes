@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= nombrePagina %></title>
+</head>
+
+<body>
+  <p><%= descripcion %></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Teléfono</th>
+        <th>Correo</th>
+        <th>Curp</th>
+        <th>Identificación</th>
+        <th>Departamento</th>
+        <th>Procedencia</th>
+        <th>Niños</th>
+        <th>Gafete</th>
+        <th>Fecha y Hora de entrada</th>
+        <th>Fecha y Hora de salida</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% registros.forEach(function(item) { %>
+        <tr>
+          <td><%= item.name %></td>
+          <td><%= item.phone %></td>
+          <td><%= item.email %></td>
+          <td><%= item.CURP %></td>
+          <td><%= item.identification %></td>
+          <td><%= item.department %></td>
+          <td><%= item.origin %></td>
+          <td><%= item.children %></td>
+          <td><%= item.badge %></td>
+          <td><%= item.createdAt %></td>
+          <td><%= item.updatedAt %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+
+</body>
+
+</html>

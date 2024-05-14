@@ -13,7 +13,7 @@ const app = express();
 
 // Configuración de express-session
 app.use(session({
-  secret: 'rthinformatica', // Cambia esto por una cadena secreta
+  secret: 'rthinformatica', 
   resave: false,
   saveUninitialized: false,
 }));

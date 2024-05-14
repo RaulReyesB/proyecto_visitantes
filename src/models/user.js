@@ -4,11 +4,16 @@ import db from "../conecction.js";
 const User = db.define("tb_users", {
   name: {
     type: DataTypes.STRING,
-    allownull: false,
+    allowNull: false,
   },
   password: {
     type: DataTypes.STRING(15),
-    allownull: false,
+    allowNull: false,
+  },
+  type: {
+    type: DataTypes.ENUM("usuario", "superUsuario", "administrador"),
+    defaultValue: "usuario",
+    allowNull: false,
   },
 });
 

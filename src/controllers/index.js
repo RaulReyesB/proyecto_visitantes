@@ -80,6 +80,27 @@ const pendingRecords = async (req, res) => {
   }
 };
 
+// Función asincrónica para mostrar visitas dirigidas a Recursos Humanos
+const showHRVisits = async (req, res) => {
+  try {
+    // Buscar todas las visitas donde el departamento sea Recursos Humanos
+    const hrVisits = await Visit.findAll({
+      where: {
+        department: 'RH'
+      }
+    });
+
+    res.render("hrVisits", {
+      namePage: "Visitas a Recursos Humanos",
+      description: "Lista de visitas dirigidas al departamento de Recursos Humanos",
+      visits: hrVisits
+    });
+  } catch (error) {
+    console.error("Error al obtener las visitas a Recursos Humanos:", error);
+    res.status(500).send("Error interno del servidor");
+  }
+};
+
 // Función asincrónica para procesar el registro de una nueva visita
 const insertVisit = async (req, res) => {
   try {
@@ -258,4 +279,5 @@ export {
   renderRegisterPage,
   interns,
   insertIntern,
+  showHRVisits,
 };

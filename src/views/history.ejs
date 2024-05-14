@@ -2,148 +2,47 @@
 <html lang="es">
 
 <head>
-<<<<<<< HEAD
-  <title>Visitas</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <meta charset="UTF-8">
   <title><%= nombrePagina %></title>
-  <link rel="stylesheet" src="/style.css">
-=======
-  <title>
-<<<<<<< HEAD
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <%= nombrePagina %>
-=======
-    <%= namePage %>
->>>>>>> c4fd1d385e8282c7de5db88b08f54bf2c5e22c9c
-  </title>
->>>>>>> 0de8748a948e072ebecfb6e19bbd56422aadf176
 </head>
 <br>
 <body>
-<<<<<<< HEAD
-  <style>
-    thead{
-      background-color: #e8e8e8;
-    
-    }
-    
-    div{
-      border-radius: 30px;
-    }
-    body{
-    
-        background-size: cover; 
-        background-position: center; 
-        background-attachment: fixed;
-        
-    
-    }
-    h1{
-      color:black;
-    }
-    tbody{
-      background-color: white;
-    }
-  </style>
-  <div class="container mt-4">
-    
-      <h1><%= nombrePagina %></h1>
-    <br>
-    <div class="table-responsive">
-      <table class="table table-bordered">
-        <thead>
-          <tr >
-            <th>Nombre</th>
-            <th>Teléfono</th>
-            <th>Correo</th>
-            <th>Curp</th>
-            <th>Identificación</th>
-            <th>Departamento</th>
-            <th>Procedencia</th>
-            <th>Niños</th>
-            <th>Gafete</th>
-            <th>Fecha y Hora de entrada</th>
-            <th>Fecha y Hora de salida</th>
-=======
-  <%= description %>
+  <p><%= descripcion %></p>
 
-    <table>
-      <thead>
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Teléfono</th>
+        <th>Correo</th>
+        <th>Curp</th>
+        <th>Identificación</th>
+        <th>Departamento</th>
+        <th>Procedencia</th>
+        <th>Niños</th>
+        <th>Gafete</th>
+        <th>Fecha y Hora de entrada</th>
+        <th>Fecha y Hora de salida</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% registros.forEach(function(item) { %>
         <tr>
-          <th>Nombre</th>
-          <th>Teléfono</th>
-          <th>Correo</th>
-          <th>Curp</th>
-          <th>Identificación</th>
-          <th>Departamento</th>
-          <th>Procedencia</th>
-          <th>Niños</th>
-          <th>Gafete</th>
-          <th>Fecha y Hora de entrada</th>
-          <th>Fecha y Hora de salida </th>
+          <td><%= item.name %></td>
+          <td><%= item.phone %></td>
+          <td><%= item.email %></td>
+          <td><%= item.CURP %></td>
+          <td><%= item.identification %></td>
+          <td><%= item.department %></td>
+          <td><%= item.origin %></td>
+          <td><%= item.children %></td>
+          <td><%= item.badge %></td>
+          <td><%= item.createdAt %></td>
+          <td><%= item.exit %></td>
         </tr>
-      </thead>
-      <tbody>
-        <% registros.forEach(function(registro) { %>
-          <tr>
-            <td>
-              <%= registro.name %>
-            </td>
-            <td>
-              <%= registro.phone %>
-            </td>
-            <td>
-              <%= registro.email %>
-            </td>
-            <td>
-              <%= registro.CURP %>
-            </td>
-            <td>
-              <%= registro.identification %>
-            </td>
-            <td>
-              <%= registro.department %>
-            </td>
-            <td>
-              <%= registro.origin %>
-            </td>
-            <td>
-              <%= registro.children %>
-            </td>
-            <td>
-              <%= registro.badge %>
-            </td>
-            <td>
-              <%= registro.entrance %>
-            </td>
-            <td>
-              <%= registro.exit %>
-            </td>
->>>>>>> 0de8748a948e072ebecfb6e19bbd56422aadf176
-          </tr>
-        </thead>
-        <tbody>
-          <% registros.forEach(function(registro) { %>
-            <tr>
-              <td><%= registro.name %></td>
-              <td><%= registro.phone %></td>
-              <td><%= registro.email %></td>
-              <td><%= registro.CURP %></td>
-              <td><%= registro.identification %></td>
-              <td><%= registro.department %></td>
-              <td><%= registro.origin %></td>
-              <td><%= registro.children %></td>
-              <td><%= registro.badge %></td>
-              <td><%= registro.createdAt %></td>
-              <td><%= registro.updatedAt %></td>
-            </tr>
-          <% }); %>
-        </tbody>
-      </table>
-    </div>
-  </div>
-  
+      <% }); %>
+    </tbody>
+  </table>
+
 </body>
 
 </html>

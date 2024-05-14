@@ -1,5 +1,67 @@
-#table {
-    margin: 23;
-    font-size: large;
-    background-color: aqua;
+body {
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  background-image: url('https://angelking.neocities.org/styles/RPH.jpg');
+  background-size: cover; /* Hace que la imagen de fondo cubra todo el área del cuerpo */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+
+
+header {
+  background-color: #32396C; /* Color del encabezado */
+  padding: 35px;
+  text-align: center;
+  position: relative; /* Agregar posición relativa */
+  background-image: url('https://angelking.neocities.org/styles/RTH.jpg'); /* Agregar imagen en el encabezado */
+  background-size: contain; /* Ajustar tamaño de la imagen */
+  background-repeat: no-repeat; /* Evitar repetición de la imagen */
+  background-position: left; /* Posicionar imagen a la izquierda */
+}
+
+.header a {
+  color:#fff
+}
+
+
+.container {
+  max-width: 960px;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.tarjeta{
+  width: 45%; /* Ajuste del ancho para que haya dos tarjetas por fila */
+  margin-bottom: 20px; /* Espacio entre tarjetas */
+  background-color: #fff; /* Fondo blanco para las tarjetas */
+  border-radius: 15px;
+  overflow: hidden; /* Evita que las imágenes se salgan de las tarjetas */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+}
+
+.titulo{
+  font-size: 24px;
+  padding: 10px;
+  color: black;
+}
+
+.cuerpo img {
+  width: 100%; /* La imagen ocupa todo el ancho de su contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
+}
+
+.pie{
+  background: #6699ff;
+  border-radius: 0 0 15px 15px;
+  padding: 10px;
+  text-align: center;
+}
+
+.pie a{
+  text-decoration: none;
+  color: white;
 }

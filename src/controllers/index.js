@@ -13,6 +13,7 @@ const register = (req, res) => {
   res.render("register", {
     namePage: "Registro de visitas",
     description: "Registrate en Radio y Television Hidalgo",
+    ninos:0,
   });
 };
 

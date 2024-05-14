@@ -58,13 +58,21 @@ const insertVisit = async (req, res) => {
 const authenticateUser = async (req, res) => {
   try {
     // Validar los datos del formulario utilizando express-validator
-    await check("name").notEmpty().withMessage("El nombre de usuario es requerido").run(req);
-    await check("password").notEmpty().withMessage("La contraseña es requerida").isLength({ min: 8, max: 20 }).withMessage("La contraseña debe tener entre 8 y 20 caracteres").run(req);
+    await check("name")
+      .notEmpty()
+      .withMessage("El nombre de usuario es requerido")
+      .run(req);
+    await check("password")
+      .notEmpty()
+      .withMessage("La contraseña es requerida")
+      .isLength({ min: 8, max: 20 })
+      .withMessage("La contraseña debe tener entre 8 y 20 caracteres")
+      .run(req);
 
-  const { name, password } = req.body;
-  console.log(`El usuario: ${name} está intentando ingresar a la plataforma`);
-  
-  const errors = validationResult(req);
+    const { name, password } = req.body;
+    console.log(`El usuario: ${name} está intentando ingresar a la plataforma`);
+
+    const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
       return res.render("login", {
@@ -82,18 +90,22 @@ const authenticateUser = async (req, res) => {
       });
     }
 
-  if (!user.verifyPassword(password)) {
-    console.log("El usuario tiene la contrasena correcta");
-    return res.render("index", {
-      namePage: "Bienvenido a Radio y televion",
-      description: "Pagina de inicio",
-    });
-  } else {
-    console.log("AAAAAAAAAAAAAAAAAAA");
-    return res.render("login", {
-      namePage: "Iniciar Sesion en Radio y Television Hidalgo",
-      errors: [{ msg: "Contraseña incorrecta" }],
-    });
+    if (!user.verifyPassword(password)) {
+      console.log("El usuario tiene la contraseña correcta");
+      return res.render("index", {
+        namePage: "Bienvenido a Radio y Televión",
+        description: "Página de inicio",
+      });
+    } else {
+      console.log("AAAAAAAAAAAAAAAAAAA");
+      return res.render("login", {
+        namePage: "Iniciar Sesión en Radio y Television Hidalgo",
+        errors: [{ msg: "Contraseña incorrecta" }],
+      });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Error interno del servidor");
   }
 };
 

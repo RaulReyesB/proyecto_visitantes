@@ -7,10 +7,12 @@ import {
   history,
   insertVisit,
   login,
+  interns,
   authenticateUser,
   pendingRecords,
   renderRegisterPage,
-  registerUser
+  registerUser,
+  insertIntern,
 } from "../controllers/index.js";
 import {requireAuth,requireSuperUser} from "../middlewares/auth.js";
 
@@ -27,9 +29,14 @@ router.get("/historial", requireSuperUser, history);
 router.get("/registrosPendientes", pendingRecords);
 router.get("/registroUsuario", renderRegisterPage);
 router.post("/registroUsuario", registerUser);
+router.get("/registroInternos", interns);
+router.post("/registroInternos", insertIntern);
 
 // Rutas públicas (sin autenticación)
 router.get("/iniciarSesion", login);
 router.post("/iniciarSesion", authenticateUser);
 
+
+//control de usuarios 
+router.get("/controlUsuarios" )
 export default router;

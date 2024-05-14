@@ -10,10 +10,15 @@
 <body>
   <%= description %>
 
-  <a href="/registroVisitas">Registrar visitantes</a>
-  <a href="/history">Historial de visitantes</a>
-  <a href="/history">Pendientes de salida</a>
+    <a href="/registroVisitas">Registrar visitantes</a>
+    <% if (user && (user.type==='superUsuario' || user.type==='administrador' )) { %>
+      <a href="/historial">Historial de visitantes</a>
+      <% } %>
+        <a href="/registrosPendientes">Pendientes de salida</a>
 
+</body>
+
+</html>
 
 </body>
 

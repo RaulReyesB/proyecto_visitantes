@@ -91,6 +91,22 @@
 </head>
 
 <body>
+  <form action="/iniciarSesion" method="post">
+    <input type="text" onkeyup="this.value = this.value.toUpperCase();" name="name" placeholder="Nombre de usuario">
+    <input type="password" name="password" placeholder="Contraseña">
+
+    <button>Ingresar</button>
+  </form>
+
+  <% if (errors.length> 0) { %>
+    <ul>
+      <% errors.forEach(error=> { %>
+        <li>
+          <%= error.msg %>
+        </li>
+        <% }) %>
+    </ul>
+    <% } %>
   <div class="custom-background"></div>
   <div class="container">
     <div class="row justify-content-center">

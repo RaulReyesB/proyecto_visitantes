@@ -16,7 +16,7 @@ body {
     background-color: rgba(255, 255, 255, 0.9); /* Cambio de opacidad para mejorar la legibilidad */
     border-radius: 10px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Aumento de la sombra para un aspecto más elegante */
-    border: 20px solid yellow; /* Contorno amarillo */
+    border: 20px solid #FAB518; /* Contorno amarillo */
   }
 
   .login-container h2 {

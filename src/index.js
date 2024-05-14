@@ -6,6 +6,7 @@ import router from './routes/index.routes.js';
 import modelo from './models/visit.js';
 
 
+
 //setings
 dotenv.config({ path: ".env" });
 

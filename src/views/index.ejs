@@ -5,16 +5,85 @@
   <title>
     <%= namePage %>
   </title>
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-  <%= description %>
+  <header>
+    <a href="/registroVisitas">Pasantes</a>
+    <a href="/history">Registros</a>
+    <a href="/history">Historial</a>
+    <a href="/history">Registros pendientes</a>
+</header>
 
-    <a href="/registroVisitas">Registrar visitantes</a>
+<div class="container">
+
+    <div class="tarjeta">
+        <div class="titulo">Pasantes</div>
+        <div class="cuerpo">
+            <img
+                src="img/programador.png"
+                alt="muestra">
+        </div>
+        <div class="pie">
+            <a href="#">Acceder</a>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <div class="titulo">Registros</div>
+        <div class="cuerpo">
+            <img
+                src="img/tiempo.png"
+                alt="muestra">
+        </div>
+        <div class="pie">
+            <a href="/registroVisitas">Acceder</a>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <div class="titulo">Historial</div>
+        <div class="cuerpo">
+            <img
+                src="img/historial.png"
+                alt="muestra">
+        </div>
+        <div class="pie">
+            <a href="/historial">Acceder</a>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <div class="titulo">Historiales pendientes </div>
+        <div class="cuerpo">
+            <img
+                src="img/historialpendiente.png"
+                alt="muestra">
+        </div>
+        <div class="pie">
+            <a href="/registrosPendientes">Acceder</a>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <div class="titulo">Recursos Humanos  </div>
+        <div class="cuerpo">
+            <img
+                src="img/RH.png"
+                alt="muestra">
+        </div>
+        <div class="pie">
+            <a href="#">Acceder</a>
+        </div>
+    </div>
+
     <% if (user && (user.type==='superUsuario' || user.type==='administrador' )) { %>
-      <a href="/historial">Historial de visitantes</a>
-      <% } %>
-        <a href="/registrosPendientes">Pendientes de salida</a>
+      <a href="/">Control de usuarios</a>
+    <% } %>
+    
+</div>
+
 
 </body>
 

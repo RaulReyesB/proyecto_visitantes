@@ -1,22 +1,31 @@
-
-import dotenv from 'dotenv';
-import express from 'express';
-import db from './conecction.js';
-import router from './routes/index.routes.js';
-import modelo from './models/visit.js';
-import User from './models/user.js';
-import Intern from './models/Intern.js';
+import dotenv from "dotenv";
+import express from "express";
+import session from 'express-session';
+import db from "./conecction.js";
+import router from "./routes/index.routes.js";
+import modelo from "./models/visit.js";
+import User from "./models/user.js";
+import Intern from "./models/Intern.js";
 //setings
 dotenv.config({ path: ".env" });
 
 const app = express();
 
+// Configuración de express-session
+app.use(session({
+  secret: 'rthinformatica', 
+  resave: false,
+  saveUninitialized: false,
+}));
+
 app.set("view engine", "ejs");
 app.set("views", "src/views");
+app.use(express.static("./src/public"));
 
 app.listen(process.env.PORT, () => {
-  console.log("Server on port: " + process.env.PORT);
+  console.log("Server on port: http://localhost:" + process.env.PORT);
 });
+
 
 app.use("/", router);
 try {

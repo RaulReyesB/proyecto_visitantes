@@ -9,7 +9,6 @@
 
 <body>
     <%= description %>
-    //TODO hacer un select para la direccion a el cual acudira el visitante y dependiendo de la direccion mostrar mas opciones de los diferentes departamentos
 
         <form action="/registroVisitas" method="POST">
             <input type="text" name="name" id="" placeholder="Nombre">
@@ -24,7 +23,6 @@
             </select>
             <input type="text" name="department" placeholder="Departamento">
             <input type="text" name="origin" placeholder="Procedencia">
-            <input type="text" name="children" placeholder="Cuantos niños">
             <input type="text" name="badge" placeholder="inserte el numero de gafete">
             <input type="submit" value="Registrar visitante">
 
@@ -36,6 +34,8 @@
                         e.target.setCustomValidity('');
                     }
                 });
+
+                //validar que el telefono tenga 10 digitos
                 document.querySelector('input[name="phone"]').addEventListener('input', function (e) {
                     if (e.target.value.length !== 10) {
                         e.target.setCustomValidity('El campo telefono debe tener exactamente 10 caracteres.');
@@ -43,15 +43,7 @@
                         e.target.setCustomValidity('');
                     }
                 });
-                //validacion del @ en el correo
-                document.querySelector('input[name="email"]').addEventListener('input', function (e) {
-                    if (e.target.value.indexOf('@') === -1) {
-                        e.target.setCustomValidity('El campo correo debe tener un @.');
-                    } else {
-                        e.target.setCustomValidity('');
-                    }
-                });
-                
+
             </script>
         </form>
 </body>

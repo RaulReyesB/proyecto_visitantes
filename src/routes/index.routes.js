@@ -20,7 +20,6 @@ router.get("/historial", requireAuth, history);
 router.get("/iniciarSesion", login);
 router.post("/iniciarSesion", authenticateUser);
 
->>>>>>> 520d3822204c04812a832ad2f272797fda61f5b8
 
 export default router;
 

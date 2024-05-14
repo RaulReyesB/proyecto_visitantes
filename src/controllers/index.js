@@ -101,7 +101,6 @@ const authenticateUser = async (req, res) => {
       .run(req);
 
     const { name, password } = req.body;
-    console.log(`El usuario: ${name} está intentando ingresar a la plataforma`);
 
     const errors = validationResult(req);
 
@@ -121,19 +120,20 @@ const authenticateUser = async (req, res) => {
       });
     }
 
-    if (!user.verifyPassword(password)) {
-      console.log("El usuario tiene la contraseña correcta");
-      return res.render("index", {
-        namePage: "Bienvenido a Radio y Televión",
-        description: "Página de inicio",
-      });
-    } else {
-      console.log("AAAAAAAAAAAAAAAAAAA");
+    // Comparar contraseñas en texto plano
+    if (user.password !== password) {
       return res.render("login", {
         namePage: "Iniciar Sesión en Radio y Television Hidalgo",
         errors: [{ msg: "Contraseña incorrecta" }],
       });
     }
+
+    req.session.user = user;
+
+    res.render("index", {
+      namePage: "Bienvenido a Radio y Television",
+      description: "Página de inicio",
+    });
   } catch (error) {
     console.error(error);
     res.status(500).send("Error interno del servidor");
@@ -149,3 +149,4 @@ const login = (req, res) => {
 };
 
 export { history, index, register, insertVisit, authenticateUser, login, pendingRecords};
+

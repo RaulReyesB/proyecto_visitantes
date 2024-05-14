@@ -1,0 +1,32 @@
+<!-- views/registro.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= namePage %>
+</head>
+
+<body>
+    <%= description %>
+
+  <form action="/registroUsuario" method="POST">
+    <label for="name">Nombre:</label>
+    <input type="text" onkeyup="this.value = this.value.toUpperCase();" id="name" name="name" required><br><br>
+
+    <label for="password">Contraseña:</label>
+    <input type="password" id="password" name="password" required><br><br>
+
+    <label for="type">Tipo:</label>
+    <select id="type" name="type">
+      <option value="usuario" selected>Usuario</option>
+      <option value="superUsuario">Super Usuario</option>
+      <option value="administrador">Administrador</option>
+    </select><br><br>
+
+    <button type="submit">Registrarse</button>
+  </form>
+</body>
+
+</html>

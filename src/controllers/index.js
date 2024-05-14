@@ -9,6 +9,13 @@ const index = (req, res) => {
   });
 };
 
+const home = (req, res) => {
+  res.render("home", {
+    namePage: "home",
+    description: "Bienvenido a Radio y Television Hidalgo",
+  });
+};
+
 const register = (req, res) => {
   res.render("register", {
     namePage: "Registro de visitas",
@@ -104,4 +111,4 @@ const login = (req, res) => {
   });
 };
 
-export { history, index, register, insertVisit, authenticateUser, login };
+export { history, index, register, insertVisit, authenticateUser, login, home };

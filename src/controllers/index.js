@@ -1,9 +1,9 @@
 import Visit from "../models/visit.js";
 import User from "../models/user.js";
+import Intern from "../models/intern.js";
 import { validationResult, check } from "express-validator";
 import db from "../conecction.js";
 import Op from "sequelize";
-
 // Función para renderizar la página de inicio
 const index = (req, res) => {
   res.render("index", {
@@ -32,14 +32,20 @@ const interns = (req, res) => {
 // Función asincrónica para obtener y renderizar el historial de visitas
 const history = async (req, res) => {
   try {
-    // todos los registros de la tabla
+    // Todos los registros de la tabla
     const allRegistros = await Visit.findAll();
 
     // Filtrar los registros donde la salida no es nula
     const registros = allRegistros.filter((registro) => registro.exit !== null);
 
+    // Parsear las fechas antes de pasarlas a la plantilla
+    registros.forEach(registro => {
+      registro.createdAt = formatDate(registro.createdAt);
+      // Si es necesario, también puedes parsear la fecha de salida aquí
+    });
+
     res.render("history", {
-      nombrePagina: "Historial de visitas",
+      namePage: "Historial de visitas",
       descripcion: "Historial de visitantes de Radio y Television Hidalgo",
       registros: registros,
     });
@@ -48,6 +54,20 @@ const history = async (req, res) => {
     res.status(500).send("Error interno del servidor");
   }
 };
+
+// Función para formatear la fecha
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+  const hours = String(date.getHours()).padStart(2, '0');
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+  const seconds = String(date.getSeconds()).padStart(2, '0');
+  
+  return `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
+}
+
 
 // Función para renderizar la página de registro de usuarios
 const renderRegisterPage = (req, res) => {
@@ -69,13 +89,34 @@ const pendingRecords = async (req, res) => {
     );
 
     res.render("pendingRecords", {
-      nombrePagina: "Historial de visitas",
+      namePage: "Historial de visitas",
       descripcion:
         "Historial de visitas incompletas de Radio y Television Hidalgo",
       registros: registros,
     });
   } catch (error) {
     console.error("Error al obtener los registros:", error);
+    res.status(500).send("Error interno del servidor");
+  }
+};
+
+// Función asincrónica para mostrar visitas dirigidas a Recursos Humanos
+const showHRVisits = async (req, res) => {
+  try {
+    // Buscar todas las visitas donde el departamento sea Recursos Humanos
+    const hrVisits = await Visit.findAll({
+      where: {
+        department: 'RH'
+      }
+    });
+
+    res.render("hrVisits", {
+      namePage: "Visitas a Recursos Humanos",
+      description: "Lista de visitas dirigidas al departamento de Recursos Humanos",
+      visits: hrVisits
+    });
+  } catch (error) {
+    console.error("Error al obtener las visitas a Recursos Humanos:", error);
     res.status(500).send("Error interno del servidor");
   }
 };
@@ -121,6 +162,14 @@ const insertIntern = async (req, res) => {
   }
 };
 
+
+
+
+
+
+
+
+
 // Función asincrónica para autenticar al usuario al iniciar sesión
 const authenticateUser = async (req, res) => {
   try {
@@ -164,6 +213,15 @@ const authenticateUser = async (req, res) => {
       });
     }
 
+    // Verificar si el usuario está inactivo
+    if (user.status === false ) {
+      console.log(user.status)
+      return res.render("login", {
+        namePage: "Iniciar Sesión en Radio y Television Hidalgo",
+        errors: [{ msg: "Tu cuenta está inactiva. Por favor, ponte en contacto con el administrador." }],
+      });
+    }
+    // Si el usuario está activo, continuar con el proceso de inicio de sesión
     req.session.user = user;
 
     res.render("index", {
@@ -176,6 +234,11 @@ const authenticateUser = async (req, res) => {
     res.status(500).send("Error interno del servidor");
   }
 };
+
+
+
+
+
 
 // Función para renderizar la página de inicio de sesión
 const login = (req, res) => {
@@ -258,4 +321,5 @@ export {
   renderRegisterPage,
   interns,
   insertIntern,
+  showHRVisits,
 };

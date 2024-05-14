@@ -3,9 +3,10 @@ import express from "express";
 import session from 'express-session';
 import db from "./conecction.js";
 import router from "./routes/index.routes.js";
+import pdR from "./routes/pendingRecords.routes.js";
 import modelo from "./models/visit.js";
 import User from "./models/user.js";
-import Intern from "./models/Intern.js";
+import Intern from "./models/intern.js";
 //setings
 dotenv.config({ path: ".env" });
 
@@ -28,6 +29,7 @@ app.listen(process.env.PORT, () => {
 
 
 app.use("/", router);
+app.use("/", pdR)
 try {
   await db.authenticate();
   console.log("La conexion a la base de datos ha sido exitosa");

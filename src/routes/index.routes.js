@@ -1,6 +1,5 @@
 import { Router } from "express";
 import express from "express";
-
 import {
   index,
   register,
@@ -13,8 +12,10 @@ import {
   renderRegisterPage,
   registerUser,
   insertIntern,
+  showHRVisits,
 } from "../controllers/index.js";
-import {requireAuth,requireSuperUser} from "../middlewares/auth.js";
+import { requireAuth, requireSuperUser } from "../middlewares/auth.js";
+import { adminUser, toggleStatus } from "../controllers/userControlls.js";
 
 const router = Router();
 
@@ -31,12 +32,16 @@ router.get("/registroUsuario", renderRegisterPage);
 router.post("/registroUsuario", registerUser);
 router.get("/registroInternos", interns);
 router.post("/registroInternos", insertIntern);
+router.get("/hr-visits", showHRVisits);
 
 // Rutas públicas (sin autenticación)
 router.get("/iniciarSesion", login);
 router.post("/iniciarSesion", authenticateUser);
 
+// Rutas para administrar los usuarios de la plataforma
+router.get("/AdmistrarUsuario", adminUser);
+router.post("/toggleStatus/:userId", toggleStatus);
 
-//control de usuarios 
-router.get("/controlUsuarios" )
+//control de usuarios
+router.get("/controlUsuarios");
 export default router;

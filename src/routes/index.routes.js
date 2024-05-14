@@ -1,7 +1,7 @@
 import { Router } from "express";
 import express from 'express';
 
-import { index, register, history, insertVisit, login, authenticateUser} from "../controllers/index.js";
+import { index, register, history, insertVisit, login, authenticateUser, interns} from "../controllers/index.js";
 
 const router = Router();
 
@@ -10,8 +10,8 @@ router.use(express.urlencoded({ extended: true }));
 router.post("/inicio", authenticateUser);
 router.get("/registroVisitas", register);
 router.post("/registroVisitas", insertVisit);
-router.get("/gistorial", history);
+router.get("/historial", history);
 router.get("/iniciarSesion", login)
-//router.post("/iniciarSesion", authenticateUser)
+router.get("/internos", interns)
 
 export default router;

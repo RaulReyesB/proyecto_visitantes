@@ -13,6 +13,9 @@ const User = db.define("tb_users", {
   },
 });
 
+  //TODO Crear columna para que haya usuarios con diferentes roles como administrador, superUsuario y usuario
+
+
 User.prototype.verifyPassword = function (password) {
   return bcrypt.compareSync(password, this.password);
 };

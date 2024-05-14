@@ -63,7 +63,7 @@ const authenticateUser = async (req, res) => {
 
   const { name, password } = req.body;
   console.log(`El usuario: ${name} está intentando ingresar a la plataforma`);
-  
+
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
@@ -89,7 +89,6 @@ const authenticateUser = async (req, res) => {
       description: "Pagina de inicio",
     });
   } else {
-    console.log("AAAAAAAAAAAAAAAAAAA");
     return res.render("login", {
       namePage: "Iniciar Sesion en Radio y Television Hidalgo",
       errors: [{ msg: "Contraseña incorrecta" }],
@@ -104,4 +103,27 @@ const login = (req, res) => {
   });
 };
 
-export { history, index, register, insertVisit, authenticateUser, login };
+const interns = (req, res) => {
+  res.render("interns", {
+    namePage: "Registro de visitas",
+    description: "Registrate en Radio y Television Hidalgo",
+  });
+};
+
+//TODO implementar otro formulario en donde se registren los pasantes y se guarden en la bd
+
+//TODO Crear apartando donde el administrador pueda ver el historial, solo lo podra ver el administrador
+
+//TODO Crear un nuevo formulario donde el superusuaio o admin pueda dar de alta a mas usuarios a la bd para que puedan logearse
+
+//TODO Crear funcion para que el super usuario o administrador pueda dar de baja usuarios de la bd 
+
+export {
+  history,
+  index,
+  register,
+  insertVisit,
+  authenticateUser,
+  login,
+  interns,
+};

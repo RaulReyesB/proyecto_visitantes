@@ -2,6 +2,7 @@ import Visit from "../models/visit.js";
 import User from "../models/user.js";
 import { validationResult, check } from "express-validator";
 
+// Función para renderizar la página de inicio
 const index = (req, res) => {
   res.render("index", {
     namePage: "Inicio",
@@ -9,25 +10,32 @@ const index = (req, res) => {
   });
 };
 
+// Función para renderizar la página de registro de visitas
 const register = (req, res) => {
   res.render("register", {
     namePage: "Registro de visitas",
-    description: "Registrate en Radio y Television Hidalgo",
+    description: "Regístrate en Radio y Television Hidalgo",
   });
 };
 
+// Función asincrónica para obtener y renderizar el historial de visitas
 const history = async (req, res) => {
-  const registros = await Visit.findAll();
-  res.render("history", {
-    namePage: "Historial de visitas",
-    description: "Historial de visitantes de Radio y Television Hidalgo",
-    registros: registros,
-  });
+  try {
+    const registros = await Visit.findAll();
+    res.render("history", {
+      namePage: "Historial de visitas",
+      description: "Historial de visitantes de Radio y Television Hidalgo",
+      registros: registros,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Error interno del servidor");
+  }
 };
 
+// Función asincrónica para procesar el registro de una nueva visita
 const insertVisit = async (req, res) => {
   try {
-    // Crea un nuevo registro utilizando los datos del formulario
     const newVisit = await Visit.create({
       name: req.body.name,
       phone: req.body.phone,
@@ -37,7 +45,7 @@ const insertVisit = async (req, res) => {
       department: req.body.department,
       origin: req.body.origin,
       children: req.body.children,
-      badge: req.body.badge, // Corregido el nombre del campo
+      badge: req.body.badge,
     });
     res.send("Registro exitoso");
   } catch (error) {
@@ -46,41 +54,33 @@ const insertVisit = async (req, res) => {
   }
 };
 
+// Función asincrónica para autenticar al usuario al iniciar sesión
 const authenticateUser = async (req, res) => {
-  console.log(`El usuario está intentando autenticarse`);
-
-  // Validar los datos del formulario
-  await check("name")
-    .notEmpty()
-    .withMessage("El nombre del usuario es requerido")
-    .run(req);
-  await check("password")
-    .notEmpty()
-    .withMessage("La contraseña es requerida")
-    .isLength({ min: 8, max: 20 })
-    .withMessage("La contraseña debe tener entre 8 y 15 caracteres")
-    .run(req);
+  try {
+    // Validar los datos del formulario utilizando express-validator
+    await check("name").notEmpty().withMessage("El nombre de usuario es requerido").run(req);
+    await check("password").notEmpty().withMessage("La contraseña es requerida").isLength({ min: 8, max: 20 }).withMessage("La contraseña debe tener entre 8 y 20 caracteres").run(req);
 
   const { name, password } = req.body;
   console.log(`El usuario: ${name} está intentando ingresar a la plataforma`);
-
+  
   const errors = validationResult(req);
 
-  if (!errors.isEmpty()) {
-    return res.render("login", {
-      namePage: "Iniciar Sesion en Radio y Television Hidalgo",
-      errors: errors.array(),
-    });
-  }
+    if (!errors.isEmpty()) {
+      return res.render("login", {
+        namePage: "Iniciar Sesión en Radio y Television Hidalgo",
+        errors: errors.array(),
+      });
+    }
 
-  const user = await User.findOne({ where: { name } });
+    const user = await User.findOne({ where: { name } });
 
-  if (!user) {
-    return res.render("login", {
-      namePage: "Iniciar Sesion en Radio y Television Hidalgo",
-      errors: [{ msg: "Usuario no encontrado en el sistema" }],
-    });
-  }
+    if (!user) {
+      return res.render("login", {
+        namePage: "Iniciar Sesión en Radio y Television Hidalgo",
+        errors: [{ msg: "Usuario no encontrado en el sistema" }],
+      });
+    }
 
   if (!user.verifyPassword(password)) {
     console.log("El usuario tiene la contrasena correcta");
@@ -89,6 +89,7 @@ const authenticateUser = async (req, res) => {
       description: "Pagina de inicio",
     });
   } else {
+    console.log("AAAAAAAAAAAAAAAAAAA");
     return res.render("login", {
       namePage: "Iniciar Sesion en Radio y Television Hidalgo",
       errors: [{ msg: "Contraseña incorrecta" }],
@@ -96,34 +97,12 @@ const authenticateUser = async (req, res) => {
   }
 };
 
+// Función para renderizar la página de inicio de sesión
 const login = (req, res) => {
   res.render("login", {
-    namePage: "Iniciar Sesion en Radio y Television Hidalgo",
+    namePage: "Iniciar Sesión en Radio y Television Hidalgo",
     errors: [],
   });
 };
 
-const interns = (req, res) => {
-  res.render("interns", {
-    namePage: "Registro de visitas",
-    description: "Registrate en Radio y Television Hidalgo",
-  });
-};
-
-//TODO implementar otro formulario en donde se registren los pasantes y se guarden en la bd
-
-//TODO Crear apartando donde el administrador pueda ver el historial, solo lo podra ver el administrador
-
-//TODO Crear un nuevo formulario donde el superusuaio o admin pueda dar de alta a mas usuarios a la bd para que puedan logearse
-
-//TODO Crear funcion para que el super usuario o administrador pueda dar de baja usuarios de la bd 
-
-export {
-  history,
-  index,
-  register,
-  insertVisit,
-  authenticateUser,
-  login,
-  interns,
-};
+export { history, index, register, insertVisit, authenticateUser, login };

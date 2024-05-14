@@ -1,0 +1,139 @@
+    /* Estilos generales del regitros */
+    /* Contenedor de todo el cuerpo */
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 60px;
+    }
+    /* Contenedor del formulario */
+    .container-form {
+        display: flex;
+        align-items: center;
+        background: white;
+        margin-top: 40px;
+        margin-bottom: 50px;
+        padding: 25px;
+        padding-bottom: 10px;
+        border-radius: 50px;
+        flex-direction: column;
+        width: 1100px;
+    }
+    /* Contenedor del titulo */
+    .cont-title{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 1100px;
+    }
+    .cont-title div{
+        margin-right: 50px;
+        
+    }
+    /* Titulo del formulario */
+    .container h1{
+        color: white;
+        font-size: 70px;
+    }
+   /* Contenedor de los inputs */
+    .form-inputs {
+        display: flex;
+        flex-direction: row;
+        width: 1000px;
+        height: 240px;
+    }
+    .form-p {
+        display: flex;
+        flex-direction: column;
+        margin-right: 70px; /* Esto agrega un espacio entre los divs .form-p */
+        width: 300px;
+    }
+    /* Estilo de los label */
+    label {
+        display: block;
+        color: #000;
+    }
+
+    /* Estilo de los inputs */
+    .form-inputs input {
+        display: block;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        background: #D9D9D9;
+    }
+    /* Estilo de los botones */
+    form .button {
+        margin-top: 15px;
+        margin-left: 40%;
+        margin-right: 40%;
+        padding: 5px;
+        border-radius: 50px;
+        background: #900C3F;
+        color: white;
+        width: 200px;
+    }
+    /* estilo de los selects*/
+    .form-inputs select {
+        display: block;
+        margin-bottom: 30px;
+    }
+    .buttons-container {
+        display: flex;
+        align-items: center;
+        margin-bottom: 7px;
+    }
+    .minus-button, .plus-button {
+        width: 30px;
+        height: 30px;
+        border: none;
+        background-color: #f0f0f0;
+        color: #333;
+        font-size: 16px;
+        cursor: pointer;
+        margin: 0 5px;
+    }
+    .children-input {
+        width: 50px;
+        height: 30px;
+        border: 1px solid #ccc;
+        padding: 5px 10px;
+        font-size: 16px;
+    }
+    @media (min-width: 750px) and (max-width: 1150px) {
+        /* Your CSS code for the desired range of screen sizes */
+      /* … */
+      .container-form{
+        height: 450px;
+        width: 1000px;
+      }
+      .form-inputs{
+        height: 300px;
+        width: 900px;
+      }
+      .form-inputs input {
+        display: block;
+        margin-bottom: 40px;
+
+    }
+    }
+    @media (max-width: 750px) {
+        /* … */
+        .container-form{
+            height: 2000px;
+            width: 1000px;
+        }
+        .form-inputs{
+            flex-direction: column;
+            height: 300px;
+            width: 900px;
+        }
+        .form-inputs input {
+            display: block;
+            margin-bottom: 40px;
+        }
+        .form-inputs {
+            flex-direction: row;
+        }
+    }
+    

@@ -64,7 +64,7 @@
     }
     /* Estilo de los botones */
     form .button {
-        margin-top: 15px;
+        margin-top: 25px;
         margin-left: 40%;
         margin-right: 40%;
         padding: 5px;
@@ -100,40 +100,47 @@
         padding: 5px 10px;
         font-size: 16px;
     }
-    @media (min-width: 750px) and (max-width: 1150px) {
-        /* Your CSS code for the desired range of screen sizes */
-      /* … */
+    @media (max-width: 1150px) {
+
       .container-form{
-        height: 450px;
+        height: 500px;
         width: 1000px;
       }
       .form-inputs{
-        height: 300px;
+        height: 350px;
         width: 900px;
       }
       .form-inputs input {
         display: block;
         margin-bottom: 40px;
-
+        height: 50px;
+    }
+    .form-inputs select {
+        display: block;
+        margin-bottom: 40px;
+        height: 50px;
     }
     }
     @media (max-width: 750px) {
-        /* … */
+
         .container-form{
-            height: 2000px;
-            width: 1000px;
+          height: 500px;
+          width: 1000px;
         }
         .form-inputs{
-            flex-direction: column;
-            height: 300px;
-            width: 900px;
+          height: 350px;
+          width: 900px;
         }
         .form-inputs input {
-            display: block;
-            margin-bottom: 40px;
-        }
-        .form-inputs {
-            flex-direction: row;
-        }
-    }
+          display: block;
+          margin-bottom: 40px;
+          height: 50px;
+      }
+      .form-inputs select {
+          display: block;
+          margin-bottom: 40px;
+          height: 50px;
+      }
+      }
+
     

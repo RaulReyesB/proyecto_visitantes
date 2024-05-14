@@ -1,5 +1,5 @@
-import bcrypt from "bcrypt";
 import { DataTypes } from "sequelize";
+import bcrypt from "bcryptjs";
 import db from "../conecction.js";
 
 const User = db.define(
@@ -25,7 +25,7 @@ const User = db.define(
     }
   },
   {
-    timestamps: true, 
+    timestamps: true,
   }
 );
 

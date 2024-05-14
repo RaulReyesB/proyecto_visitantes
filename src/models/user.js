@@ -1,5 +1,5 @@
+import bcrypt from "bcrypt";
 import { DataTypes } from "sequelize";
-import bcrypt from "bcrypt"
 import db from "../conecction.js";
 
 const User = db.define(
@@ -18,6 +18,11 @@ const User = db.define(
       defaultValue: "usuario",
       allowNull: false,
     },
+    status: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: 1,
+      allowNull: false
+    }
   },
   {
     timestamps: true, 

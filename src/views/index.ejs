@@ -79,6 +79,9 @@
     </div>
 
     <% if (user && (user.type==='superUsuario' || user.type==='administrador' )) { %>
+      <a href="/">Control de usuarios</a>
+    <% } %>
+</div>
       <a href="/historial">Historial de visitantes</a>
       <% } %>
         <a href="/registrosPendientes">Pendientes de salida</a>        
@@ -86,12 +89,6 @@
           <a href="/registroUsuario">Registrar Usuario</a>
           <% } %>
         <a href="/registroInternos">Registrar internos</a>
-      <a href="/">Control de usuarios</a>
-    <% } %>
-    
-</div>
-
-
 </body>
 
 </html>

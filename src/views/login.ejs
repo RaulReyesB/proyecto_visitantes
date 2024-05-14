@@ -1,28 +1,130 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
-  <title>
-    <%= namePage %>
-  </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= namePage %></title>
+  <!-- Agregar los enlaces de Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Estilos personalizados */
+    body {
+      background-color: #f8f9fa;
+      overflow-x: hidden; /* Para evitar que la imagen se desborde horizontalmente */
+      margin: 0;
+      padding: 0;
+    }
+
+    .login-container {
+      position: fixed;
+      z-index: 1;
+      width: 400px; /* Ancho ajustado */
+      right: 50px; /* Alineado a la derecha */
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 40px 20px;
+      background-color: rgba(255, 255, 255, 0.9); /* Cambio de opacidad para mejorar la legibilidad */
+      border-radius: 10px;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Aumento de la sombra para un aspecto más elegante */
+      border: 20px solid yellow; /* Contorno amarillo */
+    }
+
+    .login-container h2 {
+      margin-bottom: 30px; /* Aumento del espacio entre el título y el formulario */
+      text-align: center;
+      color: #333; /* Cambio del color del texto del título */
+    }
+
+    .form-group {
+      margin-bottom: 20px; /* Incremento del espacio entre los elementos del formulario */
+    }
+
+    .form-control {
+      border-radius: 25px; /* Redondeo de los bordes de los campos de entrada */
+    }
+
+    .btn-primary {
+      border-radius: 25px; /* Redondeo de los bordes del botón */
+    }
+
+    .btn-primary:hover {
+      background-color: #0069d9; /* Cambio del color de fondo al pasar el mouse por encima */
+    }
+
+    .custom-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 50%; /* Ancho ajustado */
+      height: 100%;
+      background-image: url('https://images.pexels.com/photos/16638839/pexels-photo-16638839/free-photo-of-punto-de-referencia-tarde-viaje-torre.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      z-index: 0;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 50%;
+      background-color: rgba(0, 0, 0, 0.1); /* Color negro transparente */
+      border-radius: 5px;
+    }
+
+    .card {
+      position: absolute;
+      top: 50%;
+      left: 0; /* Alineación a la izquierda */
+      transform: translate(0, -50%);
+      background-color: rgba(0, 0, 0, 0.7); /* Color negro transparente */
+      color: white; /* Texto blanco */
+      font-weight: 300; /* Fuente ligera */
+      font-size: 36px; /* Tamaño de fuente grande */
+      padding: 40px;
+      border-radius: 10px;
+    }
+  </style>
 </head>
 
 <body>
-  <form action="/inicio" method="post">
-    <input type="text" onkeyup="this.value = this.value.toUpperCase();" name="name" placeholder="Nombre de usuario">
-    <input type="password" name="password" placeholder="Contraseña">
-    <button>Ingresar</button>
-  </form>
-
-  <% if (errors.length> 0) { %>
-    <ul>
-      <% errors.forEach(error=> { %>
-        <li>
-          <%= error.msg %>
-        </li>
-        <% }) %>
-    </ul>
-    <% } %>
+  <div class="custom-background"></div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="login-container">
+          <h2>Iniciar Sesión</h2>
+          <form action="/inicio" method="post">
+            <div class="form-group">
+              <input type="text" onkeyup="this.value = this.value.toUpperCase();" class="form-control" name="name" placeholder="Nombre de usuario" required>
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" name="password" placeholder="Contraseña" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
+          </form>
+          <% if (errors.length > 0) { %>
+          <div class="mt-3">
+            <ul class="list-group">
+              <% errors.forEach(error=> { %>
+              <li class="list-group-item list-group-item-danger"><%= error.msg %></li>
+              <% }) %>
+            </ul>
+          </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sidebar"></div>
+  <div class="card">Sistema de Registro</div>
+  <!-- Agregar los scripts de Bootstrap JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>

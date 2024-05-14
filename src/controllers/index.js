@@ -17,7 +17,8 @@ const index = (req, res) => {
 const register = (req, res) => {
   res.render("register", {
     namePage: "Registro de visitas",
-    description: "Regístrate en Radio y Television Hidalgo",
+    description: "Registrate en Radio y Television Hidalgo",
+    ninos:0,
   });
 };
 

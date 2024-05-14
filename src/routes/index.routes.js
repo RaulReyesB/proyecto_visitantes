@@ -28,4 +28,7 @@ router.get("/registrosPendientes", pendingRecords);
 router.get("/iniciarSesion", login);
 router.post("/iniciarSesion", authenticateUser);
 
+
+//control de usuarios 
+router.get("/controlUsuarios" )
 export default router;

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= namePage %>
+    </title>
+</head>
+
+<body>
+    <%= description %>
+
+        <form action="/registroInternos" method="POST">
+            <input type="text" name="name" id="" placeholder="Nombre">
+            <input type="text" name="phone" placeholder="Telefono">
+            <input type="text" name="email" placeholder="Correo electronico">
+            <input type="text" name="CURP" placeholder="Curp">
+            <select name="identification" required>
+                <option selected disabled>-- Seleccione una opción --</option>
+                <option value="INE">INE</option>
+                <option value="Pasaporte">Pasaporte</option>
+                <option value="Licencia">Licencia</option>
+            </select>
+            <select id="mainSelect" name="department" required>
+                <option selected disabled>-- Seleccione una opción --</option>
+                <option value="DG">Direccion General</option>
+                <option value="DCFP">Direccion de coordinacion financiera y planeacion</option>
+                <option value="DT">Direccion de television</option>
+                <option value="DN">Direccion de noticias</option>
+                <option value="DR">Direccion de radio</option>
+                <option value="DI">Direccion de ingenieria</option>
+                <option value="DPE">Direccion de proyectos estrategicos</option>
+                <option value="DC">Direccion de contraloria</option>
+                <option value="DPI">Direccion de promocion e intercambio</option>
+                <option value="DJ">Direccion juridica</option>
+                <option value="IMG">Imagen</option>
+                <option value="ER">Estaciones de radio</option>
+            </select>
+            <select id="subSelect" disabled>
+                <option selected disabled>-- Seleccione una opción --</option>
+            </select>
+            <input type="text" name="origin" placeholder="Procedencia">
+            <input type="text" name="badge" placeholder="inserte el numero de gafete">
+            <input type="submit" value="Registrar visitante">
+
+            <script>
+
+                // Definir las opciones correspondientes de cada dpto
+            var subOptions = {
+            "DG": ["Director general", "Asistente de la direccion general", "Auxiliar del dpto. de la direccion general",
+                "Recepcion de entrada principal"
+            ],
+            "DCFP": ["DIR. de coordinacion financiera y plan.", "Subdirector de administracion", "Auxiliar Dir. de coordinacion financiera y plan.",
+            "Recursos humanos","Servicios generales","Almacen","Archivo","Tecnologias de la informacion"
+            ],
+            "DT": ["Director de television", "Subdirector de contenidos", "Encargada de DPTO de Videoteca","Encargado de area de deportes",
+                "Isla edicion de television","Cabina de video","Master"
+            ],
+            "DN": ["Directora de noticias", "Asistente de redaccion de noticias", "Encargado de la isla de noticias","Reportero"
+            ],
+            "DR": ["Director de red estatal de radio", "Secretaria particular DIR. Radio", "Radio Produccion","Subdirector de radio",
+                "Gerente de radio","Sub. Coord. de noticias de radio","Cabina de grabacion", "Recepcion entrada principal"
+            ],
+            "DI": ["Director de ingenieria", "Subdirector de ingenieria", "Encargado de mantenimiento",]
+            };
+
+            var mainSelect = document.getElementById('mainSelect');
+            var subSelect = document.getElementById('subSelect');
+
+            mainSelect.addEventListener('change', function() {
+            subSelect.innerHTML = '';
+
+            subSelect.disabled = false;
+            var options = subOptions[this.value];
+
+            for (var i = 0; i < options.length; i++) {
+                var opt = document.createElement('option');
+                opt.value = options[i];
+                opt.innerHTML = options[i];
+                subSelect.appendChild(opt);
+            }   
+        });
+
+
+                document.querySelector('input[name="Curp"]').addEventListener('input', function (e) {
+                    if (e.target.value.length !== 18) {
+                        e.target.setCustomValidity('El campo Curp debe tener exactamente 18 caracteres.');
+                    } else {
+                        e.target.setCustomValidity('');
+                    }
+                });
+
+                //validar que el telefono tenga 10 digitos
+                document.querySelector('input[name="phone"]').addEventListener('input', function (e) {
+                    if (e.target.value.length !== 10) {
+                        e.target.setCustomValidity('El campo telefono debe tener exactamente 10 caracteres.');
+                    } else {
+                        e.target.setCustomValidity('');
+                    }
+                });
+
+            </script>
+        </form>
+</body>
+
+</html>

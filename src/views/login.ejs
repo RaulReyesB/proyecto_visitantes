@@ -5,15 +5,14 @@
   <title>
     <%= namePage %>
   </title>
-  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-  <form action="/inicio" method="get">
-    <input type="text" name="name" placeholder="Nombre de usuario">
+  <form action="/iniciarSesion" method="post">
+    <input type="text" onkeyup="this.value = this.value.toUpperCase();" name="name" placeholder="Nombre de usuario">
     <input type="password" name="password" placeholder="Contraseña">
+
     <button>Ingresar</button>
-    <h1>hola</h1>
   </form>
 
   <% if (errors.length> 0) { %>

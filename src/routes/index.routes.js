@@ -1,17 +1,42 @@
 import { Router } from "express";
-import express from 'express';
+import express from "express";
 
-import { index, register, history, insertVisit, login, authenticateUser} from "../controllers/index.js";
+import {
+  index,
+  register,
+  history,
+  insertVisit,
+  login,
+  interns,
+  authenticateUser,
+  pendingRecords,
+  renderRegisterPage,
+  registerUser,
+  insertIntern,
+} from "../controllers/index.js";
+import {requireAuth,requireSuperUser} from "../middlewares/auth.js";
 
 const router = Router();
 
+// Middleware para parsear datos codificados en URL
 router.use(express.urlencoded({ extended: true }));
 
-router.get("/inicio", index);
-router.get("/registroVisitas", register);
-router.post("/registroVisitas", insertVisit);
-router.get("/gistorial", history);
-router.get("/iniciarSesion", login)
-router.post("/iniciarSesion", authenticateUser)
+// Rutas protegidas que requieren autenticación (requireAuth)
+router.get("/", requireAuth, index);
+router.get("/registroVisitas", requireAuth, register);
+router.post("/registroVisitas", requireAuth, insertVisit);
+router.get("/historial", requireSuperUser, history);
+router.get("/registrosPendientes", pendingRecords);
+router.get("/registroUsuario", renderRegisterPage);
+router.post("/registroUsuario", registerUser);
+router.get("/registroInternos", interns);
+router.post("/registroInternos", insertIntern);
 
+// Rutas públicas (sin autenticación)
+router.get("/iniciarSesion", login);
+router.post("/iniciarSesion", authenticateUser);
+
+
+//control de usuarios 
+router.get("/controlUsuarios" )
 export default router;

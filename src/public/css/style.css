@@ -26,32 +26,45 @@ header {
 
 
 .container {
-  max-width: 960px;
+  max-width: 50%;
   margin: auto;
   padding: 20px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content:space-between;
 }
 
 .tarjeta{
-  width: 45%; /* Ajuste del ancho para que haya dos tarjetas por fila */
+  width: 30%; /* Ajuste del ancho para que haya tres tarjetas por fila */
   margin-bottom: 20px; /* Espacio entre tarjetas */
-  background-color: #fff; /* Fondo blanco para las tarjetas */
+  background-color: #ebebeb; /* Fondo blanco para las tarjetas */
   border-radius: 15px;
   overflow: hidden; /* Evita que las imágenes se salgan de las tarjetas */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+
+}
+
+.tarjeta:hover {
+  transform: translateY(-15px); /* Levanta ligeramente la tarjeta al pasar el cursor */
+  box-shadow: 0px 8px 16px rgba(2, 2, 2, 2.2); /* Sombra más pronunciada */
 }
 
 .titulo{
   font-size: 24px;
   padding: 10px;
   color: black;
+  text-align: center;
 }
 
 .cuerpo img {
-  width: 100%; /* La imagen ocupa todo el ancho de su contenedor */
+  width: 70%; /* La imagen ocupa todo el ancho de su contenedor */
   height: auto; /* Mantiene la proporción de la imagen */
+  display: block;
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+}
+
+.cuerpo img:hover {
+  transform: scale(1.05); /* Aumenta ligeramente el tamaño de la imagen al pasar el cursor */
 }
 
 .pie{

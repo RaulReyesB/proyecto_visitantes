@@ -5,6 +5,7 @@ import db from "./conecction.js";
 import router from "./routes/index.routes.js";
 import modelo from "./models/visit.js";
 import User from "./models/user.js";
+import Intern from "./models/intern.js";
 //setings
 dotenv.config({ path: ".env" });
 

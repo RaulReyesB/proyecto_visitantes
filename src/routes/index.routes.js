@@ -1,8 +1,16 @@
 import { Router } from "express";
 import express from "express";
 
-import { index, register, history, insertVisit, login, authenticateUser, pendingRecords } from "../controllers/index.js";
-import requireAuth from "../middlewares/auth.js";
+import {
+  index,
+  register,
+  history,
+  insertVisit,
+  login,
+  authenticateUser,
+  pendingRecords,
+} from "../controllers/index.js";
+import {requireAuth,requireSuperUser} from "../middlewares/auth.js";
 
 const router = Router();
 
@@ -13,8 +21,8 @@ router.use(express.urlencoded({ extended: true }));
 router.get("/", requireAuth, index);
 router.get("/registroVisitas", requireAuth, register);
 router.post("/registroVisitas", requireAuth, insertVisit);
-router.get("/historial", history);
-router.get("/registrosPendientes",pendingRecords);
+router.get("/historial", requireSuperUser, history);
+router.get("/registrosPendientes", pendingRecords);
 
 // Rutas públicas (sin autenticación)
 router.get("/iniciarSesion", login);

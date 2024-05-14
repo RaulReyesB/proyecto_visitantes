@@ -2,70 +2,46 @@
 <html>
 
 <head>
-  <title>
-    <%= nombrePagina %>
-  </title>
+  <title><%= nombrePagina %></title>
 </head>
 
 <body>
-  <%= descripcion %>
+  <p><%= descripcion %></p>
 
-    <table>
-      <thead>
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Teléfono</th>
+        <th>Correo</th>
+        <th>Curp</th>
+        <th>Identificación</th>
+        <th>Departamento</th>
+        <th>Procedencia</th>
+        <th>Niños</th>
+        <th>Gafete</th>
+        <th>Fecha y Hora de entrada</th>
+        <th>Fecha y Hora de salida</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% registros.forEach(function(item) { %>
         <tr>
-          <th>Nombre</th>
-          <th>Teléfono</th>
-          <th>Correo</th>
-          <th>Curp</th>
-          <th>Identificación</th>
-          <th>Departamento</th>
-          <th>Procedencia</th>
-          <th>Niños</th>
-          <th>Gafete</th>
-          <th>Fecha y Hora de entrada</th>
-          <th>Fecha y Hora de salida </th>
+          <td><%= item.name %></td>
+          <td><%= item.phone %></td>
+          <td><%= item.email %></td>
+          <td><%= item.CURP %></td>
+          <td><%= item.identification %></td>
+          <td><%= item.department %></td>
+          <td><%= item.origin %></td>
+          <td><%= item.children %></td>
+          <td><%= item.badge %></td>
+          <td><%= item.createdAt %></td>
+          <td><%= item.updatedAt %></td>
         </tr>
-      </thead>
-      <tbody>
-        <% registros.forEach(function(registro) { %>
-          <tr>
-            <td>
-              <%= registro.name %>
-            </td>
-            <td>
-              <%= registro.phone %>
-            </td>
-            <td>
-              <%= registro.email %>
-            </td>
-            <td>
-              <%= registro.CURP %>
-            </td>
-            <td>
-              <%= registro.identification %>
-            </td>
-            <td>
-              <%= registro.department %>
-            </td>
-            <td>
-              <%= registro.origin %>
-            </td>
-            <td>
-              <%= registro.children %>
-            </td>
-            <td>
-              <%= registro.badge %>
-            </td>
-            <td>
-              <%= registro.createdAt %>
-            </td>
-            <td>
-              <%= registro.updatedAt %>
-            </td>
-          </tr>
-          <% }); %>
-      </tbody>
-    </table>
+      <% }); %>
+    </tbody>
+  </table>
 
 </body>
 

@@ -14,14 +14,13 @@
     <a href="/registroVisitas">Registros</a>
     <% if (user && (user.type==='superUsuario' )) { %>
       <a href="/historial">Historial de visitantes</a>
-      <% } %> <a href="/history">Registros pendientes</a>
+      <% } %>
         <a href="/registrosPendientes">Pendientes de salida</a>
         <% if (user && (user.type==='superUsuario' )) { %>
           <a href="/registroUsuario">Registrar Usuario</a>
           <% } %>
-            <a href="/registroInternos">Registrar internos</a>
             <% if (user && (user.type==='superUsuario' || user.type==='administrador' )) { %>
-              <a href="/">Control de usuarios</a>
+              <a href="/AdmistrarUsuario">Control de usuarios</a>
               <% } %>
   </header>
 
@@ -60,7 +59,7 @@
     <div class="tarjeta">
       <div class="titulo">Historiales pendientes </div>
       <div class="cuerpo">
-        <img src="img/historialpendiente.png" alt="muestra">
+        <img src="img/archivo.png" alt="muestra">
       </div>
       <div class="pie">
         <a href="/registrosPendientes">Acceder</a>

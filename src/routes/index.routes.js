@@ -1,6 +1,5 @@
 import { Router } from "express";
 import express from "express";
-
 import {
   index,
   register,
@@ -15,6 +14,7 @@ import {
   insertIntern,
 } from "../controllers/index.js";
 import {requireAuth,requireSuperUser} from "../middlewares/auth.js";
+import { adminUser } from "../controllers/userControlls.js";
 
 const router = Router();
 
@@ -35,6 +35,9 @@ router.post("/registroInternos", insertIntern);
 // Rutas públicas (sin autenticación)
 router.get("/iniciarSesion", login);
 router.post("/iniciarSesion", authenticateUser);
+
+// Rutas para administrar los usuarios de la plataforma
+router.get("/AdmistrarUsuario", adminUser);
 
 
 //control de usuarios 

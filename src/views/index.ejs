@@ -15,7 +15,10 @@
       <a href="/historial">Historial de visitantes</a>
       <% } %>
         <a href="/registrosPendientes">Pendientes de salida</a>
-
+        
+        <% if (user && (user.type==='superUsuario')) { %>
+          <a href="/registroUsuario">Registrar Usuario</a>
+          <% } %>
 </body>
 
 </html>

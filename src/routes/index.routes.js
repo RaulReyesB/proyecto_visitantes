@@ -9,6 +9,8 @@ import {
   login,
   authenticateUser,
   pendingRecords,
+  renderRegisterPage,
+  registerUser
 } from "../controllers/index.js";
 import {requireAuth,requireSuperUser} from "../middlewares/auth.js";
 
@@ -23,6 +25,8 @@ router.get("/registroVisitas", requireAuth, register);
 router.post("/registroVisitas", requireAuth, insertVisit);
 router.get("/historial", requireSuperUser, history);
 router.get("/registrosPendientes", pendingRecords);
+router.get("/registroUsuario", renderRegisterPage);
+router.post("/registroUsuario", registerUser);
 
 // Rutas públicas (sin autenticación)
 router.get("/iniciarSesion", login);

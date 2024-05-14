@@ -1,5 +1,6 @@
 import Visit from "../models/visit.js";
 import User from "../models/user.js";
+import Intern from "../models/intern.js";
 import { validationResult, check } from "express-validator";
 import db from "../conecction.js";
 import Op from "sequelize";
@@ -38,7 +39,7 @@ const history = async (req, res) => {
     const registros = allRegistros.filter((registro) => registro.exit !== null);
 
     res.render("history", {
-      nombrePagina: "Historial de visitas",
+      namePage: "Historial de visitas",
       descripcion: "Historial de visitantes de Radio y Television Hidalgo",
       registros: registros,
     });
@@ -68,7 +69,7 @@ const pendingRecords = async (req, res) => {
     );
 
     res.render("pendingRecords", {
-      nombrePagina: "Historial de visitas",
+      namePage: "Historial de visitas",
       descripcion:
         "Historial de visitas incompletas de Radio y Television Hidalgo",
       registros: registros,

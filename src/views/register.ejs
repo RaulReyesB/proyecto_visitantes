@@ -9,8 +9,7 @@
 
 <body>
     <%= description %>
-<!--     TODO hacer un select para la direccion a el cual acudira el visitante y dependiendo de la direccion mostrar mas opciones de los diferentes departamentos
- -->
+        <!--     TODO hacer un select para la direccion a el cual acudira el visitante y dependiendo de la direccion mostrar mas opciones de los diferentes departamentos-->
         <form action="/registroVisitas" method="POST">
             <input type="text" name="name" id="" placeholder="Nombre">
             <input type="text" name="phone" placeholder="Telefono">
@@ -47,47 +46,47 @@
 
             <script>
 
-                  // Definir las opciones correspondientes de cada dpto
-            var subOptions = {
-            "DG": ["Director general", "Asistente de la direccion general", "Auxiliar del dpto. de la direccion general",
-                "Recepcion de entrada principal"
-            ],
-            "DCFP": ["DIR. de coordinacion financiera y plan.", "Subdirector de administracion", "Auxiliar Dir. de coordinacion financiera y plan.",
-            "Recursos humanos","Servicios generales","Almacen","Archivo","Tecnologias de la informacion"
-            ],
-            "DT": ["Director de television", "Subdirector de contenidos", "Encargada de DPTO de Videoteca","Encargado de area de deportes",
-                "Isla edicion de television","Cabina de video","Master"
-            ],
-            "DN": ["Directora de noticias", "Asistente de redaccion de noticias", "Encargado de la isla de noticias","Reportero"
-            ],
-            "DR": ["Director de red estatal de radio", "Secretaria particular DIR. Radio", "Radio Produccion","Subdirector de radio",
-                "Gerente de radio","Sub. Coord. de noticias de radio","Cabina de grabacion", "Recepcion entrada principal"
-            ],
-            "DI": ["Director de ingenieria", "Subdirector de ingenieria", "Estacion terrena","aula de medios","central de aparatos"],
-            "DPE": ["Director de proyectos estrategicos"],
-            "DC": ["Directora de contraloria"],
-            "DPI": ["Director de promocion e intercambio"],
-            "DJ": ["Director juridico"],
-            "IMG": ["Subdirector de imagen"],
-            "ER":["Estacion de radio Jacala","Estacion de radio Tlanchinol","Estacion de radio huejutla","Red estatal de radio"]
-            };
+                // Definir las opciones correspondientes de cada dpto
+                var subOptions = {
+                    "DG": ["Director general", "Asistente de la direccion general", "Auxiliar del dpto. de la direccion general",
+                        "Recepcion de entrada principal"
+                    ],
+                    "DCFP": ["DIR. de coordinacion financiera y plan.", "Subdirector de administracion", "Auxiliar Dir. de coordinacion financiera y plan.",
+                        "Recursos humanos", "Servicios generales", "Almacen", "Archivo", "Tecnologias de la informacion"
+                    ],
+                    "DT": ["Director de television", "Subdirector de contenidos", "Encargada de DPTO de Videoteca", "Encargado de area de deportes",
+                        "Isla edicion de television", "Cabina de video", "Master"
+                    ],
+                    "DN": ["Directora de noticias", "Asistente de redaccion de noticias", "Encargado de la isla de noticias", "Reportero"
+                    ],
+                    "DR": ["Director de red estatal de radio", "Secretaria particular DIR. Radio", "Radio Produccion", "Subdirector de radio",
+                        "Gerente de radio", "Sub. Coord. de noticias de radio", "Cabina de grabacion", "Recepcion entrada principal"
+                    ],
+                    "DI": ["Director de ingenieria", "Subdirector de ingenieria", "Estacion terrena", "aula de medios", "central de aparatos"],
+                    "DPE": ["Director de proyectos estrategicos"],
+                    "DC": ["Directora de contraloria"],
+                    "DPI": ["Director de promocion e intercambio"],
+                    "DJ": ["Director juridico"],
+                    "IMG": ["Subdirector de imagen"],
+                    "ER": ["Estacion de radio Jacala", "Estacion de radio Tlanchinol", "Estacion de radio huejutla", "Red estatal de radio"]
+                };
 
-            var mainSelect = document.getElementById('mainSelect');
-            var subSelect = document.getElementById('subSelect');
+                var mainSelect = document.getElementById('mainSelect');
+                var subSelect = document.getElementById('subSelect');
 
-            mainSelect.addEventListener('change', function() {
-            subSelect.innerHTML = '';
+                mainSelect.addEventListener('change', function () {
+                    subSelect.innerHTML = '';
 
-            subSelect.disabled = false;
-            var options = subOptions[this.value];
+                    subSelect.disabled = false;
+                    var options = subOptions[this.value];
 
-            for (var i = 0; i < options.length; i++) {
-                var opt = document.createElement('option');
-                opt.value = options[i];
-                opt.innerHTML = options[i];
-                subSelect.appendChild(opt);
-            }   
-        });
+                    for (var i = 0; i < options.length; i++) {
+                        var opt = document.createElement('option');
+                        opt.value = options[i];
+                        opt.innerHTML = options[i];
+                        subSelect.appendChild(opt);
+                    }
+                });
 
 
                 document.querySelector('input[name="Curp"]').addEventListener('input', function (e) {
@@ -112,7 +111,7 @@
                         e.target.setCustomValidity('');
                     }
                 });
-                
+
             </script>
         </form>
 </body>

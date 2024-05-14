@@ -2,14 +2,14 @@ import Visit from "../models/visit.js";
 import User from "../models/user.js";
 import { validationResult, check } from "express-validator";
 import db from "../conecction.js";
-import  Op  from "sequelize";
-
+import Op from "sequelize";
 
 // Función para renderizar la página de inicio
 const index = (req, res) => {
   res.render("index", {
     namePage: "Inicio",
     description: "Bienvenido a Radio y Television Hidalgo",
+    user: req.session.user, // Asegúrate de pasar req.session.user si lo estás almacenando en la sesión
   });
 };
 
@@ -26,43 +26,43 @@ const history = async (req, res) => {
   try {
     // todos los registros de la tabla
     const allRegistros = await Visit.findAll();
-    
+
     // Filtrar los registros donde la salida no es nula
-    const registros = allRegistros.filter(registro => registro.exit !== null);
+    const registros = allRegistros.filter((registro) => registro.exit !== null);
 
     res.render("history", {
       nombrePagina: "Historial de visitas",
       descripcion: "Historial de visitantes de Radio y Television Hidalgo",
-      registros: registros
+      registros: registros,
     });
   } catch (error) {
-    console.error('Error al obtener los registros:', error);
+    console.error("Error al obtener los registros:", error);
     res.status(500).send("Error interno del servidor");
   }
 };
-
 
 // Función asincrónica para obtener y renderizar el historial de visitas
 const pendingRecords = async (req, res) => {
   try {
     // todos los registros de la tabla
     const allpendingRecords = await Visit.findAll();
-    
+
     // Filtrar los registros donde la salida no es nula
-    const registros = allpendingRecords.filter(registro => registro.exit === null);
+    const registros = allpendingRecords.filter(
+      (registro) => registro.exit === null
+    );
 
     res.render("pendingRecords", {
       nombrePagina: "Historial de visitas",
-      descripcion: "Historial de visitas incompletas de Radio y Television Hidalgo",
-      registros: registros
+      descripcion:
+        "Historial de visitas incompletas de Radio y Television Hidalgo",
+      registros: registros,
     });
   } catch (error) {
-    console.error('Error al obtener los registros:', error);
+    console.error("Error al obtener los registros:", error);
     res.status(500).send("Error interno del servidor");
   }
 };
-
-
 
 // Función asincrónica para procesar el registro de una nueva visita
 const insertVisit = async (req, res) => {
@@ -133,6 +133,7 @@ const authenticateUser = async (req, res) => {
     res.render("index", {
       namePage: "Bienvenido a Radio y Television",
       description: "Página de inicio",
+      user: req.session.user, // Asegúrate de pasar req.session.user si lo estás almacenando en la sesión
     });
   } catch (error) {
     console.error(error);
@@ -148,5 +149,12 @@ const login = (req, res) => {
   });
 };
 
-// Exportar todas las funciones del controlador para ser utilizadas en las rutas
-export { index, register, history, insertVisit, authenticateUser, login, pendingRecords};
+export {
+  history,
+  index,
+  register,
+  insertVisit,
+  authenticateUser,
+  login,
+  pendingRecords,
+};

@@ -14,9 +14,11 @@
     <% if (user && (user.type==='superUsuario' || user.type==='administrador' )) { %>
       <a href="/historial">Historial de visitantes</a>
       <% } %>
-        <a href="/registrosPendientes">Pendientes de salida</a>
+        <a href="/registrosPendientes">Pendientes de salida</a>        
+        <% if (user && (user.type==='superUsuario')) { %>
+          <a href="/registroUsuario">Registrar Usuario</a>
+          <% } %>
         <a href="/registroInternos">Registrar internos</a>
-
 </body>
 
 </html>

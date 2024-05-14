@@ -4,8 +4,6 @@ import Intern from "../models/intern.js";
 import { validationResult, check } from "express-validator";
 import db from "../conecction.js";
 import Op from "sequelize";
-import Intern from "../models/Intern.js";
-
 // Función para renderizar la página de inicio
 const index = (req, res) => {
   res.render("index", {

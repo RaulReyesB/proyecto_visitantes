@@ -19,6 +19,22 @@ header {
 
 }
 
+header a{
+  position: absolute;
+  top: 10px; /* Ajuste de la posición vertical */
+  right: 10px; /* Ajuste de la posición horizontal */
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #e74c3c;
+  padding: 8px 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+header a:hover {
+  background-color: #c0392b; /* Color de fondo del enlace al pasar el cursor */
+}
+
 .header-title {
   font-size: 36px; /* Tamaño del texto */
   font-weight: bold; /* Negrita */

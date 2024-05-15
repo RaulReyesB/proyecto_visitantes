@@ -5,24 +5,39 @@
   <title><%= namePage %></title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/styleHistoryVi.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body>
+  
   <div id="var">
     
     <h1><%= descripcion %></h1>
     <div class="enlaces">
-      <a href="/inicio">Inicio</a>
-      <a href="/registroVisitas">Registros</a>
+      <a href="">Pasantes</a>
+      <a href="">Inicio</a>
+      <a href="">Registros</a>
     </div>
   </div>
-  <br>
+  
 
-  <div id="buscador">
-    <p>lol</p>
+  <div id="buscador"> 
+    
+    <div class="search-container">
+      <input type="text" placeholder="Buscar...">
+      <button type="button"><i class="bi bi-search"></i></button>
+    </div>
+
+
+    <select id="opcionesSelect">
+        <option value="hoy">Hoy</option>
+        <option value="semana">Esta semana</option>
+        <option value="mes">Este mes</option>
+        <option value="alfabetico">Orden alfabético</option>
+    </select>
   </div>
 
-  <br>
+  
   <table id="tabla">
     <thead class="thead-gray">
       <tr>

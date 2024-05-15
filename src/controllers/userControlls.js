@@ -76,7 +76,8 @@ const updateUser = async (req, res) => {
 
     await user.save();
 
-    res.status(200).send("Usuario actualizado correctamente");
+    console.log("usuario actualizado correctamente");
+    res.redirect("/inicio");
   } catch (error) {
     console.error("Error al actualizar el usuario:", error);
     res.status(500).send("Error interno del servidor");

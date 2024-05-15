@@ -58,6 +58,26 @@ const history = async (req, res) => {
   }
 };
 
+
+// Función asincrónica para obtener y renderizar el historial de visitas
+const historyInterns = async (req, res) => {
+  try {
+    // Todos los registros de la tabla
+    const allRegistros = await Intern.findAll();
+   
+
+    res.render("historyInterns", {
+      namePage: "Historial de visitas",
+      descripcion: "Historial de visitantes de Radio y Television Hidalgo",
+      registros: allRegistros,
+    });
+  } catch (error) {
+    console.error("Error al obtener los registros:", error);
+    res.status(500).send("Error interno del servidor");
+  }
+};
+
+
 // Función para formatear la fecha
 function formatDate(dateString) {
   const date = new Date(dateString);
@@ -79,7 +99,7 @@ const renderRegisterPage = (req, res) => {
   });
 };
 
-// Función asincrónica para obtener y renderizar el historial de visitas
+// Función asincrónica para obtener y renderizar el historial de pasantes
 const pendingRecords = async (req, res) => {
   try {
     // todos los registros de la tabla
@@ -91,7 +111,7 @@ const pendingRecords = async (req, res) => {
     );
 
     res.render("pendingRecords", {
-      namePage: "Historial de visitas",
+      namePage: "Historial de Pasantes",
       descripcion:
         "Historial de visitas incompletas de Radio y Television Hidalgo",
       registros: registros,
@@ -314,5 +334,6 @@ export {
   interns,
   insertIntern,
   showHRVisits,
-  rechargeUser
+  rechargeUser, 
+  historyInterns
 };

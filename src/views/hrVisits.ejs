@@ -6,12 +6,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= namePage %></title>
+    <link rel="stylesheet" href="../public/css/styleHistoryVi.css">
 </head>
 <body>
     <h1><%= namePage %></h1>
-    <p><%= description %></p>
 
-    <table>
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Buscar...">
+        <button type="button" onclick="search()"><i class="bi bi-search"></i></button>
+    </div>
+
+    <table id="tabla">
         <thead>
             <tr>
                 <th>Nombre</th>

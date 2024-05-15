@@ -11,22 +11,6 @@
 </head>
 
 <body>
-  <form action="/inicio" method="post">
-    <input type="text" onkeyup="this.value = this.value.toUpperCase();" name="name" placeholder="Nombre de usuario">
-    <input type="password" name="password" placeholder="Contraseña">
-
-    <button>Ingresar</button>
-  </form>
-
-  <% if (errors.length> 0) { %>
-    <ul>
-      <% errors.forEach(error=> { %>
-        <li>
-          <%= error.msg %>
-        </li>
-        <% }) %>
-    </ul>
-    <% } %>
   <div class="custom-background"></div>
   <div class="container">
     <div class="row justify-content-center">
@@ -56,7 +40,10 @@
     </div>
   </div>
   <div class="sidebar"></div>
-  <div class="card">Sistema de Registro</div>
+  <div class="sidebar"></div>
+<div class="card d-none d-md-block" style="font-size: 42px;">Sistema de Registro<br>a Radio y Television Hidalgo</div>
+<!-- Agregar los scripts de Bootstrap JS -->
+ <!-- Ajuste del tamaño de la tarjeta -->
   <!-- Agregar los scripts de Bootstrap JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>

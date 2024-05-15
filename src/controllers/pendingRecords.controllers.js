@@ -1,17 +1,28 @@
 import Visit from "../models/visit.js";
 
-const finishRegistration = async(req,res)=>{
+const finishRegistration = async (req, res) => {
     const id = req.params.id;
 
-    const registerEnd = await Visit.findOne({ where: {id}})
+    try {
+        // Busca la visita por su ID
+        const visit = await Visit.findOne({ where: { id } });
 
-    var dateNow = new Date();
+        if (!visit) {
+            return res.status(404).send("Visita no encontrada");
+        }
 
-    registerEnd.exit = await dateNow.toISOString().slice(0, 19).replace('T', ' ');
+        // Actualiza la fecha de salida con la fecha actual
+        visit.exit = new Date();
 
-    registerEnd.save();
+        // Guarda los cambios en la base de datos
+        await visit.save();
 
-    res.redirect(`/inicio`);
+        // Redirige al usuario
+        res.redirect(`/inicio`);
+    } catch (error) {
+        console.error("Error al finalizar el registro:", error);
+        res.status(500).send("Error interno del servidor");
+    }
 }
 
 export { finishRegistration };

@@ -135,7 +135,8 @@ const insertVisit = async (req, res) => {
       children: req.body.children,
       badge: req.body.badge,
     });
-    res.send("Registro exitoso");
+    console.log("Registro exitoso")
+    res.redirect(`/inicio`);
   } catch (error) {
     console.error(error);
     res.status(500).send("Error interno del servidor");
@@ -155,7 +156,8 @@ const insertIntern = async (req, res) => {
       origin: req.body.origin,
       badge: req.body.badge,
     });
-    res.send("Registro exitoso");
+    console.log("pasante guardado")
+    res.redirect(`/inicio`);
   } catch (error) {
     console.error(error);
     res.status(500).send("Error interno del servidor");
@@ -290,11 +292,8 @@ const registerUser = async (req, res) => {
       type,
     });
 
-    res.render("createusers", {
-      namePage: "Registro de Usuario",
-      description: "Regístrate en Radio y Television Hidalgo",
-      successMsg: "Usuario registrado exitosamente",
-    });
+    console.log("Usuario Guardado")
+    res.redirect(`/inicio`);
   } catch (error) {
     console.error(error);
     res.status(500).send("Error interno del servidor");

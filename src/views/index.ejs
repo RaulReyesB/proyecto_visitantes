@@ -13,7 +13,7 @@
 
     <h1 class="header-title">¡Bienvenido a</h1>
     <h2 class="header-subtitle">Radio y Televisión de Hidalgo!</h2>
-       <a href="/logout">Cerrar sesión</a>
+    <a href="/logout">Cerrar sesión</a>
 
   </header>
 
@@ -59,21 +59,15 @@
             <a href="/registrosPendientes">Acceder</a>
           </div>
         </div>
-
-        <div class="tarjeta">
-          <div class="titulo">Recursos Humanos </div>
-          <div class="cuerpo">
-            <img src="img/RH.png" alt="muestra">
-          </div>
-          <div class="pie">
-            <a href="/hr-visits">Acceder</a>
-          </div>
-        </div>
-
-        <div class="tarjeta">
-          <div class="titulo">Registrar usuarios </div>
-          <div class="cuerpo">
-            <img src="img/RegistrarU.png" alt="muestra">
+        <% if (user && (user.type==='superUsuario' || user.type==='administrador' )) { %>
+          <div class="tarjeta">
+            <div class="titulo">Recursos Humanos </div>
+            <div class="cuerpo">
+              <img src="img/RH.png" alt="muestra">
+            </div>
+            <div class="pie">
+              <a href="/hr-visits">Acceder</a>
+            </div>
           </div>
           <div class="pie">
             <a href="">Acceder</a>

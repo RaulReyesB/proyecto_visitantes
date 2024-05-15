@@ -99,12 +99,12 @@
   }
 
   #buscador {
-    display: flex;
+    text-align: center;
             align-items: center;
             width: 500px;
             border-radius: 25px;
             overflow: hidden; 
-            float: right;
+            
           
 }
 
@@ -126,7 +126,7 @@ option{
 .search-container {
   display: flex;
             align-items: center;
-            width: 300px;
+            width: 700px;
             margin: 50px auto;
             border-radius: 25px;
             overflow: hidden; 

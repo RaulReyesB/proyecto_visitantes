@@ -6,12 +6,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= namePage %></title>
+    <link rel="stylesheet" href="../public/css/styleHistoryVi.css">
 </head>
 <body>
     <h1><%= namePage %></h1>
-    <p><%= description %></p>
 
-    <table>
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Buscar...">
+        <button type="button" onclick="search()"><i class="bi bi-search"></i></button>
+    </div>
+
+    <table id="tabla">
         <thead>
             <tr>
                 <th>Nombre</th>
@@ -43,5 +48,25 @@
             <% }); %>
         </tbody>
     </table>
+    <script>
+        document.getElementById('searchInput').addEventListener('input', function() {
+          const searchValue = this.value.toLowerCase();
+          const table = document.getElementById('tabla');
+          const rows = table.getElementsByTagName('tr');
+    
+          for (let i = 1; i < rows.length; i++) {
+            const cells = rows[i].getElementsByTagName('td');
+            const name = cells[0].textContent || cells[0].innerText;
+            const entranceDate = cells[9].textContent || cells[9].innerText;
+            const curp = cells[3].textContent || cells[3].innerText;
+    
+            if (name.toLowerCase().indexOf(searchValue) > -1 || entranceDate.toLowerCase().indexOf(searchValue) > -1 || curp.toLowerCase().indexOf(searchValue) > -1) {
+              rows[i].style.display = '';
+            } else {
+              rows[i].style.display = 'none';
+            }
+          }
+        });
+      </script>
 </body>
 </html>

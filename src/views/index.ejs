@@ -10,18 +10,8 @@
 
 <body>
   <header>
-    <button class="header-button" onclick="location.href='/registroInternos'">Pasantes</button>
-    <button class="header-button" onclick="location.href='/registroVisitas'">Registros</button>
-    <% if (user && (user.type==='superUsuario' )) { %>
-      <button class="header-button" onclick="location.href='/historial'">Historial de visitantes</button>
-      <% } %>
-        <button class="header-button" onclick="location.href='/registrosPendientes'">Pendientes de salida</button>
-        <% if (user && (user.type==='superUsuario' )) { %>
-          <button class="header-button" onclick="location.href='/registroUsuario'">Registrar Usuario</button>
-          <% } %>
-            <% if (user && (user.type==='superUsuario' || user.type==='administrador' )) { %>
-              <button class="header-button" onclick="location.href='/AdmistrarUsuario'">Control de usuarios</button>
-              <% } %>
+    <h1 class="header-title">¡Bienvenido a</h1>
+    <h2 class="header-subtitle">Radio y Televisión de Hidalgo!</h2>
   </header>
 
   <div class="container">

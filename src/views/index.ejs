@@ -10,18 +10,23 @@
 
 <body>
   <header>
-    <a href="/registroInternos">Pasantes</a>
-    <a href="/registroVisitas">Registros</a>
+
+    <h1 class="header-title">¡Bienvenido a</h1>
+    <h2 class="header-subtitle">Radio y Televisión de Hidalgo!</h2>
+    <button class="header-button" onclick="location.href='/registroInternos'">Pasantes</button>
+    <button class="header-button" onclick="location.href='/registroVisitas'">Registros</button>
     <% if (user && (user.type==='superUsuario' )) { %>
-      <a href="/historial">Historial de visitantes</a>
+      <button class="header-button" onclick="location.href='/historial'">Historial de visitantes</button>
       <% } %>
-        <a href="/registrosPendientes">Pendientes de salida</a>
+        <button class="header-button" onclick="location.href='/registrosPendientes'">Pendientes de salida</button>
         <% if (user && (user.type==='superUsuario' )) { %>
-          <a href="/registroUsuario">Registrar Usuario</a>
+          <button class="header-button" onclick="location.href='/registroUsuario'">Registrar Usuario</button>
           <% } %>
             <% if (user && (user.type==='superUsuario' || user.type==='administrador' )) { %>
-              <a href="/AdmistrarUsuario">Control de usuarios</a>
+              <button class="header-button" onclick="location.href='/AdmistrarUsuario'">Control de usuarios</button>
               <% } %>
+                <a href="/logout">Cerrar sesión</a>
+
   </header>
 
   <div class="container">
@@ -32,7 +37,7 @@
         <img src="img/programador.png" alt="muestra">
       </div>
       <div class="pie">
-        <a href="#">Acceder</a>
+        <a href="/registroInternos">Acceder</a>
       </div>
     </div>
 

@@ -4,9 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>
-    <%= namePage %>
-  </title>
+  <title><%= namePage %></title>
   <!-- Agregar la biblioteca Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
@@ -16,13 +14,12 @@
   <form action="/AdmistrarUsuario/<%= user.id %>" method="POST">
     <div>
       <label for="name">Nombre:</label>
-      <input type="text" id="name" name="name" value="<%= user.name %>">
+      <input type="text" id="name" name="name" value="<%= user.name %>" required>
     </div>
     <div>
-      <label for="password">Contraseña:</label>
+      <label for="password">Nueva Contraseña:</label>
       <div>
-        <!-- Usar un icono de ojo abierto/cerrado -->
-        <input type="password" id="password" name="password" value="<%= user.password %>">
+        <input type="password" id="password" name="password" placeholder="Introduce nueva contraseña">
         <button type="button" onclick="togglePassword()">
           <i id="eyeIcon" class="far fa-eye"></i>
         </button>
@@ -30,14 +27,13 @@
     </div>
     <div>
       <label for="type">Tipo de Usuario:</label>
-      <select id="typeUser" name="type">
-        <option value="administrador" <%= user.type === 'admin' ? 'selected' : '' %>>Administrador</option>
-        <option value="usuario" <%= user.type === 'user' ? 'selected' : '' %>>Usuario</option>
-        <option value="superUsuario" <%= user.type === 'super' ? 'selected' : '' %>>Super Usuario</option>
+      <select id="type" name="type">
+        <option value="administrador" <%= user.type === 'administrador' ? 'selected' : '' %>>Administrador</option>
+        <option value="usuario" <%= user.type === 'usuario' ? 'selected' : '' %>>Usuario</option>
+        <option value="superUsuario" <%= user.type === 'superUsuario' ? 'selected' : '' %>>Super Usuario</option>
       </select>
     </div>
-      <button type="submit">Guardar Cambios</button>
-    
+    <button type="submit">Guardar Cambios</button>
   </form>
 
   <script>

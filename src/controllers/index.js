@@ -153,6 +153,7 @@ const insertVisit = async (req, res) => {
       CURP: req.body.CURP,
       identification: req.body.identification,
       department: req.body.department,
+      subDepartment: req.body.subDepartment,
       origin: req.body.origin,
       children: req.body.children,
       badge: req.body.badge,
@@ -175,6 +176,7 @@ const insertIntern = async (req, res) => {
       CURP: req.body.CURP,
       identification: req.body.identification,
       department: req.body.department,
+      subDepartment: req.body.subDepartment,
       origin: req.body.origin,
       badge: req.body.badge,
     });

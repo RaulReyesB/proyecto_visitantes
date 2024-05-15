@@ -13,6 +13,7 @@ import {
   registerUser,
   insertIntern,
   showHRVisits,
+  rechargeUser
 } from "../controllers/index.js";
 import { requireAuth, requireSuperUser } from "../middlewares/auth.js";
 import {
@@ -50,6 +51,7 @@ router.get("/iniciarSesion", login);
 router.post("/iniciarSesion", authenticateUser);
 
 // Rutas para administrar los usuarios de la plataforma
+router.get("/upd", rechargeUser);
 router.get("/AdmistrarUsuario", requireAuth, requireSuperUser, adminUser);
 router.post(
   "/toggleStatus/:userId",

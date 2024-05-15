@@ -34,9 +34,11 @@
             <%= item.status ? 'ALTA':'BAJA' %>
           </td>
           <td>
-            <button id="toggleButton<%= item.id %>" onclick="toggleStatus('<%= item.id %>')">
-              <%= item.status==='activo' ? 'Dar de baja' : 'Dar de alta' %>
-            </button>
+            <a href="/upd">
+              <button id="toggleButton<%= item.id %>" onclick="toggleStatus('<%= item.id %>')">
+                <%= item.status==='activo' ? 'Dar de baja' : 'Dar de alta' %>
+              </button>
+            </a>
             <a href="/AdmistrarUsuario/<%= item.id %>"><button>Editar</button></a>
           </td>
         </tr>

@@ -1,4 +1,5 @@
 import User from "../models/user.js";
+import bcrypt from 'bcryptjs';
 
 const adminUser = async (req, res) => {
   try {
@@ -41,6 +42,7 @@ const editUser = async (req, res) => {
     if (!user) {
       return res.status(404).send("Usuario no encontrado");
     }
+
     // Renderizar el formulario de edición y pasar los datos del usuario
     res.render("editUser", {
       namePage: "Editar Usuario",
@@ -55,7 +57,7 @@ const editUser = async (req, res) => {
 const updateUser = async (req, res) => {
   try {
     const userId = req.params.userId;
-    const userData = req.body;
+    const { name, password, type } = req.body;
 
     const user = await User.findOne({ where: { id: userId } });
 
@@ -64,17 +66,39 @@ const updateUser = async (req, res) => {
     }
 
     // Actualizar los datos del usuario
-    await user.update(userData);
+    user.name = name;
+    user.type = type;
+
+    if (password) {
+      const hashedPassword = await bcrypt.hash(password, 10);
+      user.password = hashedPassword;
+    }
+
+    await user.save();
 
     res.status(200).send("Usuario actualizado correctamente");
-    return res.render("index", {
-      namePage: "Radio y Television Hidalgo",
-      user: user,
-    });
   } catch (error) {
     console.error("Error al actualizar el usuario:", error);
     res.status(500).send("Error interno del servidor");
   }
 };
 
-export { adminUser, toggleStatus, editUser, updateUser };
+const logout = (req, res) => {
+  try {
+    // Destruir la sesión del usuario
+    req.session.destroy((err) => {
+      if (err) {
+        console.error("Error al cerrar sesión:", err);
+        return res.status(500).send("Error interno del servidor");
+      }
+      // Redirigir al usuario a la página de inicio de sesión
+      res.redirect("/iniciarSesion");
+    });
+  } catch (error) {
+    console.error("Error al cerrar sesión:", error);
+    res.status(500).send("Error interno del servidor");
+  }
+};
+
+
+export { adminUser, toggleStatus, editUser, updateUser,logout };

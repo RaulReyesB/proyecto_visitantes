@@ -4,6 +4,8 @@ import Intern from "../models/intern.js";
 import { validationResult, check } from "express-validator";
 import db from "../conecction.js";
 import Op from "sequelize";
+import bcrypt from 'bcryptjs';
+
 // Función para renderizar la página de inicio
 const index = (req, res) => {
   res.render("index", {
@@ -29,6 +31,7 @@ const interns = (req, res) => {
     description: "Regístra los internos de radio y television hidalgo",
   })
 };
+
 // Función asincrónica para obtener y renderizar el historial de visitas
 const history = async (req, res) => {
   try {
@@ -67,7 +70,6 @@ function formatDate(dateString) {
   
   return `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
 }
-
 
 // Función para renderizar la página de registro de usuarios
 const renderRegisterPage = (req, res) => {
@@ -164,14 +166,10 @@ const insertIntern = async (req, res) => {
   }
 };
 
-// Función asincrónica para autenticar al usuario al iniciar sesión
 const authenticateUser = async (req, res) => {
   try {
     // Validar los datos del formulario utilizando express-validator
-    await check("name")
-      .notEmpty()
-      .withMessage("El nombre de usuario es requerido")
-      .run(req);
+    await check("name").notEmpty().withMessage("El nombre de usuario es requerido").run(req);
     await check("password")
       .notEmpty()
       .withMessage("La contraseña es requerida")
@@ -199,8 +197,10 @@ const authenticateUser = async (req, res) => {
       });
     }
 
-    // Comparar contraseñas en texto plano
-    if (user.password !== password) {
+    // Comparar la contraseña proporcionada con la contraseña hasheada almacenada
+    const passwordMatch = await bcrypt.compare(password, user.password);
+
+    if (!passwordMatch) {
       return res.render("login", {
         namePage: "Iniciar Sesión en Radio y Television Hidalgo",
         errors: [{ msg: "Contraseña incorrecta" }],
@@ -208,14 +208,14 @@ const authenticateUser = async (req, res) => {
     }
 
     // Verificar si el usuario está inactivo
-    if (user.status === false ) {
-      console.log(user.status)
+    if (!user.status) {
       return res.render("login", {
         namePage: "Iniciar Sesión en Radio y Television Hidalgo",
         errors: [{ msg: "Tu cuenta está inactiva. Por favor, ponte en contacto con el administrador." }],
       });
     }
-    // Si el usuario está activo, continuar con el proceso de inicio de sesión
+
+    // Si las credenciales son válidas y el usuario está activo, almacenar el usuario en la sesión
     req.session.user = user;
 
     res.render("index", {
@@ -229,11 +229,6 @@ const authenticateUser = async (req, res) => {
   }
 };
 
-
-
-
-
-
 // Función para renderizar la página de inicio de sesión
 const login = (req, res) => {
   res.render("login", {
@@ -242,7 +237,6 @@ const login = (req, res) => {
   });
 };
 
-// Función asincrónica para procesar el registro de un nuevo usuario
 const registerUser = async (req, res) => {
   try {
     // Validar los datos del formulario utilizando express-validator
@@ -285,10 +279,13 @@ const registerUser = async (req, res) => {
       });
     }
 
-    // Crear un nuevo usuario en la base de datos
+    // Hashear la contraseña antes de guardarla en la base de datos
+    const hashedPassword = await bcrypt.hash(password, 10); // El segundo argumento es el costo de hashing
+
+    // Crear un nuevo usuario en la base de datos con la contraseña hasheada
     const newUser = await User.create({
       name,
-      password,
+      password: hashedPassword,
       type,
     });
 
@@ -299,6 +296,7 @@ const registerUser = async (req, res) => {
     res.status(500).send("Error interno del servidor");
   }
 };
+
 
 export {
   history,

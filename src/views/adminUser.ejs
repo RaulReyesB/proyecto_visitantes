@@ -15,7 +15,6 @@
         <th>Contraseña</th>
         <th>Tipo de usuario</th>
         <th>Estatus</th>
-        <th>Fecha de creación</th>
         <th>Acciones</th>
       </tr>
     </thead>
@@ -33,9 +32,6 @@
           </td>
           <td>
             <%= item.status ? 'ALTA':'BAJA' %>
-          </td>
-          <td>
-            <%= item.createdAt %>
           </td>
           <td>
             <button id="toggleButton<%= item.id %>" onclick="toggleStatus('<%= item.id %>')">

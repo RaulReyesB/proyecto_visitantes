@@ -59,7 +59,7 @@ header {
 .tarjeta{
   width: 30%; /* Ajuste del ancho para que haya tres tarjetas por fila */
   margin-bottom: 20px; /* Espacio entre tarjetas */
-  background-color: #FADC98; /* Fondo blanco para las tarjetas */
+  background-color: #e1dbce; /* Fondo blanco para las tarjetas */
   border-radius: 15px;
   overflow: hidden; /* Evita que las imágenes se salgan de las tarjetas */
 

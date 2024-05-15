@@ -99,12 +99,12 @@
   }
 
   #buscador {
-    display: flex;
+    text-align: center;
             align-items: center;
             width: 500px;
             border-radius: 25px;
             overflow: hidden; 
-            float: right;
+            
           
 }
 

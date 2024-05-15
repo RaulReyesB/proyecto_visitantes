@@ -28,7 +28,8 @@ const router = Router();
 router.use(express.urlencoded({ extended: true }));
 
 // Rutas protegidas que requieren autenticación (requireAuth)
-router.get("/", requireAuth, index);
+router.post("/inicio", authenticateUser, requireAuth, index);
+router.get("/inicio", requireAuth, index);
 router.get("/registroVisitas", requireAuth, register);
 router.post("/registroVisitas", requireAuth, insertVisit);
 router.get("/historial", requireAuth, requireSuperUser, history);

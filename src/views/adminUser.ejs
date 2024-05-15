@@ -6,7 +6,6 @@
     <%= namePage %>
   </title>
 </head>
-<br>
 
 <body>
   <table>
@@ -39,8 +38,10 @@
             <%= item.createdAt %>
           </td>
           <td>
-            <button id="toggleButton<%= item.id %>" onclick="toggleStatus('<%= item.id %>')">Dar de baja</button>
-            <button>Editar</button>
+            <button id="toggleButton<%= item.id %>" onclick="toggleStatus('<%= item.id %>')">
+              <%= item.status==='activo' ? 'Dar de baja' : 'Dar de alta' %>
+            </button>
+            <a href="/AdmistrarUsuario/<%= item.id %>"><button>Editar</button></a>
           </td>
         </tr>
         <% }); %>

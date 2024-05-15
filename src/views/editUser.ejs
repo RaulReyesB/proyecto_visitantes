@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <%= namePage %>
+  </title>
+</head>
+
+<body>
+  <h1>Editar Usuario</h1>
+  <form action="/AdmistrarUsuario/<%= user.id %>"method="POST">
+    <div>
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" name="name" value="<%= user.name %>">
+    </div>
+    <div>
+      <label for="password">Contraseña:</label>
+      <input type="password" id="password" name="password" value="<%= user.password %>">
+    </div>
+    <div>
+      <label for="type">Tipo de Usuario:</label>
+      <input type="text" id="type" name="type" value="<%= user.type %>">
+    </div>
+    <div>
+      <label for="status">Estatus:</label>
+      <input type="text" id="status" name="status" value="<%= user.status %>">
+    </div>
+    <button type="submit">Guardar Cambios</button>
+  </form>
+</body>
+
+</html>

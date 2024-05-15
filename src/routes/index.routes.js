@@ -15,7 +15,12 @@ import {
   showHRVisits,
 } from "../controllers/index.js";
 import { requireAuth, requireSuperUser } from "../middlewares/auth.js";
-import { adminUser, toggleStatus } from "../controllers/userControlls.js";
+import {
+  adminUser,
+  editUser,
+  toggleStatus,
+  updateUser,
+} from "../controllers/userControlls.js";
 
 const router = Router();
 
@@ -41,7 +46,7 @@ router.post("/iniciarSesion", authenticateUser);
 // Rutas para administrar los usuarios de la plataforma
 router.get("/AdmistrarUsuario", adminUser);
 router.post("/toggleStatus/:userId", toggleStatus);
+router.get("/AdmistrarUsuario/:userId", editUser);
+router.post("/AdmistrarUsuario/:userId", updateUser);
 
-//control de usuarios
-router.get("/controlUsuarios");
 export default router;

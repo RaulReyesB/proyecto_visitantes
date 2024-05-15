@@ -1,4 +1,46 @@
     /* Estilos generales del regitros */
+    #var {
+        background: #32396c;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      #var h1{
+        color: white;
+      }
+      #var a {
+        color: white;
+        text-decoration: none;
+        position: relative;
+      }
+      
+      #var a:hover {
+        color: white;
+      }
+      
+      #var a::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: transparent;
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        transition: background-color 0.3s;
+      }
+      
+      #var a:hover::after {
+        background-color: #9931f1;
+      }
+      .enlaces {
+        display: flex;
+      }
+      
+      .enlaces a {
+        margin-right: 20px;
+      }
     /* Contenedor de todo el cuerpo */
     .container {
         display: flex;

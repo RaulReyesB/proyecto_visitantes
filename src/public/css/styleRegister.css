@@ -1,4 +1,5 @@
-    /* Estilos generales del regitros */
+    /* Estilos generales del register y interns  */
+    /* estilos del header */
     #var {
         background: #32396c;
         padding: 15px;
@@ -85,7 +86,7 @@
         display: flex;
         flex-direction: row;
         width: 1000px;
-        height: 240px;
+        height: 270px;
     }
     .form-p {
         display: flex;
@@ -126,6 +127,7 @@
     .buttons-container {
         display: flex;
         align-items: center;
+        
     }
     /*estilo de los botones de agregar y quitar */
     .minus-button, .plus-button {
@@ -168,26 +170,6 @@
         height: 50px;
     }
     }
-    @media (max-width: 750px) {
 
-        .container-form{
-          height: 500px;
-          width: 1000px;
-        }
-        .form-inputs{
-          height: 350px;
-          width: 900px;
-        }
-        .form-inputs input {
-          display: block;
-          margin-bottom: 40px;
-          height: 50px;
-      }
-      .form-inputs select {
-          display: block;
-          margin-bottom: 40px;
-          height: 50px;
-      }
-      }
 
     

@@ -12,6 +12,7 @@
 </head>
 
 <body style="font-family: 'Poppins', sans-serif; background-image: url('https://chij3.s3.amazonaws.com/images/atractivos/a.8175e459d0eca153e2bdc51c9a03c17d.png');">
+  <!-- contenido del encabezado -->
   <div id="var">
     <h1>
       Editar datos de los usuarios del sistema
@@ -25,10 +26,12 @@
       <a href="">Control de Usuarios</a>
     </div>
   </div>  
+  <!-- contenedor principal -->
   <div class="container">
     <div class="cont-title">
   <h1>Editar Usuario</h1>
 </div>
+<!-- contenedor del formulario -->
 <div class="container-form">
   <form action="/AdmistrarUsuario/<%= user.id %>" method="POST">
     <div class="form-p">
@@ -58,6 +61,7 @@
   </form>
 
   <script>
+    // Función para mostrar/ocultar la contraseña
     function togglePassword() {
       const passwordInput = document.getElementById('password');
       const eyeIcon = document.getElementById('eyeIcon');

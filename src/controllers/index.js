@@ -162,14 +162,6 @@ const insertIntern = async (req, res) => {
   }
 };
 
-
-
-
-
-
-
-
-
 // Función asincrónica para autenticar al usuario al iniciar sesión
 const authenticateUser = async (req, res) => {
   try {

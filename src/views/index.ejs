@@ -22,6 +22,7 @@
             <% if (user && (user.type==='superUsuario' || user.type==='administrador' )) { %>
               <button class="header-button" onclick="location.href='/AdmistrarUsuario'">Control de usuarios</button>
               <% } %>
+                <a href="/logout">Cerrar sesión</a>
   </header>
 
   <div class="container">

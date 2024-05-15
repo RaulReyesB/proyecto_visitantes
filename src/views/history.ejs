@@ -30,10 +30,6 @@
   <div id="buscador">
     <div class="search-container">
       <input type="text" id="searchInput" placeholder="Buscar...">
-      <select id="searchType">
-        <option value="name">Nombre</option>
-        <option value="curp">CURP</option>
-      </select>
       <button type="button" onclick="search()"><i class="bi bi-search"></i></button>
     </div>
 
@@ -104,35 +100,24 @@
   </table>
 
   <script>
-    function search() {
-      var input, filter, searchType, table, tr, td, i, txtValue;
-      input = document.getElementById("searchInput");
-      filter = input.value.toUpperCase();
-      searchType = document.getElementById("searchType").value;
-      table = document.getElementById("tabla");
-      tr = table.getElementsByTagName("tr");
-      for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[0]; // Filtro por primera columna (nombre)
-        curpTd = tr[i].getElementsByTagName("td")[3]; // Filtro por cuarta columna (CURP)
-        if (td && curpTd) {
-          if (searchType === 'name') {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-              tr[i].style.display = "";
-            } else {
-              tr[i].style.display = "none";
-            }
-          } else if (searchType === 'curp') {
-            curpTxtValue = curpTd.textContent || curpTd.innerText;
-            if (curpTxtValue.toUpperCase().indexOf(filter) > -1) {
-              tr[i].style.display = "";
-            } else {
-              tr[i].style.display = "none";
-            }
-          }
+    document.getElementById('searchInput').addEventListener('input', function() {
+      const searchValue = this.value.toLowerCase();
+      const table = document.getElementById('tabla');
+      const rows = table.getElementsByTagName('tr');
+
+      for (let i = 1; i < rows.length; i++) {
+        const cells = rows[i].getElementsByTagName('td');
+        const name = cells[0].textContent || cells[0].innerText;
+        const entranceDate = cells[9].textContent || cells[9].innerText;
+        const curp = cells[3].textContent || cells[3].innerText;
+
+        if (name.toLowerCase().indexOf(searchValue) > -1 || entranceDate.toLowerCase().indexOf(searchValue) > -1 || curp.toLowerCase().indexOf(searchValue) > -1) {
+          rows[i].style.display = '';
+        } else {
+          rows[i].style.display = 'none';
         }
       }
-    }
+    });
   </script>
 </body>
 

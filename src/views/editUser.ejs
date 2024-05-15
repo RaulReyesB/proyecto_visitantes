@@ -36,14 +36,6 @@
         <option value="superUsuario" <%= user.type === 'super' ? 'selected' : '' %>>Super Usuario</option>
       </select>
     </div>
-    <div>
-      <label for="status">Estatus:</label>
-      <select id="status1" name="status">
-        <option value="true" <%= user.status === 'activo' ? 'selected' : '' %>>Alta</option>
-        <option value="false" <%= user.status === 'inactivo' ? 'selected' : '' %>>Baja</option>
-      </select>
-        
-  </div>
       <button type="submit">Guardar Cambios</button>
     
   </form>

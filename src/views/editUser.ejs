@@ -30,13 +30,14 @@
     </div>
     <div>
       <label for="type">Tipo de Usuario:</label>
-      <input type="text" id="type" name="type" value="<%= user.type %>">
+      <select id="typeUser" name="type">
+        <option value="administrador" <%= user.type === 'admin' ? 'selected' : '' %>>Administrador</option>
+        <option value="usuario" <%= user.type === 'user' ? 'selected' : '' %>>Usuario</option>
+        <option value="superUsuario" <%= user.type === 'super' ? 'selected' : '' %>>Super Usuario</option>
+      </select>
     </div>
-    <div>
-      <label for="status">Estatus:</label>
-      <input type="text" id="status" name="status" value="<%= user.status %>">
-    </div>
-    <button type="submit">Guardar Cambios</button>
+      <button type="submit">Guardar Cambios</button>
+    
   </form>
 
   <script>

@@ -28,25 +28,46 @@ const router = Router();
 router.use(express.urlencoded({ extended: true }));
 
 // Rutas protegidas que requieren autenticación (requireAuth)
-router.get("/", requireAuth, index);
+router.post("/inicio", authenticateUser, requireAuth, index);
+router.get("/inicio", requireAuth, index);
 router.get("/registroVisitas", requireAuth, register);
 router.post("/registroVisitas", requireAuth, insertVisit);
-router.get("/historial", requireSuperUser, history);
-router.get("/registrosPendientes", pendingRecords);
-router.get("/registroUsuario", renderRegisterPage);
-router.post("/registroUsuario", registerUser);
-router.get("/registroInternos", interns);
-router.post("/registroInternos", insertIntern);
-router.get("/hr-visits", showHRVisits);
+router.get("/historial", requireAuth, requireSuperUser, history);
+router.get("/registrosPendientes", requireAuth, pendingRecords);
+router.get(
+  "/registroUsuario",
+  requireAuth,
+  requireSuperUser,
+  renderRegisterPage
+);
+router.post("/registroUsuario", requireAuth, requireSuperUser, registerUser);
+router.get("/registroInternos", requireAuth, interns);
+router.post("/registroInternos", requireAuth, insertIntern);
+router.get("/hr-visits", requireAuth, showHRVisits);
 
 // Rutas públicas (sin autenticación)
 router.get("/iniciarSesion", login);
 router.post("/iniciarSesion", authenticateUser);
 
 // Rutas para administrar los usuarios de la plataforma
-router.get("/AdmistrarUsuario", adminUser);
-router.post("/toggleStatus/:userId", toggleStatus);
-router.get("/AdmistrarUsuario/:userId", editUser);
-router.post("/AdmistrarUsuario/:userId", updateUser);
+router.get("/AdmistrarUsuario", requireAuth, requireSuperUser, adminUser);
+router.post(
+  "/toggleStatus/:userId",
+  requireAuth,
+  requireSuperUser,
+  toggleStatus
+);
+router.get(
+  "/AdmistrarUsuario/:userId",
+  requireAuth,
+  requireSuperUser,
+  editUser
+);
+router.post(
+  "/AdmistrarUsuario/:userId",
+  requireAuth,
+  requireSuperUser,
+  updateUser
+);
 
 export default router;

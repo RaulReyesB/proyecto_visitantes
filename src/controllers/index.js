@@ -58,6 +58,26 @@ const history = async (req, res) => {
   }
 };
 
+
+// Función asincrónica para obtener y renderizar el historial de visitas
+const historyInterns = async (req, res) => {
+  try {
+    // Todos los registros de la tabla
+    const allRegistros = await Intern.findAll();
+   
+
+    res.render("historyInterns", {
+      namePage: "Historial de visitas",
+      descripcion: "Historial de visitantes de Radio y Television Hidalgo",
+      registros: allRegistros,
+    });
+  } catch (error) {
+    console.error("Error al obtener los registros:", error);
+    res.status(500).send("Error interno del servidor");
+  }
+};
+
+
 // Función para formatear la fecha
 function formatDate(dateString) {
   const date = new Date(dateString);
@@ -79,7 +99,7 @@ const renderRegisterPage = (req, res) => {
   });
 };
 
-// Función asincrónica para obtener y renderizar el historial de visitas
+// Función asincrónica para obtener y renderizar el historial de pasantes
 const pendingRecords = async (req, res) => {
   try {
     // todos los registros de la tabla
@@ -91,7 +111,7 @@ const pendingRecords = async (req, res) => {
     );
 
     res.render("pendingRecords", {
-      namePage: "Historial de visitas",
+      namePage: "Historial de Pasantes",
       descripcion:
         "Historial de visitas incompletas de Radio y Television Hidalgo",
       registros: registros,
@@ -133,6 +153,7 @@ const insertVisit = async (req, res) => {
       CURP: req.body.CURP,
       identification: req.body.identification,
       department: req.body.department,
+      subDepartment: req.body.subDepartment,
       origin: req.body.origin,
       children: req.body.children,
       badge: req.body.badge,
@@ -155,6 +176,7 @@ const insertIntern = async (req, res) => {
       CURP: req.body.CURP,
       identification: req.body.identification,
       department: req.body.department,
+      subDepartment: req.body.subDepartment,
       origin: req.body.origin,
       badge: req.body.badge,
     });
@@ -314,5 +336,6 @@ export {
   interns,
   insertIntern,
   showHRVisits,
-  rechargeUser
+  rechargeUser, 
+  historyInterns
 };

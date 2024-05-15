@@ -22,10 +22,9 @@ const toggleStatus = async (req, res) => {
       return res.status(404).send("Usuario no encontrado");
     }
 
-    // Cambiar el estado del usuario
-    currentUser.status = !currentUser.status; // Cambiar el estado
+    currentUser.status = !currentUser.status;
 
-    await currentUser.save(); // Guardar el usuario actualizado
+    await currentUser.save();
 
     res.status(200).send("Estado del usuario actualizado correctamente");
   } catch (error) {
@@ -34,4 +33,48 @@ const toggleStatus = async (req, res) => {
   }
 };
 
-export { adminUser, toggleStatus };
+const editUser = async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const user = await User.findOne({ where: { id: userId } });
+
+    if (!user) {
+      return res.status(404).send("Usuario no encontrado");
+    }
+    // Renderizar el formulario de edición y pasar los datos del usuario
+    res.render("editUser", {
+      namePage: "Editar Usuario",
+      user: user,
+    });
+  } catch (error) {
+    console.error("Error al buscar el usuario:", error);
+    res.status(500).send("Error interno del servidor");
+  }
+};
+
+const updateUser = async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const userData = req.body;
+
+    const user = await User.findOne({ where: { id: userId } });
+
+    if (!user) {
+      return res.status(404).send("Usuario no encontrado");
+    }
+
+    // Actualizar los datos del usuario
+    await user.update(userData);
+
+    res.status(200).send("Usuario actualizado correctamente");
+    return res.render("index", {
+      namePage: "Radio y Television Hidalgo",
+      user: user,
+    });
+  } catch (error) {
+    console.error("Error al actualizar el usuario:", error);
+    res.status(500).send("Error interno del servidor");
+  }
+};
+
+export { adminUser, toggleStatus, editUser, updateUser };

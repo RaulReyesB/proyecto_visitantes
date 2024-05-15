@@ -19,6 +19,7 @@
         border-radius: 50px;
         flex-direction: column;
         width: 1100px;
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
     }
     /* Contenedor del titulo */
     .cont-title{
@@ -46,7 +47,7 @@
     .form-p {
         display: flex;
         flex-direction: column;
-        margin-right: 70px; /* Esto agrega un espacio entre los divs .form-p */
+        margin-right: 70px;
         width: 300px;
     }
     /* Estilo de los label */
@@ -76,15 +77,16 @@
     /* estilo de los selects*/
     .form-inputs select {
         display: block;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
     }
+    /*contenedor de los botones de agregar y quitar */
     .buttons-container {
         display: flex;
         align-items: center;
-        margin-bottom: 7px;
     }
+    /*estilo de los botones de agregar y quitar */
     .minus-button, .plus-button {
-        width: 30px;
+        width: 35px;
         height: 30px;
         border: none;
         background-color: #f0f0f0;
@@ -93,6 +95,7 @@
         cursor: pointer;
         margin: 0 5px;
     }
+    /*input de cantidad de hijos */
     .children-input {
         width: 50px;
         height: 30px;
@@ -100,6 +103,7 @@
         padding: 5px 10px;
         font-size: 16px;
     }
+    /*estilos para pantallas pequeñas */
     @media (max-width: 1150px) {
 
       .container-form{

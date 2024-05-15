@@ -39,7 +39,7 @@
       <label for="password">Contraseña:</label>
       <div class="ojo">
         <!-- Usar un icono de ojo abierto/cerrado -->
-        <input class="form-control" type="password" id="password" name="password" value="<%= user.password %>">
+        <input class="form-control" type="password" id="password" name="password">
         <button type="button" onclick="togglePassword()">
           <i id="eyeIcon" class="far fa-eye"></i>
         </button>
@@ -48,9 +48,9 @@
     <div class="form-p">
       <label for="type">Tipo de Usuario:</label>
       <select class="form-control" id="typeUser" name="type">
-        <option value="administrador" <%= user.type === 'admin' ? 'selected' : '' %>>Administrador</option>
-        <option value="usuario" <%= user.type === 'user' ? 'selected' : '' %>>Usuario</option>
-        <option value="superUsuario" <%= user.type === 'super' ? 'selected' : '' %>>Super Usuario</option>
+        <option value="administrador" <%= user.type === 'administrador' ? 'selected' : '' %>>Administrador</option>
+        <option value="usuario" <%= user.type === 'usuario' ? 'selected' : '' %>>Usuario</option>
+        <option value="superUsuario" <%= user.type === 'superUsuario' ? 'selected' : '' %>>Super Usuario</option>
       </select>
     </div>
       <input class="btn btn-lg button" type="submit" value="Guardar Cambios">

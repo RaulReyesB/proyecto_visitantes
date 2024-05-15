@@ -14,7 +14,7 @@ const finishRegistration = async(req,res)=>{
     res.render("index", {
         namePage: "Inicio",
         description: "Bienvenido a Radio y Television Hidalgo",
-        user: req.session.user, // Asegúrate de pasar req.session.user si lo estás almacenando en la sesión
+        user: req.session.user,
     });
 }
 

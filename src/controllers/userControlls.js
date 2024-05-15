@@ -76,11 +76,30 @@ const updateUser = async (req, res) => {
 
     await user.save();
 
-    res.status(200).send("Usuario actualizado correctamente");
+    console.log("usuario actualizado correctamente");
+    res.redirect("/inicio");
   } catch (error) {
     console.error("Error al actualizar el usuario:", error);
     res.status(500).send("Error interno del servidor");
   }
 };
 
-export { adminUser, toggleStatus, editUser, updateUser };
+const logout = (req, res) => {
+  try {
+    // Destruir la sesión del usuario
+    req.session.destroy((err) => {
+      if (err) {
+        console.error("Error al cerrar sesión:", err);
+        return res.status(500).send("Error interno del servidor");
+      }
+      // Redirigir al usuario a la página de inicio de sesión
+      res.redirect("/iniciarSesion");
+    });
+  } catch (error) {
+    console.error("Error al cerrar sesión:", error);
+    res.status(500).send("Error interno del servidor");
+  }
+};
+
+
+export { adminUser, toggleStatus, editUser, updateUser,logout };

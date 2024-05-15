@@ -297,6 +297,9 @@ const registerUser = async (req, res) => {
   }
 };
 
+const rechargeUser = async (req, res) => {
+  res.redirect("/AdmistrarUsuario")
+}
 
 export {
   history,
@@ -311,4 +314,5 @@ export {
   interns,
   insertIntern,
   showHRVisits,
+  rechargeUser
 };

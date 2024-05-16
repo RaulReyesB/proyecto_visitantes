@@ -41,21 +41,25 @@
             <%= item.fileNumber %>
           </td>
           <td>
-            <%= item.type %>
+            <%= item.school %>
           </td>
           <td>
-            <%= item.status ? 'ALTA':'BAJA' %>
+            <%= item.Mat %>
           </td>
-          <td>
-            <a href="/upd">
-              <button id="toggleButton<%= item.id %>" onclick="toggleStatus('<%= item.id %>')">
-                <%= item.status==='activo' ? 'Dar de baja' : 'Dar de alta' %>
-              </button>
-            </a>
-            <a href="/AdmistrarUsuario/<%= item.id %>"><button>Editar</button></a>
-          </td>
-        </tr>
-        <% }); %>
+          <td><%= item.career %></td>
+          <td><%= item.asignementDirec %></td>
+          <td><%= item.adviser %></td>
+          <td><%= item.numberHours %></td>
+          <td><%= item.shedule %></td>
+          <td><%= item.hoursxDay %></td>
+          <td><%= item.period %></td>
+          <td><%= item.totHours %></td>
+          <td><%= item.Program %></td>
+          <td><%= item.Observations %></td>
+          <td><%= item.entrance %></td>
+          <td><%= item.exit %></td>
+          <% } %>
+
     </tbody>
   </table>
 

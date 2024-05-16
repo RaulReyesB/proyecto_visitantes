@@ -51,6 +51,10 @@ const Intern = db.define("tb_interns", {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
+  hoursFulfilled:{
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
   Program: {
     type: DataTypes.STRING,
     allowNull: false,

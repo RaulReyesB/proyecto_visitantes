@@ -171,6 +171,7 @@ const insertIntern = async (req, res) => {
   try {
     const newIntern = await Intern.create({
       fileNumber: req.body.fileNumber,
+      img: req.body.img,
       name: req.body.name,
       school: req.body.school,
       Mat: req.body.Mat,
@@ -181,12 +182,12 @@ const insertIntern = async (req, res) => {
       days: req.body.days,
       shedule: req.body.shedule,
       hoursxDay: req.body.hoursxDay,
-      starService: req.body.startService,
+      startService: req.body.startService, // Corregir aquí
       endService: req.body.endService,
       totHours: req.body.totHours,
       Program: req.body.Program,
       Observations: req.body.Observations,
-    });
+    });   
     console.log("pasante guardado")
     res.redirect(`/inicio`);
   } catch (error) {

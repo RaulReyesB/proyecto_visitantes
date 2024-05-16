@@ -29,7 +29,7 @@
         </div>
         <!-- Contenedor del formulario -->
         <div class="container-form">
-            <form action="/registroInternos" method="POST">
+            <form action="/registroInternos" method="POST" onsubmit="return validateForm()">
                 <div class="form-inputs">
                     <div class="form-p">
                         <label for="fileNumber">Ingresa tu folio</label>
@@ -43,6 +43,15 @@
                         <label for="career">Carrera</label>
                         <input class="form-control" type="text" name="career" id="career" placeholder="Carrera" required>
                         <input class="btn btn-lg button mt-3 mb-4" type="submit" value="Guardar">
+                        <div class="form-p">
+                            <label for="img">Subir foto</label>
+                            <input class="form-control" type="file" name="img" id="img" accept="image/*" required>
+                        </div>
+                        <!-- Campo para mostrar la imagen -->
+                        <div class="form-p">
+                            <label for="imgPreview">Vista previa de la imagen:</label>
+                            <img id="imgPreview" src="#" alt="Vista previa de la imagen" style="max-width: 100%; height: auto;">
+                        </div>
                     </div>
                     <div class="form-p">
                         <label for="adviser">Asesor</label>
@@ -58,17 +67,22 @@
                             <option value="Jueves">Jueves</option>
                             <option value="Viernes">Viernes</option>
                         </select>
-                        <label for="schedule">Horario</label>
+                        <label for="shedule">Horario</label>
                         <select class="form-control" name="shedule" id="shedule" required>
                             <option selected disabled>-- Seleccione un horario --</option>
                             <option value="09:00-16:00">09:00-16:00</option>
                         </select>
                         <label for="hoursxDay">Horas al día</label>
                         <input class="form-control" type="number" name="hoursxDay" id="hoursxDay" placeholder="Horas al día" required>
-                        <label for="period">Inicio de servicio y finalización</label>
-                        <input class="form-control" type="text" name="period" id="period" placeholder="Inicio de servicio y finalización" required>
+                        
+                        <label for="starService">Inicio de servicio</label>
+                        <input class="form-control" type="text" name="startService" id="startService" placeholder="Inicio de servicio" required>
+                        <label for="endService">finalización de servicio</label>
+                        <input class="form-control" type="text" name="endService" id="endService" placeholder="Finalización de servicio" required>
+                        
                         <label for="totHours">Horas totales a cubrir</label>
                         <input class="form-control" type="number" name="totHours" id="totHours" placeholder="Horas totales a cubrir" required>
+
                         <label for="Program">Programa</label>
                         <input class="form-control" type="text" name="Program" id="Program" placeholder="Programa" required>
                         <label for="Observations">Observaciones</label>
@@ -94,6 +108,16 @@
             </form>
         </div>
     </div>
+    <script>
+        // Código JavaScript para mostrar la imagen previamente seleccionada
+        document.getElementById("img").addEventListener("change", function () {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById("imgPreview").src = e.target.result;
+            }
+            reader.readAsDataURL(this.files[0]);
+        });
+    </script>
 </body>
 
 </html>

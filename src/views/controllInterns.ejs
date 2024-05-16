@@ -12,26 +12,10 @@
   <table>
     <thead>
       <tr>
-        <th>Numero de Folio</th>
         <th>Nombre</th>
-        <th>Escuela</th>
-        <th>Numero de Control</th>
-        <th>Carrera</th>
-        <th>Direccion Asignada</th>
-        <th>Asesor</th>
-        <th>Numero de Horas</th>
-        <th>Horario</th>
-        <th>Horas al dia</th>
-        <th>Dias</th>
-        <th>Inicio del Servicio</th>
-        <th>Finalizacion del Servicio</th>
-        <th>Horas totales a cubrir</th>
-        <th>Programa</th>
-        <th>Observaciones</th>
-        <th>Servicio</th>
-        <% if (user && (user.type==='rh' || user.type==='rh' )) { %>
-        <th>Horas cumplidas</th>
-        <% } %>
+        <th>Numero de Folio</th>
+        <th>Imagen</th>
+        <th>Control de Entrada y Salida</th>
       </tr>
     </thead>
     <tbody>
@@ -44,55 +28,7 @@
             <%= item.fileNumber %>
           </td>
           <td>
-            <%= item.school %>
-          </td>
-          <td>
-            <%= item.Mat %>
-          </td>
-          <td>
-            <%= item.career %>
-          </td>
-          <td>
-            <%= item.asignementDirec %>
-          </td>
-          <td>
-            <%= item.adviser %>
-          </td>
-          <td>
-            <%= item.numberHours %>
-          </td>
-          <td>
-            <%= item.days %>
-          </td>
-          <td>
-            <%= item.days %>
-          </td>
-          <td>
-            <%= item.shedule %>
-          </td>
-          <td>
-            <%= item.hoursxDay %>
-          </td>
-          <td>
-            <%= item.startService %>
-          </td>
-          <td>
-            <%= item.endService %>
-          </td>
-          <td>
-            <%= item.totHours %>
-          </td>
-          <td>
-            <%= item.Program %>
-          </td>
-          <td>
-            <%= item.Observations %>
-          </td>
-          <td>
-            <%= item.entrance %>
-          </td>
-          <td>
-            <%= item.exit %>
+            <%= item.img %>
           </td>
         </tr>
         <% }); %>

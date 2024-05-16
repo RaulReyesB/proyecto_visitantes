@@ -76,6 +76,10 @@ const Intern = db.define("tb_interns", {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  service: {
+    type: DataTypes.ENUM("dual", "estadias", "estancia", "practicas", "residencia", "servicio social"),
+    allowNull: false
+  },
   entrance: {
     type: DataTypes.DATE,
     allowNull: true,

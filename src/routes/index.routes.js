@@ -14,7 +14,7 @@ import {
   insertIntern,
   showHRVisits,
   rechargeUser,
-   historyInterns
+  historyInterns,
 } from "../controllers/index.js";
 import { requireAuth, requireSuperUser } from "../middlewares/auth.js";
 import {

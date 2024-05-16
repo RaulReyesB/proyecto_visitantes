@@ -1,6 +1,8 @@
 import { Router } from "express";
-const interns = Router();
+import { controllInterns } from "../controllers/interns.js";
 
-pdR.get("/finalizarRegistro/:id", finishRegistration);
+const routesInterns = Router();
 
-export default interns;
+routesInterns.get("/controlPasantes", controllInterns );
+
+export default routesInterns;

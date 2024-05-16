@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title>
+    <%= namePage %>
+  </title>
+  <link rel="stylesheet" href="/css/styleAdminUser.css">
+</head>
+
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Numero de Folio</th>
+        <th>Nombre</th>
+        <th>Escuela</th>
+        <th>Numero de Control</th>
+        <th>Carrera</th>
+        <th>Direccion Asignada</th>
+        <th>Asesor</th>
+        <th>Numero de Horas</th>
+        <th>Horario</th>
+        <th>Horas al dia</th>
+        <th>Dias</th>
+        <th>Inicio del Servicio</th>
+        <th>Finalizacion del Servicio</th>
+        <th>Horas totales a cubrir</th>
+        <th>Programa</th>
+        <th>Observaciones</th>
+        <th>Servicio</th>
+        <% if (user && (user.type==='rh' || user.type==='rh' )) { %>
+        <th>Horas cumplidas</th>
+        <% } %>
+      </tr>
+    </thead>
+    <tbody>
+      <% internt.forEach(function(item) { %>
+        <tr>
+          <td>
+            <%= item.name %>
+          </td>
+          <td>
+            <%= item.fileNumber %>
+          </td>
+          <td>
+            <%= item.school %>
+          </td>
+          <td>
+            <%= item.Mat %>
+          </td>
+          <td>
+            <%= item.career %>
+          </td>
+          <td>
+            <%= item.asignementDirec %>
+          </td>
+          <td>
+            <%= item.adviser %>
+          </td>
+          <td>
+            <%= item.numberHours %>
+          </td>
+          <td>
+            <%= item.days %>
+          </td>
+          <td>
+            <%= item.days %>
+          </td>
+          <td>
+            <%= item.shedule %>
+          </td>
+          <td>
+            <%= item.hoursxDay %>
+          </td>
+          <td>
+            <%= item.startService %>
+          </td>
+          <td>
+            <%= item.endService %>
+          </td>
+          <td>
+            <%= item.totHours %>
+          </td>
+          <td>
+            <%= item.Program %>
+          </td>
+          <td>
+            <%= item.Observations %>
+          </td>
+          <td>
+            <%= item.entrance %>
+          </td>
+          <td>
+            <%= item.exit %>
+          </td>
+        </tr>
+        <% }); %>
+    </tbody>
+  </table>
+
+  <script>
+    function toggleStatus(userId) {
+      const button = document.getElementById(`toggleButton${userId}`);
+      const currentStatus = button.textContent.trim(); // Obtener el texto actual del botón
+
+      // Realizar una solicitud fetch para cambiar el estado del usuario
+      fetch(`/toggleStatus/${userId}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      })
+        .then(response => {
+          if (response.ok) {
+            // Cambiar el texto del botón según el estado actual del usuario
+            button.textContent = currentStatus === "Registrar hora de entrada" ? "Registrar hora de salida" : "Registrar hora de entrada";
+          } else {
+            throw new Error('Hubo un problema al cambiar el estado del usuario');
+          }
+        })
+        .catch(error => {
+          console.error('Error al cambiar el estado del usuario:', error);
+        });
+    }
+  </script>
+</body>
+
+</html>

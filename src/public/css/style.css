@@ -49,18 +49,20 @@ header a:hover {
 }
 
 
-.header-title, .header-subtitle {
-  opacity: 0; /* Inicialmente oculto */
-  animation: fadeInAnimation 1.9s ease forwards; /* Animación de desvanecimiento */
-}
-
-@keyframes fadeInAnimation {
+@keyframes scaleIn {
   from {
-    opacity: 0; /* Comienza completamente transparente */
+    opacity: 0;
+    transform: scale(0.8);
   }
   to {
-    opacity: 1; /* Termina completamente visible */
+    opacity: 1;
+    transform: scale(1);
   }
+}
+
+.header-title, .header-subtitle {
+  opacity: 0;
+  animation: scaleIn 1s ease forwards;
 }
 
 .container {
@@ -70,15 +72,18 @@ header a:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content:space-between;
+  align-items: flex-start; /* Alinear el contenido al principio del contenedor */
+
 }
 
 .tarjeta{
-  width: 30%; /* Ajuste del ancho para que haya tres tarjetas por fila */
+  width: calc(25% - 10px);; /* Ajuste del ancho para que haya cuatro tarjetas por fila */
   margin-bottom: 20px; /* Espacio entre tarjetas */
   background-color: #e1dbce; /* Fondo blanco para las tarjetas */
   border-radius: 15px;
   overflow: hidden; /* Evita que las imágenes se salgan de las tarjetas */
-
+  display: flex;
+  flex-direction: column; /* Alinear contenido verticalmente */
 }
 
 .tarjeta:hover {
@@ -110,9 +115,37 @@ header a:hover {
   border-radius: 0 0 15px 15px;
   padding: 10px;
   text-align: center;
+  margin-top: auto;
 }
 
 .pie a{
   text-decoration: none;
   color: white;
+  font-size: 20px;
 }
+
+footer {
+  background-color: #32396C;
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+  border-top: 2px solid #5078c8;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* Sombra */
+  border-radius: 10px 10px 0 0;
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+
+}
+
+footer p {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.5; /* Espaciado entre líneas */
+}
+
+footer a:hover {
+  color: #c2c4d4;
+}
+
+
+

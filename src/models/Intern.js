@@ -3,46 +3,17 @@ import { DataTypes } from "sequelize";
 import db from "../conecction.js";
 
 const Intern = db.define("tb_interns", {
+  fileNumber: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
   name: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  phone: {
-    type: DataTypes.STRING(10),
-    allowNull: false,
-  },
-  email: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  CURP: {
-    type: DataTypes.STRING(18),
-    allowNull: false,
-  },
-  identification: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  department: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  subDepartment: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  origin: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  badge: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    defaultValue: 0,
-  },
-  fileNumber: {
-    type: DataTypes.STRING,
-    allowNull: false,
+  img: {
+    type: DataTypes.BLOB,
+    allowNull: false
   },
   school: {
     type: DataTypes.STRING,
@@ -68,6 +39,10 @@ const Intern = db.define("tb_interns", {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
+  days:{
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
   shedule: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -76,13 +51,22 @@ const Intern = db.define("tb_interns", {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
-  period: {
+  startService: {
     type: DataTypes.STRING,
     allowNull: false,
+  },
+  endService:{
+    type: DataTypes.STRING,
+    allowNull:false
   },
   totHours: {
     type: DataTypes.INTEGER,
     allowNull: false,
+  },
+  hoursFulfilled:{
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    defaultValue: 0,
   },
   Program: {
     type: DataTypes.STRING,
@@ -94,8 +78,7 @@ const Intern = db.define("tb_interns", {
   },
   entrance: {
     type: DataTypes.DATE,
-    allowNull: false,
-    defaultValue: DataTypes.NOW,
+    allowNull: true,
     get() {
       const value = this.getDataValue("entrance");
       return value ? moment(value).format("DD/MM/YYYY HH:mm:ss") : null;

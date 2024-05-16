@@ -275,7 +275,7 @@ const registerUser = async (req, res) => {
     await check("type")
       .notEmpty()
       .withMessage("El tipo de usuario es requerido")
-      .isIn(["usuario", "superUsuario", "administrador"])
+      .isIn(["usuario", "superUsuario", "administrador", "rh"])
       .withMessage("Tipo de usuario inválido")
       .run(req);
 

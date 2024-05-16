@@ -72,6 +72,16 @@ body {
 .menu-hamburguesa {
   display: none;
 }
+  .cont-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 700px;
+    margin: 0 auto;
+    color: white;
+  }
+
+  
 
 .search-container {
   display: flex;

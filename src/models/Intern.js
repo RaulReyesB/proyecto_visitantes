@@ -77,7 +77,7 @@ const Intern = db.define("tb_interns", {
     allowNull: false,
   },
   service: {
-    type: DataTypes.ENUM("dual", "estadias", "estancia", "practicas", "residencia", "servicio social"),
+    type: DataTypes.ENUM("dual", "estadia", "estancia", "practicas", "residencia", "servicio social"),
     allowNull: false
   },
   entrance: {

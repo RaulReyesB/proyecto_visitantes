@@ -27,7 +27,16 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+#var img {
+  width: 90px;
+  height: 90px;
+  margin: 5px;
+}
+#var h1{
+  color: white;
+  font-size: 30px;
 
+}
 #var a {
   color: white;
   text-decoration: none;
@@ -53,7 +62,6 @@ body {
 #var a:hover::after {
   background-color: #9931f1;
 }
-
 .enlaces {
   display: flex;
 }
@@ -61,11 +69,17 @@ body {
 .enlaces a {
   margin-right: 20px;
 }
-
-h1 {
-  color: white;
-  font-size: 30px;
+.menu-hamburguesa {
+  display: none;
 }
+  .cont-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 700px;
+    margin: 0 auto;
+    color: white;
+  }
 
 .search-container {
   display: flex;

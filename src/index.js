@@ -8,6 +8,8 @@ import modelo from "./models/visit.js";
 import User from "./models/user.js";
 import Intern from "./models/intern.js";
 import user from "./routes/users.routes.js";
+import { interns } from "./controllers/index.js";
+import routesInterns from "./routes/interns.routes.js";
 //setings
 dotenv.config({ path: ".env" });
 
@@ -32,6 +34,8 @@ app.listen(process.env.PORT, () => {
 app.use("/", router);
 app.use("/", pdR)
 app.use("/", user)
+app.use("/", routesInterns)
+
 try {
   await db.authenticate();
   console.log("La conexion a la base de datos ha sido exitosa");

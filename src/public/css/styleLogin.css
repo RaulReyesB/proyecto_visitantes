@@ -1,17 +1,26 @@
 body {
   margin: 0;
   padding: 0;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
   font-family: 'Arial', sans-serif;
-  background: linear-gradient(135deg, #32396C, #3483dd, #74afeb, #474f8e, #32396C); /* Tonos azules */
+  background: linear-gradient(135deg, #32396C, #3483dd, #74afeb, #474f8e, #32396C); /* Fondo degradado como respaldo */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.custom-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/img/fachada.jpeg') no-repeat center center/cover;
+  filter: blur(8px);
+  z-index: -1;
 }
 
 .container {
-  z-index: 1;
+  flex: 1;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -23,28 +32,26 @@ body {
   max-width: 500px;
   padding: 100px 20px;
   background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 20px 20px 20px 20px; /* Radios de las esquinas */
+  border-radius: 20px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
   text-align: center;
   margin: 10px;
   animation-duration: 1s;
   animation-timing-function: ease-in-out;
 }
-
 
 .welcome-container {
   width: 100%;
   max-width: 500px;
   padding: 80px 20px;
   background-color: rgba(0, 0, 0, 0.7);
-  border-radius: 10px 90px 10px 90px; /* Radios de las esquinas */
+  border-radius: 10px 150px 10px 150px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
   text-align: center;
   margin: 10px;
   animation-duration: 1s;
   animation-timing-function: ease-in-out;
 }
-
 
 .login-container h2 {
   font-size: 45px;
@@ -53,17 +60,24 @@ body {
   font-family: 'Arial', sans-serif;
 }
 
-.welcome-container h1{
-  font-size: 60px;
+.welcome-container h1 {
+  font-size: 0px;
   margin-bottom: 1px;
   color: #fff;
   font-family: 'Arial', sans-serif;
 }
+
 .welcome-container p {
   margin-bottom: 1px;
   color: #fff;
   font-family: 'Arial', sans-serif;
-  font-size: 25px;
+  font-size: 0px;
+}
+
+.logo-img {
+  max-width: 100%;
+  height: auto;
+  margin-top: -100px;
 }
 
 .form-group {
@@ -97,17 +111,6 @@ body {
   animation-name: fadeIn;
 }
 
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-100%);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -119,7 +122,52 @@ body {
   }
 }
 
-/* Estilos responsivos */
+.footer-container {
+  width: 100%;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation-name: slideUp;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-logo {
+  max-width: 150px;
+  margin-bottom: 10px;
+}
+
+.footer-container p {
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  font-size: 30px;
+}
+
+.footer-container h3 {
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  font-size: 20px;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 768px) {
   .login-container,
   .welcome-container {
@@ -127,5 +175,8 @@ body {
     padding: 20px;
     margin-bottom: 20px;
   }
+
+  .container {
+    flex-direction: column;
+  }
 }
-  

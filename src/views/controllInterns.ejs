@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title>
+    <%= namePage %>
+  </title>
+  <link rel="stylesheet" href="/css/styleAdminUser.css">
+</head>
+
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Numero de Folio</th>
+        <th>Imagen</th>
+        <th>Control de Entrada y Salida</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% internt.forEach(function(item) { %>
+        <tr>
+          <td>
+            <%= item.name %>
+          </td>
+          <td>
+            <%= item.fileNumber %>
+          </td>
+          <td>
+            <%= item.img %>
+          </td>
+        </tr>
+        <% }); %>
+    </tbody>
+  </table>
+
+  <script>
+    function toggleStatus(userId) {
+      const button = document.getElementById(`toggleButton${userId}`);
+      const currentStatus = button.textContent.trim(); // Obtener el texto actual del botón
+
+      // Realizar una solicitud fetch para cambiar el estado del usuario
+      fetch(`/toggleStatus/${userId}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      })
+        .then(response => {
+          if (response.ok) {
+            // Cambiar el texto del botón según el estado actual del usuario
+            button.textContent = currentStatus === "Registrar hora de entrada" ? "Registrar hora de salida" : "Registrar hora de entrada";
+          } else {
+            throw new Error('Hubo un problema al cambiar el estado del usuario');
+          }
+        })
+        .catch(error => {
+          console.error('Error al cambiar el estado del usuario:', error);
+        });
+    }
+  </script>
+</body>
+
+</html>

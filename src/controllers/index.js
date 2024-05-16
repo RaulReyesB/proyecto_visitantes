@@ -171,15 +171,6 @@ const insertIntern = async (req, res) => {
   try {
     const newIntern = await Intern.create({
       name: req.body.name,
-      phone: req.body.phone,
-      email: req.body.email,
-      CURP: req.body.CURP,
-      identification: req.body.identification,
-      department: req.body.department,
-      subDepartment: req.body.subDepartment,
-      origin: req.body.origin,
-      badge: req.body.badge,
-
       fileNumber: req.body.fileNumber,
       school: req.body.school,
       Mat: req.body.Mat,

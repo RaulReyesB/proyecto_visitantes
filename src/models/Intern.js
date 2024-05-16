@@ -7,39 +7,6 @@ const Intern = db.define("tb_interns", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  phone: {
-    type: DataTypes.STRING(10),
-    allowNull: false,
-  },
-  email: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  CURP: {
-    type: DataTypes.STRING(18),
-    allowNull: false,
-  },
-  identification: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  department: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  subDepartment: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  origin: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  badge: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    defaultValue: 0,
-  },
   fileNumber: {
     type: DataTypes.STRING,
     allowNull: false,

@@ -6,7 +6,7 @@ import router from "./routes/index.routes.js";
 import pdR from "./routes/pendingRecords.routes.js";
 import modelo from "./models/visit.js";
 import User from "./models/user.js";
-import Intern from "./models/intern.js";
+import Intern from "./models/Intern.js";
 import user from "./routes/users.routes.js";
 import { interns } from "./controllers/index.js";
 import routesInterns from "./routes/interns.routes.js";

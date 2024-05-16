@@ -1,6 +1,6 @@
 import Visit from "../models/visit.js";
 import User from "../models/user.js";
-import Intern from "../models/intern.js";
+import Intern from "../models/Intern.js";
 import { validationResult, check } from "express-validator";
 import db from "../conecction.js";
 import Op from "sequelize";

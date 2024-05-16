@@ -73,6 +73,7 @@
           <a href="/registrosPendientes">Acceder</a>
         </div>
       </div>
+     <% if (user && user.type !== 'administrador') { %>
 
       <div class="tarjeta">
         <div class="titulo">Recursos Humanos </div>
@@ -85,6 +86,7 @@
           <a href="/hr-visits">Acceder</a>
         </div>
       </div>
+      <% } %>
 
       <div class="tarjeta">
         <div class="titulo">Control de usuarios </div>

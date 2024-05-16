@@ -7,12 +7,21 @@
   
   #var {
     background: #32396c;
-    padding: 13px;
+    padding: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
+  #var img {
+    width: 90px;
+    height: 90px;
+    margin: 5px;
+  }
+  #var h1{
+    color: white;
+    font-size: 25px;
   
+  }
   #var a {
     color: white;
     text-decoration: none;
@@ -38,6 +47,24 @@
   #var a:hover::after {
     background-color: #9931f1;
   }
+  .enlaces {
+    display: flex;
+  }
+  
+  .enlaces a {
+    margin-right: 20px;
+  }
+  .menu-hamburguesa {
+    display: none;
+  }
+    .cont-title{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      width: 700px;
+      margin: 0 auto;
+      color: white;
+    }
   
   tr {
     background: white;

@@ -14,7 +14,7 @@ import {
   insertIntern,
   showHRVisits,
   rechargeUser,
-   historyInterns
+  historyInterns,
 } from "../controllers/index.js";
 import { requireAuth, requireSuperUser } from "../middlewares/auth.js";
 import {
@@ -35,7 +35,7 @@ router.get("/inicio", requireAuth, index);
 router.get("/registroVisitas", requireAuth, register);
 router.post("/registroVisitas", requireAuth, insertVisit);
 router.get("/historial", requireAuth, requireSuperUser, history);
-router.get("/historyInterns", requireAuth, requireSuperUser, historyInterns);
+router.get("/historialInternos", requireAuth, requireSuperUser, historyInterns);
 
 router.get("/registrosPendientes", requireAuth, pendingRecords);
 router.get(

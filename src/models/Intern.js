@@ -3,47 +3,82 @@ import { DataTypes } from "sequelize";
 import db from "../conecction.js";
 
 const Intern = db.define("tb_interns", {
+  fileNumber: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
   name: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  phone: {
-    type: DataTypes.STRING(10),
-    allowNull: false,
+  img: {
+    type: DataTypes.BLOB,
+    allowNull: false
   },
-  email: {
+  school: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  CURP: {
-    type: DataTypes.STRING(18),
+  Mat: {
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
-  identification: {
+  career: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  department: {
+  asignementDirec: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  subDepartment: {
+  adviser: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  origin: {
+  numberHours: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  days:{
     type: DataTypes.STRING,
     allowNull: false,
   },
-  badge: {
+  shedule: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  hoursxDay: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  startService: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  endService:{
+    type: DataTypes.STRING,
+    allowNull:false
+  },
+  totHours: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  hoursFulfilled:{
     type: DataTypes.INTEGER,
     allowNull: false,
     defaultValue: 0,
   },
+  Program: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  Observations: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
   entrance: {
     type: DataTypes.DATE,
-    allowNull: false,
-    defaultValue: DataTypes.NOW,
+    allowNull: true,
     get() {
       const value = this.getDataValue("entrance");
       return value ? moment(value).format("DD/MM/YYYY HH:mm:ss") : null;

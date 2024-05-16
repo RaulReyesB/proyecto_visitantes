@@ -46,6 +46,7 @@ const editUser = async (req, res) => {
     // Renderizar el formulario de edición y pasar los datos del usuario
     res.render("editUser", {
       namePage: "Editar Usuario",
+      description: "Edita los datos del usuario",
       user: user,
     });
   } catch (error) {
@@ -76,7 +77,8 @@ const updateUser = async (req, res) => {
 
     await user.save();
 
-    res.status(200).send("Usuario actualizado correctamente");
+    console.log("Usuario actualizado correctamente");
+    res.redirect("/inicio");
   } catch (error) {
     console.error("Error al actualizar el usuario:", error);
     res.status(500).send("Error interno del servidor");

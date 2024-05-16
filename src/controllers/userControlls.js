@@ -46,6 +46,7 @@ const editUser = async (req, res) => {
     // Renderizar el formulario de edición y pasar los datos del usuario
     res.render("editUser", {
       namePage: "Editar Usuario",
+      description: "Edita los datos del usuario",
       user: user,
     });
   } catch (error) {

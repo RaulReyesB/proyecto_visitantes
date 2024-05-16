@@ -49,14 +49,13 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        margin-top: 60px;
-    }
+        margin: auto;
+      }
     /* Contenedor del formulario */
     .container-form {
         display: flex;
         align-items: center;
         background: white;
-        margin-top: 40px;
         margin-bottom: 50px;
         padding: 25px;
         padding-bottom: 10px;
@@ -71,6 +70,7 @@
         flex-direction: row;
         justify-content: center;
         width: 1100px;
+        margin-top: 10px;
     }
     .cont-title div{
         margin-right: 50px;

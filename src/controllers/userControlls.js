@@ -6,6 +6,7 @@ const adminUser = async (req, res) => {
     const users = await User.findAll();
     res.render("adminUser", {
       namePage: "Administrar usuarios",
+      description: "Administra los usuarios de la aplicación",
       user: users,
     });
   } catch (error) {

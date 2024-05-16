@@ -17,14 +17,7 @@
     <h1>
       <%= descripcion %>
     </h1>
-    <div class="enlaces">
-      <a href="/historyInterns">Pasantes</a>
-      <a href="/registroVisitas">Registros</a>
-      <a href="/historial">Historial de visitantes</a>
-      <a href="/registrosPendientes">Pendientes de Salida</a>
-      <a href="/registroUsuario">Registrar Usuario</a>
-      <a href="/AdmistrarUsuario">Control de Usuarios</a>
-    </div>
+    
   </div>
 
   
@@ -34,7 +27,7 @@
     </div>
 
 
-  <table id="tabla">
+  <table id="tabla" class="fade-in table table-hover">
     <thead class="thead-gray">
       <tr>
         <th>Nombre</th>
@@ -46,11 +39,12 @@
         <th>Procedencia</th>
         <th>Niños</th>
         <th>Gafete</th>
+        <th>Numero De Gafete</th>
         <th>Fecha y Hora de entrada</th>
         <th>Fecha y Hora de salida</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody >
       <% registros.forEach(function(item) { %>
         <tr>
           <td>
@@ -93,6 +87,7 @@
         <% }); %>
     </tbody>
   </table>
+  
 
   <script>
     document.getElementById('searchInput').addEventListener('input', function() {
@@ -114,6 +109,16 @@
       }
     });
   </script>
+  <br>
+  <footer class="bg-body-tertiary text-center text-lg-start">
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2024 Copyright:
+      
+    </div>
+    <!-- Copyright -->
+  </footer>
+  
 </body>
 
 </html>

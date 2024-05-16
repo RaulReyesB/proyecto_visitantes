@@ -6,10 +6,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= namePage %></title>
-    <link rel="stylesheet" href="../public/css/styleHistoryVi.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styleHistoryVi.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
-    <h1><%= namePage %></h1>
+    <div id="var">
+      <h1><%= namePage %></h1>
+    </div>
 
     <div class="search-container">
         <input type="text" id="searchInput" placeholder="Buscar...">
@@ -17,7 +22,7 @@
     </div>
 
     <table id="tabla">
-        <thead>
+        <thead class="thead-gray">
             <tr>
                 <th>Nombre</th>
                 <th>Teléfono</th>

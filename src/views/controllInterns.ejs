@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title>
+    <%= namePage %>
+  </title>
+  <link rel="stylesheet" href="/css/styleAdminUser.css">
+</head>
+
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Numero de Folio</th>
+        <th>Escuela</th>
+        <th>Numero de Control</th>
+        <th>Carrera</th>
+        <th>Direccion Asignada</th>
+        <th>Asesor</th>
+        <th>Numero de Horas</th>
+        <th>Dias</th>
+        <th>Horario</th>
+        <th>Horas al dia</th>
+        <th>Inicio del Servicio</th>
+        <th>Horas totales</th>
+        <th>Programa</th>
+        <th>Observaciones</th>
+        <th>Servicio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% internt.forEach(function(item) { %>
+        <tr>
+          <td>
+            <%= item.name %>
+          </td>
+          <td>
+            <%= item.fileNumber %>
+          </td>
+          <td>
+            <%= item.type %>
+          </td>
+          <td>
+            <%= item.status ? 'ALTA':'BAJA' %>
+          </td>
+          <td>
+            <a href="/upd">
+              <button id="toggleButton<%= item.id %>" onclick="toggleStatus('<%= item.id %>')">
+                <%= item.status==='activo' ? 'Dar de baja' : 'Dar de alta' %>
+              </button>
+            </a>
+            <a href="/AdmistrarUsuario/<%= item.id %>"><button>Editar</button></a>
+          </td>
+        </tr>
+        <% }); %>
+    </tbody>
+  </table>
+
+  <script>
+    function toggleStatus(userId) {
+      const button = document.getElementById(`toggleButton${userId}`);
+      const currentStatus = button.textContent.trim(); // Obtener el texto actual del botón
+
+      // Realizar una solicitud fetch para cambiar el estado del usuario
+      fetch(`/toggleStatus/${userId}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      })
+        .then(response => {
+          if (response.ok) {
+            // Cambiar el texto del botón según el estado actual del usuario
+            button.textContent = currentStatus === "Registrar hora de entrada" ? "Registrar hora de salida" : "Registrar hora de entrada";
+          } else {
+            throw new Error('Hubo un problema al cambiar el estado del usuario');
+          }
+        })
+        .catch(error => {
+          console.error('Error al cambiar el estado del usuario:', error);
+        });
+    }
+  </script>
+
+</body>
+
+</html>

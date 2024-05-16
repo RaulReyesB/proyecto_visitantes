@@ -49,11 +49,11 @@
         </div>
       </div>
       <% } %>
-        <% if (user && (user.type==='superUsuario' || user.type==='administrador' )) { %>
+        <% if (user && (user.type==='superUsuario' || user.type==='rh' )) { %>
           <div class="tarjeta">
-            <div class="titulo">Control de Pasantes</div>
+            <div class="titulo">Historiales pendientes </div>
             <div class="cuerpo">
-              <img src="img/historial.png" alt="muestra">
+              <img src="img/archivo.png" alt="muestra">
             </div>
             <div class="pie">
               <a href="/controlPasantes">Acceder</a>

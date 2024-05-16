@@ -66,8 +66,7 @@ const Intern = db.define("tb_interns", {
   },
   entrance: {
     type: DataTypes.DATE,
-    allowNull: false,
-    defaultValue: DataTypes.NOW,
+    allowNull: true,
     get() {
       const value = this.getDataValue("entrance");
       return value ? moment(value).format("DD/MM/YYYY HH:mm:ss") : null;

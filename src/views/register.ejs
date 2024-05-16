@@ -16,12 +16,12 @@
           <%= description %>
         </h1>
         <div class="enlaces">
-          <a href="">Pasantes</a>
-          <a href="">Registros</a>
-          <a href="">Historial de visitantes</a>
-          <a href="">Pendientes de Salida</a>
-          <a href="">Registrar Usuario</a>
-          <a href="">Control de Usuarios</a>
+            <a href="/historyInterns">Pasantes</a>
+            <a href="/registroVisitas">Registros</a>
+            <a href="/historial">Historial de visitantes</a>
+            <a href="/registrosPendientes">Pendientes de Salida</a>
+            <a href="/registroUsuario">Registrar Usuario</a>
+            <a href="/AdmistrarUsuario">Control de Usuarios</a>
         </div>
       </div>
     <!--  Contenedor principal  -->
@@ -51,8 +51,23 @@
                 <option value="Pasaporte">Pasaporte</option>
                 <option value="Licencia">Licencia</option>
             </select>
+            <label for="">Numero de gafete</label>
+            <input class="form-control " type="text" name="badge" placeholder="inserte el numero de gafete">
+
+            </div>
+            <div class="form-p" style="margin-right: 0;">
+            <label for="">Procedencia</label>
+            <input class="form-control" type="text" name="origin" placeholder="Procedencia">
+            <label for="">Numero de niños</label>
+            <!--  Botones para incrementar y decrementar el numero de niños  -->
+            <div class="buttons-container">
+                <input class="minus-button btn mb-1" onclick="decrement()" value="-">
+                <input style="width: 56px;" class="children-input form-control mb-1" type="number" name="children" id="childrenInput" placeholder="Cuantos niños" value="<%= ninos %>">
+                <input class="plus-button btn mb-1" onclick="increment()" value="+">
+            </div>
+
             <label  for="">Departamento al que se dirige</label>
-            <select class="form-control " id="mainSelect" name="department" required>
+            <select class="form-control mb-2" id="mainSelect" name="department" required>
                 <option selected disabled>-- Seleccione una opción --</option>
                 <option value="DG">Direccion General</option>
                 <option value="DCFP">Direccion de coordinacion financiera y planeacion</option>
@@ -68,24 +83,12 @@
                 <option value="RH">Recursos Humanos</option>
                 <option value="ER">Estaciones de radio</option>
             </select>
-            <select id="subSelect" class="form-control" name="subDepartment" required>
+            <select id="subSelect" class="form-control p-0" name="subDepartment" required>
                 <option selected disabled>-- Seleccione una opción --</option>
             </select>
             </div>
-            <div class="form-p" style="margin-right: 0;">
-            <label for="">Procedencia</label>
-            <input class="form-control" type="text" name="origin" placeholder="Procedencia">
-            <label for="">Numero de niños</label>
-            <!--  Botones para incrementar y decrementar el numero de niños  -->
-            <div class="buttons-container">
-                <input class="minus-button btn" onclick="decrement()" value="-">
-                <input style="width: 56px;" class="children-input form-control" type="number" name="children" id="childrenInput" placeholder="Cuantos niños" value="<%= ninos %>">
-                <input class="plus-button btn" onclick="increment()" value="+">
-            </div>
-                <label for="">Numero de gafete</label>
-                <input class="form-control " type="text" name="badge" placeholder="inserte el numero de gafete">
-            </div>
         </div>
+        <br>
             <!--  Boton para enviar el formulario  -->
             <input class="btn btn-lg button" type="submit" value="Guardar">
             <script>
@@ -112,7 +115,8 @@
                     "DPI": ["Director de promocion e intercambio"],
                     "DJ": ["Director juridico"],
                     "IMG": ["Subdirector de imagen"],
-                    "ER": ["Estacion de radio Jacala", "Estacion de radio Tlanchinol", "Estacion de radio huejutla", "Red estatal de radio"]
+                    "ER": ["Estacion de radio Jacala", "Estacion de radio Tlanchinol", "Estacion de radio huejutla", "Red estatal de radio"],
+                    "RH": ["Recursos Humanos"],
                 };
 
                 var mainSelect = document.getElementById('mainSelect');

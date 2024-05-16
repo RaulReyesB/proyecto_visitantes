@@ -18,12 +18,12 @@
       <%= descripcion %>
     </h1>
     <div class="enlaces">
-      <a href="">Pasantes</a>
-      <a href="">Registros</a>
-      <a href="">Historial de visitantes</a>
-      <a href="">Pendientes de Salida</a>
-      <a href="">Registrar Usuario</a>
-      <a href="">Control de Usuarios</a>
+      <a href="/historyInterns">Pasantes</a>
+      <a href="/registroVisitas">Registros</a>
+      <a href="/historial">Historial de visitantes</a>
+      <a href="/registrosPendientes">Pendientes de Salida</a>
+      <a href="/registroUsuario">Registrar Usuario</a>
+      <a href="/AdmistrarUsuario">Control de Usuarios</a>
     </div>
   </div>
 
@@ -33,9 +33,6 @@
       <button type="button" onclick="search()"><i class="bi bi-search"></i></button>
     </div>
 
-    
-
-  
 
   <table id="tabla">
     <thead class="thead-gray">
@@ -73,6 +70,9 @@
           </td>
           <td>
             <%= item.department %>
+          </td>
+          <td>
+            <%= item.subDepartment %>
           </td>
           <td>
             <%= item.origin %>

@@ -27,6 +27,10 @@ const Intern = db.define("tb_interns", {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  subDepartment: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
   origin: {
     type: DataTypes.STRING,
     allowNull: false,

@@ -1,109 +1,131 @@
 body {
-  background-color: #f8f9fa;
-  overflow-x: hidden; /* Para evitar que la imagen se desborde horizontalmente */
   margin: 0;
   padding: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #32396C, #3483dd, #74afeb, #474f8e, #32396C); /* Tonos azules */
+}
+
+.container {
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .login-container {
-  position: fixed;
-  z-index: 1;
-  width: 100%;
-  max-width: 400px;
-  right: 100px; /* Ajustar el valor según sea necesario */
-  top: 50%; /* Centrado vertical */
-  transform: translateY(-50%);
-  padding: 40px 20px;
+  width: 90%;
+  max-width: 500px;
+  padding: 100px 20px;
   background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 10px;
+  border-radius: 20px 20px 20px 20px; /* Radios de las esquinas */
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-  border: 20px solid #FAB518;
+  text-align: center;
+  margin: 10px;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
 }
+
+
+.welcome-container {
+  width: 100%;
+  max-width: 500px;
+  padding: 80px 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px 90px 10px 90px; /* Radios de las esquinas */
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  margin: 10px;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+}
+
 
 .login-container h2 {
-  margin-bottom: 30px;
-  text-align: center;
+  font-size: 45px;
+  margin-bottom: 10px;
   color: #333;
+  font-family: 'Arial', sans-serif;
 }
 
+.welcome-container h1{
+  font-size: 60px;
+  margin-bottom: 1px;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+}
+.welcome-container p {
+  margin-bottom: 1px;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  font-size: 25px;
+}
 
 .form-group {
-  margin-bottom: 20px; /* Incremento del espacio entre los elementos del formulario */
+  margin-bottom: 20px;
 }
 
 .form-control {
-  border-radius: 25px; /* Redondeo de los bordes de los campos de entrada */
+  border-radius: 25px;
+  padding: 15px;
+  font-size: 16px;
 }
 
 .btn-primary {
-  border-radius: 25px; /* Redondeo de los bordes del botón */
+  border-radius: 25px;
+  padding: 10px;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+  background-color: #900C3F;
+  border: 2px solid #ffffff;
 }
 
 .btn-primary:hover {
-  background-color: #0069d9; /* Cambio del color de fondo al pasar el mouse por encima */
+  border-color: #4fa3fc;
 }
 
-.custom-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 50%; /* Ancho ajustado */
-  height: 100%;
-  background-image: url('https://images.pexels.com/photos/16638839/pexels-photo-16638839/free-photo-of-punto-de-referencia-tarde-viaje-torre.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  z-index: 0;
-  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3); /* Sombra en la imagen */
+.login-container {
+  animation-name: fadeIn;
 }
 
-.sidebar {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 50%;
-  background-color: rgba(0, 0, 0, 0.1); /* Color negro transparente */
-  border-radius: 0 5px 5px 0;
+.welcome-container {
+  animation-name: fadeIn;
 }
 
-.card {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translate(0, -50%);
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
-  font-weight: 30;
-  font-size: 30px; /* Reducción del tamaño de la fuente */
-  padding: 35px; /* Aumento del relleno */
-  border-radius: 0 100px 50px 0;
-  height: calc(50% - 80px); /* Ajuste de la altura */
-  text-align: auto;
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-
-
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 /* Estilos responsivos */
 @media (max-width: 768px) {
-  .custom-background, .sidebar {
-    display: none;
-  }
-  
-  .login-container {
+  .login-container,
+  .welcome-container {
     width: 90%;
-    margin: 20px auto;
-    left: 0;
-    transform: translateY(-50%);
-  }
-}
-
-@media (max-width: 576px) {
-  .login-container {
-    width: 100%;
     padding: 20px;
-    box-shadow: none;
-    border: none;
+    margin-bottom: 20px;
   }
 }
+  

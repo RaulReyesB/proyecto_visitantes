@@ -1,49 +1,56 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <title>
-    <%= namePage %>
-  </title>
-  <link rel="stylesheet" href="/css/style.css">
-</head>
+  <head>
+    <title>
+      <%= namePage %>
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
 
-<body>
-  <header>
+  <body>
+    <header>
 
-    <h1 class="header-title">¡Bienvenido a</h1>
-    <h2 class="header-subtitle">Radio y Televisión de Hidalgo!</h2>
-    <a href="/logout">Cerrar sesión</a>
+      <h1 class="header-title">¡Bienvenido a</h1>
+      <h2 class="header-subtitle">Radio y Televisión de Hidalgo!</h2>
+      <a href="/logout">Cerrar sesión</a>
 
-  </header>
+    </header>
 
-  <div class="container">
+    <div class="container">
 
-    <div class="tarjeta">
-      <div class="titulo">Pasante</div>
-      <div class="cuerpo">
-        <img src="img/programador.png" alt="muestra">
+      <div class="tarjeta">
+        <div class="titulo">Pasante</div>
+        <div class="cuerpo">
+          <a href="/registroInternos">
+          <img src="img/programador.png" alt="muestra">
+          </a>
+        </div>
+        <div class="pie">
+          <a href="/registroInternos">Acceder</a>
+        </div>
       </div>
-      <div class="pie">
-        <a href="/registroInternos">Acceder</a>
+      
+      <div class="tarjeta">
+        <div class="titulo">Registros</div>
+        <div class="cuerpo">
+          <a href="/registroVisitas">
+          <img src="img/tiempo.png" alt="muestra">
+        </a>
+        </div>
+        <div class="pie">
+          <a href="/registroVisitas">Acceder</a>
+        </div>
       </div>
-    </div>
-
-    <div class="tarjeta">
-      <div class="titulo">Registros</div>
-      <div class="cuerpo">
-        <img src="img/tiempo.png" alt="muestra">
-      </div>
-      <div class="pie">
-        <a href="/registroVisitas">Acceder</a>
-      </div>
-    </div>
-    <% if (user && (user.type==='superUsuario' || user.type==='administrador' )) { %>
+      <% if (user && (user.type==='superUsuario' || user.type==='administrador'
+      )) { %>
 
       <div class="tarjeta">
         <div class="titulo">Historial</div>
         <div class="cuerpo">
-          <img src="img/historial.png" alt="muestra">
+          <a href="/historial">
+            <img src="img/historial.png" alt="muestra">
+          </a>
         </div>
         <div class="pie">
           <a href="/historial">Acceder</a>
@@ -51,211 +58,85 @@
       </div>
       <% } %>
 
-
-        <div class="tarjeta">
-          <div class="titulo">Historial Pendiente </div>
-          <div class="cuerpo">
-            <img src="img/Hisp.png" alt="muestra">
-          </div>
-          <div class="pie">
-            <a href="/registrosPendientes">Acceder</a>
-          </div>
-        </div>
-
-        <div class="tarjeta">
-          <div class="titulo">Recursos Humanos </div>
-          <div class="cuerpo">
-            <img src="img/RH.png" alt="muestra">
-          </div>
-          <div class="pie">
-            <a href="/hr-visits">Acceder</a>
-          </div>
-        </div>
-
-
-
-        <div class="tarjeta">
-          <div class="titulo">Registrar usuario </div>
-          <div class="cuerpo">
-            <img src="img/RegistrarU.png" alt="muestra">
-          </div>
-          <div class="pie">
-            <a href="">Acceder</a>
-          </div>
-        </div>
-
-        <div class="tarjeta">
-          <div class="titulo">Control de usuarios </div>
-          <div class="cuerpo">
-            <img src="img/seguridad.png" alt="muestra">
-          </div>
-          <div class="pie">
-            <a href="">Acceder</a>
-          </div>
-
-        </div>
-
-
-        <div class="tarjeta">
-          <div class="titulo">Historial de pasante </div>
-          <div class="cuerpo">
-            <img src="img/historialPasantes.png" alt="muestra">
-          </div>
-          <div class="pie">
-            <a href="/historyInterns">Acceder</a>
-          </div>
-        </div>
-
-        <div class="tarjeta">
-          <div class="titulo">Historiales pendientes </div>
-          <div class="cuerpo">
-            <img src="img/archivo.png" alt="muestra">
-          </div>
-          <div class="pie">
-            <a href="/registrosPendientes">Acceder</a>
-          </div>
-        </div>
-
-        <div class="tarjeta">
-          <div class="titulo">Control de Pasantes </div>
-          <div class="cuerpo">
-            <img src="" alt="muestra">
-          </div>
-          <div class="pie">
-            <a href="/controlPasantes">Acceder</a>
-          </div>
-        </div>
-        <% if (user && (user.type==='superUsuario' || user.type==='administrador' )) { %>
-
-          <div class="tarjeta">
-            <div class="titulo">Recursos Humanos </div>
-            <div class="cuerpo">
-              <img src="img/RH.png" alt="muestra">
-            </div>
-            <div class="pie">
-              <a href="/hr-visits">Acceder</a>
-            </div>
-          </div>
-          <% } %>
-
-            <% if (user && (user.type==='superUsuario' || user.type==='administrador' )) { %>
-
-              <div class="tarjeta">
-                <div class="titulo">Registrar usuarios </div>
-                <div class="cuerpo">
-                  <img src="img/RegistrarU.png" alt="muestra">
-                </div>
-                <div class="pie">
-                  <a href="registroUsuario">Acceder</a>
-                </div>
-              </div>
-              <% } %>
-
-                <% if (user && (user.type==='superUsuario' || user.type==='administrador' )) { %>
-
-                  <div class="tarjeta">
-                    <div class="titulo">Control de usuarios </div>
-                    <div class="cuerpo">
-                      <img src="img/seguridad.png" alt="muestra">
-                    </div>
-                    <div class="pie">
-                      <a href="/AdmistrarUsuario">Acceder</a>
-                    </div>
-                  </div>
-                  <% } %>
-
-                    <% if (user && (user.type==='superUsuario' || user.type==='administrador' )) { %>
-
-                      <div class="tarjeta">
-                        <div class="titulo">Historiales de los pasantes </div>
-                        <div class="cuerpo">
-                          <img src="img/historialPasantes.png" alt="muestra">
-                        </div>
-                        <div class="pie">
-                          <a href="/historyInterns">Acceder</a>
-                        </div>
-                      </div>
-  </div>
-  <% } %>
-
-    <% if (user && (user.type==='superUsuario' || user.type==='rh' )) { %>
       <div class="tarjeta">
-        <div class="titulo">Historiales pendientes </div>
+        <div class="titulo">Historial Pendiente </div>
         <div class="cuerpo">
-          <img src="img/archivo.png" alt="muestra">
+          <a href="/registrosPendientes">
+            <img src="img/Hisp.png" alt="muestra">
+          </a>
+        </div>
+        <div class="pie">
+          <a href="/registrosPendientes">Acceder</a>
+        </div>
+      </div>
+
+      <div class="tarjeta">
+        <div class="titulo">Recursos Humanos </div>
+        <div class="cuerpo">
+          <a href="/hr-visits">
+            <img src="img/RH.png" alt="muestra">
+          </a>
+        </div>
+        <div class="pie">
+          <a href="/hr-visits">Acceder</a>
+        </div>
+      </div>
+
+      <div class="tarjeta">
+        <div class="titulo">Control de usuarios </div>
+        <div class="cuerpo">
+          <a href="">
+            <img src="img/seguridad.png" alt="muestra">
+          </a>
+        </div>
+        <div class="pie">
+          <a href="/AdmistrarUsuario">Acceder</a>
+        </div>
+      </div>
+
+      <div class="tarjeta">
+        <div class="titulo">Historial de pasante </div>
+        <div class="cuerpo">
+          <a href="/historyInterns">
+            <img src="img/historialPasantes.png" alt="muestra">
+          </a>
+        </div>
+        <div class="pie">
+          <a href="/historialInternos">Acceder</a>
+        </div>
+      </div>
+
+      <div class="tarjeta">
+        <div class="titulo">Control de Pasantes </div>
+        <div class="cuerpo">
+          <a href="/controlPasantes">
+            <img src="" alt="muestra">
+          </a>
         </div>
         <div class="pie">
           <a href="/controlPasantes">Acceder</a>
         </div>
       </div>
-      <% } %>
-        <div class="tarjeta">
-          <div class="titulo">Historiales pendientes </div>
-          <div class="cuerpo">
-            <img src="img/archivo.png" alt="muestra">
-          </div>
-          <div class="pie">
-            <a href="/registrosPendientes">Acceder</a>
-          </div>
+
+      <div class="tarjeta">
+        <div class="titulo">Registrar usuarios </div>
+        <div class="cuerpo">
+          <a href="/registroUsuario">
+            <img src="img/RegistrarU.png" alt="muestra">
+          </a>
         </div>
-        <% if (user && (user.type==='superUsuario' || user.type==='administrador' )) { %>
+        <div class="pie">
+          <a href="registroUsuario">Acceder</a>
+        </div>
+      </div>
 
-          <div class="tarjeta">
-            <div class="titulo">Recursos Humanos </div>
-            <div class="cuerpo">
-              <img src="img/RH.png" alt="muestra">
-            </div>
-            <div class="pie">
-              <a href="/hr-visits">Acceder</a>
-            </div>
-          </div>
-          <% } %>
-            <% if (user && (user.type==='superUsuario' || user.type==='administrador' )) { %>
+    </div>
 
-              <div class="tarjeta">
-                <div class="titulo">Registrar usuarios </div>
-                <div class="cuerpo">
-                  <img src="img/RegistrarU.png" alt="muestra">
-                </div>
-                <div class="pie">
-                  <a href="registroUsuario">Acceder</a>
-                </div>
-              </div>
-              <% } %>
-                <% if (user && (user.type==='superUsuario' || user.type==='administrador' )) { %>
+    <footer>
+      <p>TIC'S</p>
 
-                  <div class="tarjeta">
-                    <div class="titulo">Control de usuarios </div>
-                    <div class="cuerpo">
-                      <img src="img/seguridad.png" alt="muestra">
-                    </div>
-                    <div class="pie">
-                      <a href="/AdmistrarUsuario">Acceder</a>
-                    </div>
-                  </div>
-                  <% } %>
+    </footer>
 
-                    <% if (user && (user.type==='superUsuario' || user.type==='administrador' )) { %>
-
-                      <div class="tarjeta">
-                        <div class="titulo">Historiales de los pasantes </div>
-                        <div class="cuerpo">
-                          <img src="img/historialPasantes.png" alt="muestra">
-                        </div>
-                        <div class="pie">
-                          <a href="/historyInterns">Acceder</a>
-                        </div>
-                      </div>
-
-                      </div>
-                      <% } %>
-                        </div>
-
-                        <footer>
-                          <p>TIC'S</p>
-
-                        </footer>
-
-</body>
+  </body>
 
 </html>

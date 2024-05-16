@@ -24,4 +24,4 @@ const History_I = db.define("tb_historyInterns", {
         },
     }
 });
-export default Visit;
+export default History_I;

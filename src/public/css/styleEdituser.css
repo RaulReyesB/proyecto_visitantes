@@ -6,6 +6,11 @@
         justify-content: space-between;
         align-items: center;
       }
+      #var img {
+        width: 90px;
+        height: 90px;
+        margin: 5px;
+      }
       #var h1{
         color: white;
         font-size: 30px;
@@ -43,26 +48,27 @@
       .enlaces a {
         margin-right: 20px;
       }
+      .menu-hamburguesa {
+        display: none;
+    }
     /* Contenedor de todo el cuerpo */
     .container {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        margin-top: 60px;
+        margin-top: 10px;
     }
     /* Contenedor del formulario */
     .container-form {
         display: flex;
         align-items: center;
         background: white;
-        margin-top: 40px;
         margin-bottom: 50px;
-        padding: 25px;
-        padding-bottom: 10px;
+        padding: 30px;
         border-radius: 50px;
         flex-direction: column;
-        width: 700px;
+        width: 1200px;
         box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
     }
     /* Contenedor del titulo */
@@ -95,14 +101,20 @@
     /* Estilo de los botones */
     form .button {
         margin-top: 25px;
-        margin-left: 30%;
-        margin-right: 30%;
+        margin-left: 40%;
         padding: 5px;
         border-radius: 50px;
-        background: #900C3F;
+        transition: background-color 0.3s ease;
+        background-color: #900C3F;
         color: white;
         width: 200px;
     }
+    
+    form .button:hover {
+        background-color: #4fa3fc;
+        border: 1px  solid  #0078f8;
+    }
+    
     /* estilo de los selects*/
     select {
         display: block;
@@ -111,7 +123,7 @@
     .form-p {
         display: flex;
         flex-direction: column;
-        width: 500px;
+        width: 950px;
     }
     .btn-password{
         flex-direction: row;
@@ -140,18 +152,42 @@
 
     }
     
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 850px) {
         .cont-title{
             width: 450px;
         }
         .container-form {
-            width: 450px;
+            width: 600px;
         }
         .form-p {
-            width: 100%;
+            width: 500px;
         }
         form .button {
-            margin-left: 10%;
-            margin-right: 15%;
+            margin-left: 30%;
+        }
+        .enlaces {
+            display: none;
+        }
+        
+        .menu-hamburguesa {
+            display: block;
+        }
+        
+        .mostrar {
+            display: flex !important;
+            flex-direction: column;
+            align-items: center;
+            background: #32396c;
+            position: absolute;
+            top: 100px;
+            left: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        
+        .mostrar a {
+            color: white;
+            padding: 10px;
+            margin: 5px;
         }
     }

@@ -4,7 +4,7 @@ import Intern from "../models/Intern.js";
 import { validationResult, check } from "express-validator";
 import db from "../conecction.js";
 import Op from "sequelize";
-import bcrypt from 'bcryptjs';
+import bcrypt from "bcryptjs";
 
 // Función para renderizar la página de inicio
 const index = (req, res) => {
@@ -20,7 +20,7 @@ const register = (req, res) => {
   res.render("register", {
     namePage: "Registro de visitas",
     description: "Registrate en Radio y Television Hidalgo",
-    ninos:0,
+    ninos: 0,
   });
 };
 
@@ -29,7 +29,7 @@ const interns = (req, res) => {
   res.render("interns", {
     namePage: "Registro de Internos",
     description: "Regístra los internos de radio y television hidalgo",
-  })
+  });
 };
 
 // Función asincrónica para obtener y renderizar el historial de visitas
@@ -42,7 +42,7 @@ const history = async (req, res) => {
     const registros = allRegistros.filter((registro) => registro.exit !== null);
 
     // Parsear las fechas antes de pasarlas a la plantilla
-    registros.forEach(registro => {
+    registros.forEach((registro) => {
       registro.createdAt = formatDate(registro.createdAt);
       // Si es necesario, también puedes parsear la fecha de salida aquí
     });
@@ -58,13 +58,11 @@ const history = async (req, res) => {
   }
 };
 
-
 // Función asincrónica para obtener y renderizar el historial de visitas
 const historyInterns = async (req, res) => {
   try {
     // Todos los registros de la tabla
     const allRegistros = await Intern.findAll();
-   
 
     res.render("historyInterns", {
       namePage: "Historial de visitas",
@@ -77,17 +75,16 @@ const historyInterns = async (req, res) => {
   }
 };
 
-
 // Función para formatear la fecha
 function formatDate(dateString) {
   const date = new Date(dateString);
-  const day = String(date.getDate()).padStart(2, '0');
-  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0");
   const year = date.getFullYear();
-  const hours = String(date.getHours()).padStart(2, '0');
-  const minutes = String(date.getMinutes()).padStart(2, '0');
-  const seconds = String(date.getSeconds()).padStart(2, '0');
-  
+  const hours = String(date.getHours()).padStart(2, "0");
+  const minutes = String(date.getMinutes()).padStart(2, "0");
+  const seconds = String(date.getSeconds()).padStart(2, "0");
+
   return `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
 }
 
@@ -128,14 +125,15 @@ const showHRVisits = async (req, res) => {
     // Buscar todas las visitas donde el departamento sea Recursos Humanos
     const hrVisits = await Visit.findAll({
       where: {
-        department: 'RH'
-      }
+        department: "RH",
+      },
     });
 
     res.render("hrVisits", {
       namePage: "Visitas a Recursos Humanos",
-      description: "Lista de visitas dirigidas al departamento de Recursos Humanos",
-      visits: hrVisits
+      description:
+        "Lista de visitas dirigidas al departamento de Recursos Humanos",
+      visits: hrVisits,
     });
   } catch (error) {
     console.error("Error al obtener las visitas a Recursos Humanos:", error);
@@ -158,7 +156,7 @@ const insertVisit = async (req, res) => {
       children: req.body.children,
       badge: req.body.badge,
     });
-    console.log("Registro exitoso")
+    console.log("Registro exitoso");
     res.redirect(`/inicio`);
   } catch (error) {
     console.error(error);
@@ -187,7 +185,7 @@ const insertIntern = async (req, res) => {
       Program: req.body.Program,
       Observations: req.body.Observations,
     });
-    console.log("pasante guardado")
+    console.log("pasante guardado");
     res.redirect(`/inicio`);
   } catch (error) {
     console.error(error);
@@ -198,7 +196,10 @@ const insertIntern = async (req, res) => {
 const authenticateUser = async (req, res) => {
   try {
     // Validar los datos del formulario utilizando express-validator
-    await check("name").notEmpty().withMessage("El nombre de usuario es requerido").run(req);
+    await check("name")
+      .notEmpty()
+      .withMessage("El nombre de usuario es requerido")
+      .run(req);
     await check("password")
       .notEmpty()
       .withMessage("La contraseña es requerida")
@@ -240,7 +241,11 @@ const authenticateUser = async (req, res) => {
     if (!user.status) {
       return res.render("login", {
         namePage: "Iniciar Sesión en Radio y Television Hidalgo",
-        errors: [{ msg: "Tu cuenta está inactiva. Por favor, ponte en contacto con el administrador." }],
+        errors: [
+          {
+            msg: "Tu cuenta está inactiva. Por favor, ponte en contacto con el administrador.",
+          },
+        ],
       });
     }
 
@@ -318,7 +323,7 @@ const registerUser = async (req, res) => {
       type,
     });
 
-    console.log("Usuario Guardado")
+    console.log("Usuario Guardado");
     res.redirect(`/inicio`);
   } catch (error) {
     console.error(error);
@@ -327,8 +332,8 @@ const registerUser = async (req, res) => {
 };
 
 const rechargeUser = async (req, res) => {
-  res.redirect("/AdmistrarUsuario")
-}
+  res.redirect("/AdmistrarUsuario");
+};
 
 export {
   history,
@@ -343,6 +348,6 @@ export {
   interns,
   insertIntern,
   showHRVisits,
-  rechargeUser, 
-  historyInterns
+  rechargeUser,
+  historyInterns,
 };

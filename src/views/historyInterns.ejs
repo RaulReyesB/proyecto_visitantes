@@ -32,29 +32,30 @@
       <input type="text" id="searchInput" placeholder="Buscar...">
       <button type="button" onclick="search()"><i class="bi bi-search"></i></button>
     </div>
-
-    <select id="opcionesSelect" onchange="filter()">
-      <option value="hoy">Hoy</option>
-      <option value="semana">Esta semana</option>
-      <option value="mes">Este mes</option>
-      <option value="alfabetico">Orden alfabético</option>
-    </select>
-
   </div>
 
   <table id="tabla">
     <thead class="thead-gray">
       <tr>
         <th>Nombre</th>
-        <th>Teléfono</th>
-        <th>Correo</th>
-        <th>Curp</th>
-        <th>Identificación</th>
-        <th>Departamento</th>
-        <th>Procedencia</th>
-        <th>Gafete</th>
+        <th>Num. de Folio</th>
+        <th>Num. Control</th>
+        <th>Carrera</th>
+        <th>Direccion Asignada</th>
+        <th>Asesor</th>
+        <th>Num. Horas</th>
+        <th>Dias</th>
+        <th>Horario</th>
+        <th>Inicio de Servicio</th>
+        <th>Finalizacion de Servicio</th>
+        <th>Horas totales a cubrir</th>
+        <th>Programa</th>
+        <th>Observaciones</th>
+        <th>Servicio</th>
         <th>Fecha y Hora de entrada</th>
         <th>Fecha y Hora de salida</th>
+        <th>Horas Cumplidas</th>
+
       </tr>
     </thead>
     <tbody>
@@ -64,25 +65,46 @@
             <%= item.name %>
           </td>
           <td>
-            <%= item.phone %>
+            <%= item.fileNumber %>
           </td>
           <td>
-            <%= item.email %>
+            <%= item.Mat %>
           </td>
           <td>
-            <%= item.CURP %>
+            <%= item.career %>
           </td>
           <td>
-            <%= item.identification %>
+            <%= item.asignementDirec %>
           </td>
           <td>
-            <%= item.department %>
+            <%= item.adviser %>
           </td>
           <td>
-            <%= item.origin %>
+            <%= item.numberHours %>
           </td>
           <td>
-            <%= item.badge %>
+            <%= item.days %>
+          </td>
+          <td>
+            <%= item.shedule %>
+          </td>
+          <td>
+            <%= item.startService %>
+          </td>
+          <td>
+            <%= item.endService %>
+          </td>
+          <td>
+            <%= item.totHours %>
+          </td>
+          <td>
+            <%= item.Program %>
+          </td>
+          <td>
+            <%= item.Observations %>
+          </td>
+          <td>
+            <%= item.servicio %>
           </td>
           <td>
             <%= item.entrance %>
@@ -90,13 +112,18 @@
           <td>
             <%= item.exit %>
           </td>
+          <td>
+            <%= item.hoursFulfilled %>
+          </td>
+          <td>
+          </td>
         </tr>
         <% }); %>
     </tbody>
   </table>
 
   <script>
-    document.getElementById('searchInput').addEventListener('input', function() {
+    document.getElementById('searchInput').addEventListener('input', function () {
       const searchValue = this.value.toLowerCase();
       const table = document.getElementById('tabla');
       const rows = table.getElementsByTagName('tr');

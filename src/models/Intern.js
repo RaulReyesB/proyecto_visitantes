@@ -3,11 +3,11 @@ import { DataTypes } from "sequelize";
 import db from "../conecction.js";
 
 const Intern = db.define("tb_interns", {
-  name: {
+  fileNumber: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  fileNumber: {
+  name: {
     type: DataTypes.STRING,
     allowNull: false,
   },

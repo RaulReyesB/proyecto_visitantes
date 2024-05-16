@@ -170,8 +170,8 @@ const insertVisit = async (req, res) => {
 const insertIntern = async (req, res) => {
   try {
     const newIntern = await Intern.create({
-      name: req.body.name,
       fileNumber: req.body.fileNumber,
+      name: req.body.name,
       school: req.body.school,
       Mat: req.body.Mat,
       career: req.body.career,

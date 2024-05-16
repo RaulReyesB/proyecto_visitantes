@@ -170,15 +170,20 @@ const insertVisit = async (req, res) => {
 const insertIntern = async (req, res) => {
   try {
     const newIntern = await Intern.create({
+      fileNumber: req.body.fileNumber,
       name: req.body.name,
-      phone: req.body.phone,
-      email: req.body.email,
-      CURP: req.body.CURP,
-      identification: req.body.identification,
-      department: req.body.department,
-      subDepartment: req.body.subDepartment,
-      origin: req.body.origin,
-      badge: req.body.badge,
+      school: req.body.school,
+      Mat: req.body.Mat,
+      career: req.body.career,
+      asignementDirec: req.body.asignementDirec,
+      adviser: req.body.adviser,
+      numberHours: req.body.numberHours,
+      shedule: req.body.shedule,
+      hoursxDay: req.body.hoursxDay,
+      period: req.body.period,
+      totHours: req.body.totHours,
+      Program: req.body.Program,
+      Observations: req.body.Observations,
     });
     console.log("pasante guardado")
     res.redirect(`/inicio`);
@@ -275,7 +280,7 @@ const registerUser = async (req, res) => {
     await check("type")
       .notEmpty()
       .withMessage("El tipo de usuario es requerido")
-      .isIn(["usuario", "superUsuario", "administrador"])
+      .isIn(["usuario", "superUsuario", "administrador", "rh"])
       .withMessage("Tipo de usuario inválido")
       .run(req);
 

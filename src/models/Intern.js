@@ -35,6 +35,10 @@ const Intern = db.define("tb_interns", {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
+  days:{
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
   shedule: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -43,9 +47,13 @@ const Intern = db.define("tb_interns", {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
-  period: {
+  startService: {
     type: DataTypes.STRING,
     allowNull: false,
+  },
+  endService:{
+    type: DataTypes.STRING,
+    allowNull:false
   },
   totHours: {
     type: DataTypes.INTEGER,

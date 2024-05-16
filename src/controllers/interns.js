@@ -5,7 +5,8 @@ const controllInterns = async(req, res) => {
   res.render("controllInterns", {
     namePage: "Control de Pasantes",
     description: "Bienvenido a el control de Pasantes",
-    internt :internt 
+    internt :internt,
+    user: req.session.user, // Asegúrate de pasar req.session.user si lo estás almacenando en la sesión
   });
 };
 

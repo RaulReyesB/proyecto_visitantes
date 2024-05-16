@@ -1,4 +1,4 @@
-import Intern from "../models/intern.js";
+import Intern from "../models/Intern.js";
 
 const controllInterns = async(req, res) => {
   const internt = await Intern.findAll()  

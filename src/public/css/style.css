@@ -8,7 +8,6 @@ body {
   background-repeat: no-repeat; /* Evita que la imagen se repita */
 }
 
-
 header {
   background-color: #32396C; /* Color del encabezado */
   padding: 10px;
@@ -16,10 +15,9 @@ header {
   position: relative; /* Agregar posición relativa */
   border-radius: 0% 0% 50% 50%; /* Bordes redondeados en la parte inferior */
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* Sombra */
-
 }
 
-header a{
+header a {
   position: absolute;
   top: 10px; /* Ajuste de la posición vertical */
   right: 10px; /* Ajuste de la posición horizontal */
@@ -48,7 +46,6 @@ header a:hover {
   color: #c2c4d4; /* Color del texto */
 }
 
-
 @keyframes scaleIn {
   from {
     opacity: 0;
@@ -65,33 +62,58 @@ header a:hover {
   animation: scaleIn 1s ease forwards;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .container {
   max-width: 55%;
   margin: auto;
   padding: 20px;
   display: flex;
   flex-wrap: wrap;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: flex-start; /* Alinear el contenido al principio del contenedor */
-
+  opacity: 0;
+  animation: fadeIn 1s ease forwards; /* Animación de desvanecimiento */
 }
 
-.tarjeta{
-  width: calc(25% - 10px);; /* Ajuste del ancho para que haya cuatro tarjetas por fila */
+@keyframes flipIn {
+  from {
+    opacity: 0;
+    transform: rotateY(90deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotateY(0);
+  }
+}
+
+.tarjeta {
+  width: calc(25% - 10px); /* Ajuste del ancho para que haya cuatro tarjetas por fila */
   margin-bottom: 20px; /* Espacio entre tarjetas */
   background-color: #e1dbce; /* Fondo blanco para las tarjetas */
   border-radius: 15px;
   overflow: hidden; /* Evita que las imágenes se salgan de las tarjetas */
   display: flex;
   flex-direction: column; /* Alinear contenido verticalmente */
+  opacity: 0; /* Inicialmente oculto */
+  animation: flipIn 1s ease forwards; /* Animación de giro */
 }
 
 .tarjeta:hover {
   transform: translateY(-15px); /* Levanta ligeramente la tarjeta al pasar el cursor */
-  box-shadow: 0px 8px 16px rgba(2, 2, 2, 2.2); /* Sombra más pronunciada */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
 }
 
-.titulo{
+.titulo {
   font-size: 24px;
   padding: 10px;
   color: black;
@@ -110,7 +132,7 @@ header a:hover {
   transform: scale(0.9); /* Aumenta ligeramente el tamaño de la imagen al pasar el cursor */
 }
 
-.pie{
+.pie {
   background: #5078c8;
   border-radius: 0 0 15px 15px;
   padding: 10px;
@@ -118,14 +140,25 @@ header a:hover {
   margin-top: auto;
 }
 
-.pie a{
+.pie a {
   text-decoration: none;
   color: white;
   font-size: 20px;
 }
 
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 footer {
-  background-color: #32396C;
+  background: linear-gradient(135deg, #32396C 0%, #5078c8 100%);
   color: #ffffff;
   padding: 20px;
   text-align: center;
@@ -134,7 +167,8 @@ footer {
   border-radius: 10px 10px 0 0;
   margin-top: 20px;
   font-family: Arial, sans-serif;
-
+  opacity: 0;
+  animation: slideIn 1s ease forwards; /* Animación de entrada */
 }
 
 footer p {
@@ -142,10 +176,4 @@ footer p {
   font-size: 18px;
   line-height: 1.5; /* Espaciado entre líneas */
 }
-
-footer a:hover {
-  color: #c2c4d4;
-}
-
-
 

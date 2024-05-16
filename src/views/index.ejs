@@ -10,12 +10,28 @@
 
   <body>
     <header>
-
       <h1 class="header-title">¡Bienvenido a</h1>
       <h2 class="header-subtitle">Radio y Televisión de Hidalgo!</h2>
-      <a href="/logout">Cerrar sesión</a>
-
+  
+      <!-- Contenedor para la información del usuario y el botón de cerrar sesión -->
+      <div class="user-info-container">
+        <!-- Bloque de información del usuario -->
+        <div class="user-info">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-person-circle user-icon" viewBox="0 0 16 16" id="company-logo">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+          </svg>
+          <div class="user-info-details">
+            <span class="user-color"> <%= user.name %></span> <br>
+            <span class="user-color"> <%= user.type %></span>
+          </div>
+        </div>
+  
+        <!-- Botón de cerrar sesión -->
+        <a href="/logout" class="logout-link">Cerrar sesión</a>
+      </div>
     </header>
+  
     <% if (user && user.type !== 'usuario') { %>
 
     <% if (user && user.type !== 'rh') { %>
@@ -225,5 +241,37 @@
     </footer>
 
   </body>
+  <script>
+    var userType = '<%= user.type %>';
+  
+    // Función para asignar el color al SVG del logo
+    function setColorForLogo(userType) {
+      var logo = document.getElementById('company-logo');
+  
+      // Determina el color basado en el tipo de usuario
+      var color;
+      switch (userType) {
+        case 'superUsuario':
+          color = 'verde';
+          break;
+        case 'administrador':
+          color = 'anaranjado';
+          break;
+        case 'rh':
+          color = 'azul'; // Cambiado a azul para Recursos Humanos
+          break;
+        case 'usuario':
+          color = 'rojo';
+          break;
+      }
+  
+      // Aplica el color al rellenar el SVG
+      logo.setAttribute('fill', 'var(--user-color-' + color + ')');
+    }
+  
+    // Llama a la función para establecer el color del logo al cargar la página
+    setColorForLogo(userType);
+  </script>
+  
 
 </html>

@@ -169,6 +169,7 @@ const insertIntern = async (req, res) => {
   try {
     const newIntern = await Intern.create({
       fileNumber: req.body.fileNumber,
+      service: req.body.service,
       img: req.body.img,
       name: req.body.name,
       school: req.body.school,

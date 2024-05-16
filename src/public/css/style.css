@@ -1,15 +1,38 @@
+.user-info-container {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 10px;
+  right: 10px; /* Adjust horizontal position */
+}
+
+.user-info {
+  margin-right: 200px;
+}
+
+.logout-link {
+  margin-left: 10px;
+}
+
+/* Original CSS from your stylesheet */
+:root {
+  --user-color-verde: rgb(59, 239, 59);
+  --user-color-anaranjado: orange;
+  --user-color-azul: rgb(47, 203, 231);
+  --user-color-rojo: rgb(229, 53, 53);
+}
 body {
   font-family: Arial, sans-serif;
   color: #ffffff;
   margin: 0;
   padding: 0;
   background-image: url('https://angelking.neocities.org/styles/RPH.jpg');
-  background-size: cover; /* Hace que la imagen de fondo cubra todo el área del cuerpo */
-  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 header {
-  background-color: #32396C; /* Color del encabezado */
+  background-color: #32396C;
   padding: 10px;
   text-align: center;
   position: relative; /* Agregar posición relativa */
@@ -19,8 +42,8 @@ header {
 
 header a {
   position: absolute;
-  top: 10px; /* Ajuste de la posición vertical */
-  right: 10px; /* Ajuste de la posición horizontal */
+  top: 10px;
+  right: 10px;
   text-decoration: none;
   color: #ffffff;
   background-color: #e74c3c;
@@ -30,20 +53,20 @@ header a {
 }
 
 header a:hover {
-  background-color: #c0392b; /* Color de fondo del enlace al pasar el cursor */
+  background-color: #c0392b;
 }
 
 .header-title {
-  font-size: 36px; /* Tamaño del texto */
-  font-weight: bold; /* Negrita */
-  color: #FAB518; /* Color del texto */
-  margin-bottom: 10px; /* Espacio inferior */
+  font-size: 36px;
+  font-weight: bold;
+  color: #FAB518;
+  margin-bottom: 10px;
 }
 
 .header-subtitle {
-  font-size: 24px; /* Tamaño del texto */
+  font-size: 24px;
   font-style: italic;
-  color: #c2c4d4; /* Color del texto */
+  color: #c2c4d4;
 }
 
 @keyframes scaleIn {
@@ -101,7 +124,7 @@ header a:hover {
   margin-bottom: 20px; /* Espacio entre tarjetas */
   background-color: #e1dbce; /* Fondo blanco para las tarjetas */
   border-radius: 15px;
-  overflow: hidden; /* Evita que las imágenes se salgan de las tarjetas */
+  overflow: hidden;
   display: flex;
   flex-direction: column; /* Alinear contenido verticalmente */
   opacity: 0; /* Inicialmente oculto */
@@ -121,15 +144,15 @@ header a:hover {
 }
 
 .cuerpo img {
-  width: 70%; /* La imagen ocupa todo el ancho de su contenedor */
-  height: auto; /* Mantiene la proporción de la imagen */
+  width: 70%;
+  height: auto;
   display: block;
   margin: 0 auto;
   transition: transform 0.3s ease;
 }
 
 .cuerpo img:hover {
-  transform: scale(0.9); /* Aumenta ligeramente el tamaño de la imagen al pasar el cursor */
+  transform: scale(0.9);
 }
 
 .pie {
@@ -163,7 +186,7 @@ footer {
   padding: 20px;
   text-align: center;
   border-top: 2px solid #5078c8;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* Sombra */
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
   border-radius: 10px 10px 0 0;
   margin-top: 20px;
   font-family: Arial, sans-serif;
@@ -174,6 +197,6 @@ footer {
 footer p {
   margin: 0;
   font-size: 18px;
-  line-height: 1.5; /* Espaciado entre líneas */
+  line-height: 1.5;
 }
 

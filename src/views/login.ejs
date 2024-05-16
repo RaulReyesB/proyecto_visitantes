@@ -11,9 +11,14 @@
 </head>
 <body>
   <div class="custom-background"></div>
-  <div class="container d-flex align-items-center justify-content-center min-vh-100">
-    <div class="login-container">
+  <div class="container d-flex align-items-center justify-content-center min-vh-100 flex-column flex-lg-row">
+    <div class="welcome-container order-2 order-lg-1">
+      <h1>¡Bienvenido!</h1>
+      <img src="/img/radioytvlogo.png" alt="Logo" class="logo-img">
+    </div>
+    <div class="login-container order-1 order-lg-2">
       <h2>Iniciar Sesión</h2>
+      <p>Sistema de Registro y Acceso a Radio y Televisión Hidalgo</p>
       <form action="/inicio" method="post">
         <div class="form-group">
           <input type="text" onkeyup="this.value = this.value.toUpperCase();" class="form-control" name="name" placeholder="Nombre de usuario" required>
@@ -33,11 +38,14 @@
       </div>
       <% } %>
     </div>
-    <div class="welcome-container">
-      <h1>¡Bienvenido!</h1>
-      <p>Sistema de Registro y Acceso a Radio y Televisión Hidalgo</p>
-    </div>
   </div>
+  <footer class="footer-container">
+    <div class="footer-content">
+      <img src="/img/logotipo.png" alt="Logo Footer" class="footer-logo">
+      <p>Todos los derechos reservados.</p>
+      <p>Desarrollado por TICS</p>
+    </div>
+  </footer>
   <!-- Agregar los scripts de Bootstrap JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>

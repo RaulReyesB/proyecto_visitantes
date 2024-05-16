@@ -6,6 +6,11 @@
         justify-content: space-between;
         align-items: center;
       }
+      #var img {
+        width: 90px;
+        height: 90px;
+        margin: 5px;
+      }
       #var h1{
         color: white;
         font-size: 30px;
@@ -43,6 +48,9 @@
       .enlaces a {
         margin-right: 20px;
       }
+      .menu-hamburguesa {
+        display: none;
+    }
     /* Contenedor de todo el cuerpo */
     .container {
         display: flex;
@@ -104,6 +112,7 @@
     
     form .button:hover {
         background-color: #4fa3fc;
+        border: 1px  solid  #0078f8;
     }
     
     /* estilo de los selects*/
@@ -155,5 +164,30 @@
         }
         form .button {
             margin-left: 30%;
+        }
+        .enlaces {
+            display: none;
+        }
+        
+        .menu-hamburguesa {
+            display: block;
+        }
+        
+        .mostrar {
+            display: flex !important;
+            flex-direction: column;
+            align-items: center;
+            background: #32396c;
+            position: absolute;
+            top: 100px;
+            left: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        
+        .mostrar a {
+            color: white;
+            padding: 10px;
+            margin: 5px;
         }
     }

@@ -38,21 +38,23 @@ a:hover .home {
   height: auto;
 }
 #var img {
-  width: 90px;
-  height: 90px;
-  margin: 5px;
+  width: 60px;
+  height: 60px;
+  margin: 3px;
 }
 #var h1{
   color: white;
-  font-size: 30px;
+  font-size: 23px;
 
 }
 #var a {
   color: white;
-  text-decoration: none;
+  text-decoration:double;
   position: relative;
 }
-
+svg{
+  position: relative;
+}
 #var a:hover {
   color: white;
 }
@@ -70,14 +72,17 @@ a:hover .home {
 }
 
 #var a:hover::after {
-  background-color: #9931f1;
+  background-color: #b377e4;
 }
 .enlaces {
   display: flex;
 }
 
 .enlaces a {
-  margin-right: 20px;
+  
+  margin-right: 0.5%;
+  margin-bottom: 10px; 
+  text-align: center;
 }
 .menu-hamburguesa {
   display: none;
@@ -86,22 +91,10 @@ a:hover .home {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    width: 700px;
-    margin: 0 auto;
+    width: 600px;
     color: white;
   }
 
-  
-
-.search-container {
-  display: flex;
-  align-items: center;
-  width: 700px;
-  margin: 50px auto;
-  border-radius: 25px;
-  overflow: hidden;
-  border: 1px solid #ccc;
-}
 
 .search-container input[type="text"] {
   width: 100%;

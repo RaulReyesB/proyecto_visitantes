@@ -135,39 +135,39 @@ a:hover .home {
     background-color: gray;
   }
 
-  #buscador {
-    text-align: center;
-            align-items: center;
-            width: 500px;
-            border-radius: 25px;
-            overflow: hidden; 
-            
-          
+#buscador {
+  text-align: center;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: 25px;
+  overflow: hidden;
 }
 
-#opcionesSelect, #buscarBtn {
-    padding: 8px;
-    margin: 1%;
-    
+#opcionesSelect,
+#buscarBtn {
+  padding: 8px;
+  margin: 1%;
 }
 
 #opcionesSelect {
-    margin-right: 10px;
-    border-radius: 10%;
+  margin-right: 10px;
+  border-radius: 10%;
 }
-option{
+option {
   text-align: center;
 }
 
-
 .search-container {
   display: flex;
-            align-items: center;
-            width: 700px;
-            margin: 50px auto;
-            border-radius: 25px;
-            overflow: hidden; 
-            border: 1px solid #ccc;
+  align-items: center;
+  width: 100%;
+  max-width: 700px;
+  margin: 50px auto;
+  border-radius: 25px;
+  overflow: hidden;
+  border: 1px solid #ccc;
 }
 
 .search-container input[type="text"] {
@@ -191,9 +191,29 @@ option{
 .search-container button:hover {
   background-color: white;
 }
-i{
+i {
   color: #000;
 }
-#searchType{
+#searchType {
   background: white;
+}
+
+@media (max-width: 768px) {
+  #var {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .enlaces {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .enlaces a {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  #buscador,
+  .search-container {
+    width: 100%;
+    max-width: 100%;
+  }
 }

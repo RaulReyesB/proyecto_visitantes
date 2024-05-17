@@ -35,14 +35,14 @@ router.get("/inicio", requireAuth, index);
 router.get("/registroVisitas", requireAuth, register);
 router.post("/registroVisitas", requireAuth, insertVisit);
 router.get("/historial", requireAuth, requireSuperUser, history);
-router.get("/historialInternos", requireAuth, requireRH, historyInterns);
+router.get("/historialInternos", requireAuth, requireRH, requireSuperUser, historyInterns);
 
 router.get("/registrosPendientes", requireAuth, pendingRecords);
 router.get("/registroUsuario", requireAuth, requireSuperUser, renderRegisterPage);
 router.post("/registroUsuario", requireAuth, requireSuperUser, registerUser);
 router.get("/registroInternos", requireAuth, interns);
-router.post("/registroInternos", requireAuth, requireRH, insertIntern);
-router.get("/hr-visits", requireAuth, requireRH, showHRVisits);
+router.post("/registroInternos", requireAuth, requireRH, requireSuperUser, insertIntern);
+router.get("/hr-visits", requireAuth, requireRH, requireSuperUser, showHRVisits);
 
 // Rutas públicas (sin autenticación)
 router.get("/iniciarSesion", login);

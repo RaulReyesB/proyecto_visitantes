@@ -2,59 +2,62 @@
 <html>
 
 <head>
-    <title><%= namePage %></title>
-    <!-- Estilos de CSS y Bootstrap -->
+    <title>
+        <%= namePage %>
+    </title>
+    <!-- CSS y estilos de Bootstrap -->
     <link rel="stylesheet" href="/css/styleinterns.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <!-- ESTILOS PARA OCULTAR LOS BOTONES DE MAS Y MENOS EN  LOS INPUT DE TIPO NUMBER-->
-        <style>
-            input::-webkit-outer-spin-button,
-            input::-webkit-inner-spin-button {
-                -webkit-appearance: none;
-                margin: 0;
-            }
-            input[type="number"] {
-                -moz-appearance: textfield;
-            }
-            </style>
+    <!-- Estilos para ocultar los botones de incremento y decremento en campos de número -->
+    <style>
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
 
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+    </style>
 </head>
 
-<body style="font-family: 'Poppins', sans-serif; "></body>
-<!--  Contenido del encabezado  -->
-<div class="fondo"></div>
-
-<div id="var">
-    <div>
-        <img src="/img/radioytvlogo.png" alt="">
-    </div>
-    <h1>
-        <%= description %>
-    </h1>
-
-    <div class="enlaces">
-        <a href="/registroInternos">Pasantes</a>
-        <% if (user && user.type !== 'rh') { %>
-        <a href="/registroVisitas">Registros</a>
-        <a href="/historial">Historial de visitantes</a>
-        <a href="/registrosPendientes">Pendientes de Salida</a>
-        <a href="/registroUsuario">Registrar Usuario</a>
-        <a href="/AdmistrarUsuario">Control de Usuarios</a>
-        <a href="/hr-visits">Recursos Humanos</a>
-        <a href="/historialInternos">Historial de pasante </a>
-        <a href="/controlPasantes">Control de Pasantes</a>
-        <% } %>
-    </div>
-    <div class="menu-hamburguesa bg-primary">
-        <div class="hamburguesa-icono"></div>
-    </div>
-    <a href="/inicio">
-        <svg class="home" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 64 64">
-            <path d="M 32 3 L 1 28 L 1.4921875 28.654297 C 2.8591875 30.477297 5.4694688 30.791703 7.2304688 29.345703 L 32 9 L 56.769531 29.345703 C 58.530531 30.791703 61.140812 30.477297 62.507812 28.654297 L 63 28 L 54 20.742188 L 54 8 L 45 8 L 45 13.484375 L 32 3 z M 32 13 L 8 32 L 8 56 L 56 56 L 56 35 L 32 13 z M 26 34 L 38 34 L 38 52 L 26 52 L 26 34 z"></path>
+<body style="font-family: 'Poppins', sans-serif;">
+    <!-- Contenido del encabezado -->
+    <div class="fondo"></div>
+    <div id="var">
+        <div>
+            <img src="/img/radioytvlogo.png" alt="">
+        </div>
+        <h1>
+            <%= description %>
+        </h1>
+        <div class="enlaces">
+            <a href="/registroInternos">Pasantes</a>
+            <% if (user && user.type !=='rh' ) { %>
+                <a href="/registroVisitas">Registros</a>
+                <a href="/historial">Historial de visitantes</a>
+                <a href="/registrosPendientes">Pendientes de Salida</a>
+                <a href="/registroUsuario">Registrar Usuario</a>
+                <a href="/AdmistrarUsuario">Control de Usuarios</a>
+                <a href="/hr-visits">Recursos Humanos</a>
+                <a href="/historialInternos">Historial de pasante</a>
+                <a href="/controlPasantes">Control de Pasantes</a>
+                <% } %>
+        </div>
+        <div class="menu-hamburguesa bg-primary">
+            <div class="hamburguesa-icono"></div>
+        </div>
+        <a href="/inicio">
+            <svg class="home" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100"
+                viewBox="0 0 64 64">
+                <path
+                    d="M 32 3 L 1 28 L 1.4921875 28.654297 C 2.8591875 30.477297 5.4694688 30.791703 7.2304688 29.345703 L 32 9 L 56.769531 29.345703 C 58.530531 30.791703 61.140812 30.477297 62.507812 28.654297 L 63 28 L 54 20.742188 L 54 8 L 45 8 L 45 13.484375 L 32 3 z M 32 13 L 8 32 L 8 56 L 56 56 L 56 35 L 32 13 z M 26 34 L 38 34 L 38 52 L 26 52 L 26 34 z">
+                </path>
             </svg>
-    </a>
-</div>
+        </a>
+    </div>
     <!-- Contenedor principal -->
     <div class="container">
         <div class="cont-title">
@@ -66,7 +69,8 @@
                 <div class="form-inputs">
                     <div class="form-p">
                         <label for="fileNumber">Ingresa tu folio</label>
-                        <input class="form-control" type="text" name="fileNumber" id="fileNumber" placeholder="Folio" required>
+                        <input class="form-control" type="text" name="fileNumber" id="fileNumber" placeholder="Folio"
+                            required>
                         <label for="service">Ingresa el tipo de servicio prestado</label>
                         <select class="form-control" name="service" id="service" required>
                             <option selected disabled>-- Seleccione un servicio --</option>
@@ -80,18 +84,21 @@
                         <label for="name">Ingresa tu nombre</label>
                         <input class="form-control" type="text" name="name" id="name" placeholder="Nombre" required>
                         <label for="school">Ingresa tu escuela</label>
-                        <input class="form-control" type="text" name="school" id="school" placeholder="Escuela" required>
+                        <input class="form-control" type="text" name="school" id="school" placeholder="Escuela"
+                            required>
                         <label for="Mat">N° control</label>
                         <input class="form-control" type="text" name="Mat" id="Mat" placeholder="N° control" required>
                         <label for="career">Carrera</label>
-                        <input class="form-control" type="text" name="career" id="career" placeholder="Carrera" required>
-
+                        <input class="form-control" type="text" name="career" id="career" placeholder="Carrera"
+                            required>
                     </div>
                     <div class="form-p">
                         <label for="adviser">Asesor</label>
-                        <input class="form-control" type="text" name="adviser" id="adviser" placeholder="Asesor" required>
+                        <input class="form-control" type="text" name="adviser" id="adviser" placeholder="Asesor"
+                            required>
                         <label for="numberHours">N° Horas</label>
-                        <input class="form-control" type="number" name="numberHours" id="numberHours" placeholder="N° Horas" required>
+                        <input class="form-control" type="number" name="numberHours" id="numberHours"
+                            placeholder="N° Horas" required>
                         <label for="days">Días (Horario)</label>
                         <select class="form-control" name="days" id="days" required>
                             <option selected disabled>-- Seleccione un día --</option>
@@ -105,78 +112,47 @@
                         <select class="form-control" name="shedule" id="shedule" required>
                             <option selected disabled>-- Seleccione un horario --</option>
                             <option value="09:00-16:00">09:00-16:00</option>
+                            <option value="10:00-17:00">10:00-17:00</option>
+                            <option value="11:00-18:00">11:00-18:00</option>
+                            <option value="12:00-19:00">12:00-19:00</option>
                         </select>
-                        <label for="hoursxDay">Horas al día</label>
-                        <input class="form-control" type="number" name="hoursxDay" id="hoursxDay" placeholder="Horas al día" required>
-                        
-                        <label for="starService">Inicio de servicio</label>
-                        <input class="form-control" type="date"  name="startService" id="startService" placeholder="Inicio de servicio" required>
-                        <label for="endService">finalización de servicio</label>
-                        <input class="form-control" type="date" name="endService" id="endService" placeholder="Finalización de servicio" required>
+                        <label for="hoursxDay">Horas por día</label>
+                        <input class="form-control" type="number" name="hoursxDay" id="hoursxDay"
+                            placeholder="Horas por día" required>
+                        <label for="asignementDirec">Asig. Dirección</label>
+                        <input class="form-control" type="text" name="asignementDirec" id="asignementDirec"
+                            placeholder="Asig. Dirección" required>
                     </div>
-                        <div class="from-p">
-                        <label for="totHours">Horas totales a cubrir</label>
-                        <input class="form-control" type="number" name="totHours" id="totHours" placeholder="Horas totales a cubrir" required>
-
-
-                        <label for="Program">Programa</label>
-                        <input class="form-control" type="text" name="Program" id="Program" placeholder="Programa" required>
-                        <label for="Observations">Observaciones</label>
-                        <input class="form-control" type="text" name="Observations" id="Observations" placeholder="Observaciones" required>
-                        <label for="department">Dirección asignada</label>
-                        <select class="form-control" id="asignementDirec" name="asignementDirec" required>
-                            <option selected disabled>-- Seleccione una opción --</option>
-                            <option value="DG">Dirección General</option>
-                            <option value="DCFP">Dirección de Coordinación Financiera y Planeación</option>
-                            <option value="DT">Dirección de Televisión</option>
-                            <option value="DN">Dirección de Noticias</option>
-                            <option value="DR">Dirección de Radio</option>
-                            <option value="DI">Dirección de Ingeniería</option>
-                            <option value="DPE">Dirección de Proyectos Estratégicos</option>
-                            <option value="DC">Dirección de Contraloría</option>
-                            <option value="DPI">Dirección de Promoción e Intercambio</option>
-                            <option value="DJ">Dirección Jurídica</option>
-                            <option value="IMG">Imagen</option>
-                            <option value="ER">Estaciones de Radio</option>
-                        </select>
-                        <div >
-                            <label for="img">Subir foto</label>
-                            <input class="form-control" type="file" name="img" id="img" accept="image/*" required>
-                        </div>
-                        <!-- Campo para mostrar la imagen -->
-                        <div class="">
-                            <label for="imgPreview">Vista previa de la imagen:</label>
-                            <img class="v-img" id="imgPreview" src="#" alt="Vista previa de la imagen">
-                        </div>
-                        
+                    <div class="form-p">
+                        <label for="startService">Inicio de servicio</label>
+                        <input class="form-control" type="date" name="startService" id="startService"
+                            placeholder="Inicio de servicio" required>
+                        <label for="endService">Fin de servicio</label>
+                        <input class="form-control" type="date" name="endService" id="endService"
+                            placeholder="Fin de servicio" required>
+                        <label for="totHours">Total de horas</label>
+                        <input class="form-control" type="number" name="totHours" id="totHours"
+                            placeholder="Total de horas" required>
                     </div>
                 </div>
-                <input class="btn btn-lg button mt-3 mb-4" type="submit" value="Guardar">
+                <label for="Program">Programa</label>
+                <input class="form-control" type="text" name="Program" id="Program" placeholder="Programa">
+                <label for="Observations">Observaciones</label>
+                <textarea class="form-control" name="Observations" id="Observations"
+                    placeholder="Observaciones"></textarea>
+                <label for="img">Sube una imagen</label>
+                <input class="form-control" type="file" name="img" id="img">
+                <button class="form-control btn-primary" type="submit">Registrar</button>
             </form>
         </div>
     </div>
-    <script>
-
-        //script para que la fecha minima de inicio de servicio sea la fecha actual
-      window.onload = function() {
-        var today = new Date();
-        var dd = String(today.getDate()).padStart(2, '0');
-        var mm = String(today.getMonth() + 1).padStart(2, '0'); //Enero es 0!
-        var yyyy = today.getFullYear();
-
-        today = yyyy + '-' + mm + '-' + dd;
-        document.getElementById("startService").setAttribute("min", today);
-        document.getElementById("endService").setAttribute("min", today);
-      };
-      // Código JavaScript para mostrar la imagen previamente seleccionada
-      document.getElementById("img").addEventListener("change", function() {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-          document.getElementById("imgPreview").src = e.target.result;
-        }
-        reader.readAsDataURL(this.files[0]);
-      });
-    </script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+dOF7fCuM2b7eA2eM3Qog1ylHf1Kn4KrYlE5Cw5LGpCwJtw"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

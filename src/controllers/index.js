@@ -11,7 +11,7 @@ const index = (req, res) => {
   res.render("index", {
     namePage: "Inicio",
     description: "Bienvenido a Radio y Television Hidalgo",
-    user: req.session.user, // Asegúrate de pasar req.session.user si lo estás almacenando en la sesión
+    user: req.session.user,
   });
 };
 
@@ -26,9 +26,9 @@ const register = (req, res) => {
 
 //funcion para renderizar la pagina de registro de internos
 const interns = (req, res) => {
-  var user = req.user || null
-  if(user){
-    user.type = user.Type || 'default'
+  var user = req.user || null;
+  if (user) {
+    user.type = user.Type || "default";
   }
   res.render("interns", {
     namePage: "Registro de Internos",
@@ -71,7 +71,7 @@ const historyInterns = async (req, res) => {
         serviceCompleted: false,
       },
     });
-    var user = req.user || null
+    var user = req.user || null;
     res.render("historyInterns", {
       namePage: "Historial de visitas",
       descripcion: "Historial de visitantes de Radio y Television Hidalgo",
@@ -130,7 +130,7 @@ const pendingRecords = async (req, res) => {
 
 // Función asincrónica para mostrar visitas dirigidas a Recursos Humanos
 const showHRVisits = async (req, res) => {
-  var user = req.user || null
+  var user = req.user || null;
   try {
     // Buscar todas las visitas donde el departamento sea Recursos Humanos
     const hrVisits = await Visit.findAll({
@@ -176,32 +176,54 @@ const insertVisit = async (req, res) => {
 
 //funcion para registrar internos
 const insertIntern = async (req, res) => {
+  const {
+    fileNumber,
+    name,
+    img,
+    school,
+    Mat,
+    career,
+    asignementDirec,
+    adviser,
+    numberHours,
+    days,
+    shedule,
+    hoursxDay,
+    startService,
+    endService,
+    totHours,
+    Program,
+    Observations,
+    service,
+  } = req.body;
+
   try {
-    const newIntern = await Intern.create({
-      fileNumber: req.body.fileNumber,
-      service: req.body.service,
-      img: req.body.img,
-      name: req.body.name,
-      school: req.body.school,
-      Mat: req.body.Mat,
-      career: req.body.career,
-      asignementDirec: req.body.asignementDirec,
-      adviser: req.body.adviser,
-      numberHours: req.body.numberHours,
-      days: req.body.days,
-      shedule: req.body.shedule,
-      hoursxDay: req.body.hoursxDay,
-      startService: req.body.startService, // Corregir aquí
-      endService: req.body.endService,
-      totHours: req.body.totHours,
-      Program: req.body.Program,
-      Observations: req.body.Observations,
+    // Insertar el nuevo pasante en la base de datos
+    await Intern.create({
+      fileNumber,
+      name,
+      img,
+      school,
+      Mat,
+      career,
+      asignementDirec,
+      adviser,
+      numberHours,
+      days,
+      shedule,
+      hoursxDay,
+      startService,
+      endService,
+      totHours,
+      hoursFulfilled: 0, // Valor por defecto
+      Program,
+      Observations,
+      service,
     });
-    console.log("pasante guardado");
-    res.redirect(`/inicio`);
+    res.redirect("/controlPasantes");
   } catch (error) {
-    console.error(error);
-    res.status(500).send("Error interno del servidor");
+    console.error("Error al insertar pasante:", error);
+    res.status(500).send("Error al insertar pasante");
   }
 };
 

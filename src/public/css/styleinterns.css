@@ -18,11 +18,14 @@
         height: auto;
     }
       #var img {
-        width: 90px;
-        height: 90px;
+        width: 100px;
+        height: auto;
         margin: 5px;
       }
-      
+      .home{
+        color: white;
+        text-decoration: none;
+      }
       #var h1{
         color: white;
         font-size: 30px;
@@ -58,10 +61,6 @@
       
       .enlaces a {
         margin-right: 20px;
-      }
-      #home {
-        color: red;
-        text-decoration: none;
       }
       .menu-hamburguesa {
         display: none;
@@ -112,7 +111,7 @@
         display: flex;
         flex-direction: row;
         width: 1150px;
-        height: auto;
+        height: 600px;
     }
     .form-p {
         display: flex;
@@ -178,19 +177,21 @@
         padding: 5px 10px;
         font-size: 16px;
     }
+    .v-img{
+      max-width: 100%;
+      height: auto;
+      border-radius: 20px;
+    }
     /*estilos para pantallas pequeñas */
     @media (max-width: 1150px) {
 
       .container-form{
-        height: 500px;
+        height: 850px;
         width: 1000px;
       }
       .form-inputs{
-        height: 350px;
+        height: 750px;
         width: 900px;
-      }
-      .input-2{
-        height: 2000px;
       }
       .form-inputs input {
         display: block;

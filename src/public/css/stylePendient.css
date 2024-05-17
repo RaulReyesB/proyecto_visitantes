@@ -4,7 +4,47 @@
     background: #E8E8E8;
     font-family: Arial, Helvetica, sans-serif;
   }
+  .search-container{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 700px;
+    margin: 50px auto;
+    border-radius: 25px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+  }
+  .search-container input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc; /* Asegura el mismo borde que el botón */
+    border-right: none; /* Quita el borde derecho */
+    border-radius: 4px 0 0 4px;
+    outline: none;
+    
+  }
   
+  .search-container button {
+    padding: 10px;
+    border: 1px solid #ccc; /* Asegura el mismo borde que el input */
+    border-left: none; /* Quita el borde izquierdo */
+    background-color: white;
+    color: #000; /* Asegura que el texto sea visible */
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+  }
+  
+  .search-container button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  i {
+    color: #000;
+  }
+  
+  #searchType {
+    background: white;
+  }
   #var {
     background: #32396c;
     padding: 15px;

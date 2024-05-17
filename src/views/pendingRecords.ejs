@@ -41,11 +41,14 @@
 
 <!--  Contenedor principal  -->
 <div class="container">
+  <div style="display: flex; justify-content: center;">
+    <label for="searchInput">Buscar por nombre curp o fecha (DD/MM/AAAA)</label>
+</div>
 
-  <div class="search-container">
+<div class="search-container">
     <input type="text" id="searchInput" placeholder="Buscar...">
     <button type="button" onclick="search()"><i class="bi bi-search"></i></button>
-  </div>
+</div>
 <br>
   <table id="tabla">
     <thead class="thead-gray">

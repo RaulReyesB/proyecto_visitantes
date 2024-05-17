@@ -7,6 +7,18 @@
     <link rel="stylesheet" href="/css/styleRegister.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <!-- ESTILOS PARA OCULTAR LOS BOTONES DE MAS Y MENOS EN  LOS INPUT DE TIPO NUMBER-->
+        <style>
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+            input[type="number"] {
+                -moz-appearance: textfield;
+            }
+            </style>
+
 </head>
 
 <body style="font-family: 'Poppins', sans-serif; background-image: url('https://chij3.s3.amazonaws.com/images/atractivos/a.8175e459d0eca153e2bdc51c9a03c17d.png');"></body>
@@ -94,12 +106,12 @@
                         <input class="form-control" type="number" name="hoursxDay" id="hoursxDay" placeholder="Horas al día" required>
                         
                         <label for="starService">Inicio de servicio</label>
-                        <input class="form-control" type="date" name="startService" id="startService" placeholder="Inicio de servicio" required>
+                        <input class="form-control" type="date"  name="startService" id="startService" placeholder="Inicio de servicio" required>
                         <label for="endService">finalización de servicio</label>
                         <input class="form-control" type="date" name="endService" id="endService" placeholder="Finalización de servicio" required>
                         
                         <label for="totHours">Horas totales a cubrir</label>
-                        <input class="form-control" type="time" name="totHours" id="totHours" placeholder="Horas totales a cubrir" required>
+                        <input class="form-control" type="number" name="totHours" id="totHours" placeholder="Horas totales a cubrir" required>
 
 
                         <label for="Program">Programa</label>
@@ -128,14 +140,26 @@
         </div>
     </div>
     <script>
-        // Código JavaScript para mostrar la imagen previamente seleccionada
-        document.getElementById("img").addEventListener("change", function () {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                document.getElementById("imgPreview").src = e.target.result;
-            }
-            reader.readAsDataURL(this.files[0]);
-        });
+
+        //script para que la fecha minima de inicio de servicio sea la fecha actual
+      window.onload = function() {
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //Enero es 0!
+        var yyyy = today.getFullYear();
+
+        today = yyyy + '-' + mm + '-' + dd;
+        document.getElementById("startService").setAttribute("min", today);
+        document.getElementById("endService").setAttribute("min", today);
+      };
+      // Código JavaScript para mostrar la imagen previamente seleccionada
+      document.getElementById("img").addEventListener("change", function() {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          document.getElementById("imgPreview").src = e.target.result;
+        }
+        reader.readAsDataURL(this.files[0]);
+      });
     </script>
 </body>
 

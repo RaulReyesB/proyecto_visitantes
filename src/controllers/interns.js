@@ -53,4 +53,27 @@ const registrarSalida = async (req, res) => {
     res.status(500).send("Error interno del servidor");
   }
 };
-export { controllInterns, registrarEntrada, registrarSalida };
+
+
+const getInternDetails = async (req, res) => {
+  try {
+    const internId = req.params.id;
+    const intern = await Intern.findByPk(internId);
+
+    if (!intern) {
+      return res.status(404).send("Pasante no encontrado");
+    }
+
+    res.render("infoInterns", {
+      namePage: "Detalles del Pasante",
+      descripcion: "Información detallada del pasante",
+      intern: intern,
+    });
+  } catch (error) {
+    console.error("Error al obtener los detalles del pasante:", error);
+    res.status(500).send("Error interno del servidor");
+  }
+};
+
+
+export { controllInterns, registrarEntrada, registrarSalida,getInternDetails };

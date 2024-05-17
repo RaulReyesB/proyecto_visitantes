@@ -6,6 +6,7 @@
       <%= namePage %>
     </title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   </head>
 
   <body>
@@ -17,261 +18,230 @@
       <div class="user-info-container">
         <!-- Bloque de información del usuario -->
         <div class="user-info">
-          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-person-circle user-icon" viewBox="0 0 16 16" id="company-logo">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36"
+            fill="currentColor"
+            class="bi bi-person-circle user-icon" viewBox="0 0 16 16"
+            id="company-logo">
             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
-            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+            <path fill-rule="evenodd"
+              d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
           </svg>
           <div class="user-info-details">
             <span class="user-color"> <%= user.name %></span> <br>
             <span class="user-color"> <%= user.type %></span>
           </div>
         </div>
-  
+
         <!-- Botón de cerrar sesión -->
-        <a href="/logout" class="logout-link">Cerrar sesión</a>
+        <a href="/logout" class="btn btn-close"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z"/>
+          <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+        </svg></a>
       </div>
     </header>
-  
-    <% if (user && user.type !== 'usuario') { %>
 
-    <% if (user && user.type !== 'rh') { %>
+    <% if (user && user.type !== 'usuario' && user.type !== 'rh') { %>
 
     <div class="container">
 
-      <div class="tarjeta">
-        <div class="titulo">Pasante</div><br>
+      <div class="tarjeta" onclick="location.href='/registroInternos'">
+        <div class="titulo">Pasante</div>
         <div class="cuerpo">
-          <a href="/registroInternos">
           <img src="img/programador.png" alt="muestra">
-          </a>
         </div>
         <div class="pie">
-          <a href="/registroInternos">Acceder</a>
+          Acceder
         </div>
       </div>
-      
-      <div class="tarjeta">
-        <div class="titulo">Registros</div><br>
-        <div class="cuerpo">
-          <a href="/registroVisitas">
-          <img src="img/tiempo.png" alt="muestra">
-        </a>
-        </div>
-        <div class="pie">
-          <a href="/registroVisitas">Acceder</a>
-        </div>
-      </div>
-      <% if (user && (user.type==='superUsuario' || user.type==='administrador'
-      )) { %>
 
-      <div class="tarjeta">
+      <div class="tarjeta" onclick="location.href='/registroVisitas'">
+        <div class="titulo">Registros</div>
+        <div class="cuerpo">
+          <img src="img/tiempo.png" alt="muestra">
+        </div>
+        <div class="pie">
+          Acceder
+        </div>
+      </div>
+
+      <% if (user && (user.type==='superUsuario' ||
+      user.type==='administrador')) { %>
+
+      <div class="tarjeta" onclick="location.href='/historial'">
         <div class="titulo">Historial</div>
         <div class="cuerpo">
-          <a href="/historial">
-            <img src="img/historial.png" alt="muestra">
-          </a>
+          <img src="img/historial.png" alt="muestra">
         </div>
         <div class="pie">
-          <a href="/historial">Acceder</a>
+          Acceder
         </div>
       </div>
-      <% } %>
-
-   
-      <div class="tarjeta">
-        <div class="titulo">Historial Pendiente </div>
-        <div class="cuerpo">
-          <a href="/registrosPendientes">
-            <img src="img/Hisp.png" alt="muestra">
-          </a>
-        </div>
-        <div class="pie">
-          <a href="/registrosPendientes">Acceder</a>
-        </div>
-      </div>
-     <% if (user && user.type !== 'administrador') { %>
-
-      <div class="tarjeta">
-        <div class="titulo">Recursos Humanos </div>
-        <div class="cuerpo">
-          <a href="/hr-visits">
-            <img src="img/RH.png" alt="muestra">
-          </a>
-        </div>
-        <div class="pie">
-          <a href="/hr-visits">Acceder</a>
-        </div>
-      </div>
-      <% } %>
-
-      <div class="tarjeta">
-        <div class="titulo">Control de usuarios </div>
-        <div class="cuerpo">
-          <a href="">
-            <img src="img/seguridad.png" alt="muestra">
-          </a>
-        </div>
-        <div class="pie">
-          <a href="/AdmistrarUsuario">Acceder</a>
-        </div>
-      </div>
-
-      <div class="tarjeta">
-        <div class="titulo">Historial de pasante </div>
-        <div class="cuerpo">
-          <a href="/historyInterns">
-            <img src="img/historialPasantes.png" alt="muestra">
-          </a>
-        </div>
-        <div class="pie">
-          <a href="/historialInternos">Acceder</a>
-        </div>
-      </div>
-
-      <div class="tarjeta">
-        <div class="titulo">Control de Pasantes </div>
-        <div class="cuerpo">
-          <a href="/controlPasantes">
-            <img src="img/control.png" alt="muestra">
-          </a>
-        </div>
-        <div class="pie">
-          <a href="/controlPasantes">Acceder</a>
-        </div>
-      </div>
-
-      <div class="tarjeta">
-        <div class="titulo">Registrar usuarios </div>
-        <div class="cuerpo">
-          <a href="/registroUsuario">
-            <img src="img/RegistrarU.png" alt="muestra">
-          </a>
-        </div>
-        <div class="pie">
-          <a href="registroUsuario">Acceder</a>
-        </div>
-      </div>
-
-
-      <% } %>
-      <% } %>
-      <% if (user && user.type === 'usuario') { %>
-        <div class="tarjeta">
-          <div class="titulo">Registros</div>
-          <div class="cuerpo">
-            <a href="/registroVisitas">
-            <img src="img/tiempo.png" alt="muestra">
-          </a>
-          </div>
-          <div class="pie">
-            <a href="/registroVisitas">Acceder</a>
-          </div>
-        </div>
-
-        <div class="tarjeta">
-          <div class="titulo">Control de Pasantes </div>
-          <div class="cuerpo">
-            <a href="/controlPasantes">
-              <img src="" alt="muestra">
-            </a>
-          </div>
-          <div class="pie">
-            <a href="/controlPasantes">Acceder</a>
-          </div>
-        </div>
-
-        <div class="tarjeta">
-          <div class="titulo">Historial Pendiente </div>
-          <div class="cuerpo">
-            <a href="/registrosPendientes">
-              <img src="img/Hisp.png" alt="muestra">
-            </a>
-          </div>
-          <div class="pie">
-            <a href="/registrosPendientes">Acceder</a>
-          </div>
-        </div>
 
       <% } %>
 
-      <% if (user && user.type === 'rh'){%>
-        <div class="tarjeta">
-          <div class="titulo">Recursos Humanos </div>
-          <div class="cuerpo">
-            <a href="/hr-visits">
-              <img src="img/RH.png" alt="muestra">
-            </a>
-          </div>
-          <div class="pie">
-            <a href="/hr-visits">Acceder</a>
-          </div>
+      <div class="tarjeta" onclick="location.href='/registrosPendientes'">
+        <div class="titulo">Historial Pendiente</div>
+        <div class="cuerpo">
+          <img src="img/Hisp.png" alt="muestra">
         </div>
+        <div class="pie">
+          Acceder
+        </div>
+      </div>
 
-        <div class="tarjeta">
-          <div class="titulo">Historial de pasante </div>
-          <div class="cuerpo">
-            <a href="/historyInterns">
-              <img src="img/historialPasantes.png" alt="muestra">
-            </a>
-          </div>
-          <div class="pie">
-            <a href="/historyInterns">Acceder</a>
-          </div>
-        </div>
+      <% if (user && user.type !== 'administrador') { %>
 
-        <div class="tarjeta">
-          <div class="titulo">Pasante</div>
-          <div class="cuerpo">
-            <a href="/registroInternos">
-            <img src="img/programador.png" alt="muestra">
-            </a>
-          </div>
-          <div class="pie">
-            <a href="/registroInternos">Acceder</a>
-          </div>
+      <div class="tarjeta" onclick="location.href='/hr-visits'">
+        <div class="titulo">Recursos Humanos</div>
+        <div class="cuerpo">
+          <img src="img/RH.png" alt="muestra">
         </div>
-        <% } %>
-  
+        <div class="pie">
+          Acceder
+        </div>
+      </div>
+
+      <% } %>
+
+      <div class="tarjeta" onclick="location.href='/AdmistrarUsuario'">
+        <div class="titulo">Control de usuarios</div>
+        <div class="cuerpo">
+          <img src="img/seguridad.png" alt="muestra">
+        </div>
+        <div class="pie">
+          Acceder
+        </div>
+      </div>
+
+      <div class="tarjeta" onclick="location.href='/historialInternos'">
+        <div class="titulo">Historial de pasante</div>
+        <div class="cuerpo">
+          <img src="img/historialPasantes.png" alt="muestra">
+        </div>
+        <div class="pie">
+          Acceder
+        </div>
+      </div>
+
+      <div class="tarjeta" onclick="location.href='/controlPasantes'">
+        <div class="titulo">Control de Pasantes</div>
+        <div class="cuerpo">
+          <img src="img/control.png" alt="muestra">
+        </div>
+        <div class="pie">
+          Acceder
+        </div>
+      </div>
+
+      <div class="tarjeta" onclick="location.href='/registroUsuario'">
+        <div class="titulo">Registrar usuarios</div>
+        <div class="cuerpo">
+          <img src="img/RegistrarU.png" alt="muestra">
+        </div>
+        <div class="pie">
+          Acceder
+        </div>
+      </div>
 
     </div>
+    <% } %>
+
+    <% if (user && user.type === 'usuario') { %>
+    <div class="container">
+      <div class="tarjeta" onclick="location.href='/registroVisitas'">
+        <div class="titulo">Registros</div>
+        <div class="cuerpo">
+          <img src="img/tiempo.png" alt="muestra">
+        </div>
+        <div class="pie">
+          Acceder
+        </div>
+      </div>
+
+      <div class="tarjeta" onclick="location.href='/controlPasantes'">
+        <div class="titulo">Control de Pasantes</div>
+        <div class="cuerpo">
+          <img src="img/control.png" alt="muestra">
+        </div>
+        <div class="pie">
+          Acceder
+        </div>
+      </div>
+
+      <div class="tarjeta" onclick="location.href='/registrosPendientes'">
+        <div class="titulo">Historial Pendiente</div>
+        <div class="cuerpo">
+          <img src="img/Hisp.png" alt="muestra">
+        </div>
+        <div class="pie">
+          Acceder
+        </div>
+      </div>
+    </div>
+    <% } %>
+
+    <% if (user && user.type === 'rh') { %>
+    <div class="container">
+      <div class="tarjeta" onclick="location.href='/hr-visits'">
+        <div class="titulo">Recursos Humanos</div>
+        <div class="cuerpo">
+          <img src="img/RH.png" alt="muestra">
+        </div>
+        <div class="pie">
+          Acceder
+        </div>
+      </div>
+
+      <div class="tarjeta" onclick="location.href='/historialInternos'">
+        <div class="titulo">Historial de pasante</div>
+        <div class="cuerpo">
+          <img src="img/historialPasantes.png" alt="muestra">
+        </div>
+        <div class="pie">
+          Acceder<
+        </div>
+      </div>
+
+      <div class="tarjeta" onclick="location.href='/registroInternos'">
+        <div class="titulo">Pasante</div>
+        <div class="cuerpo">
+          <img src="img/programador.png" alt="muestra">
+        </div>
+        <div class="pie">
+          Acceder
+        </div>
+      </div>
+    </div>
+    <% } %>
 
     <footer>
       <p>TIC'S</p>
-
     </footer>
-
   </body>
   <script>
     var userType = '<%= user.type %>';
-  
-    // Función para asignar el color al SVG del logo
+
     function setColorForLogo(userType) {
-      var logo = document.getElementById('company-logo');
-  
-      // Determina el color basado en el tipo de usuario
-      var color;
-      switch (userType) {
-        case 'superUsuario':
-          color = 'verde';
-          break;
-        case 'administrador':
-          color = 'anaranjado';
-          break;
-        case 'rh':
-          color = 'azul'; // Cambiado a azul para Recursos Humanos
-          break;
-        case 'usuario':
-          color = 'rojo';
-          break;
-      }
-  
-      // Aplica el color al rellenar el SVG
-      logo.setAttribute('fill', 'var(--user-color-' + color + ')');
+        var logo = document.getElementById('company-logo');
+        var color;
+        switch (userType) {
+            case 'superUsuario':
+                color = 'verde';
+                break;
+            case 'administrador':
+                color = 'anaranjado';
+                break;
+            case 'rh':
+                color = 'azul';
+                break;
+            case 'usuario':
+                color = 'rojo';
+                break;
+        }
+        logo.setAttribute('fill', 'var(--user-color-' + color + ')');
     }
-  
-    // Llama a la función para establecer el color del logo al cargar la página
+
     setColorForLogo(userType);
-  </script>
-  
+</script>
 
 </html>

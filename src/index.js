@@ -1,41 +1,48 @@
 import dotenv from "dotenv";
 import express from "express";
-import session from 'express-session';
+import session from "express-session";
 import db from "./conecction.js";
 import router from "./routes/index.routes.js";
 import pdR from "./routes/pendingRecords.routes.js";
 import modelo from "./models/visit.js";
 import User from "./models/user.js";
-import Intern from "./models/intern.js";
+import Intern from "./models/Intern.js";
+import checkAndCompleteService from "./utils/checkAndCompleteService.js";
 import history_I from "./models/history_I.js";
 import user from "./routes/users.routes.js";
 import { interns } from "./controllers/index.js";
+import cron from "node-cron";
 import routesInterns from "./routes/interns.routes.js";
+import "./scheduledTasks.js"; // Importa el archivo de tareas programadas
+
 //setings
 dotenv.config({ path: ".env" });
 
 const app = express();
 
 // Configuración de express-session
-app.use(session({
-  secret: 'rthinformatica', 
-  resave: false,
-  saveUninitialized: false,
-}));
+app.use(
+  session({
+    secret: "rthinformatica",
+    resave: false,
+    saveUninitialized: false,
+  })
+);
 
 app.set("view engine", "ejs");
 app.set("views", "src/views");
 app.use(express.static("./src/public"));
 
 app.listen(process.env.PORT, () => {
-  console.log("Server on port: http://localhost:" + process.env.PORT + "/iniciarSesion");
+  console.log(
+    "Server on port: http://localhost:" + process.env.PORT + "/iniciarSesion"
+  );
 });
 
-
 app.use("/", router);
-app.use("/", pdR)
-app.use("/", user)
-app.use("/", routesInterns)
+app.use("/", pdR);
+app.use("/", user);
+app.use("/", routesInterns);
 
 try {
   await db.authenticate();
@@ -50,3 +57,9 @@ modelo
   .sync()
   .then(() => console.log("Tablas creadas con éxito"))
   .catch((error) => console.error("Error al crear las tablas:", error));
+
+// Schedule the task to run every day at midnight
+cron.schedule("0 0 * * *", () => {
+  console.log("Running the service completion check");
+  checkAndCompleteService();
+});

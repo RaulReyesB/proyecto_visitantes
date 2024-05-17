@@ -1,11 +1,15 @@
 import Intern from "../models/Intern.js";
 
-const controllInterns = async(req, res) => {
-  const internt = await Intern.findAll()  
+const controllInterns = async (req, res) => {
+  const internt = await Intern.findAll({
+    where: {
+      serviceCompleted: false,
+    },
+  });
   res.render("controllInterns", {
     namePage: "Control de Pasantes",
     description: "Bienvenido a el control de Pasantes",
-    internt :internt,
+    internt: internt,
     user: req.session.user, // Asegúrate de pasar req.session.user si lo estás almacenando en la sesión
   });
 };
@@ -49,9 +53,4 @@ const registrarSalida = async (req, res) => {
     res.status(500).send("Error interno del servidor");
   }
 };
-
-export {
-  controllInterns,
-  registrarEntrada,
-  registrarSalida
-}
+export { controllInterns, registrarEntrada, registrarSalida };

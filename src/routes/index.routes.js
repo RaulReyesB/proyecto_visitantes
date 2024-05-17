@@ -16,7 +16,7 @@ import {
   rechargeUser,
   historyInterns,
 } from "../controllers/index.js";
-import { requireAuth, requireSuperUser } from "../middlewares/auth.js";
+import { requireAuth, requireSuperUser, requireRH, requireSuperUserOrRH } from "../middlewares/auth.js";
 import {
   adminUser,
   editUser,
@@ -35,19 +35,14 @@ router.get("/inicio", requireAuth, index);
 router.get("/registroVisitas", requireAuth, register);
 router.post("/registroVisitas", requireAuth, insertVisit);
 router.get("/historial", requireAuth, requireSuperUser, history);
-router.get("/historialInternos", requireAuth, historyInterns);
+router.get("/historialInternos", requireAuth, requireSuperUserOrRH, historyInterns);
 
 router.get("/registrosPendientes", requireAuth, pendingRecords);
-router.get(
-  "/registroUsuario",
-  requireAuth,
-  requireSuperUser,
-  renderRegisterPage
-);
+router.get("/registroUsuario", requireAuth, requireSuperUser, renderRegisterPage);
 router.post("/registroUsuario", requireAuth, requireSuperUser, registerUser);
-router.get("/registroInternos", requireAuth, interns);
-router.post("/registroInternos", requireAuth, insertIntern);
-router.get("/hr-visits", requireAuth, showHRVisits);
+router.get("/registroInternos", requireAuth, requireSuperUserOrRH, interns);
+router.post("/registroInternos", requireAuth, requireSuperUserOrRH, insertIntern);
+router.get("/hr-visits", requireAuth, requireSuperUserOrRH, showHRVisits);
 
 // Rutas públicas (sin autenticación)
 router.get("/iniciarSesion", login);

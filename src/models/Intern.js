@@ -5,7 +5,8 @@ import db from "../conecction.js";
 const Intern = db.define("tb_interns", {
   fileNumber: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
+    unique: true
   },
   name: {
     type: DataTypes.STRING,
@@ -97,6 +98,13 @@ const Intern = db.define("tb_interns", {
       return value ? moment(value).format("DD/MM/YYYY HH:mm:ss") : null;
     },
   },
+  serviceCompleted: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+    defaultValue: false,
+  },
+}, {
+  timestamps: true,
 });
 
 export default Intern;

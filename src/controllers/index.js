@@ -61,8 +61,11 @@ const history = async (req, res) => {
 // Función asincrónica para obtener y renderizar el historial de visitas
 const historyInterns = async (req, res) => {
   try {
-    // Todos los registros de la tabla
-    const allRegistros = await Intern.findAll();
+    const allRegistros = await Intern.findAll({
+      where: {
+        serviceCompleted: false,
+      },
+    });
 
     res.render("historyInterns", {
       namePage: "Historial de visitas",

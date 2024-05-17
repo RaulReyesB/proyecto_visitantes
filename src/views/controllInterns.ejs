@@ -4,7 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= namePage %></title>
+  <title>
+    <%= namePage %>
+  </title>
   <link rel="stylesheet" href="/css/styleAdminUser.css">
 </head>
 
@@ -21,8 +23,12 @@
     <tbody>
       <% internt.forEach(function(item) { %>
         <tr>
-          <td><%= item.name %></td>
-          <td><%= item.fileNumber %></td>
+          <td>
+            <%= item.name %>
+          </td>
+          <td>
+            <%= item.fileNumber %>
+          </td>
           <td><img src="<%= item.img %>" alt="Imagen de <%= item.name %>"></td>
           <td>
             <% if (!item.entrance) { %>
@@ -30,18 +36,18 @@
               <form action="/interns/entrada/<%= item.id %>" method="POST">
                 <button type="submit">Registrar Entrada</button>
               </form>
-            <% } else if (!item.exit) { %>
-              <!-- Si hay entrada pero no hay salida, mostrar botón de salida -->
-              <form action="/interns/salida/<%= item.id %>" method="POST">
-                <button type="submit">Registrar Salida</button>
-              </form>
-            <% } else { %>
-              <!-- Si ya hay entrada y salida registradas, mostrar mensaje -->
-              Registrado
-            <% } %>
+              <% } else if (!item.exit) { %>
+                <!-- Si hay entrada pero no hay salida, mostrar botón de salida -->
+                <form action="/interns/salida/<%= item.id %>" method="POST">
+                  <button type="submit">Registrar Salida</button>
+                </form>
+                <% } else { %>
+                  <!-- Si ya hay entrada y salida registradas, mostrar mensaje -->
+                  Registrado
+                  <% } %>
           </td>
         </tr>
-      <% }); %>
+        <% }); %>
     </tbody>
   </table>
 </body>

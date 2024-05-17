@@ -7,17 +7,17 @@ const users=[
     },
     {
         name:"spUser",
-        password: bcrypt.hashSync('24681357',10),
+        password: bcrypt.hashSync('12345678',10),
         type: "superUsuario",
     },
     {
         name:"admin",
-        password: bcrypt.hashSync('13572468',10),
+        password: bcrypt.hashSync('12345678',10),
         type: "administrador",
     },
     {
         name:"RH",
-        password: bcrypt.hashSync('987654321',10),
+        password: bcrypt.hashSync('12345678',10),
         type: "rh",
     }
 ]

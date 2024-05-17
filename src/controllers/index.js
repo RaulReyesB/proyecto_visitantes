@@ -26,9 +26,14 @@ const register = (req, res) => {
 
 //funcion para renderizar la pagina de registro de internos
 const interns = (req, res) => {
+  var user = req.user || null
+  if(user){
+    user.type = user.Type || 'default'
+  }
   res.render("interns", {
     namePage: "Registro de Internos",
     description: "Regístra los internos de radio y television hidalgo",
+    user: req.session.user,
   });
 };
 
@@ -66,11 +71,12 @@ const historyInterns = async (req, res) => {
         serviceCompleted: false,
       },
     });
-
+    var user = req.user || null
     res.render("historyInterns", {
       namePage: "Historial de visitas",
       descripcion: "Historial de visitantes de Radio y Television Hidalgo",
       registros: allRegistros,
+      user: req.session.user,
     });
   } catch (error) {
     console.error("Error al obtener los registros:", error);
@@ -132,13 +138,12 @@ const showHRVisits = async (req, res) => {
         department: "RH",
       },
     });
-    var user = req.user || null
     res.render("hrVisits", {
       namePage: "Visitas a Recursos Humanos",
       description:
         "Lista de visitas dirigidas al departamento de Recursos Humanos",
       visits: hrVisits,
-      user:user,
+      user: req.session.user,
     });
   } catch (error) {
     console.error("Error al obtener las visitas a Recursos Humanos:", error);

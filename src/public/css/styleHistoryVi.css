@@ -19,7 +19,16 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
-
+.fondo{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/img/fachada1.jpg') no-repeat center center/cover;
+  filter: blur(8px);
+  z-index: -1;
+}
 #var {
   background: #32396c;
   padding: 15px;
@@ -28,19 +37,19 @@ body {
   align-items: center;
 }
 .home {
-  fill: white;
+  fill: #900C3F;
   transition: fill 0.3s ease;
 }
 
 a:hover .home {
   fill: #4fa3fc;
-  width: 60px;
+  width: 110px;
   height: auto;
 }
 #var img {
-  width: 60px;
-  height: 60px;
-  margin: 3px;
+  width: 150px;
+  height: 150px;
+  margin: 5px;
 }
 #var h1{
   color: white;
@@ -199,4 +208,36 @@ footer {
   padding: 10px 0;
   width: 100%;
   margin-top: auto;
+}
+.navbar {
+  background-color: #32396c;
+}
+.navbar-brand img {
+  height: 60px;
+  width: auto;
+}
+.navbar-nav .nav-item .nav-link {
+  color: white;
+}
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+.navbar-toggler-icon {
+  color: white;
+}
+@media (max-width: 768px) {
+  .navbar-collapse {
+      background-color: #32396c;
+  }
+}
+.nav-link:hover {
+  color: #9931f1;
+}
+.home {
+  fill: white;
+  width: 40px;
+  height: 40px;
+}
+.home:hover {
+  fill: #9931f1;
 }

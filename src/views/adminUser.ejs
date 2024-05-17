@@ -11,6 +11,8 @@
 </head>
 
 <body>
+  <div class="fondo"></div>
+
   <div id="var">
     <div>
         <img src="/img/radioytvlogo.png" alt="">
@@ -26,12 +28,15 @@
         <a href="/registrosPendientes">Pendientes de Salida</a>
         <a href="/registroUsuario">Registrar Usuario</a>
         <a href="/AdmistrarUsuario">Control de Usuarios</a>
+        <a href="/hr-visits">Recursos Humanos</a>
+        <a href="/historialInternos">Historial de pasante </a>
+        <a href="/controlPasantes">Control de Pasantes</a>
     </div>
     <div class="menu-hamburguesa bg-primary">
         <div class="hamburguesa-icono"></div>
     </div>
     <a href="/inicio">
-      <svg class="home" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="55" height="55" viewBox="0 0 64 64">
+      <svg class="home" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 64 64">
         <path d="M 32 3 L 1 28 L 1.4921875 28.654297 C 2.8591875 30.477297 5.4694688 30.791703 7.2304688 29.345703 L 32 9 L 56.769531 29.345703 C 58.530531 30.791703 61.140812 30.477297 62.507812 28.654297 L 63 28 L 54 20.742188 L 54 8 L 45 8 L 45 13.484375 L 32 3 z M 32 13 L 8 32 L 8 56 L 56 56 L 56 35 L 32 13 z M 26 34 L 38 34 L 38 52 L 26 52 L 26 34 z"></path>
         </svg>
     </a>
@@ -64,11 +69,16 @@
           </td>
           <td>
             <a href="/upd">
-              <button id="toggleButton<%= item.id %>" onclick="toggleStatus('<%= item.id %>')">
-                <%= item.status ? 'Dar de baja':'Dar de alta' %>
+              <button class="btn btn-danger" id="toggleButton<%= item.id %>" onclick="toggleStatus('<%= item.id %>')">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                  <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                </svg> <%= item.status ? 'Dar de baja':'Dar de alta' %>
               </button>
             </a>
-            <a href="/AdmistrarUsuario/<%= item.id %>"><button>Editar</button></a>
+            <a href="/AdmistrarUsuario/<%= item.id %>"><button class="btn btn-warning"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+              <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+              <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+            </svg></button></a>
           </td>
         </tr>
         <% }); %>

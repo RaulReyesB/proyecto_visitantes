@@ -35,6 +35,7 @@
 
     <div class="enlaces">
         <a href="/registroInternos">Pasantes</a>
+        <% if (user && user.type !== 'rh') { %>
         <a href="/registroVisitas">Registros</a>
         <a href="/historial">Historial de visitantes</a>
         <a href="/registrosPendientes">Pendientes de Salida</a>
@@ -43,6 +44,7 @@
         <a href="/hr-visits">Recursos Humanos</a>
         <a href="/historialInternos">Historial de pasante </a>
         <a href="/controlPasantes">Control de Pasantes</a>
+        <% } %>
     </div>
     <div class="menu-hamburguesa bg-primary">
         <div class="hamburguesa-icono"></div>
@@ -110,7 +112,7 @@
                         <label for="starService">Inicio de servicio</label>
                         <input class="form-control" type="date"  name="startService" id="startService" placeholder="Inicio de servicio" required>
                         <label for="endService">finalización de servicio</label>
-                        <input class="form-control" type="text" name="endService" id="endService" placeholder="Finalización de servicio" required>
+                        <input class="form-control" type="date" name="endService" id="endService" placeholder="Finalización de servicio" required>
                     </div>
                         <div class="from-p">
                         <label for="totHours">Horas totales a cubrir</label>
@@ -144,7 +146,7 @@
                         <!-- Campo para mostrar la imagen -->
                         <div class="">
                             <label for="imgPreview">Vista previa de la imagen:</label>
-                            <img class="v-img" id="imgPreview" src="#" alt="Vista previa de la imagen" style="">
+                            <img class="v-img" id="imgPreview" src="#" alt="Vista previa de la imagen">
                         </div>
                         
                     </div>

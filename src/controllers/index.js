@@ -124,6 +124,7 @@ const pendingRecords = async (req, res) => {
 
 // Función asincrónica para mostrar visitas dirigidas a Recursos Humanos
 const showHRVisits = async (req, res) => {
+  var user = req.user || null
   try {
     // Buscar todas las visitas donde el departamento sea Recursos Humanos
     const hrVisits = await Visit.findAll({
@@ -131,12 +132,13 @@ const showHRVisits = async (req, res) => {
         department: "RH",
       },
     });
-
+    var user = req.user || null
     res.render("hrVisits", {
       namePage: "Visitas a Recursos Humanos",
       description:
         "Lista de visitas dirigidas al departamento de Recursos Humanos",
       visits: hrVisits,
+      user:user,
     });
   } catch (error) {
     console.error("Error al obtener las visitas a Recursos Humanos:", error);

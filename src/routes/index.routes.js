@@ -42,7 +42,7 @@ router.get("/registroUsuario", requireAuth, requireSuperUser, renderRegisterPage
 router.post("/registroUsuario", requireAuth, requireSuperUser, registerUser);
 router.get("/registroInternos", requireAuth, requireSuperUserOrRH, interns);
 router.post("/registroInternos", requireAuth, requireSuperUserOrRH, insertIntern);
-router.get("/hr-visits", requireAuth, requireSuperUserOrRH, showHRVisits);
+router.get("/hr-visits", requireAuth, requireSuperUserOrRH, showHRVisits, authenticateUser);
 
 // Rutas públicas (sin autenticación)
 router.get("/iniciarSesion", login);

@@ -16,31 +16,33 @@
 
   <div id="var">
     <div>
-        <img src="/img/radioytvlogo.png" alt="">
+      <img src="/img/radioytvlogo.png" alt="">
     </div>
     <h1>
     </h1>
 
     <div class="enlaces">
-        <a href="/registroInternos">Pasantes</a>
-        <a href="/registroVisitas">Registros</a>
-        <a href="/historial">Historial de visitantes</a>
-        <a href="/registrosPendientes">Pendientes de Salida</a>
-        <a href="/registroUsuario">Registrar Usuario</a>
-        <a href="/AdmistrarUsuario">Control de Usuarios</a>
-        <a href="/hr-visits">Recursos Humanos</a>
-        <a href="/historialInternos">Historial de pasante </a>
-        <a href="/controlPasantes">Control de Pasantes</a>
+      <a href="/registroInternos">Pasantes</a>
+      <a href="/registroVisitas">Registros</a>
+      <a href="/historial">Historial de visitantes</a>
+      <a href="/registrosPendientes">Pendientes de Salida</a>
+      <a href="/registroUsuario">Registrar Usuario</a>
+      <a href="/AdmistrarUsuario">Control de Usuarios</a>
+      <a href="/hr-visits">Recursos Humanos</a>
+      <a href="/historialInternos">Historial de pasante </a>
+      <a href="/controlPasantes">Control de Pasantes</a>
     </div>
     <div class="menu-hamburguesa bg-primary">
-        <div class="hamburguesa-icono"></div>
+      <div class="hamburguesa-icono"></div>
     </div>
     <a href="/inicio">
       <svg class="home" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 64 64">
-        <path d="M 32 3 L 1 28 L 1.4921875 28.654297 C 2.8591875 30.477297 5.4694688 30.791703 7.2304688 29.345703 L 32 9 L 56.769531 29.345703 C 58.530531 30.791703 61.140812 30.477297 62.507812 28.654297 L 63 28 L 54 20.742188 L 54 8 L 45 8 L 45 13.484375 L 32 3 z M 32 13 L 8 32 L 8 56 L 56 56 L 56 35 L 32 13 z M 26 34 L 38 34 L 38 52 L 26 52 L 26 34 z"></path>
-        </svg>
+        <path
+          d="M 32 3 L 1 28 L 1.4921875 28.654297 C 2.8591875 30.477297 5.4694688 30.791703 7.2304688 29.345703 L 32 9 L 56.769531 29.345703 C 58.530531 30.791703 61.140812 30.477297 62.507812 28.654297 L 63 28 L 54 20.742188 L 54 8 L 45 8 L 45 13.484375 L 32 3 z M 32 13 L 8 32 L 8 56 L 56 56 L 56 35 L 32 13 z M 26 34 L 38 34 L 38 52 L 26 52 L 26 34 z">
+        </path>
+      </svg>
     </a>
-</div>
+  </div>
 
   <div id="buscador">
     <div class="search-container">
@@ -53,23 +55,8 @@
       <tr>
         <th>Nombre</th>
         <th>Num. de Folio</th>
-        <th>Foto del pasante</th>
-        <th>Num. Control</th>
-        <th>Carrera</th>
-        <th>Direccion Asignada</th>
-        <th>Asesor</th>
-        <th>Num. Horas</th>
-        <th>Dias</th>
-        <th>Horario</th>
-        <th>Inicio de Servicio</th>
-        <th>Finalizacion de Servicio</th>
-        <th>Horas totales a cubrir</th>
-        <th>Programa</th>
-        <th>Observaciones</th>
-        <th>Servicio</th>
-        <th>Fecha y Hora de entrada</th>
-        <th>Fecha y Hora de salida</th>
         <th>Horas Cumplidas</th>
+        <th>Infomacion del Pasante</th>
       </tr>
     </thead>
     <tbody>
@@ -82,56 +69,10 @@
             <%= item.fileNumber %>
           </td>
           <td>
-            <%= item.img %>
-          </td>
-          <td>
-            <%= item.Mat %>
-          </td>
-          <td>
-            <%= item.career %>
-          </td>
-          <td>
-            <%= item.asignementDirec %>
-          </td>
-          <td>
-            <%= item.adviser %>
-          </td>
-          <td>
-            <%= item.numberHours %>
-          </td>
-          <td>
-            <%= item.days %>
-          </td>
-          <td>
-            <%= item.shedule %>
-          </td>
-          <td>
-            <%= item.startService %>
-          </td>
-          <td>
-            <%= item.endService %>
-          </td>
-          <td>
-            <%= item.totHours %>
-          </td>
-          <td>
-            <%= item.Program %>
-          </td>
-          <td>
-            <%= item.Observations %>
-          </td>
-          <td>
-            <%= item.service %>
-          </td>
-          <td>
-            <%= item.entrance %>
-          </td>
-          <td>
-            <%= item.exit %>
-          </td>
-          <td>
             <%= item.hoursFulfilled %>
           </td>
+          <td><a href="/Pasante/info/<%= item.id %>">Ver mas</a></td>
+
         </tr>
         <% }); %>
     </tbody>

@@ -45,6 +45,8 @@
 
     <div class="container">
 
+      <% if (user && user.type !== 'administrador') { %>
+
       <div class="tarjeta" onclick="location.href='/registroInternos'">
         <div class="titulo">Pasante</div>
         <div class="cuerpo">
@@ -54,6 +56,7 @@
           Acceder
         </div>
       </div>
+      <% } %>
 
       <div class="tarjeta" onclick="location.href='/registroVisitas'">
         <div class="titulo">Registros</div>
@@ -113,6 +116,7 @@
           Acceder
         </div>
       </div>
+      <% if (user && user.type !== 'administrador') { %>
 
       <div class="tarjeta" onclick="location.href='/historialInternos'">
         <div class="titulo">Historial de pasante</div>
@@ -123,6 +127,7 @@
           Acceder
         </div>
       </div>
+      <% } %>
 
       <div class="tarjeta" onclick="location.href='/controlPasantes'">
         <div class="titulo">Control de Pasantes</div>

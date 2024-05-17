@@ -39,7 +39,11 @@
 
 
 
-
+<div class="search-container">
+  <input type="text" id="searchInput" placeholder="Buscar...">
+  <button type="button" onclick="search()"><i class="bi bi-search"></i></button>
+</div>
+<br>
   <table id="tabla" class="fade-in table table-hover">
     <thead class="thead-gray">
       <tr>
@@ -131,7 +135,26 @@
     </div>
     <!-- Copyright -->
   </footer>
-  
+  <script>
+    document.getElementById('searchInput').addEventListener('input', function() {
+      const searchValue = this.value.toLowerCase();
+      const table = document.getElementById('tabla');
+      const rows = table.getElementsByTagName('tr');
+
+      for (let i = 1; i < rows.length; i++) {
+        const cells = rows[i].getElementsByTagName('td');
+        const name = cells[0].textContent || cells[0].innerText;
+        const entranceDate = cells[9].textContent || cells[9].innerText;
+        const curp = cells[3].textContent || cells[3].innerText;
+
+        if (name.toLowerCase().indexOf(searchValue) > -1 || entranceDate.toLowerCase().indexOf(searchValue) > -1 || curp.toLowerCase().indexOf(searchValue) > -1) {
+          rows[i].style.display = '';
+        } else {
+          rows[i].style.display = 'none';
+        }
+      }
+    });
+  </script>
 </body>
 
 </html>

@@ -37,6 +37,16 @@
     justify-content: space-between;
     align-items: center;
   }
+  .home {
+    fill: #900C3F;
+    transition: fill 0.3s ease;
+}
+
+a:hover .home {
+    fill: #4fa3fc;
+    width: 110px;
+    height: auto;
+}
   #var img {
     width: 150px;
     height: 150px;

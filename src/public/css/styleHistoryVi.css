@@ -37,13 +37,13 @@ body {
   align-items: center;
 }
 .home {
-  fill: white;
+  fill: #900C3F;
   transition: fill 0.3s ease;
 }
 
 a:hover .home {
   fill: #4fa3fc;
-  width: 60px;
+  width: 110px;
   height: auto;
 }
 #var img {

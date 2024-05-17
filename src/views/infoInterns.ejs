@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <%= namePage %>
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>
+      <%= descripcion %>
+    </h1>
+    <div class="intern-details">
+      <p><strong>Nombre:</strong>
+        <%= intern.name %>
+      </p>
+      <p><strong>Número de Folio:</strong>
+        <%= intern.fileNumber %>
+      </p>
+      <p><strong>Horas Cumplidas:</strong>
+        <%= intern.hoursFulfilled %>
+      </p>
+      <p><strong>Carrera:</strong>
+        <%= intern.career %>
+      </p>
+      <p><strong>Dirección Asignada:</strong>
+        <%= intern.asignementDirec %>
+      </p>
+      <p><strong>Asesor:</strong>
+        <%= intern.adviser %>
+      </p>
+      <p><strong>Número de Horas:</strong>
+        <%= intern.numberHours %>
+      </p>
+      <p><strong>Días:</strong>
+        <%= intern.days %>
+      </p>
+      <p><strong>Horario:</strong>
+        <%= intern.shedule %>
+      </p>
+      <p><strong>Inicio de Servicio:</strong>
+        <%= intern.startService %>
+      </p>
+      <p><strong>Finalización de Servicio:</strong>
+        <%= intern.endService %>
+      </p>
+      <p><strong>Horas Totales a Cubrir:</strong>
+        <%= intern.totHours %>
+      </p>
+      <p><strong>Programa:</strong>
+        <%= intern.Program %>
+      </p>
+      <p><strong>Observaciones:</strong>
+        <%= intern.Observations %>
+      </p>
+      <p><strong>Servicio:</strong>
+        <%= intern.service %>
+      </p>
+      <p><strong>Fecha y Hora de Entrada:</strong>
+        <%= intern.entrance %>
+      </p>
+      <p><strong>Fecha y Hora de Salida:</strong>
+        <%= intern.exit %>
+      </p>
+    </div>
+    <a href="/historialInternos">Volver al Historial de Pasantes</a>
+  </div>
+</body>
+
+</html>

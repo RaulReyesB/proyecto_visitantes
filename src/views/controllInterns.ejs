@@ -4,9 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>
-    <%= namePage %>
-  </title>
+  <title><%= namePage %></title>
   <link rel="stylesheet" href="/css/styleAdminUser.css">
 </head>
 
@@ -15,39 +13,32 @@
     <thead>
       <tr>
         <th>Nombre</th>
-        <th>Numero de Folio</th>
+        <th>Número de Folio</th>
         <th>Imagen</th>
         <th>Control de Entrada y Salida</th>
       </tr>
     </thead>
     <tbody>
-      <% internt.forEach(function(item) { %>
+      <% interns.forEach(function(intern) { %>
         <tr>
+          <td><%= intern.name %></td>
+          <td><%= intern.fileNumber %></td>
+          <td><img src="<%= intern.img %>" alt="Imagen de <%= intern.name %>"></td>
           <td>
-            <%= item.name %>
-          </td>
-          <td>
-            <%= item.fileNumber %>
-          </td>
-          <td><img src="<%= item.img %>" alt="Imagen de <%= item.name %>"></td>
-          <td>
-            <% if (!item.entrance) { %>
-              <!-- Si no hay entrada registrada, mostrar botón de entrada -->
-              <form action="/interns/entrada/<%= item.id %>" method="POST">
+            <% if (!intern.entrance) { %>
+              <form action="/interns/entrada/<%= intern.id %>" method="POST">
                 <button type="submit">Registrar Entrada</button>
               </form>
-              <% } else if (!item.exit) { %>
-                <!-- Si hay entrada pero no hay salida, mostrar botón de salida -->
-                <form action="/interns/salida/<%= item.id %>" method="POST">
-                  <button type="submit">Registrar Salida</button>
-                </form>
-                <% } else { %>
-                  <!-- Si ya hay entrada y salida registradas, mostrar mensaje -->
-                  Registrado
-                  <% } %>
+            <% } else if (!intern.exit) { %>
+              <form action="/interns/salida/<%= intern.id %>" method="POST">
+                <button type="submit">Registrar Salida</button>
+              </form>
+            <% } else { %>
+              Registrado
+            <% } %>
           </td>
         </tr>
-        <% }); %>
+      <% }); %>
     </tbody>
   </table>
 </body>

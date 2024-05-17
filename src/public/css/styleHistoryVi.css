@@ -44,8 +44,12 @@ a:hover .home {
 }
 #var h1{
   color: white;
-  font-size: 23px;
+  font-size: 27px;
+margin: 1.5%;  
 
+}
+h1{
+  position: relative;
 }
 #var a {
   color: white;
@@ -95,7 +99,16 @@ svg{
     color: white;
   }
 
-
+.search-container{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 700px;
+  margin: 50px auto;
+  border-radius: 25px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+}
 .search-container input[type="text"] {
   width: 100%;
   padding: 10px;
@@ -128,10 +141,9 @@ i {
 }
 
 table {
-  width: 100%;
-  border-collapse: separate;
   border-spacing: 0;
   border-radius: 20px;
+  width: 100%;
   table-layout: fixed;
   word-wrap: break-word;
 }

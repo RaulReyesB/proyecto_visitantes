@@ -35,7 +35,7 @@ router.get("/inicio", requireAuth, index);
 router.get("/registroVisitas", requireAuth, register);
 router.post("/registroVisitas", requireAuth, insertVisit);
 router.get("/historial", requireAuth, requireSuperUser, history);
-router.get("/historialInternos", requireAuth, requireSuperUser, historyInterns);
+router.get("/historialInternos", requireAuth, historyInterns);
 
 router.get("/registrosPendientes", requireAuth, pendingRecords);
 router.get(

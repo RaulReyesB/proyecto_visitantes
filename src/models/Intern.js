@@ -13,8 +13,8 @@ const Intern = db.define("tb_interns", {
     allowNull: false,
   },
   img: {
-    type: DataTypes.BLOB,
-    allowNull: false
+    type: DataTypes.STRING,
+    allowNull: true, 
   },
   school: {
     type: DataTypes.STRING,

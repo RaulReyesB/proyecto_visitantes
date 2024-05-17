@@ -23,7 +23,9 @@
         </h1>
     
         <div class="enlaces">
+            
             <a href="/registroInternos">Pasantes</a>
+            <% if (user && user.type !== 'rh') { %>
             <a href="/registroVisitas">Registros</a>
             <a href="/historial">Historial de visitantes</a>
             <a href="/registrosPendientes">Pendientes de Salida</a>
@@ -32,6 +34,7 @@
             <a href="/hr-visits">Recursos Humanos</a>
             <a href="/historialInternos">Historial de pasante </a>
             <a href="/controlPasantes">Control de Pasantes</a>
+            <% } %>
         </div>
         <div class="menu-hamburguesa bg-primary">
             <div class="hamburguesa-icono"></div>

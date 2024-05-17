@@ -11,7 +11,7 @@ const index = (req, res) => {
   res.render("index", {
     namePage: "Inicio",
     description: "Bienvenido a Radio y Television Hidalgo",
-    user: req.session.user, // Asegúrate de pasar req.session.user si lo estás almacenando en la sesión
+    user: req.session.user,
   });
 };
 
@@ -170,10 +170,12 @@ const insertVisit = async (req, res) => {
 //funcion para registrar internos
 const insertIntern = async (req, res) => {
   try {
+    const imgPath = req.file ? `/uploads/${req.file.filename}` : null;
+    console.log(totHours)
     const newIntern = await Intern.create({
       fileNumber: req.body.fileNumber,
       service: req.body.service,
-      img: req.body.img,
+      img: imgPath,
       name: req.body.name,
       school: req.body.school,
       Mat: req.body.Mat,
@@ -184,12 +186,13 @@ const insertIntern = async (req, res) => {
       days: req.body.days,
       shedule: req.body.shedule,
       hoursxDay: req.body.hoursxDay,
-      startService: req.body.startService, // Corregir aquí
+      startService: req.body.startService,
       endService: req.body.endService,
       totHours: req.body.totHours,
       Program: req.body.Program,
       Observations: req.body.Observations,
     });
+
     console.log("pasante guardado");
     res.redirect(`/inicio`);
   } catch (error) {

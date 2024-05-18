@@ -1,5 +1,12 @@
     /* Estilos generales del register y interns  */
     /* estilos del header */
+    #var {
+        background: #1e3740;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
       .fondo{
         position: fixed;
         top: 0;

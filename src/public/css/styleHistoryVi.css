@@ -29,6 +29,13 @@ body {
   filter: blur(8px);
   z-index: -1;
 }
+#var {
+  background: #1E3248;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .home {
   fill: #900C3F;
   transition: fill 0.3s ease;
@@ -167,7 +174,7 @@ footer {
   margin-top: auto;
 }
 .navbar {
-  background-color: #32396c;
+  background-color: #1E3248;
 }
 .navbar-brand img {
   height: 60px;
@@ -184,7 +191,7 @@ footer {
 }
 @media (max-width: 768px) {
   .navbar-collapse {
-      background-color: #32396c;
+      background-color: #1E3248;
   }
 }
 .nav-link:hover {

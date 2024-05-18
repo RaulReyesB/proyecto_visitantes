@@ -1,18 +1,25 @@
-/* Estilos generales del regitros */
-.fondo {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("/img/fachada1.jpg") no-repeat center center/cover;
-  filter: blur(8px);
-  z-index: -1;
-}
-.home {
-  fill: #900c3f;
-  transition: fill 0.3s ease;
-}
+    /* Estilos generales del regitros */
+    #var {
+        background: #1E3248;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .fondo{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('/img/fachada1.jpg') no-repeat center center/cover;
+        filter: blur(8px);
+        z-index: -1;
+      }
+      .home {
+        fill: #900C3F;
+        transition: fill 0.3s ease;
+    }
 
 a:hover .home {
   fill: #4fa3fc;

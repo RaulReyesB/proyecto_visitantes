@@ -29,6 +29,13 @@ body {
   filter: blur(8px);
   z-index: -1;
 }
+#var {
+  background: #1E3248;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .home {
   fill: #900C3F;
   transition: fill 0.3s ease;
@@ -160,7 +167,7 @@ tbody td {
 }
 
 footer {
-  background-color: #32396c;
+  background-color: #1E3248;
   color: rgb(248, 245, 245);
   text-align: center;
   padding: 10px 0;

@@ -60,14 +60,12 @@ header a:hover {
 
 .user-info-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  position: absolute;
-  top: 10px;
-  right: 10px;
 }
 
 .user-info {
-  margin-right: 200px;
+  margin-right: 2000px;
 }
 
 .logout-link {
@@ -212,4 +210,140 @@ footer p {
   background: url('/img/fachada1.jpg') no-repeat center center/cover;
   filter: blur(8px);
   z-index: -1;
+}
+
+/* Tarjeta Usuario */
+.tarjeta-usuario {
+  position: relative;
+  width: 800px;
+  height: 80px;
+  margin-bottom: 1px;
+  margin-left: 520px;
+  margin-top: 8px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 180px;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  opacity: 0;
+  animation: appear 3s forwards;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+}
+
+.tarjeta-usuario .titulo-user {
+  font-size: 36px;
+  color: #619;
+  text-align: center;
+  margin-bottom: 1px;
+}
+
+.tarjeta-usuario .cuerpo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  font-family: Arial;
+  font-size: 1.5em;
+}
+
+.tarjeta-usuario .user-info-details {
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+  margin-bottom: 1px;
+}
+
+.accediste-como {
+  font-size: 1.5em;
+  margin-right: 10px;
+}
+
+/* Tarjeta Usuario 2 */
+.tarjeta-usuario2 {
+  position: absolute;
+  width: 100px;
+  height: 80px;
+  margin-bottom: 1px;
+  margin-left: 412px;
+  margin-top: 190px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  opacity: 0;
+  animation: appear 3s forwards;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+}
+
+.tarjeta-usuario2 .user-info-details {
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+  margin-bottom: 1px;
+}
+
+.tarjeta-usuario2 .cuerpo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Keyframes */
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 600px) {
+  .tarjeta-usuario, .tarjeta-usuario2 {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .tarjeta-usuario {
+    margin-top: 8px;
+    margin-left: 350px; /* Ajuste para centrar en dispositivos pequeños */
+    width: 580px;
+    position: relative;
+    margin-bottom: 10px;
+  }
+  .tarjeta-usuario2 {
+    margin-right: 100px;
+    width: 100px;
+    position: absolute;
+    left: -200px; /* Mover más a la izquierda en dispositivos pequeños */
+    margin-top: 10px;
+  }
+}
+
+@media screen and (min-width: 601px) {
+  .contenedor-tarjetas {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    position: relative;
+  }
+  .tarjeta-usuario {
+    margin-left: 660px; /* Ajuste para centrar en computadoras */
+    width: 580px;
+    position: relative;
+  }
+  .tarjeta-usuario2 {
+    margin-right: 100px;
+    width: 100px;
+    position: absolute;
+    left: 100px; /* Mover más a la izquierda en computadoras */
+    margin-top: 200px;
+  }
 }

@@ -58,22 +58,22 @@
         <tbody>
           <% interns.forEach(function(intern) { %>
           <tr>
-            <td><%= item.name %></td>
-            <td><%= item.fileNumber %></td>
+            <td><%= intern.name %></td>
+            <td><%= intern.fileNumber %></td>
             <td>
-              <% if (item.img) { %>
-              <img src="<%= item.img %>" alt="Imagen de <%= item.name %>" style="width: 100px; height: auto;">
+              <% if (intern.img) { %>
+              <img src="<%= intern.img %>" alt="Imagen de <%= intern.name %>" style="width: 100px; height: auto;">
               <% } else { %>
               No hay imagen disponible
               <% } %>
             </td>
             <td>
-              <% if (!item.entrance) { %>
-              <form action="/interns/entrada/<%= item.id %>" method="POST">
+              <% if (!intern.entrance) { %>
+              <form action="/interns/entrada/<%= intern.id %>" method="POST">
                 <button type="submit" class="btn btn-primary">Registrar Entrada</button>
               </form>
-              <% } else if (!item.exit) { %>
-              <form action="/interns/salida/<%= item.id %>" method="POST">
+              <% } else if (!intern.exit) { %>
+              <form action="/interns/salida/<%= intern.id %>" method="POST">
                 <button type="submit" class="btn btn-primary">Registrar Salida</button>
               </form>
               <% } else { %>

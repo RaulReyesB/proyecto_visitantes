@@ -1,21 +1,35 @@
-<div id="var">
-    <div>
-        <a href="/inicio" style="display: flex;"><img src="/img/radioytvlogo.png" alt=""></a>
-    </div>
-    <div class="enlaces">
-        <a href="/registroInternos">Pasantes</a>
-        <% if (user && user.type !=='rh' ) { %>
-            <a href="/registroVisitas">Registros</a>
-            <a href="/historial">Historial de visitantes</a>
-            <a href="/registrosPendientes">Pendientes de Salida</a>
-            <a href="/registroUsuario">Registrar Usuario</a>
-            <a href="/AdmistrarUsuario">Control de Usuarios</a>
-            <a href="/hr-visits">Recursos Humanos</a>
-            <a href="/historialInternos">Historial de pasante</a>
-            <a href="/controlPasantes">Control de Pasantes</a>
-        <% } %>
-    </div>
-    <div class="menu-hamburguesa bg-primary">
-        <div class="hamburguesa-icono"></div>
-    </div>
-</div>
+<nav id="var">
+  <div>
+    <a href="/inicio" style="display: flex;">
+      <img src="/img/radioytvlogo.png" alt="Logo">
+    </a>
+  </div>
+  <div class="enlaces">
+    <a href="/registroInternos">Pasantes</a>
+    <% if (user && user.type !== 'rh') { %>
+      <a href="/registroVisitas">Registros</a>
+      <a href="/historial">Historial de visitantes</a>
+      <a href="/registrosPendientes">Pendientes de Salida</a>
+      <a href="/registroUsuario">Registrar Usuario</a>
+      <a href="/AdmistrarUsuario">Control de Usuarios</a>
+      <a href="/hr-visits">Recursos Humanos</a>
+      <a href="/historialInternos">Historial de pasante</a>
+      <a href="/controlPasantes">Control de Pasantes</a>
+    <% } %>
+  </div>
+  <div class="menu-hamburguesa" id="menuHamburguesa">
+    <div class="hamburguesa-icono"></div>
+    <div class="hamburguesa-icono"></div>
+    <div class="hamburguesa-icono"></div>
+  </div>
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('menuHamburguesa').addEventListener('click', function() {
+      const enlaces = document.querySelector('.enlaces');
+      enlaces.classList.toggle('active');
+    });
+  });
+</script>
+

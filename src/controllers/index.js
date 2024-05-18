@@ -76,12 +76,12 @@ const historyInterns = async (req, res) => {
         serviceCompleted: false,
       },
     });
-    var user = req.user || null;
+    const user = req.session.user
     res.render("historyInterns", {
-      namePage: "Historial de visitas",
+      namePage: "Historial de Pasantes",
       descripcion: "Historial de visitantes de Radio y Television Hidalgo",
       registros: allRegistros,
-      user: req.session.user,
+      user: user,
     });
   } catch (error) {
     console.error("Error al obtener los registros:", error);
@@ -104,9 +104,11 @@ function formatDate(dateString) {
 
 // Función para renderizar la página de registro de usuarios
 const renderRegisterPage = (req, res) => {
+  const user = req.session.user
   res.render("createusers", {
     namePage: "Registro de Usuario",
     description: "Regístrate en Radio y Television Hidalgo",
+    user:user
   });
 };
 
@@ -126,6 +128,7 @@ const pendingRecords = async (req, res) => {
       descripcion:
         "Historial de visitas incompletas de Radio y Television Hidalgo",
       registros: registros,
+      user: req.session.user
     });
   } catch (error) {
     console.error("Error al obtener los registros:", error);

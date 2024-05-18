@@ -24,60 +24,62 @@
             <h1 class="text-white mb-0" style="font-size: 25px; margin-right: auto;">
                 <%= description %>
             </h1>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-              <br>
+                <br>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="/registroInternos">Pasantes</a>
                     </li>
-                    <% if (user && user.type !== 'rh') { %>
-                    <li  class="nav-item">
-                        
-                         <a class="nav-link" href="/registroVisitas">Registros</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/historial">Historial de visitantes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/registrosPendientes">Pendientes de Salida</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link"   href="/registroUsuario">Registrar Usuario</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/AdmistrarUsuario">Control de Usuarios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/hr-visits">Recursos Humanos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/historialInternos">Historial de pasante </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/controlPasantes">Control de Pasantes</a>
-                    </li>
-                    <% } %>
-                    <div class="menu-hamburguesa bg-primary">
-                        <div class="hamburguesa-icono"></div>
-                    </div>
-                    <li class="nav-item">
-                        <a href="/inicio">
-                          <svg class="home" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 64 64">
-                            <path d="M 32 3 L 1 28 L 1.4921875 28.654297 C 2.8591875 30.477297 5.4694688 30.791703 7.2304688 29.345703 L 32 9 L 56.769531 29.345703 C 58.530531 30.791703 61.140812 30.477297 62.507812 28.654297 L 63 28 L 54 20.742188 L 54 8 L 45 8 L 45 13.484375 L 32 3 z M 32 13 L 8 32 L 8 56 L 56 56 L 56 35 L 32 13 z M 26 34 L 38 34 L 38 52 L 26 52 L 26 34 z"></path>
-                            </svg>    </a>
-                    
-                        
-                        </a>
-                      </li>
-                  </div>
-                    
+                    <% if (user && user.type !=='rh' ) { %>
+                        <li class="nav-item">
+
+                            <a class="nav-link" href="/registroVisitas">Registros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/historial">Historial de visitantes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/registrosPendientes">Pendientes de Salida</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/registroUsuario">Registrar Usuario</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/AdmistrarUsuario">Control de Usuarios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/hr-visits">Recursos Humanos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/historialInternos">Historial de pasante </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/controlPasantes">Control de Pasantes</a>
+                        </li>
+                        <% } %>
+                            <div class="menu-hamburguesa bg-primary">
+                                <div class="hamburguesa-icono"></div>
+                            </div>
+                            <li class="nav-item">
+                                <a href="/inicio">
+                                    <svg class="home" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100"
+                                        height="100" viewBox="0 0 64 64">
+                                        <path
+                                            d="M 32 3 L 1 28 L 1.4921875 28.654297 C 2.8591875 30.477297 5.4694688 30.791703 7.2304688 29.345703 L 32 9 L 56.769531 29.345703 C 58.530531 30.791703 61.140812 30.477297 62.507812 28.654297 L 63 28 L 54 20.742188 L 54 8 L 45 8 L 45 13.484375 L 32 3 z M 32 13 L 8 32 L 8 56 L 56 56 L 56 35 L 32 13 z M 26 34 L 38 34 L 38 52 L 26 52 L 26 34 z">
+                                        </path>
+                                    </svg> </a>
+
+
+                                </a>
+                            </li>
                 </ul>
             </div>
         </div>
-
+    </nav>
     <div class="search-container">
         <input type="text" id="searchInput" placeholder="Buscar...">
         <button type="button" onclick="search()"><i class="bi bi-search"></i></button>
@@ -99,20 +101,40 @@
             </tr>
         </thead>
         <tbody>
-            <% visits.forEach(visit => { %>
+            <% visits.forEach(visit=> { %>
                 <tr>
-                    <td><%= visit.name %></td>
-                    <td><%= visit.phone %></td>
-                    <td><%= visit.email %></td>
-                    <td><%= visit.CURP %></td>
-                    <td><%= visit.identification %></td>
-                    <td><%= visit.origin %></td>
-                    <td><%= visit.children %></td>
-                    <td><%= visit.badge %></td>
-                    <td><%= visit.entrance %></td>
-                    <td><%= visit.exit %></td>
+                    <td>
+                        <%= visit.name %>
+                    </td>
+                    <td>
+                        <%= visit.phone %>
+                    </td>
+                    <td>
+                        <%= visit.email %>
+                    </td>
+                    <td>
+                        <%= visit.CURP %>
+                    </td>
+                    <td>
+                        <%= visit.identification %>
+                    </td>
+                    <td>
+                        <%= visit.origin %>
+                    </td>
+                    <td>
+                        <%= visit.children %>
+                    </td>
+                    <td>
+                        <%= visit.badge %>
+                    </td>
+                    <td>
+                        <%= visit.entrance %>
+                    </td>
+                    <td>
+                        <%= visit.exit %>
+                    </td>
                 </tr>
-            <% }); %>
+                <% }); %>
         </tbody>
     </table>
     <script>

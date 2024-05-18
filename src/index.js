@@ -14,7 +14,7 @@ import user from "./routes/users.routes.js";
 import cron from "node-cron";
 import routesInterns from "./routes/interns.routes.js";
 import { fileURLToPath } from "url";
-import path from "path";
+import path from "path";  
 
 // Definir __dirname en ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -37,7 +37,6 @@ app.use(
 app.set("view engine", "ejs");
 app.set("views", "src/views");
 app.use(express.static(path.join(__dirname, "public")));
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.listen(process.env.PORT, () => {
   console.log(

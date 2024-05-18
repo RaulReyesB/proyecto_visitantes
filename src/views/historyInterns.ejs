@@ -12,7 +12,6 @@
 </head>
 
 <body>
-
   <div id="var">
     <h1>
       <%= descripcion %>
@@ -26,19 +25,18 @@
       <a href="/AdmistrarUsuario">Control de Usuarios</a>
     </div>
   </div>
-
   <div id="buscador">
     <div class="search-container">
       <input type="text" id="searchInput" placeholder="Buscar...">
       <button type="button" onclick="search()"><i class="bi bi-search"></i></button>
     </div>
   </div>
-
   <table id="tabla">
     <thead class="thead-gray">
       <tr>
         <th>Nombre</th>
         <th>Num. de Folio</th>
+        <th>Foto del pasante</th>
         <th>Num. Control</th>
         <th>Carrera</th>
         <th>Direccion Asignada</th>
@@ -55,7 +53,6 @@
         <th>Fecha y Hora de entrada</th>
         <th>Fecha y Hora de salida</th>
         <th>Horas Cumplidas</th>
-
       </tr>
     </thead>
     <tbody>
@@ -66,6 +63,9 @@
           </td>
           <td>
             <%= item.fileNumber %>
+          </td>
+          <td>
+            <%= item.img %>
           </td>
           <td>
             <%= item.Mat %>
@@ -104,7 +104,7 @@
             <%= item.Observations %>
           </td>
           <td>
-            <%= item.servicio %>
+            <%= item.service %>
           </td>
           <td>
             <%= item.entrance %>
@@ -115,13 +115,10 @@
           <td>
             <%= item.hoursFulfilled %>
           </td>
-          <td>
-          </td>
         </tr>
         <% }); %>
     </tbody>
   </table>
-
   <script>
     document.getElementById('searchInput').addEventListener('input', function () {
       const searchValue = this.value.toLowerCase();

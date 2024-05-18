@@ -1,5 +1,8 @@
+// routes/index.routes.js
 import { Router } from "express";
 import express from "express";
+import multerConfig from "../middlewares/multerConfig.js"; // Asegúrate de actualizar el path
+
 import {
   index,
   register,
@@ -16,7 +19,12 @@ import {
   rechargeUser,
   historyInterns,
 } from "../controllers/index.js";
-import { requireAuth, requireSuperUser, requireRH, requireSuperUserOrRH } from "../middlewares/auth.js";
+import {
+  requireAuth,
+  requireSuperUser,
+  requireRH,
+  requireSuperUserOrRH,
+} from "../middlewares/auth.js";
 import {
   adminUser,
   editUser,
@@ -41,7 +49,7 @@ router.get("/registrosPendientes", requireAuth, pendingRecords);
 router.get("/registroUsuario", requireAuth, requireSuperUser, renderRegisterPage);
 router.post("/registroUsuario", requireAuth, requireSuperUser, registerUser);
 router.get("/registroInternos", requireAuth, requireSuperUserOrRH, interns);
-router.post("/registroInternos", requireAuth, requireSuperUserOrRH, insertIntern);
+router.post("/registroInternos", requireAuth, requireSuperUserOrRH, multerConfig.single("img"), insertIntern);
 router.get("/hr-visits", requireAuth, requireSuperUserOrRH, showHRVisits, authenticateUser);
 
 // Rutas públicas (sin autenticación)
@@ -51,23 +59,8 @@ router.post("/iniciarSesion", authenticateUser);
 // Rutas para administrar los usuarios de la plataforma
 router.get("/upd", rechargeUser);
 router.get("/AdmistrarUsuario", requireAuth, requireSuperUser, adminUser);
-router.post(
-  "/toggleStatus/:userId",
-  requireAuth,
-  requireSuperUser,
-  toggleStatus
-);
-router.get(
-  "/AdmistrarUsuario/:userId",
-  requireAuth,
-  requireSuperUser,
-  editUser
-);
-router.post(
-  "/AdmistrarUsuario/:userId",
-  requireAuth,
-  requireSuperUser,
-  updateUser
-);
+router.post("/toggleStatus/:userId", requireAuth, requireSuperUser, toggleStatus);
+router.get("/AdmistrarUsuario/:userId", requireAuth, requireSuperUser, editUser);
+router.post("/AdmistrarUsuario/:userId", requireAuth, requireSuperUser, updateUser);
 
 export default router;

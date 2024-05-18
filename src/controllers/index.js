@@ -1,4 +1,5 @@
 import Visit from "../models/visit.js";
+import moment from "moment";
 import User from "../models/user.js";
 import Intern from "../models/Intern.js";
 import { validationResult, check } from "express-validator";
@@ -174,12 +175,10 @@ const insertVisit = async (req, res) => {
   }
 };
 
-//funcion para registrar internos
 const insertIntern = async (req, res) => {
   const {
     fileNumber,
     name,
-    img,
     school,
     Mat,
     career,
@@ -196,6 +195,8 @@ const insertIntern = async (req, res) => {
     Observations,
     service,
   } = req.body;
+
+  const img = req.file ? `/uploads/${req.file.filename}` : null; // Guarda la URL relativa del archivo de imagen
 
   try {
     // Insertar el nuevo pasante en la base de datos

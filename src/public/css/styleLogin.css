@@ -31,7 +31,7 @@ body {
   width: 90%;
   max-width: 500px;
   padding: 100px 20px;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 20px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
   text-align: center;
@@ -44,9 +44,9 @@ body {
   width: 100%;
   max-width: 500px;
   padding: 80px 20px;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(45, 80, 92, 0.7);
   border-radius: 10px 150px 10px 150px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 20px rgba(45, 80, 92, 0.5);
   text-align: center;
   margin: 10px;
   animation-duration: 1s;
@@ -56,7 +56,7 @@ body {
 .login-container h2 {
   font-size: 45px;
   margin-bottom: 10px;
-  color: #333;
+  color: #1E3740;
   font-family: 'Arial', sans-serif;
 }
 
@@ -94,14 +94,17 @@ body {
   border-radius: 25px;
   padding: 10px;
   font-size: 18px;
+  color: #F2F2F3;
   transition: background-color 0.3s ease;
-  background-color: #900C3F;
-  border: 2px solid #ffffff;
+  background-color: #1E3740;
+  border: 2px solid #F2F2F3;
 }
 
 .btn-primary:hover {
+  background-color: #2D505C;
   border-color: #4fa3fc;
 }
+
 
 .login-container {
   animation-name: fadeIn;
@@ -125,7 +128,7 @@ body {
 .footer-container {
   width: 100%;
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(45, 80, 92, 0.9);
   border-radius: 10px 10px 0 0;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
   text-align: center;

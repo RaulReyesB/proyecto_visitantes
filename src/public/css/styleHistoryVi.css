@@ -30,7 +30,7 @@ body {
   z-index: -1;
 }
 #var {
-  background: #32396c;
+  background: #1E3248;
   padding: 15px;
   display: flex;
   justify-content: space-between;
@@ -46,53 +46,17 @@ a:hover .home {
   width: 110px;
   height: auto;
 }
-#var img {
-  width: 150px;
-  height: 150px;
-  margin: 5px;
-}
-#var h1{
-  color: white;
-  font-size: 27px;
-margin: 1.5%;  
-
-}
 h1{
-  position: relative;
-}
-#var a {
-  color: white;
-  text-decoration:double;
   position: relative;
 }
 svg{
   position: relative;
-}
-#var a:hover {
-  color: white;
-}
-
-#var a::after {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 2px;
-  background-color: transparent;
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  transition: background-color 0.3s;
-}
-
-#var a:hover::after {
-  background-color: #b377e4;
 }
 .enlaces {
   display: flex;
 }
 
 .enlaces a {
-  
   margin-right: 0.5%;
   margin-bottom: 10px; 
   text-align: center;
@@ -210,7 +174,7 @@ footer {
   margin-top: auto;
 }
 .navbar {
-  background-color: #32396c;
+  background-color: #1E3248;
 }
 .navbar-brand img {
   height: 60px;
@@ -227,7 +191,7 @@ footer {
 }
 @media (max-width: 768px) {
   .navbar-collapse {
-      background-color: #32396c;
+      background-color: #1E3248;
   }
 }
 .nav-link:hover {

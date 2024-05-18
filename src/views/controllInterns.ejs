@@ -4,133 +4,97 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>
-    <%= namePage %>
-  </title>
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <title><%= namePage %></title>
+  <!-- Agregar la biblioteca Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Agregar Bootstrap 4.1.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/nav.css">
   <link rel="stylesheet" href="/css/styleAdminUser.css">
 </head>
 
 <body>
-  <nav id="var" class="navbar navbar-expand-lg navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="/img/radioytvlogo.png" alt="Logo">
-        </a>
-        <h1 class="text-white mb-0" style="font-size: 25px; margin-right: auto;">
-            <%= description %>
-        </h1>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <br>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/registroInternos">Pasantes</a>
-                </li>
-                
-                <li  class="nav-item">
-                    
-                     <a class="nav-link" href="/registroVisitas">Registros</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/historial">Historial de visitantes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/registrosPendientes">Pendientes de Salida</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link"   href="/registroUsuario">Registrar Usuario</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/AdmistrarUsuario">Control de Usuarios</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/hr-visits">Recursos Humanos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/historialInternos">Historial de pasante </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/controlPasantes">Control de Pasantes</a>
-                </li>
-                
-                <div class="menu-hamburguesa bg-primary">
-                    <div class="hamburguesa-icono"></div>
-                </div>
-                <li class="nav-item">
-                    <a href="/inicio">
-                      <svg class="home" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 64 64">
-                        <path d="M 32 3 L 1 28 L 1.4921875 28.654297 C 2.8591875 30.477297 5.4694688 30.791703 7.2304688 29.345703 L 32 9 L 56.769531 29.345703 C 58.530531 30.791703 61.140812 30.477297 62.507812 28.654297 L 63 28 L 54 20.742188 L 54 8 L 45 8 L 45 13.484375 L 32 3 z M 32 13 L 8 32 L 8 56 L 56 56 L 56 35 L 32 13 z M 26 34 L 38 34 L 38 52 L 26 52 L 26 34 z"></path>
-                        </svg>    </a>
-                
-                    
-                    </a>
-                  </li>
-              </div>
-                
-            </ul>
-        </div>
+  <nav id="var">
+    <div>
+      <a href="/inicio" style="display: flex;">
+        <img src="/img/radioytvlogo.png" alt="Logo">
+      </a>
     </div>
-</nav>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <div class="enlaces">
+      <a href="/registroInternos">Pasantes</a>
+      <% if (user && user.type !== 'rh') { %>
+        <a href="/registroVisitas">Registros</a>
+        <a href="/historial">Historial de visitantes</a>
+        <a href="/registrosPendientes">Pendientes de Salida</a>
+        <a href="/registroUsuario">Registrar Usuario</a>
+        <a href="/AdmistrarUsuario">Control de Usuarios</a>
+        <a href="/hr-visits">Recursos Humanos</a>
+        <a href="/historialInternos">Historial de pasante</a>
+        <a href="/controlPasantes">Control de Pasantes</a>
+      <% } %>
+    </div>
+    <div class="menu-hamburguesa" id="menuHamburguesa">
+      <div class="hamburguesa-icono"></div>
+      <div class="hamburguesa-icono"></div>
+      <div class="hamburguesa-icono"></div>
+    </div>
+  </nav>
 
-  <br>
+  <div class="cont-title">
+    <h1><%- namePage %></h1>
+  </div>
   <table id="tabla">
     <thead class="thead-gray">
-
-  <table class="table">
-
-    <thead>
-
-      <tr>
-        <th>Nombre</th>
-        <th>Número de Folio</th>
-        <th>Imagen</th>
-        <th>Control de Entrada y Salida</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% interns.forEach(function(intern) { %>
-        <tr>
-          <td>
-            <%= item.name %>
-          </td>
-          <td>
-            <%= item.fileNumber %>
-          </td>
-          <td>
-            <% if (item.img) { %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Número de Folio</th>
+            <th>Imagen</th>
+            <th>Control de Entrada y Salida</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% interns.forEach(function(intern) { %>
+          <tr>
+            <td><%= item.name %></td>
+            <td><%= item.fileNumber %></td>
+            <td>
+              <% if (item.img) { %>
               <img src="<%= item.img %>" alt="Imagen de <%= item.name %>" style="width: 100px; height: auto;">
               <% } else { %>
-                No hay imagen disponible
-                <% } %>
-          </td>
-          <td>
-            <% if (!item.entrance) { %>
-              <!-- Si no hay entrada registrada, mostrar botón de entrada -->
+              No hay imagen disponible
+              <% } %>
+            </td>
+            <td>
+              <% if (!item.entrance) { %>
               <form action="/interns/entrada/<%= item.id %>" method="POST">
                 <button type="submit" class="btn btn-primary">Registrar Entrada</button>
               </form>
               <% } else if (!item.exit) { %>
-                <!-- Si hay entrada pero no hay salida, mostrar botón de salida -->
-                <form action="/interns/salida/<%= item.id %>" method="POST">
-                  <button type="submit" class="btn btn-primary">Registrar Salida</button>
-                </form>
-                <% } else { %>
-                  <!-- Si ya hay entrada y salida registradas, mostrar mensaje -->
-                  Registrado
-                  <% } %>
-          </td>
-        </tr>
-      <% }); %>
-    </tbody>
+              <form action="/interns/salida/<%= item.id %>" method="POST">
+                <button type="submit" class="btn btn-primary">Registrar Salida</button>
+              </form>
+              <% } else { %>
+              Registrado
+              <% } %>
+            </td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
   </table>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    document.getElementById('menuHamburguesa').addEventListener('click', function() {
+      const enlaces = document.querySelector('.enlaces');
+      enlaces.classList.toggle('active');
+    });
+  </script>
 </body>
 
 </html>

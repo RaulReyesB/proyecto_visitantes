@@ -18,10 +18,12 @@ const index = (req, res) => {
 
 // Función para renderizar la página de registro de visitas
 const register = (req, res) => {
+  const user = req.session.user
   res.render("register", {
     namePage: "Registro de visitas",
     description: "Registrate en Radio y Television Hidalgo",
     ninos: 0,
+    user:user
   });
 };
 
@@ -42,6 +44,7 @@ const interns = (req, res) => {
 const history = async (req, res) => {
   try {
     // Todos los registros de la tabla
+    const user = req.session.user
     const allRegistros = await Visit.findAll();
 
     // Filtrar los registros donde la salida no es nula
@@ -57,6 +60,7 @@ const history = async (req, res) => {
       namePage: "Historial de visitas",
       descripcion: "Historial de visitantes de Radio y Television Hidalgo",
       registros: registros,
+      user:user
     });
   } catch (error) {
     console.error("Error al obtener los registros:", error);

@@ -1,12 +1,5 @@
     /* Estilos generales del register y interns  */
     /* estilos del header */
-    #var {
-        background: #32396c;
-        padding: 15px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
       .fondo{
         position: fixed;
         top: 0;
@@ -27,44 +20,6 @@
         width: 110px;
         height: auto;
     }
-    #var img {
-      width: 150px;
-      height: 150px;
-      margin: 5px;
-    }
-      .home{
-        color: white;
-        text-decoration: none;
-      }
-      #var h1{
-        color: white;
-        font-size: 30px;
-      }
-      #var a {
-        color: white;
-        text-decoration: none;
-        position: relative;
-      }
-      
-      #var a:hover {
-        color: white;
-      }
-      
-      #var a::after {
-        content: "";
-        display: block;
-        width: 100%;
-        height: 2px;
-        background-color: transparent;
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        transition: background-color 0.3s;
-      }
-      
-      #var a:hover::after {
-        background-color: #9931f1;
-      }
       .enlaces {
         display: flex;
       }

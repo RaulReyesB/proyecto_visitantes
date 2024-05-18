@@ -1,3 +1,4 @@
+// index.js
 import dotenv from "dotenv";
 import express from "express";
 import session from "express-session";
@@ -10,11 +11,8 @@ import Intern from "./models/Intern.js";
 import checkAndCompleteService from "./utils/checkAndCompleteService.js";
 import history_I from "./models/history_I.js";
 import user from "./routes/users.routes.js";
-import { interns } from "./controllers/index.js";
 import cron from "node-cron";
 import routesInterns from "./routes/interns.routes.js";
-import "./scheduledTasks.js"; // Importa el archivo de tareas programadas
-import multer from "multer";
 import { fileURLToPath } from "url";
 import path from "path";
 
@@ -38,7 +36,7 @@ app.use(
 
 app.set("view engine", "ejs");
 app.set("views", "src/views");
-app.use(express.static("./src/public"));
+app.use(express.static(path.join(__dirname, "public")));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.listen(process.env.PORT, () => {
@@ -57,7 +55,7 @@ try {
   console.log("La conexion a la base de datos ha sido exitosa");
   db.sync();
   console.log("Se ha sincronizado las tablas existentes en la base de datos");
-} catch {
+} catch (error) {
   console.log("Ocurrio un error al intentar conectarse a la base de datos :c ");
 }
 
@@ -71,16 +69,3 @@ cron.schedule("0 0 * * *", () => {
   console.log("Running the service completion check");
   checkAndCompleteService();
 });
-
-// Configuración de almacenamiento de multer
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads/"); // Carpeta donde se guardarán las imágenes
-  },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + path.extname(file.originalname)); // Nombre único para cada archivo
-  },
-});
-
-// Inicializar multer con la configuración de almacenamiento
-const upload = multer({ storage: storage });

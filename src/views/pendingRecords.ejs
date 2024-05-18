@@ -128,6 +128,30 @@
     </tbody>
   </table>
 <script src="/src/controllers/pendingRecords.controllers.js"></script>
+<script>
+  function normalizeString(str) {
+            return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+        }
+
+        document.getElementById('searchInput').addEventListener('input', function () {
+            const searchValue = normalizeString(this.value);
+            const table = document.getElementById('tabla');
+            const rows = table.getElementsByTagName('tr');
+
+            for (let i = 1; i < rows.length; i++) {
+                const cells = rows[i].getElementsByTagName('td');
+                const name = normalizeString(cells[0].textContent || cells[0].innerText);
+                const curp = normalizeString(cells[3].textContent || cells[3].innerText);
+                const entranceDate = normalizeString(cells[10].textContent || cells[8].innerText);
+
+                if (name.includes(searchValue) || curp.includes(searchValue) || entranceDate.includes(searchValue)) {
+                    rows[i].style.display = '';
+                } else {
+                    rows[i].style.display = 'none';
+                }
+            }
+        });
+</script>
 </body>
 
 </html>

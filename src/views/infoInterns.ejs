@@ -19,6 +19,11 @@
       <p><strong>Nombre:</strong>
         <%= intern.name %>
       </p>
+      <p><strong>            <% if (intern.img) { %>
+        <img src="<%= intern.img %>" alt="Imagen de <%= intern.name %>" style="width: 100px; height: auto;">
+        <% } else { %>
+          No hay imagen disponible
+          <% } %></strong></p>
       <p><strong>Número de Folio:</strong>
         <%= intern.fileNumber %>
       </p>

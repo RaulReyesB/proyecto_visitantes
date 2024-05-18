@@ -7,12 +7,13 @@
   <title>
     <%= namePage %>
   </title>
-  
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"><link rel="stylesheet" href="/css/styleAdminUser.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/styleAdminUser.css">
 </head>
 
 <body>
-
   <nav id="var" class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
@@ -83,7 +84,8 @@
   <table id="tabla">
     <thead class="thead-gray">
 
-  <table>
+  <table class="table">
+
     <thead>
 
       <tr>
@@ -102,17 +104,23 @@
           <td>
             <%= item.fileNumber %>
           </td>
-          <td><img src="<%= item.img %>" alt="Imagen de <%= item.name %>"></td>
+          <td>
+            <% if (item.img) { %>
+              <img src="<%= item.img %>" alt="Imagen de <%= item.name %>" style="width: 100px; height: auto;">
+              <% } else { %>
+                No hay imagen disponible
+                <% } %>
+          </td>
           <td>
             <% if (!item.entrance) { %>
               <!-- Si no hay entrada registrada, mostrar botón de entrada -->
               <form action="/interns/entrada/<%= item.id %>" method="POST">
-                <button type="submit">Registrar Entrada</button>
+                <button type="submit" class="btn btn-primary">Registrar Entrada</button>
               </form>
               <% } else if (!item.exit) { %>
                 <!-- Si hay entrada pero no hay salida, mostrar botón de salida -->
                 <form action="/interns/salida/<%= item.id %>" method="POST">
-                  <button type="submit">Registrar Salida</button>
+                  <button type="submit" class="btn btn-primary">Registrar Salida</button>
                 </form>
                 <% } else { %>
                   <!-- Si ya hay entrada y salida registradas, mostrar mensaje -->

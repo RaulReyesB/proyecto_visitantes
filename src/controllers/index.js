@@ -203,7 +203,7 @@ const insertIntern = async (req, res) => {
     service,
   } = req.body;
 
-  const img = req.file ? `/uploads/${req.file.filename}` : null; // Guarda la URL relativa del archivo de imagen
+  const img = req.file ? `uploads/${req.file.filename}` : null; // Guarda la URL relativa del archivo de imagen
 
   try {
     // Insertar el nuevo pasante en la base de datos

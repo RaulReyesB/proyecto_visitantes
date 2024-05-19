@@ -53,7 +53,9 @@ const registrarSalida = async (req, res) => {
     });
 
     if (!historyEntry) {
-      return res.status(404).send("Entrada no encontrada para registrar salida");
+      return res
+        .status(404)
+        .send("Entrada no encontrada para registrar salida");
     }
 
     historyEntry.exit = new Date();
@@ -68,21 +70,20 @@ const registrarSalida = async (req, res) => {
 
 const getInternDetails = async (req, res) => {
   try {
-    const internId = req.params.id;
-    const intern = await Intern.findByPk(internId);
-
-    if (!intern) {
-      return res.status(404).send("Pasante no encontrado");
+    const intern = await Intern.findByPk(req.params.id);
+    const name = await Intern.findByPk(req.params.name);
+    if (intern) {
+      res.render("infoInterns", {
+        namePage: "Informacion del pasante",
+        intern,
+        user:req.session.user
+      });
+    } else {
+      res.status(404).send("Pasante no encontrado");
     }
-
-    res.render("infoInterns", {
-      namePage: "Detalles del Pasante",
-      descripcion: "Información detallada del pasante",
-      intern: intern,
-    });
   } catch (error) {
-    console.error("Error al obtener los detalles del pasante:", error);
-    res.status(500).send("Error interno del servidor");
+    console.error("Error al obtener pasante:", error);
+    res.status(500).send("Error al obtener pasante");
   }
 };
 

@@ -23,19 +23,6 @@ routesInterns.post(
   requireRH,
   registrarSalida
 );
-routesInterns.get("/Pasante/info/:id", requireAuth, async (req, res) => {
-  try {
-    const intern = await Intern.findByPk(req.params.id);
-    const name = await Intern.findByPk(req.params.name)
-    if (intern) {
-      res.render("infoInterns", {namePage:"Informacion del pasante", descripcion:`Informacion de el usuario ${name}`, intern });
-    } else {
-      res.status(404).send("Pasante no encontrado");
-    }
-  } catch (error) {
-    console.error("Error al obtener pasante:", error);
-    res.status(500).send("Error al obtener pasante");
-  }
-});
+routesInterns.get("/Pasante/info/:id", requireAuth,getInternDetails);
 
 export default routesInterns;

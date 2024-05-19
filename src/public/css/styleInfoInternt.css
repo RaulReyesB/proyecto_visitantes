@@ -1,0 +1,50 @@
+/* style.css */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+.titulo {
+  text-align: center;
+}
+
+.contenedor {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+img {
+  width: 120px;
+  height: 150px;
+}
+
+.contenedor-principal {
+  text-align: center;
+}
+
+.contenedor-secundario {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.info {
+  margin-right: 60px;
+}
+.nombre {
+  font-size: 30px;
+}
+
+#enlaces {
+  width: 20%;
+  background-color: aqua;
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+  text-decoration: none;
+  color: black;
+}

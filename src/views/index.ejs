@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Bienvenido</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
+
 <body>
     <div class="custom-background"></div>
     <header>
@@ -19,96 +21,132 @@
     </header>
 
     <div class="tarjeta-usuario">
-    <div class="user-icon-container">
-        <i class="bi" id="user-icon"></i>
+        <div class="user-icon-container">
+            <i class="bi" id="user-icon"></i>
+        </div>
+        <div class="cuerpo">
+            <div class="user-type" id="user-type">[Tipo de Usuario]</div>
+            <div class="user-info-details" id="username">Usuario Actual: [Nombre del usuario]</div>
+        </div>
     </div>
-    <div class="cuerpo">
-        <div class="user-type" id="user-type">[Tipo de Usuario]</div>
-        <div class="user-info-details" id="username">Usuario Actual: [Nombre del usuario]</div>
-    </div>
-</div>
-
 
     <div class="container">
-        <div class="tarjeta" onclick="location.href='/registroInternos'">
-            <div class="tarjeta-icono">
-                <i class="bi bi-person-circle"></i>
+        <% if (user.type==='superUsuario' || user.type==='rh' ) { %>
+            <div class="tarjeta" onclick="location.href='/registroInternos'">
+                <div class="tarjeta-icono">
+                    <i class="bi bi-person-circle"></i>
+                </div>
+                <div class="tarjeta-titulo">Pasante</div>
+                <div class="tarjeta-descripcion">Acceder a registros de pasantes</div>
             </div>
-            <div class="tarjeta-titulo">Pasante</div>
-            <div class="tarjeta-descripcion">Acceder a registros de pasantes</div>
-        </div>
-        <div class="tarjeta" onclick="location.href='/registroVisitas'">
-            <div class="tarjeta-icono">
-                <i class="bi bi-clock"></i>
-            </div>
-            <div class="tarjeta-titulo">Registros</div>
-            <div class="tarjeta-descripcion">Acceder a registros de visitas</div>
-        </div>
-        <div class="tarjeta" onclick="location.href='/historial'">
-            <div class="tarjeta-icono">
-                <i class="bi bi-journal"></i>
-            </div>
-            <div class="tarjeta-titulo">Historial</div>
-            <div class="tarjeta-descripcion">Acceder a historial completo</div>
-        </div>
-        <div class="tarjeta" onclick="location.href='/registrosPendientes'">
-            <div class="tarjeta-icono">
-                <i class="bi bi-exclamation-circle"></i>
-            </div>
-            <div class="tarjeta-titulo">Historial Pendiente</div>
-            <div class="tarjeta-descripcion">Ver registros pendientes</div>
-        </div>
-        <div class="tarjeta" onclick="location.href='/hr-visits'">
-            <div class="tarjeta-icono">
-                <i class="bi bi-people"></i>
-            </div>
-            <div class="tarjeta-titulo">Recursos Humanos</div>
-            <div class="tarjeta-descripcion">Gestionar recursos humanos</div>
-        </div>
-        <div class="tarjeta" onclick="location.href='/AdmistrarUsuario'">
-            <div class="tarjeta-icono">
-                <i class="bi bi-person-check"></i>
-            </div>
-            <div class="tarjeta-titulo">Control de Usuarios</div>
-            <div class="tarjeta-descripcion">Administrar usuarios del sistema</div>
-        </div>
-        <div class="tarjeta" onclick="location.href='/historialInternos'">
-            <div class="tarjeta-icono">
-                <i class="bi bi-folder"></i>
-            </div>
-            <div class="tarjeta-titulo">Historial de Pasante</div>
-            <div class="tarjeta-descripcion">Acceder a historial de pasantes</div>
-        </div>
-        <div class="tarjeta" onclick="location.href='/controlPasantes'">
-            <div class="tarjeta-icono">
-                <i class="bi bi-card-checklist"></i>
-            </div>
-            <div class="tarjeta-titulo">Control de Pasantes</div>
-            <div class="tarjeta-descripcion">Gestionar pasantes</div>
-        </div>
-        <div class="tarjeta" onclick="location.href='/registroUsuario'">
-            <div class="tarjeta-icono">
-                <i class="bi bi-person-plus"></i>
-            </div>
-            <div class="tarjeta-titulo">Registrar Usuarios</div>
-            <div class="tarjeta-descripcion">Registrar nuevos usuarios</div>
-        </div>
+            <% } %>
+
+                <% if (user.type==='superUsuario' || user.type==='usuario' || user.type==='rh' ) { %>
+                    <div class="tarjeta" onclick="location.href='/registroVisitas'">
+                        <div class="tarjeta-icono">
+                            <i class="bi bi-clock"></i>
+                        </div>
+                        <div class="tarjeta-titulo">Registros</div>
+                        <div class="tarjeta-descripcion">Acceder a registros de visitas</div>
+                    </div>
+                    <% } %>
+
+                        <% if (user.type==='superUsuario' || user.type==='administrador' ) { %>
+                            <div class="tarjeta" onclick="location.href='/historial'">
+                                <div class="tarjeta-icono">
+                                    <i class="bi bi-journal"></i>
+                                </div>
+                                <div class="tarjeta-titulo">Historial</div>
+                                <div class="tarjeta-descripcion">Acceder a historial completo</div>
+                            </div>
+                            <% } %>
+
+                                <% if (user.type==='superUsuario' || user.type==='usuario' ) { %>
+                                    <div class="tarjeta" onclick="location.href='/registrosPendientes'">
+                                        <div class="tarjeta-icono">
+                                            <i class="bi bi-exclamation-circle"></i>
+                                        </div>
+                                        <div class="tarjeta-titulo">Historial Pendiente</div>
+                                        <div class="tarjeta-descripcion">Ver registros pendientes</div>
+                                    </div>
+                                    <% } %>
+
+                                        <% if (user.type==='superUsuario' || user.type==='rh' ) { %>
+                                            <div class="tarjeta" onclick="location.href='/hr-visits'">
+                                                <div class="tarjeta-icono">
+                                                    <i class="bi bi-people"></i>
+                                                </div>
+                                                <div class="tarjeta-titulo">Recursos Humanos</div>
+                                                <div class="tarjeta-descripcion">Gestionar recursos humanos</div>
+                                            </div>
+                                            <% } %>
+
+                                                <% if (user.type==='superUsuario' || user.type==='administrador' ) { %>
+                                                    <div class="tarjeta" onclick="location.href='/AdmistrarUsuario'">
+                                                        <div class="tarjeta-icono">
+                                                            <i class="bi bi-person-check"></i>
+                                                        </div>
+                                                        <div class="tarjeta-titulo">Control de Usuarios</div>
+                                                        <div class="tarjeta-descripcion">Administrar usuarios del
+                                                            sistema</div>
+                                                    </div>
+                                                    <% } %>
+
+                                                        <% if (user.type==='superUsuario' || user.type==='rh' ) { %>
+                                                            <div class="tarjeta"
+                                                                onclick="location.href='/historialInternos'">
+                                                                <div class="tarjeta-icono">
+                                                                    <i class="bi bi-folder"></i>
+                                                                </div>
+                                                                <div class="tarjeta-titulo">Historial de Pasante</div>
+                                                                <div class="tarjeta-descripcion">Acceder a historial de
+                                                                    pasantes</div>
+                                                            </div>
+                                                            <% } %>
+
+                                                                <% if (user.type==='superUsuario' ||
+                                                                    user.type==='usuario' ) { %>
+                                                                    <div class="tarjeta"
+                                                                        onclick="location.href='/controlPasantes'">
+                                                                        <div class="tarjeta-icono">
+                                                                            <i class="bi bi-card-checklist"></i>
+                                                                        </div>
+                                                                        <div class="tarjeta-titulo">Control de Pasantes
+                                                                        </div>
+                                                                        <div class="tarjeta-descripcion">Gestionar
+                                                                            pasantes</div>
+                                                                    </div>
+                                                                    <% } %>
+
+                                                                        <% if (user.type==='superUsuario' ||
+                                                                            user.type==='administrador' ) { %>
+                                                                            <div class="tarjeta"
+                                                                                onclick="location.href='/registroUsuario'">
+                                                                                <div class="tarjeta-icono">
+                                                                                    <i class="bi bi-person-plus"></i>
+                                                                                </div>
+                                                                                <div class="tarjeta-titulo">Registrar
+                                                                                    Usuarios</div>
+                                                                                <div class="tarjeta-descripcion">
+                                                                                    Registrar nuevos usuarios</div>
+                                                                            </div>
+                                                                            <% } %>
     </div>
 
     <footer>
         <p>TIC'S</p>
     </footer>
-    
+
     <script>
         var userType = '<%= user.type %>';
         var userName = '<%= user.name %>';
-        
+
         function setUserInfo(userType, userName) {
             var userIcon = document.getElementById('user-icon');
             var username = document.getElementById('username');
             var userTypeText = document.getElementById('user-type');
             username.textContent = 'Usuario Actual: ' + userName;
-            
+
             switch (userType) {
                 case 'superUsuario':
                     userIcon.className = 'bi bi-shield-lock';
@@ -132,4 +170,5 @@
         setUserInfo(userType, userName);
     </script>
 </body>
+
 </html>

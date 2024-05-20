@@ -9,26 +9,7 @@
   filter: blur(8px);
   z-index: -1;
 }
-.home {
-  fill: #900c3f;
-  transition: fill 0.3s ease;
-}
 
-a:hover .home {
-  fill: #4fa3fc;
-  width: 110px;
-  height: auto;
-}
-.enlaces {
-  display: flex;
-}
-
-.enlaces a {
-  margin-right: 20px;
-}
-.menu-hamburguesa {
-  display: none;
-}
 /* Contenedor de todo el cuerpo */
 .container {
   display: flex;
@@ -82,14 +63,16 @@ form .button {
   padding: 5px;
   border-radius: 50px;
   transition: background-color 0.3s ease;
-  background-color: #900c3f;
+  /*background-color: #900c3f;*/
+  background-color: #3D3D3D;
   color: white;
   width: 200px;
 }
 
 form .button:hover {
-  background-color: #4fa3fc;
-  border: 1px solid #0078f8;
+  /*background-color: #4fa3fc;*/
+  background-color: #3D3D3D;
+  /*border: 1px solid #0078f8;*/
 }
 
 /* estilo de los selects*/

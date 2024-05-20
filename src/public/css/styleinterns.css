@@ -1,12 +1,6 @@
 /* Estilos generales del register y interns */
 /* estilos del header */
-#var {
-  background: #1e3740;
-  padding: 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+
 
 .fondo {
   position: fixed;
@@ -17,29 +11,6 @@
   background: url('/img/fachada1.webp') no-repeat center center/cover;
   filter: blur(8px);
   z-index: -1;
-}
-
-.home {
-  fill: #900C3F;
-  transition: fill 0.3s ease;
-}
-
-a:hover .home {
-  fill: #4fa3fc;
-  width: 110px;
-  height: auto;
-}
-
-.enlaces {
-  display: flex;
-}
-
-.enlaces a {
-  margin-right: 20px;
-}
-
-.menu-hamburguesa {
-  display: none;
 }
 
 /* Contenedor de todo el cuerpo */
@@ -116,11 +87,7 @@ label {
 }
 
 /* Estilo de los botones */
-form .button {
-  
-}
-
-form .button:hover {
+form .btn:hover {
   background-color: #4fa3fc;
   
 }
@@ -190,35 +157,10 @@ form .button:hover {
   }
 }
 
-@media (max-width: 768px) {
-  #var {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .enlaces {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    background-color: #1e3740;
-    padding: 15px 0;
-    margin-top: 10px;
-  }
-  .enlaces a {
-    padding: 10px 15px;
-    width: 100%;
-    text-align: left;
-    border-top: 1px solid #444;
-  }
-  .menu-hamburguesa {
-    display: flex;
-  }
-  .enlaces.active {
-    display: flex;
-  }
-}
 #btn{
   border: #000;
   color: white;
-  background: #1e3740;
+  /*background: #1e3740;*/
+  background-color: #3D3D3D;
   border-radius: 30px;
 }

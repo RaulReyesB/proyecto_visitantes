@@ -39,7 +39,7 @@
               <%= item.password %>
             </td>
             <td>
-              <%= item.type %>
+              <%= item.type == "administrador" ? "Supervisor" : item.type %>
             </td>
             <td>
               <%= item.status ? 'ALTA' :'BAJA' %>

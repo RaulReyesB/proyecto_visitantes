@@ -6,118 +6,122 @@
     <%= namePage %>
   </title>
   <link rel="stylesheet" href="/css/styleAdminUser.css">
-  
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/nav.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
 <body>
   <div class="fondo"></div>
+  <%- include('templates/nav') %>
+    <div class="cont-title">
+      <h1><%-namePage%></h1>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-  <div id="var">
-    <div>
-        <img src="/img/radioytvlogo.png" alt="">
-    </div>
-    <h1>
-        <%= description %>
-    </h1>
-
-    <div class="enlaces">
-        <a href="/registroInternos">Pasantes</a>
-        <a href="/registroVisitas">Registros</a>
-        <a href="/historial">Historial de visitantes</a>
-        <a href="/registrosPendientes">Pendientes de Salida</a>
-        <a href="/registroUsuario">Registrar Usuario</a>
-        <a href="/AdmistrarUsuario">Control de Usuarios</a>
-        <a href="/hr-visits">Recursos Humanos</a>
-        <a href="/historialInternos">Historial de pasante </a>
-        <a href="/controlPasantes">Control de Pasantes</a>
-    </div>
-    <div class="menu-hamburguesa bg-primary">
-        <div class="hamburguesa-icono"></div>
-    </div>
-    <a href="/inicio">
-      <svg class="home" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 64 64">
-        <path d="M 32 3 L 1 28 L 1.4921875 28.654297 C 2.8591875 30.477297 5.4694688 30.791703 7.2304688 29.345703 L 32 9 L 56.769531 29.345703 C 58.530531 30.791703 61.140812 30.477297 62.507812 28.654297 L 63 28 L 54 20.742188 L 54 8 L 45 8 L 45 13.484375 L 32 3 z M 32 13 L 8 32 L 8 56 L 56 56 L 56 35 L 32 13 z M 26 34 L 38 34 L 38 52 L 26 52 L 26 34 z"></path>
-        </svg>
-    </a>
-</div>
-  <br>
-  <table id="tabla" class="fade-in table table-hover">
-    <thead class="thead-gray">
-      <tr>
-        <th>Nombre</th>
-        <th>Contraseña</th>
-        <th>Tipo de usuario</th>
-        <th>Estatus</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% user.forEach(function(item) { %>
+    <br>
+    <table id="tabla" class="fade-in table table-hover">
+      <thead class="thead-gray">
         <tr>
-          <td>
-            <%= item.name %>
-          </td>
-          <td>
-            <%= item.password %>
-          </td>
-          <td>
-            <%= item.type %>
-          </td>
-          <td>
-            <%= item.status ? 'ALTA':'BAJA' %>
-          </td>
-          <td>
-            <a href="/upd">
-              <button class="btn btn-danger" id="toggleButton<%= item.id %>" onclick="toggleStatus('<%= item.id %>')">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                  <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
-                </svg> <%= item.status ? 'Dar de baja':'Dar de alta' %>
-              </button>
-            </a>
-            <a href="/AdmistrarUsuario/<%= item.id %>"><button class="btn btn-warning"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-              <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-              <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
-            </svg></button></a>
-          </td>
+          <th>Nombre</th>
+          <th>Contraseña</th>
+          <th>Tipo de usuario</th>
+          <th>Estatus</th>
+          <th>Acciones</th>
         </tr>
-        <% }); %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% user.forEach(function(item) { %>
+          <tr>
+            <td>
+              <%= item.name %>
+            </td>
+            <td>
+              <%= item.password %>
+            </td>
+            <td>
+              <%= item.type %>
+            </td>
+            <td>
+              <%= item.status ? 'ALTA' :'BAJA' %>
+            </td>
+            <td>
+              <a href="/upd">
+                <button class="btn btn-danger" id="toggleButton<%= item.id %>" onclick="toggleStatus('<%= item.id %>')">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg"
+                    viewBox="0 0 16 16">
+                    <path
+                      d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                  </svg>
+                  <%= item.status ? 'Dar de baja' :'Dar de alta' %>
+                </button>
+              </a>
+              <a href="/AdmistrarUsuario/<%= item.id %>"><button class="btn btn-warning"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                    class="bi bi-pencil-square" viewBox="0 0 16 16">
+                    <path
+                      d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                    <path fill-rule="evenodd"
+                      d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
+                  </svg></button></a>
+            </td>
+          </tr>
+          <% }); %>
+      </tbody>
+    </table>
 
-  <script>
-    function toggleStatus(userId) {
-      const button = document.getElementById(`toggleButton${userId}`);
-      const currentStatus = button.textContent.trim(); // Obtener el texto actual del botón
+    <script>
+      function toggleStatus(userId) {
+        const button = document.getElementById(`toggleButton${userId}`);
+        const currentStatus = button.textContent.trim(); // Obtener el texto actual del botón
 
-      // Realizar una solicitud fetch para cambiar el estado del usuario
-      fetch(`/toggleStatus/${userId}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-      })
-        .then(response => {
-          if (response.ok) {
-            // Cambiar el texto del botón según el estado actual del usuario
-            button.textContent = currentStatus === "Dar de baja" ? "Dar de alta" : "Dar de baja";
-          } else {
-            throw new Error('Hubo un problema al cambiar el estado del usuario');
-          }
+        // Realizar una solicitud fetch para cambiar el estado del usuario
+        fetch(`/toggleStatus/${userId}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
         })
-        .catch(error => {
-          console.error('Error al cambiar el estado del usuario:', error);
-        });
-    }
-  </script>
-  <footer class="bg-body-tertiary text-center text-lg-start">
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
-      © 2024 Copyright:
-      
-    </div>
-    <!-- Copyright -->
-  </footer>
+          .then(response => {
+            if (response.ok) {
+              // Cambiar el texto del botón según el estado actual del usuario
+              button.textContent = currentStatus === "Dar de baja" ? "Dar de alta" : "Dar de baja";
+            } else {
+              throw new Error('Hubo un problema al cambiar el estado del usuario');
+            }
+          })
+          .catch(error => {
+            console.error('Error al cambiar el estado del usuario:', error);
+          });
+      }
+
+      document.getElementById('searchInput').addEventListener('input', function () {
+        const searchValue = this.value.toLowerCase();
+        const table = document.getElementById('tabla');
+        const rows = table.getElementsByTagName('tr');
+
+        for (let i = 1; i < rows.length; i++) {
+          const cells = rows[i].getElementsByTagName('td');
+          const name = cells[0].textContent || cells[0].innerText;
+
+          if (name.toLowerCase().indexOf(searchValue) > -1) {
+            rows[i].style.display = '';
+          } else {
+            rows[i].style.display = 'none';
+          }
+        }
+      });
+    </script>
+    <footer class="bg-body-tertiary text-center text-lg-start">
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2024 Copyright:
+
+      </div>
+      <!-- Copyright -->
+    </footer>
 </body>
 
 </html>

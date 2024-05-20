@@ -1,8 +1,14 @@
 :root {
   --user-color-verde: rgb(59, 239, 59);
-  --user-color-anaranjado: orange;
+  --user-color-anaranjado: #EBC668;
   --user-color-azul: rgb(47, 203, 231);
   --user-color-rojo: rgb(229, 53, 53);
+  --tarjeta-bg: rgba(255, 255, 255, 0.8);
+  --tarjeta-hover-bg: rgba(255, 255, 255, 0.95);
+  --tarjeta-color: #333;
+  --tarjeta-hover-color: #000;
+  --tarjeta-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --tarjeta-hover-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 body {
@@ -10,14 +16,13 @@ body {
   color: #ffffff;
   margin: 0;
   padding: 0;
-  background: url('/img/fachada1.jpg') no-repeat center center/cover;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
 header {
-  background-color: #32396C;
+  background-color: #1E3740;
   padding: 10px;
   text-align: center;
   position: relative;
@@ -32,19 +37,27 @@ header a {
   text-decoration: none;
   color: #ffffff;
   background-color: #e74c3c;
-  padding: 8px 16px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 18px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+header a i {
+  margin-right: 8px;
 }
 
 header a:hover {
   background-color: #c0392b;
+  transform: scale(1.1);
 }
 
 .header-title {
   font-size: 44px;
   font-weight: bold;
-  color: #FAB518;
+  color: #ffffff;
   margin-bottom: 10px;
   opacity: 0;
   animation: scaleIn 1s ease forwards;
@@ -60,14 +73,12 @@ header a:hover {
 
 .user-info-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  position: absolute;
-  top: 10px;
-  right: 10px;
 }
 
 .user-info {
-  margin-right: 200px;
+  margin-right: 2000px;
 }
 
 .logout-link {
@@ -76,115 +87,90 @@ header a:hover {
 
 @keyframes scaleIn {
   from {
-    opacity: 0;
-    transform: scale(0.8);
+      opacity: 0;
+      transform: scale(0.8);
   }
   to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+      opacity: 1;
+      transform: scale(1);
   }
 }
 
 .container {
   display: flex;
-  flex: 1;
-  max-width: 55%;
-  margin: auto;
-  padding: 20px;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  opacity: 0;
-  animation: fadeIn 1s ease forwards;
+  justify-content: center;
+  padding: 20px;
 }
 
 .tarjeta {
   display: flex;
-  width: calc(25% - 10px);
-  margin-bottom: 20px;
-  background-color: #e1dbce;
-  border-radius: 15px;
-  overflow: hidden;
   flex-direction: column;
-  opacity: 0;
-  animation: fadeIn 1s ease forwards;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  justify-content: center;
+  align-items: center;
+  width: 240px;
+  height: 200px;
+  margin-bottom: 20px;
+  background-color: var(--tarjeta-bg);
+  border-radius: 15px;
+  box-shadow: var(--tarjeta-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.tarjeta:last-child {
+  margin-right: 0;
 }
 
 .tarjeta:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 60px rgb(240, 226, 226);
+  box-shadow: var(--tarjeta-hover-shadow);
+  background-color: var(--tarjeta-hover-bg);
 }
 
-.titulo {
-  font-size: 20px;
-  padding: 10px;
-  color: black;
+.tarjeta-icono {
+  font-size: 48px;
+  margin-bottom: 10px;
+  color: var(--tarjeta-color);
+  transition: color 0.3s ease;
+}
+
+.tarjeta-titulo {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--tarjeta-color);
   text-align: center;
-  transition: font-size 0.3s ease;
-  display: block;
+  margin-bottom: 5px;
+  transition: color 0.3s ease;
 }
 
-.tarjeta:hover .titulo {
-  font-size: 21px;
-}
-
-.cuerpo img {
-  width: 70%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  transition: transform 0.3s ease;
-}
-
-.tarjeta:hover .cuerpo img {
-  transform: scale(0.9);
-}
-
-.pie {
-  background: #5078c8;
-  border-radius: 0 0 15px 15px;
-  padding: 10px;
+.tarjeta-descripcion {
+  font-size: 16px;
+  color: var(--tarjeta-color);
   text-align: center;
-  margin-top: auto;
-  transition: font-size 0.3s ease;
+  transition: color 0.3s ease;
 }
 
-.tarjeta:hover .pie {
-  font-size: 24px;
-}
-
-.pie a {
-  text-decoration: none;
-  color: white;
-  font-size: 20px;
-  transition: font-size 0.3s ease;
+.tarjeta:hover .tarjeta-icono,
+.tarjeta:hover .tarjeta-titulo,
+.tarjeta:hover .tarjeta-descripcion {
+  color: var(--tarjeta-hover-color);
 }
 
 @keyframes slideIn {
   from {
-    opacity: 0;
-    transform: translateY(100%);
+      opacity: 0;
+      transform: translateY(100%);
   }
   to {
-    opacity: 1;
-    transform: translateY(0);
+      opacity: 1;
+      transform: translateY(0);
   }
 }
 
 footer {
-  background: linear-gradient(135deg, #32396C 0%, #5078c8 100%);
+  background: #1E3740;
   color: #ffffff;
   padding: 20px;
   text-align: center;
@@ -210,6 +196,113 @@ footer p {
   width: 100%;
   height: 100%;
   background: url('/img/fachada1.jpg') no-repeat center center/cover;
-  filter: blur(8px);
+  filter: blur(6px);
   z-index: -1;
+}
+
+/* Tarjeta Usuario */
+.tarjeta-usuario {
+  position: relative;
+  width: 800px;
+  height: 150px; /* Más delgada */
+  margin: 20px auto;
+  background-color: rgba(45, 80, 92, 0.7);
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  opacity: 0;
+  animation: slideInAndExpand 1s forwards; /* Efecto de entrada */
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+  justify-content: center;
+  font-size: 0.9em; /* Fuente más pequeña */
+}
+
+.tarjeta-usuario .user-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-bottom: 10px;
+}
+
+.tarjeta-usuario .user-icon-container .bi {
+  font-size: 48px;
+  color: #ffffff;
+}
+
+.tarjeta-usuario .user-type {
+  font-size: 20px; /* Fuente más pequeña */
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.tarjeta-usuario .cuerpo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+  font-family: Arial;
+  font-size: 1.2em; /* Fuente más pequeña */
+  color: #ffffff;
+}
+
+.tarjeta-usuario .user-info-details {
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.accediste-como {
+  font-size: 1.2em; /* Fuente más pequeña */
+  margin-right: 10px;
+}
+
+/* Efecto de entrada */
+@keyframes slideInAndExpand {
+  0% {
+      opacity: 0;
+      transform: scaleY(0);
+  }
+  100% {
+      opacity: 1;
+      transform: scaleY(1);
+  }
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 600px) {
+  .tarjeta-usuario {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+  }
+  .tarjeta {
+      width: 100%;
+      margin: 10px 0;
+  }
+}
+
+@media screen and (min-width: 601px) {
+  .contenedor-tarjetas {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      position: relative;
+  }
+  .tarjeta-usuario {
+      width: 800px;
+  }
+  .tarjeta {
+      width: 240px;
+      margin: 20px;
+  }
 }

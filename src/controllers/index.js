@@ -1,4 +1,5 @@
 import Visit from "../models/visit.js";
+import moment from "moment";
 import User from "../models/user.js";
 import Intern from "../models/Intern.js";
 import { validationResult, check } from "express-validator";
@@ -17,10 +18,12 @@ const index = (req, res) => {
 
 // Función para renderizar la página de registro de visitas
 const register = (req, res) => {
+  const user = req.session.user
   res.render("register", {
     namePage: "Registro de visitas",
     description: "Registrate en Radio y Television Hidalgo",
     ninos: 0,
+    user:user
   });
 };
 
@@ -41,6 +44,7 @@ const interns = (req, res) => {
 const history = async (req, res) => {
   try {
     // Todos los registros de la tabla
+    const user = req.session.user
     const allRegistros = await Visit.findAll();
 
     // Filtrar los registros donde la salida no es nula
@@ -56,6 +60,7 @@ const history = async (req, res) => {
       namePage: "Historial de visitas",
       descripcion: "Historial de visitantes de Radio y Television Hidalgo",
       registros: registros,
+      user:user
     });
   } catch (error) {
     console.error("Error al obtener los registros:", error);
@@ -71,12 +76,12 @@ const historyInterns = async (req, res) => {
         serviceCompleted: false,
       },
     });
-    var user = req.user || null;
+    const user = req.session.user
     res.render("historyInterns", {
-      namePage: "Historial de visitas",
+      namePage: "Historial de Pasantes",
       descripcion: "Historial de visitantes de Radio y Television Hidalgo",
       registros: allRegistros,
-      user: req.session.user,
+      user: user,
     });
   } catch (error) {
     console.error("Error al obtener los registros:", error);
@@ -99,9 +104,11 @@ function formatDate(dateString) {
 
 // Función para renderizar la página de registro de usuarios
 const renderRegisterPage = (req, res) => {
+  const user = req.session.user
   res.render("createusers", {
     namePage: "Registro de Usuario",
     description: "Regístrate en Radio y Television Hidalgo",
+    user:user
   });
 };
 
@@ -121,6 +128,7 @@ const pendingRecords = async (req, res) => {
       descripcion:
         "Historial de visitas incompletas de Radio y Television Hidalgo",
       registros: registros,
+      user: req.session.user
     });
   } catch (error) {
     console.error("Error al obtener los registros:", error);
@@ -174,12 +182,10 @@ const insertVisit = async (req, res) => {
   }
 };
 
-//funcion para registrar internos
 const insertIntern = async (req, res) => {
   const {
     fileNumber,
     name,
-    img,
     school,
     Mat,
     career,
@@ -196,6 +202,8 @@ const insertIntern = async (req, res) => {
     Observations,
     service,
   } = req.body;
+
+  const img = req.file ? `/uploads/${req.file.filename}` : null; // Guarda la URL relativa del archivo de imagen
 
   try {
     // Insertar el nuevo pasante en la base de datos

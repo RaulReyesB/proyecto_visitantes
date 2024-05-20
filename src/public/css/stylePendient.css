@@ -70,13 +70,11 @@
 }
 
 a:hover .home {
-  fill: #4fa3fc;
+  fill: #1E3740;
   width: 110px;
   height: auto;
 }
-h1{
-  position: relative;
-}
+
 svg{
   position: relative;
 }
@@ -94,9 +92,9 @@ svg{
 }
   .cont-title{
     display: flex;
-    flex-direction: row;
+    
     justify-content: center;
-    width: 600px;
+    
     color: white;
   }
 

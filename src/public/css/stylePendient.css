@@ -63,32 +63,19 @@
     filter: blur(8px);
     z-index: -1;
   }
-  .home {
-    fill: #900C3F;
-    transition: fill 0.3s ease;
-
+.formato{
+  display: flex; 
+  justify-content: center; 
+  margin-top: 10px; 
+  /*background-color:cadetblue; */
+  background-color: #3D3D3D;
+  width:70% ; 
+  margin-left: 165px; 
+  border-radius: 20px;
 }
-
-a:hover .home {
-  fill: #1E3740;
-  width: 110px;
-  height: auto;
-}
-
-svg{
-  position: relative;
-}
-.enlaces {
-  display: flex;
-}
-.enlaces a {
-  
-  margin-right: 0.5%;
-  margin-bottom: 10px; 
-  text-align: center;
-}
-.menu-hamburguesa {
-  display: none;
+.formato h1{
+  font-size: 30px;
+  color:white;
 }
   .cont-title{
     display: flex;

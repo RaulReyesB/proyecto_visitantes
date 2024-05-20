@@ -22,7 +22,10 @@ body {
 }
 
 header {
+  background-color: #808080;
+  /*
   background-color: #1E3740;
+  */
   padding: 10px;
   text-align: center;
   position: relative;
@@ -36,7 +39,8 @@ header a {
   right: 10px;
   text-decoration: none;
   color: #ffffff;
-  background-color: #e74c3c;
+  /*background-color: #e74c3c;*/
+  background-color:#3D3D3D ;
   padding: 10px 20px;
   border-radius: 50px;
   font-size: 18px;
@@ -50,7 +54,8 @@ header a i {
 }
 
 header a:hover {
-  background-color: #c0392b;
+  /*background-color: #c0392b;*/
+  background-color: #3D3D3D;
   transform: scale(1.1);
 }
 
@@ -67,7 +72,8 @@ header a:hover {
   font-size: 20px;
   font-style: normal;
   font-weight: lighter; /* Cambiar a una fuente ligera */
-  color: #c2c4d4;
+  /*color: #c2c4d4;*/
+  color: #3D3D3D;
   opacity: 0;
   animation: scaleIn 1s ease forwards;
 }
@@ -171,7 +177,8 @@ header a:hover {
 }
 
 footer {
-  background: #1E3740;
+  /*background: #1E3740;*/
+  background: #808080;
   color: #ffffff;
   padding: 20px;
   text-align: center;
@@ -207,7 +214,8 @@ footer p {
   width: 400px; /* Reducir el ancho */
   height: 12px; /* Reducir el alto */
   margin: 0px auto;
-  background-color: rgba(45, 80, 92, 0.7);
+  /*background-color: rgba(45, 80, 92, 0.7);*/
+  background-color:#3D3D3D ;
   border-radius: 150px;
   display: flex;
   align-items: center;
@@ -231,7 +239,8 @@ footer p {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.2);
+  /*background-color: rgba(255, 255, 255, 0.2);*/
+  background-color: #3D3D3D;
   margin-bottom: 10px;
   display: flex;
   align-items: center;

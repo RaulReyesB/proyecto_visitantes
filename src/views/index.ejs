@@ -44,9 +44,9 @@
                 <% if (user.type==='superUsuario' || user.type==='usuario' || user.type==='rh' ) { %>
                     <div class="tarjeta" onclick="location.href='/registroVisitas'">
                         <div class="tarjeta-icono">
-                            <i class="bi bi-clock"></i>
+                            <i class="bi bi-journal"></i>
                         </div>
-                        <div class="tarjeta-titulo">Registros</div>
+                        <div class="tarjeta-titulo">Visitas</div>
                         <div class="tarjeta-descripcion">Acceder a registros de visitas</div>
                     </div>
                     <% } %>
@@ -54,7 +54,7 @@
                         <% if (user.type==='superUsuario' || user.type==='administrador' ) { %>
                             <div class="tarjeta" onclick="location.href='/historial'">
                                 <div class="tarjeta-icono">
-                                    <i class="bi bi-journal"></i>
+                                    <i class="bi bi-clock   "></i>
                                 </div>
                                 <div class="tarjeta-titulo">Historial</div>
                                 <div class="tarjeta-descripcion">Acceder a historial completo</div>

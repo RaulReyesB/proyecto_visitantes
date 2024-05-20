@@ -177,10 +177,22 @@ const insertVisit = async (req, res) => {
       badge: req.body.badge,
     });
     console.log("Registro exitoso");
-    res.redirect(`/inicio`);
+    res.render("index", {
+      namePage: "Inicio",
+      description: "Bienvenido a Radio y Television Hidalgo",
+      user: req.session.user,
+      msg: "Registro exitoso",
+      errors: []
+    });
   } catch (error) {
     console.error(error);
-    res.status(500).send("Error interno del servidor");
+    res.render("index", {
+      namePage: "Inicio",
+      description: "Bienvenido a Radio y Television Hidalgo",
+      user: req.session.user,
+      errors: [{msg: "No se pudo completar la operación"}],
+      msg: ""
+    });
   }
 };
 
@@ -233,7 +245,13 @@ const insertIntern = async (req, res) => {
     res.redirect("/controlPasantes");
   } catch (error) {
     console.error("Error al insertar pasante:", error);
-    res.status(500).send("Error al insertar pasante");
+    res.render("index", {
+      namePage: "Inicio",
+      description: "Bienvenido a Radio y Television Hidalgo",
+      user: req.session.user,
+      errors: [{msg: "No se pudo completar la operación"}],
+      msg: ""
+    });
   }
 };
 
@@ -301,7 +319,14 @@ const authenticateUser = async (req, res) => {
     });
   } catch (error) {
     console.error(error);
-    res.status(500).send("Error interno del servidor");
+    res.render("index", {
+      namePage: "Bienvenido a Radio y Television",
+      description: "Página de inicio",
+      user: req.session.user,
+      errors: [{msg: "No se pudo completar la operación"}],
+      msg: ""
+    });
+    
   }
 };
 
@@ -380,7 +405,8 @@ const registerUser = async (req, res) => {
       namePage: "Inicio",
       description: "Bienvenido a Radio y Television Hidalgo",
       user: req.session.user,
-      errors: [{msg: "Error interno del servidor"}]
+      errors: [{msg: "No se pudo completar la operación"}],
+      msg: ""
     });
   }
 };

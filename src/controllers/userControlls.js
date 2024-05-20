@@ -79,10 +79,22 @@ const updateUser = async (req, res) => {
     await user.save();
 
     console.log("Usuario actualizado correctamente");
-    res.redirect("/inicio");
+    res.render("index", {
+      namePage: "Inicio",
+      description: "Bienvenido a Radio y Television Hidalgo",
+      user: req.session.user,
+      msg: "Usuario actualizado correctamente",
+      errors: []
+    });
   } catch (error) {
     console.error("Error al actualizar el usuario:", error);
-    res.status(500).send("Error interno del servidor");
+    res.render("index", {
+      namePage: "Inicio",
+      description: "Bienvenido a Radio y Television Hidalgo",
+      user: req.session.user,
+      errors: [{msg: "No se pudo completar la operacion"}],
+      msg: ""
+    });
   }
 };
 

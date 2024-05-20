@@ -40,6 +40,22 @@
         </div>
     </header>
 
+    <% if (errors && errors.length > 0) { %>
+        <div class="mt-3">
+          <ul class="list-group">
+            <% errors.forEach(error => { %>
+              <li class="list-group-item list-group-item-danger"><%= error.msg %></li>
+            <% }); %>
+          </ul>
+        </div>
+      <% } %>
+    
+      <% if (msg) { %>
+        <div class="alert alert-success">
+          <%= msg %>
+        </div>
+      <% } %>
+    
     <div class="user-info-side">
         <div class="user-icon-container">
             <i class="bi" id="user-icon"></i>

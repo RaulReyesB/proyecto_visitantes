@@ -1,4 +1,3 @@
-// index.js
 import dotenv from "dotenv";
 import express from "express";
 import session from "express-session";
@@ -7,14 +6,16 @@ import router from "./routes/index.routes.js";
 import pdR from "./routes/pendingRecords.routes.js";
 import modelo from "./models/visit.js";
 import User from "./models/user.js";
-import Intern from "./models/Intern.js";
+// Eliminar estas líneas si ya se están importando desde otro archivo
+// import Intern from "./models/Intern.js";
+// import history_I from "./models/history_I.js";
 import checkAndCompleteService from "./utils/checkAndCompleteService.js";
-import history_I from "./models/history_I.js";
 import user from "./routes/users.routes.js";
 import cron from "node-cron";
 import routesInterns from "./routes/interns.routes.js";
 import { fileURLToPath } from "url";
 import path from "path";
+import { Intern, HistoryIntern } from "./models/relationShips.js"; // Asegúrate de importar desde relationships.js
 
 // Definir __dirname en ES modules
 const __filename = fileURLToPath(import.meta.url);

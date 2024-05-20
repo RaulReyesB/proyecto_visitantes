@@ -4,7 +4,7 @@ import moment from "moment";
 import Intern from "../models/Intern.js";
 
 const checkAndCompleteService = async () => {
-  const today = moment().format("DD-MM-YYYY");
+  const today = moment().format("YYYY-MM-DD");
 
   try {
     const interns = await Intern.findAll({
@@ -20,6 +20,7 @@ const checkAndCompleteService = async () => {
       intern.serviceCompleted = true;
       intern.fileNumber = null; // Eliminar el número de folio
       await intern.save();
+      console.log(`Intern ${intern.name} has completed their service.`);
     }
 
     console.log(

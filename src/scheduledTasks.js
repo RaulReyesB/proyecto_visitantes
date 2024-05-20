@@ -4,7 +4,7 @@ import moment from "moment";
 
 // Función para verificar y actualizar el estado del servicio
 const checkAndUpdateServiceStatus = async () => {
-  const today = moment().format("YYYY-MM-DD");
+  const today = moment().format("DD-MM-YYYY");
 
   try {
     const interns = await Intern.findAll();
@@ -22,4 +22,4 @@ const checkAndUpdateServiceStatus = async () => {
 };
 
 // Programar la tarea para que se ejecute todos los días a la medianoche
-cron.schedule("0 0 * * *", checkAndUpdateServiceStatus);
+cron.schedule("* * * * *", checkAndUpdateServiceStatus);

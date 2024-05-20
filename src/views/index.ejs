@@ -125,7 +125,7 @@
             </div>
         <% } %>
 
-        <% if (user.type==='superUsuario' || user.type==='usuario' ) { %>
+        <% if (user.type==='superUsuario' || user.type==='usuario' || user.type==='rh' ) { %>
             <div class="tarjeta" onclick="location.href='/controlPasantes'">
                 <div class="tarjeta-icono">
                     <i class="bi bi-card-checklist"></i>
@@ -175,7 +175,7 @@
                     break;
                 case 'administrador':
                     userIcon.className = 'bi bi-person-badge';
-                    userTypeText.textContent = 'Administrador';
+                    userTypeText.textContent = 'Supervisor';
                     break;
                 case 'rh':
                     userIcon.className = 'bi bi-people';

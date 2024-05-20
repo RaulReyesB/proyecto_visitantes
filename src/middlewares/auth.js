@@ -65,7 +65,7 @@ const requireSuperUserOrRH = (req, res, next) => {
 const requireUserOrRH = (req, res, next) => {
   if (
     req.session.user &&
-    (req.session.user.type === "usuario" || req.session.user.type === "rh")
+    (req.session.user.type === "usuario" || req.session.user.type === "rh" || req.session.user.type === "superUsuario")
   ) {
     next();
   } else {

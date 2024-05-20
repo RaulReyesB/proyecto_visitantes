@@ -17,8 +17,9 @@
   display: flex;
   align-items: center;
 }
+
 #var .enlaces a {
-  color: white;
+  color: black;  /* Asegurar que el color sea negro */
   text-align: center;
   text-decoration: none;
   margin-left: 15px;
@@ -101,4 +102,7 @@
   .enlaces.active {
     display: flex;
   }
+}
+.navbar-nav .nav-item .nav-link {
+  color:white;
 }

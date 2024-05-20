@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { requireAuth, requireRH } from "../middlewares/auth.js";
+import { requireAuth, requireRH, requireUserOrRH } from "../middlewares/auth.js";
 import {
   controllInterns,
   registrarEntrada,
@@ -10,19 +10,19 @@ import Intern from "../models/Intern.js";
 
 const routesInterns = Router();
 
-routesInterns.get("/controlPasantes", requireAuth, controllInterns);
+routesInterns.get("/controlPasantes", requireAuth, requireUserOrRH, controllInterns);
 routesInterns.post(
   "/interns/entrada/:id",
   requireAuth,
-  requireRH,
+  requireUserOrRH,
   registrarEntrada
 );
 routesInterns.post(
   "/interns/salida/:id",
   requireAuth,
-  requireRH,
+  requireUserOrRH,
   registrarSalida
 );
-routesInterns.get("/Pasante/info/:id", requireAuth,getInternDetails);
+routesInterns.get("/Pasante/info/:id", requireAuth, requireRH, getInternDetails);
 
 export default routesInterns;

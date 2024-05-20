@@ -18,20 +18,21 @@
   <div class="fondo"></div>
   <%- include('templates/nav') %>
 
-    <div class="cont-title">
-      <h1><%- namePage %></h1>
-    </div>
-    <table id="tabla">
+  <div class="cont-title">
+    <h1><%- namePage %></h1>
+  </div>
+  <div class="table-responsive table-responsive-scroll">
+    <table id="tabla" class="fade-in table ">
       <thead class="thead-gray">
-        <tr>
-          <th>Nombre</th>
-          <th>Número de Folio</th>
-          <th>Imagen</th>
-          <th>Control de Entrada y Salida</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% interns.forEach(function(intern) { %>
+          <tr>
+            <th>Nombre</th>
+            <th>Número de Folio</th>
+            <th>Imagen</th>
+            <th>Control de Entrada y Salida</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% interns.forEach(function(intern) { %>
           <tr>
             <td>
               <%= intern.name %>
@@ -61,9 +62,9 @@
             </td>
           </tr>
           <% }); %>
-      </tbody>
-    </table>
-
+        </tbody>
+  </table>
+  </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>

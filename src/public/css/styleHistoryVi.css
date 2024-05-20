@@ -32,48 +32,35 @@ body {
   filter: blur(8px);
   z-index: -1;
 }
-#var {
-  background: #1e3248;
-  padding: 15px;
+
+.container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  flex-direction: column;
+  margin: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
 }
-.home {
-  fill: #900c3f;
-  transition: fill 0.3s ease;
-}
-
-a:hover .home {
-  fill: #4fa3fc;
-  width: 110px;
-  height: auto;
-}
-h1{
-  position: relative;
-}
-svg{
-  position: relative;
-}
-.enlaces {
+/* Contenedor del titulo */
+.cont-title {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
 }
 
-.enlaces a {
-  margin-right: 0.5%;
-  margin-bottom: 10px;
-  text-align: center;
+.cont-title div {
+  margin-right: 50px;
 }
-.menu-hamburguesa {
-  display: none;
+
+/* Titulo del formulario */
+.container h1 {
+  color: white;
+  font-size: 50px; /* Ajuste de tamaño de fuente */
 }
-  .cont-title{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 600px;
-    color: white;
-  }
 
 .search-container {
   display: flex;
@@ -84,6 +71,7 @@ svg{
   border-radius: 25px;
   overflow: hidden;
   border: 1px solid #ccc;
+  margin-top: 25px;
 }
 .search-container input[type="text"] {
   width: 100%;
@@ -123,6 +111,8 @@ table {
   table-layout: fixed;
   word-wrap: break-word;
 }
+
+
 
 thead {
   background: #e8e8e8;
@@ -176,34 +166,15 @@ footer {
   width: 100%;
   margin-top: auto;
 }
-.navbar {
-  
-  color: #000;
-}
-.navbar-brand img {
-  height: 60px;
-  width: auto;
-}
-.navbar-nav .nav-item .nav-link {
-  color: white;
-}
-.navbar-toggler {
-  border-color: rgba(255, 255, 255, 0.1);
-}
-.navbar-toggler-icon {
-  color: white;
-}
-@media (max-width: 768px) {
-  
-}
-.nav-link:hover {
-  color: #9931f1;
-}
-.home {
-  fill: white;
-  width: 40px;
-  height: 40px;
-}
-.home:hover {
-  fill: #9931f1;
-}
+ @media (max-width: 600px) {
+  .table-responsive-scroll {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  table {
+  table-layout: auto;
+  }
+ }
+
+
+

@@ -78,12 +78,11 @@
                             <label for="days">Días (Horario)</label>
                             <select class="form-control" name="days" id="days" required>
                                 <option selected disabled>-- Seleccione un día --</option>
-                                <option value="Lunes">Lunes</option>
-                                <option value="Martes">Martes</option>
-                                <option value="Miércoles">Miércoles</option>
-                                <option value="Jueves">Jueves</option>
-                                <option value="Viernes">Viernes</option>
+                                <option value="LuyVie">Lunes a viernes</option>
+                                <option value="SabyDom">Sábado y domingo</option>
+                                <option value="otro">Otro(Especifique)</option>
                             </select>
+                            <input disabled id="other" class="form-control" type="text" name="other" placeholder="Especifique">
                             <label for="shedule">Horario</label>
                             <select class="form-control" name="shedule" id="shedule" required>
                                 <option selected disabled>-- Seleccione un horario --</option>
@@ -125,15 +124,24 @@
         </div>
 
         <script>
-            document.addEventListener('DOMContentLoaded', function() {
-              const menuHamburguesa = document.querySelector('.menu-hamburguesa');
-              const enlaces = document.querySelector('.enlaces');
-          
-              menuHamburguesa.addEventListener('click', function() {
-                enlaces.classList.toggle('active');
-              });
+          document.getElementById('days').addEventListener('change', function() {
+            if (this.value === 'otro') {
+              document.getElementById('other').disabled = false;
+            } else {
+              document.getElementById('other').disabled = true;
+            }
+          });
+
+
+          document.addEventListener('DOMContentLoaded', function() {
+            const menuHamburguesa = document.querySelector('.menu-hamburguesa');
+            const enlaces = document.querySelector('.enlaces');
+
+            menuHamburguesa.addEventListener('click', function() {
+              enlaces.classList.toggle('active');
             });
-          </script>
+          });
+        </script>
 </body>
 
 

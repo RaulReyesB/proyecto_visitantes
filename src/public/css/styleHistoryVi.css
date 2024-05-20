@@ -32,48 +32,32 @@ body {
   filter: blur(8px);
   z-index: -1;
 }
-#var {
-  background: #1e3248;
-  padding: 15px;
+
+.container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  flex-direction: column;
+  margin: 10px;
 }
-.home {
-  fill: #900c3f;
-  transition: fill 0.3s ease;
-}
-
-a:hover .home {
-  fill: #4fa3fc;
-  width: 110px;
-  height: auto;
-}
-h1{
-  position: relative;
-}
-svg{
-  position: relative;
-}
-.enlaces {
+/* Contenedor del titulo */
+.cont-title {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
 }
 
-.enlaces a {
-  margin-right: 0.5%;
-  margin-bottom: 10px;
-  text-align: center;
+.cont-title div {
+  margin-right: 50px;
 }
-.menu-hamburguesa {
-  display: none;
+
+/* Titulo del formulario */
+.container h1 {
+  color: white;
+  font-size: 50px; /* Ajuste de tamaño de fuente */
 }
-  .cont-title{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 600px;
-    color: white;
-  }
 
 .search-container {
   display: flex;
@@ -84,6 +68,7 @@ svg{
   border-radius: 25px;
   overflow: hidden;
   border: 1px solid #ccc;
+  margin-top: 25px;
 }
 .search-container input[type="text"] {
   width: 100%;

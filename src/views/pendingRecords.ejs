@@ -12,27 +12,24 @@
 </head>
 
 <body>
+  <div class="fondo"></div>
   <%- include('templates/nav') %>
-  <div class="cont-title">
-    <h1><%-namePage%></h1>
-  </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-  <div class="fondo"></div>
-
-</div>
-
 <!--  Contenedor principal  -->
 <div class="container">
-  <div class="formato">
-    <h1 class=""  for="searchInput">Buscar por nombre curp o fecha (DD/MM/AAAA)</h1>
-</div>
+  <div class="cont-title">
+    <h1><%-namePage%></h1>
+  </div>
+  <h3 class=" mt-5"  for="searchInput">Buscar por nombre curp o fecha (DD/MM/AAAA)</h1>
 
-<div class="search-container">
+<div class="search-container mt-2">
+  
     <input type="text" id="searchInput" placeholder="Buscar...">
     <button type="button" onclick="search()"><i class="bi bi-search"></i></button>
+</div>
 </div>
 <br>
   <table id="tabla">
@@ -67,7 +64,7 @@
           <td><%= item.badge %></td>
           <td><%= item.entrance %></td>
           <td>
-            <a id="cerrar" class=" btn btn-success" href="/finalizarRegistro/<%= item.id %>" class="finalizar-registro" data-id="<%= item.id %>" onclick="alert('visita completada')"><i class="bi bi-x-lg"></i></a>
+            <a id="cerrar" class=" btn btn-success" style="background-color: #3D3D3D; border-color: #3D3D3D;" href="/finalizarRegistro/<%= item.id %>" class="finalizar-registro" data-id="<%= item.id %>" onclick="alert('visita completada')"><i class="bi bi-x-lg " ></i></a>
           </td>
         </tr>
       <% }); %>

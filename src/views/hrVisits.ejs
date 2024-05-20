@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <title><%= namePage %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/nav.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -15,15 +16,16 @@
     <div class="fondo"></div>
 
     <%- include('templates/nav') %>
+    <div class="container">
+    <div class="cont-title">
+        <h1><%-namePage%></h1>
+      </div>
 
-    <h1 class="text-white mb-0" style="font-size: 25px; margin-right: auto;">
-        <%= description %>
-    </h1>
     <div class="search-container">
         <input type="text" id="searchInput" placeholder="Buscar...">
         <button type="button" onclick="search()"><i class="bi bi-search"></i></button>
     </div>
-
+</div>
     <table id="tabla" class="fade-in">
         <thead class="thead-gray">
             <tr>

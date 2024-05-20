@@ -170,3 +170,6 @@ form .button:hover {
   }
 }
 
+.navbar-nav .nav-item .nav-link {
+  color: white !important; /* Forzar el color blanco en los enlaces del navbar */
+}

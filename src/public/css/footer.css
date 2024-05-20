@@ -1,6 +1,6 @@
 .footer {
    /* background-color: #1E3740;*/
-    background-color: #16252a;
+    background-color: #808080;
     color: #ffffff;
     padding: 20px 0;
     text-align: center;
@@ -28,7 +28,8 @@
 }
 
 .footer-credits {
-    background-color: #16252a;
+    /*background-color: #16252a;*/
+    background-color:#808080 ;
     padding: 10px 0;
     width: 100%;
 }

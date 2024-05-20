@@ -18,10 +18,22 @@ const finishRegistration = async (req, res) => {
         await visit.save();
 
         // Redirige al usuario
-        res.redirect(`/inicio`);
+        res.render("index", {
+            namePage: "Inicio",
+            description: "Bienvenido a Radio y Television Hidalgo",
+            user: req.session.user,
+            msg: "Registro finalizado correctamente",
+            errors: []
+        });
     } catch (error) {
         console.error("Error al finalizar el registro:", error);
-        res.status(500).send("Error interno del servidor");
+        res.render("index", {
+            namePage: "Inicio",
+            description: "Bienvenido a Radio y Television Hidalgo",
+            user: req.session.user,
+            errors: [{msg: "No se pudo completar la operacion"}],
+            msg: ""
+        });
     }
 }
 

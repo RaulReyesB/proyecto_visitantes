@@ -161,5 +161,7 @@ footer {
     white-space: nowrap;
   }
   table {
+    table-layout: auto;
+
   }
  }

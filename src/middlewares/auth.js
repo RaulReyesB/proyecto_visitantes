@@ -81,4 +81,4 @@ const requireUserOrRH = (req, res, next) => {
 };
 
 
-export { requireSuperUser, requireAuth, requireRH, requireSuperUserOrRH, requireUserOrRH };
+export { requireAuth, requireRH, requireSuperUser, requireSuperUserOrRH, requireUserOrRH };

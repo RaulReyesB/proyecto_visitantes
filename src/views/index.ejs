@@ -50,20 +50,13 @@
           </ul>
         </div>
     <% } %>
-<<<<<<< HEAD
-=======
-    
->>>>>>> eb806c699a7fdaec9e7022267437296a3327e77b
+
     <% if (msg) { %>
         <div class="alert alert-success" id="msg-container">
           <%= msg %>
         </div>
     <% } %>
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> eb806c699a7fdaec9e7022267437296a3327e77b
     <div class="user-info-side">
         <div class="user-icon-container">
             <i class="bi" id="user-icon"></i>
@@ -121,7 +114,7 @@
         <% if (user.type==='superUsuario' || user.type==='rh' ) { %>
             <div class="tarjeta" onclick="location.href='/hr-visits'">
                 <div class="tarjeta-icono">
-                    <i class="bi bi-people'></i>
+                    <i class="bi bi-people"></i>
                 </div>
                 <div class="tarjeta-titulo">Recursos Humanos</div>
                 <div class="tarjeta-descripcion">Gestionar recursos humanos</div>
@@ -212,7 +205,6 @@
 
         setUserInfo(userType, userName);
 
-        // Script para ocultar el msg y los errors después de 5 segundos
         setTimeout(() => {
             const msgContainer = document.getElementById('msg-container');
             const errorsContainer = document.getElementById('errors-container');

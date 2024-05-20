@@ -27,10 +27,10 @@
     display: none;
   }
     .cont-title{
-      display: flex;
-      flex-direction: row;
+      
+      text-align: center;
       justify-content: center;
-      width: 600px;
+    
       color: white;
     }
   
@@ -134,4 +134,7 @@
     padding: 10px 0;
     width: 100%;
     margin-top: auto;
+  }
+  h1{
+    text-align: center;
   }

@@ -49,10 +49,10 @@ a:hover .home {
   width: 110px;
   height: auto;
 }
-h1 {
+h1{
   position: relative;
 }
-svg {
+svg{
   position: relative;
 }
 .enlaces {
@@ -67,13 +67,13 @@ svg {
 .menu-hamburguesa {
   display: none;
 }
-.cont-title {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 600px;
-  color: white;
-}
+  .cont-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 600px;
+    color: white;
+  }
 
 .search-container {
   display: flex;

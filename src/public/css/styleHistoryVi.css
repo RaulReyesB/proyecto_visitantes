@@ -18,26 +18,29 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  font-family: "Poppins", sans-serif; /* Asegúrate de que sea consistente */
+  font-weight: normal; /* Asegúrate de que sea consistente */
 }
-.fondo{
+
+.fondo {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('/img/fachada1.jpg') no-repeat center center/cover;
+  background: url("/img/fachada1.jpg") no-repeat center center/cover;
   filter: blur(8px);
   z-index: -1;
 }
 #var {
-  background: #1E3248;
+  background: #1e3248;
   padding: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .home {
-  fill: #900C3F;
+  fill: #900c3f;
   transition: fill 0.3s ease;
 }
 
@@ -46,10 +49,10 @@ a:hover .home {
   width: 110px;
   height: auto;
 }
-h1{
+h1 {
   position: relative;
 }
-svg{
+svg {
   position: relative;
 }
 .enlaces {
@@ -58,21 +61,21 @@ svg{
 
 .enlaces a {
   margin-right: 0.5%;
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
   text-align: center;
 }
 .menu-hamburguesa {
   display: none;
 }
-  .cont-title{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 600px;
-    color: white;
-  }
+.cont-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 600px;
+  color: white;
+}
 
-.search-container{
+.search-container {
   display: flex;
   align-items: center;
   width: 100%;
@@ -122,14 +125,14 @@ table {
 }
 
 thead {
-  background: #E8E8E8;
+  background: #e8e8e8;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 thead th {
   padding: 15px;
   font-size: 15px;
-  background: #E8E8E8;
+  background: #e8e8e8;
 }
 
 tbody tr {
@@ -166,7 +169,7 @@ tbody td {
 }
 
 footer {
-  background-color: #E8E8E8;
+  background-color: #e8e8e8;
   color: black;
   text-align: center;
   padding: 10px 0;
@@ -174,7 +177,7 @@ footer {
   margin-top: auto;
 }
 .navbar {
-  background-color: #1E3248;
+  background-color: #1e3248;
 }
 .navbar-brand img {
   height: 60px;
@@ -191,7 +194,7 @@ footer {
 }
 @media (max-width: 768px) {
   .navbar-collapse {
-      background-color: #1E3248;
+    background-color: #1e3248;
   }
 }
 .nav-link:hover {

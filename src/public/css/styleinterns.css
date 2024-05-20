@@ -1,184 +1,224 @@
-    /* Estilos generales del register y interns  */
-    /* estilos del header */
-    #var {
-        background: #1e3740;
-        padding: 15px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .fondo{
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: url('/img/fachada1.jpg') no-repeat center center/cover;
-        filter: blur(8px);
-        z-index: -1;
-      }
-      .home {
-        fill: #900C3F;
-        transition: fill 0.3s ease;
-    }
+/* Estilos generales del register y interns */
+/* estilos del header */
+#var {
+  background: #1e3740;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-    a:hover .home {
-        fill: #4fa3fc;
-        width: 110px;
-        height: auto;
-    }
-      .enlaces {
-        display: flex;
-      }
-      
-      .enlaces a {
-        margin-right: 20px;
-      }
-      .menu-hamburguesa {
-        display: none;
-    }
-    
+.fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/img/fachada1.webp') no-repeat center center/cover;
+  filter: blur(8px);
+  z-index: -1;
+}
 
-    
-    /* Contenedor de todo el cuerpo */
-    .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        margin: auto;
-      }
-    /* Contenedor del formulario */
-    .container-form {
-        display: flex;
-        align-items: center;
-        background: white;
-        margin-bottom: 50px;
-        padding: 25px;
-        padding-bottom: 20px;
-        border-radius: 50px;
-        flex-direction: column;
-        width: 1270px;
-        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
-    }
-    /* Contenedor del titulo */
-    .cont-title{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        width: 1100px;
-        margin-top: 10px;
-    }
-    .cont-title div{
-        margin-right: 50px;
-        
-    }
-    /* Titulo del formulario */
-    .container h1{
-        color: white;
-        font-size: 70px;
-    }
-   /* Contenedor de los inputs */
-    .form-inputs {
-        display: flex;
-        flex-direction: row;
-        width: 1150px;
-        height: 600px;
-    }
-    .form-p {
-        display: flex;
-        flex-direction: column;
-        margin-right: 70px;
-        width: 400px;
-    }
-    /* Estilo de los label */
-    label {
-        display: block;
-        color: #000;
-    }
+.home {
+  fill: #900C3F;
+  transition: fill 0.3s ease;
+}
 
-    /* Estilo de los inputs */
-    .form-inputs input {
-        display: block;
-        margin-bottom: 20px;
-        border-radius: 5px;
-        background: #D9D9D9;
-    }
-    /* Estilo de los botones */
-    form .button {
-      margin-left: 40%;
-      padding: 5px;
-      border-radius: 50px;
-      transition: background-color 0.3s ease;
-      background-color: #900C3F;
-      color: white;
-      width: 200px;
-  }
+a:hover .home {
+  fill: #4fa3fc;
+  width: 110px;
+  height: auto;
+}
+
+.enlaces {
+  display: flex;
+}
+
+.enlaces a {
+  margin-right: 20px;
+}
+
+.menu-hamburguesa {
+  display: none;
+}
+
+/* Contenedor de todo el cuerpo */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: auto;
+}
+
+/* Contenedor del formulario */
+.container-form {
+  display: flex;
+  align-items: center;
+  background: white;
+  margin-bottom: 50px;
+  padding: 25px;
+  padding-bottom: 20px;
+  border-radius: 50px;
+  flex-direction: column;
+  width: 800px; /* Ajuste de ancho */
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Contenedor del titulo */
+.cont-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.cont-title div {
+  margin-right: 50px;
+}
+
+/* Titulo del formulario */
+.container h1 {
+  color: white;
+  font-size: 50px; /* Ajuste de tamaño de fuente */
+}
+
+/* Contenedor de los inputs */
+.form-inputs {
+  display: flex;
+  flex-direction: row;
+  width: 100%; /* Ajuste de ancho */
+  height: auto; /* Ajuste de altura */
+}
+
+.form-p {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px; /* Ajuste de margen */
+  width: 100%; /* Ajuste de ancho */
+}
+
+/* Estilo de los label */
+label {
+  display: block;
+  color: #000;
+}
+
+/* Estilo de los inputs */
+.form-inputs input {
+  display: block;
+  margin-bottom: 15px; /* Ajuste de margen */
+  padding: 10px; /* Añadir padding */
+  border-radius: 5px;
+  background: #D9D9D9;
+  width: 100%; /* Ajuste de ancho */
+}
+
+/* Estilo de los botones */
+form .button {
   
-  form .button:hover {
-      background-color: #4fa3fc;
-      border: 1px  solid  #0078f8;
+}
+
+form .button:hover {
+  background-color: #4fa3fc;
+  
+}
+
+/* Estilo de los selects */
+.form-inputs select {
+  display: block;
+  margin-bottom: 15px; /* Ajuste de margen */
+  padding: 10px; /* Añadir padding */
+  width: 100%; /* Ajuste de ancho */
+}
+
+/* Contenedor de los botones de agregar y quitar */
+.buttons-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Estilo de los botones de agregar y quitar */
+.minus-button,
+.plus-button {
+  width: 35px;
+  height: 30px;
+  border: none;
+  background-color: #f0f0f0;
+  color: #333;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+/* Input de cantidad de hijos */
+.children-input {
+  width: 50px;
+  height: 30px;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  font-size: 16px;
+}
+
+.v-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 1150px) {
+  .container-form {
+    width: 90%; /* Ajustar el ancho del contenedor del formulario */
   }
-    /* estilo de los selects*/
-    .form-inputs select {
-        display: block;
-        margin-bottom: 20px;
-    }
-    /*contenedor de los botones de agregar y quitar */
-    .buttons-container {
-        display: flex;
-        align-items: center;
-        
-    }
-    /*estilo de los botones de agregar y quitar */
-    .minus-button, .plus-button {
-        width: 35px;
-        height: 30px;
-        border: none;
-        background-color: #f0f0f0;
-        color: #333;
-        font-size: 16px;
-        cursor: pointer;
-        margin: 0 5px;
-    }
-    /*input de cantidad de hijos */
-    .children-input {
-        width: 50px;
-        height: 30px;
-        border: 1px solid #ccc;
-        padding: 5px 10px;
-        font-size: 16px;
-    }
-    .v-img{
-      max-width: 100%;
-      height: auto;
-      border-radius: 20px;
-    }
-    /*estilos para pantallas pequeñas */
-    @media (max-width: 1150px) {
-
-      .container-form{
-        height: 850px;
-        width: 1000px;
-      }
-      .form-inputs{
-        height: 750px;
-        width: 900px;
-      }
-      .form-inputs input {
-        display: block;
-        margin-bottom: 40px;
-        height: 50px;
-    }
-    .form-inputs select {
-        display: block;
-        margin-bottom: 40px;
-        height: 50px;
-    }
-    .enlaces {
-      display: none;
+  .form-inputs {
+    flex-direction: column;
+    width: 100%; /* Ajustar el ancho del contenedor de inputs */
+    height: auto; /* Ajustar la altura */
   }
-    }
+  .form-p {
+    width: 100%; /* Ajustar el ancho de los contenedores individuales */
+    margin-right: 0; /* Remover el margen derecho */
+  }
+  .form-inputs input,
+  .form-inputs select {
+    width: 100%; /* Ajustar el ancho de los inputs y selects */
+  }
+  .buttons-container {
+    justify-content: center;
+  }
+}
 
-
-    
+@media (max-width: 768px) {
+  #var {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .enlaces {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #1e3740;
+    padding: 15px 0;
+    margin-top: 10px;
+  }
+  .enlaces a {
+    padding: 10px 15px;
+    width: 100%;
+    text-align: left;
+    border-top: 1px solid #444;
+  }
+  .menu-hamburguesa {
+    display: flex;
+  }
+  .enlaces.active {
+    display: flex;
+  }
+}
+#btn{
+  border: #000;
+  color: white;
+  background: #1e3740;
+  border-radius: 30px;
+}

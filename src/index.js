@@ -14,7 +14,7 @@ import user from "./routes/users.routes.js";
 import cron from "node-cron";
 import routesInterns from "./routes/interns.routes.js";
 import { fileURLToPath } from "url";
-import path from "path";  
+import path from "path";
 
 // Definir __dirname en ES modules
 const __filename = fileURLToPath(import.meta.url);

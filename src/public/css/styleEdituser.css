@@ -1,192 +1,147 @@
-    /* Estilos generales del regitros */
-    #var {
-        background: #32396c;
-        padding: 15px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .fondo{
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: url('/img/fachada1.jpg') no-repeat center center/cover;
-        filter: blur(8px);
-        z-index: -1;
-      }
-      .home {
-        fill: #900C3F;
-        transition: fill 0.3s ease;
-    }
+/* Estilos generales del regitros */
+.fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("/img/fachada1.webp") no-repeat center center/cover;
+  filter: blur(8px);
+  z-index: -1;
+}
+.home {
+  fill: #900c3f;
+  transition: fill 0.3s ease;
+}
 
-    a:hover .home {
-        fill: #4fa3fc;
-        width: 110px;
-        height: auto;
-    }
-      #var img {
-        width: 150px;
-        height: 150px;
-        margin: 5px;
-      }
-      #var h1{
-        color: white;
-        font-size: 30px;
+a:hover .home {
+  fill: #4fa3fc;
+  width: 110px;
+  height: auto;
+}
+.enlaces {
+  display: flex;
+}
 
-      }
-      #var a {
-        color: white;
-        text-decoration: none;
-        position: relative;
-      }
-      
-      #var a:hover {
-        color: white;
-      }
-      
-      #var a::after {
-        content: "";
-        display: block;
-        width: 100%;
-        height: 2px;
-        background-color: transparent;
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        transition: background-color 0.3s;
-      }
-      
-      #var a:hover::after {
-        background-color: #9931f1;
-      }
-      .enlaces {
-        display: flex;
-      }
-      
-      .enlaces a {
-        margin-right: 20px;
-      }
-      .menu-hamburguesa {
-        display: none;
-    }
-    /* Contenedor de todo el cuerpo */
-    .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        margin-top: 10px;
-    }
-    /* Contenedor del formulario */
-    .container-form {
-        display: flex;
-        align-items: center;
-        background: white;
-        margin-bottom: 50px;
-        padding: 30px;
-        border-radius: 50px;
-        flex-direction: column;
-        width: 1200px;
-        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
-    }
-    /* Contenedor del titulo */
-    .cont-title{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        width: 700px;
-    }
-    .cont-title div{
-        margin-right: 50px;
-        
-    }
-    /* Titulo del formulario */
-    .container h1{
-        color: white;
-        font-size: 70px;
-    }
-    /* Estilo de los label */
-    label {
-        display: block;
-        color: #000;
-    }
-    .form-p input {
-        display: block;
-        margin-bottom: 20px;
-        border-radius: 5px;
-        background: #D9D9D9;
-    }
-    /* Estilo de los botones */
-    form .button {
-        margin-top: 25px;
-        margin-left: 40%;
-        padding: 5px;
-        border-radius: 50px;
-        transition: background-color 0.3s ease;
-        background-color: #900C3F;
-        color: white;
-        width: 200px;
-    }
-    
-    form .button:hover {
-        background-color: #4fa3fc;
-        border: 1px  solid  #0078f8;
-    }
-    
-    /* estilo de los selects*/
-    select {
-        display: block;
-        margin-bottom: 20px;
-    }
-    .form-p {
-        display: flex;
-        flex-direction: column;
-        width: 950px;
-    }
-    .btn-password{
-        flex-direction: row;
-    }
-    .btn-password input{
-        width: 20px;
-    }
-    .ojo {
-        display: flex;
-        align-items: center;
-    }
-    
-    .ojo input.form-control {
-        margin-right: 10px; /* Ajusta el margen entre el input y el botón según lo necesites */
-    }
-    
-    .ojo button {
-        background: #D9D9D9;
-        border: none;
-        cursor: pointer;
-        padding: 10;
-        border-radius: 5px;
-        width: 35px;
-        height: 35px;
-        margin-bottom: 20px;
+.enlaces a {
+  margin-right: 20px;
+}
+.menu-hamburguesa {
+  display: none;
+}
+/* Contenedor de todo el cuerpo */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 10px;
+}
+/* Contenedor del formulario */
+.container-form {
+  display: flex;
+  align-items: center;
+  background: white;
+  margin-bottom: 50px;
+  padding: 30px;
+  border-radius: 50px;
+  flex-direction: column;
+  width: 1200px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+}
+/* Contenedor del titulo */
+.cont-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 700px;
+}
+.cont-title div {
+  margin-right: 50px;
+}
+/* Titulo del formulario */
+.container h1 {
+  color: white;
+  font-size: 70px;
+}
+/* Estilo de los label */
+label {
+  display: block;
+  color: #000;
+}
+.form-p input {
+  display: block;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  background: #d9d9d9;
+}
+/* Estilo de los botones */
+form .button {
+  margin-top: 25px;
+  margin-left: 40%;
+  padding: 5px;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+  background-color: #900c3f;
+  color: white;
+  width: 200px;
+}
 
-    }
-    
-    @media screen and (max-width: 850px) {
-        .cont-title{
-            width: 450px;
-        }
-        .container-form {
-            width: 600px;
-        }
-        .form-p {
-            width: 500px;
-        }
-        form .button {
-            margin-left: 30%;
-        }
-        .enlaces {
-            display: none;
-        }
-        
-    }
+form .button:hover {
+  background-color: #4fa3fc;
+  border: 1px solid #0078f8;
+}
+
+/* estilo de los selects*/
+select {
+  display: block;
+  margin-bottom: 20px;
+}
+.form-p {
+  display: flex;
+  flex-direction: column;
+  width: 950px;
+}
+.btn-password {
+  flex-direction: row;
+}
+.btn-password input {
+  width: 20px;
+}
+.ojo {
+  display: flex;
+  align-items: center;
+}
+
+.ojo input.form-control {
+  margin-right: 10px; /* Ajusta el margen entre el input y el botón según lo necesites */
+}
+
+.ojo button {
+  background: #d9d9d9;
+  border: none;
+  cursor: pointer;
+  padding: 10;
+  border-radius: 5px;
+  width: 35px;
+  height: 35px;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 850px) {
+  .cont-title {
+    width: 450px;
+  }
+  .container-form {
+    width: 600px;
+  }
+  .form-p {
+    width: 500px;
+  }
+  form .button {
+    margin-left: 30%;
+  }
+  .enlaces {
+    display: none;
+  }
+}

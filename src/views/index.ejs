@@ -1,248 +1,193 @@
 <!DOCTYPE html>
 <html>
-
-  <head>
-    <title>
-      <%= namePage %>
-    </title>
+<head>
+    <title>Bienvenido</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  </head>
+    <style>
+        /* Estilo para la transición de la letra cambiante */
+        #changing-letter {
+            display: inline-block;
+            transition: transform 7s ease, opacity 7s ease;
+        }
 
-  <body>
+        /* Animación para el cambio de letra */
+        .rotate-on-change {
+            animation: changeLetter 8s infinite;
+        }
+
+        @keyframes changeLetter {
+            0%, 100% {
+                transform: rotateY(0deg);
+                opacity: 1;
+            }
+            50% {
+                transform: rotateY(180deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
     <div class="custom-background"></div>
     <header>
-      <h1 class="header-title">¡Bienvenido</h1>
-      <h2 class="header-subtitle">Radio y Televisión de Hidalgo!</h2>
-  
-      <!-- Contenedor para la información del usuario y el botón de cerrar sesión -->
-      <div class="user-info-container">
-        <!-- Bloque de información del usuario -->
-        <div class="user-info">
-          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36"
-            fill="currentColor"
-            class="bi bi-person-circle user-icon" viewBox="0 0 16 16"
-            id="company-logo">
-            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
-            <path fill-rule="evenodd"
-              d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
-          </svg>
-          <div class="user-info-details">
-            <span class="user-color"> <%= user.name %></span> <br>
-            <span class="user-color"> <%= user.type %></span>
-          </div>
+        <h1 class="header-title">Bienvenid<span id="changing-letter" class="rotate-on-change">o</span></h1> <!-- Cambio de letra -->
+        <h2 class="header-subtitle">Sistema de Registro y Aceso a Radio y Televisión Hidalgo</h2>
+        <div class="user-info-container">
+            <a href="/logout" class="btn btn-close">
+                <i class="bi bi-box-arrow-in-right"></i> Salir
+            </a>
         </div>
-
-        <!-- Botón de cerrar sesión -->
-        <a href="/logout" class="btn btn-close"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z"/>
-          <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
-        </svg></a>
-      </div>
     </header>
 
-    <% if (user && user.type !== 'usuario' && user.type !== 'rh') { %>
+    <div class="user-info-side">
+        <div class="user-icon-container">
+            <i class="bi" id="user-icon"></i>
+        </div>
+        <div class="user-type" id="user-type">[Tipo de Usuario]</div>
+    </div>
+
+    <div class="tarjeta-usuario">
+        <div class="cuerpo">
+            <div class="user-info-details" id="username">Usuario Actual: [Nombre del usuario]</div>
+        </div>
+    </div>
 
     <div class="container">
+        <% if (user.type==='superUsuario' || user.type==='rh' ) { %>
+            <div class="tarjeta" onclick="location.href='/registroInternos'">
+                <div class="tarjeta-icono">
+                    <i class="bi bi-person-circle"></i>
+                </div>
+                <div class="tarjeta-titulo">Pasante</div>
+                <div class="tarjeta-descripcion">Acceder a registros de pasantes</div>
+            </div>
+        <% } %>
 
-      <div class="tarjeta" onclick="location.href='/registroInternos'">
-        <div class="titulo">Pasante</div>
-        <div class="cuerpo">
-          <img src="img/programador.png" alt="muestra">
-        </div>
-        <div class="pie">
-          Acceder
-        </div>
-      </div>
+        <% if (user.type==='superUsuario' || user.type==='usuario' || user.type==='rh' ) { %>
+            <div class="tarjeta" onclick="location.href='/registroVisitas'">
+                <div class="tarjeta-icono">
+                    <i class="bi bi-journal"></i>
+                </div>
+                <div class="tarjeta-titulo">Visitas</div>
+                <div class="tarjeta-descripcion">Acceder a registros de visitas</div>
+            </div>
+        <% } %>
 
-      <div class="tarjeta" onclick="location.href='/registroVisitas'">
-        <div class="titulo">Registros</div>
-        <div class="cuerpo">
-          <img src="img/tiempo.png" alt="muestra">
-        </div>
-        <div class="pie">
-          Acceder
-        </div>
-      </div>
+        <% if (user.type==='superUsuario' || user.type==='administrador' ) { %>
+            <div class="tarjeta" onclick="location.href='/historial'">
+                <div class="tarjeta-icono">
+                    <i class="bi bi-clock"></i>
+                </div>
+                <div class="tarjeta-titulo">Historial</div>
+                <div class="tarjeta-descripcion">Acceder a historial completo</div>
+            </div>
+        <% } %>
 
-      <% if (user && (user.type==='superUsuario' ||
-      user.type==='administrador')) { %>
+        <% if (user.type==='superUsuario' || user.type==='usuario' ) { %>
+            <div class="tarjeta" onclick="location.href='/registrosPendientes'">
+                <div class="tarjeta-icono">
+                    <i class="bi bi-exclamation-circle"></i>
+                </div>
+                <div class="tarjeta-titulo">Historial Pendiente</div>
+                <div class="tarjeta-descripcion">Ver registros pendientes</div>
+            </div>
+        <% } %>
 
-      <div class="tarjeta" onclick="location.href='/historial'">
-        <div class="titulo">Historial</div>
-        <div class="cuerpo">
-          <img src="img/historial.png" alt="muestra">
-        </div>
-        <div class="pie">
-          Acceder
-        </div>
-      </div>
+        <% if (user.type==='superUsuario' || user.type==='rh' ) { %>
+            <div class="tarjeta" onclick="location.href='/hr-visits'">
+                <div class="tarjeta-icono">
+                    <i class="bi bi-people"></i>
+                </div>
+                <div class="tarjeta-titulo">Recursos Humanos</div>
+                <div class="tarjeta-descripcion">Gestionar recursos humanos</div>
+            </div>
+        <% } %>
 
-      <% } %>
+        <% if (user.type==='superUsuario' || user.type==='administrador' ) { %>
+            <div class="tarjeta" onclick="location.href='/AdmistrarUsuario'">
+                <div class="tarjeta-icono">
+                    <i class="bi bi-person-check"></i>
+                </div>
+                <div class="tarjeta-titulo">Control de Usuarios</div>
+                <div class="tarjeta-descripcion">Administrar usuarios del sistema</div>
+            </div>
+        <% } %>
 
-      <div class="tarjeta" onclick="location.href='/registrosPendientes'">
-        <div class="titulo">Historial Pendiente</div>
-        <div class="cuerpo">
-          <img src="img/Hisp.png" alt="muestra">
-        </div>
-        <div class="pie">
-          Acceder
-        </div>
-      </div>
+        <% if (user.type==='superUsuario' || user.type==='rh' ) { %>
+            <div class="tarjeta" onclick="location.href='/historialInternos'">
+                <div class="tarjeta-icono">
+                    <i class="bi bi-folder"></i>
+                </div>
+                <div class="tarjeta-titulo">Historial de Pasante</div>
+                <div class="tarjeta-descripcion">Acceder a historial de pasantes</div>
+            </div>
+        <% } %>
 
-      <% if (user && user.type !== 'administrador') { %>
+        <% if (user.type==='superUsuario' || user.type==='usuario' ) { %>
+            <div class="tarjeta" onclick="location.href='/controlPasantes'">
+                <div class="tarjeta-icono">
+                    <i class="bi bi-card-checklist"></i>
+                </div>
+                <div class="tarjeta-titulo">Control de Pasantes</div>
+                <div class="tarjeta-descripcion">Gestionar pasantes</div>
+            </div>
+        <% } %>
 
-      <div class="tarjeta" onclick="location.href='/hr-visits'">
-        <div class="titulo">Recursos Humanos</div>
-        <div class="cuerpo">
-          <img src="img/RH.png" alt="muestra">
-        </div>
-        <div class="pie">
-          Acceder
-        </div>
-      </div>
-
-      <% } %>
-
-      <div class="tarjeta" onclick="location.href='/AdmistrarUsuario'">
-        <div class="titulo">Control de usuarios</div>
-        <div class="cuerpo">
-          <img src="img/seguridad.png" alt="muestra">
-        </div>
-        <div class="pie">
-          Acceder
-        </div>
-      </div>
-
-      <div class="tarjeta" onclick="location.href='/historialInternos'">
-        <div class="titulo">Historial de pasante</div>
-        <div class="cuerpo">
-          <img src="img/historialPasantes.png" alt="muestra">
-        </div>
-        <div class="pie">
-          Acceder
-        </div>
-      </div>
-
-      <div class="tarjeta" onclick="location.href='/controlPasantes'">
-        <div class="titulo">Control de Pasantes</div>
-        <div class="cuerpo">
-          <img src="img/control.png" alt="muestra">
-        </div>
-        <div class="pie">
-          Acceder
-        </div>
-      </div>
-
-      <div class="tarjeta" onclick="location.href='/registroUsuario'">
-        <div class="titulo">Registrar usuarios</div>
-        <div class="cuerpo">
-          <img src="img/RegistrarU.png" alt="muestra">
-        </div>
-        <div class="pie">
-          Acceder
-        </div>
-      </div>
-
+        <% if (user.type==='superUsuario' || user.type==='administrador' ) { %>
+            <div class="tarjeta" onclick="location.href='/registroUsuario'">
+                <div class="tarjeta-icono">
+                    <i class="bi bi-person-plus"></i>
+                </div>
+                <div class="tarjeta-titulo">Registrar Usuarios</div>
+                <div class="tarjeta-descripcion">Registrar nuevos usuarios</div>
+            </div>
+        <% } %>
     </div>
-    <% } %>
 
-    <% if (user && user.type === 'usuario') { %>
-    <div class="container">
-      <div class="tarjeta" onclick="location.href='/registroVisitas'">
-        <div class="titulo">Registros</div>
-        <div class="cuerpo">
-          <img src="img/tiempo.png" alt="muestra">
-        </div>
-        <div class="pie">
-          Acceder
-        </div>
-      </div>
+    <%- include('templates/footer') %>
 
-      <div class="tarjeta" onclick="location.href='/controlPasantes'">
-        <div class="titulo">Control de Pasantes</div>
-        <div class="cuerpo">
-          <img src="img/control.png" alt="muestra">
-        </div>
-        <div class="pie">
-          Acceder
-        </div>
-      </div>
 
-      <div class="tarjeta" onclick="location.href='/registrosPendientes'">
-        <div class="titulo">Historial Pendiente</div>
-        <div class="cuerpo">
-          <img src="img/Hisp.png" alt="muestra">
-        </div>
-        <div class="pie">
-          Acceder
-        </div>
-      </div>
-    </div>
-    <% } %>
+    <script>
+        setInterval(() => {
+            const changingLetter = document.getElementById("changing-letter");
+            changingLetter.classList.remove('rotate-on-change');
+            setTimeout(() => {
+                changingLetter.textContent = changingLetter.textContent === "o" ? "a" : "o";
+                changingLetter.classList.add('rotate-on-change');
+            }, 1); // Cambia el contenido en el medio de la animación
+        }, 5700);
 
-    <% if (user && user.type === 'rh') { %>
-    <div class="container">
-      <div class="tarjeta" onclick="location.href='/hr-visits'">
-        <div class="titulo">Recursos Humanos</div>
-        <div class="cuerpo">
-          <img src="img/RH.png" alt="muestra">
-        </div>
-        <div class="pie">
-          Acceder
-        </div>
-      </div>
+        var userType = '<%= user.type %>';
+        var userName = '<%= user.name %>';
 
-      <div class="tarjeta" onclick="location.href='/historialInternos'">
-        <div class="titulo">Historial de pasante</div>
-        <div class="cuerpo">
-          <img src="img/historialPasantes.png" alt="muestra">
-        </div>
-        <div class="pie">
-          Acceder
-        </div>
-      </div>
+        function setUserInfo(userType, userName) {
+            var userIcon = document.getElementById('user-icon');
+            var username = document.getElementById('username');
+            var userTypeText = document.getElementById('user-type');
+            username.textContent = 'Usuario Actual: ' + userName;
 
-      <div class="tarjeta" onclick="location.href='/registroInternos'">
-        <div class="titulo">Pasante</div>
-        <div class="cuerpo">
-          <img src="img/programador.png" alt="muestra">
-        </div>
-        <div class="pie">
-          Acceder
-        </div>
-      </div>
-    </div>
-    <% } %>
-
-    <footer>
-      <p>TIC'S</p>
-    </footer>
-  </body>
-  <script>
-    var userType = '<%= user.type %>';
-
-    function setColorForLogo(userType) {
-        var logo = document.getElementById('company-logo');
-        var color;
-        switch (userType) {
-            case 'superUsuario':
-                color = 'verde';
-                break;
-            case 'administrador':
-                color = 'anaranjado';
-                break;
-            case 'rh':
-                color = 'azul';
-                break;
-            case 'usuario':
-                color = 'rojo';
-                break;
+            switch (userType) {
+                case 'superUsuario':
+                    userIcon.className = 'bi bi-shield-lock';
+                    userTypeText.textContent = 'Super Usuario';
+                    break;
+                case 'administrador':
+                    userIcon.className = 'bi bi-person-badge';
+                    userTypeText.textContent = 'Administrador';
+                    break;
+                case 'rh':
+                    userIcon.className = 'bi bi-people';
+                    userTypeText.textContent = 'Recursos Humanos';
+                    break;
+                case 'usuario':
+                    userIcon.className = 'bi bi-person';
+                    userTypeText.textContent = 'Usuario';
+                    break;
+            }
         }
-        logo.setAttribute('fill', 'var(--user-color-' + color + ')');
-    }
 
-    setColorForLogo(userType);
-</script>
-
+        setUserInfo(userType, userName);
+    </script>
+</body>
 </html>

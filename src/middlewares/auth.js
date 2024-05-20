@@ -61,4 +61,24 @@ const requireSuperUserOrRH = (req, res, next) => {
   }
 };
 
-export { requireSuperUser, requireAuth, requireRH, requireSuperUserOrRH };
+// Middleware para verificar si el usuario es un usuario o rh
+const requireUserOrRH = (req, res, next) => {
+  if (
+    req.session.user &&
+    (req.session.user.type === "usuario" || req.session.user.type === "rh")
+  ) {
+    next();
+  } else {
+    const userName = req.session.user ? req.session.user.name : "Desconocido";
+    const userType = req.session.user ? req.session.user.type : "Desconocido";
+
+    console.log(
+      `Intento de acceso no autorizado por parte del usuario: ${userName} y es de tipo: ${userType}`
+    );
+
+    res.redirect("/iniciarSesion");
+  }
+};
+
+
+export { requireSuperUser, requireAuth, requireRH, requireSuperUserOrRH, requireUserOrRH };

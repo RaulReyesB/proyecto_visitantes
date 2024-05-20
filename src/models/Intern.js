@@ -36,10 +36,6 @@ const Intern = db.define("tb_interns", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  numberHours: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
   days:{
     type: DataTypes.STRING,
     allowNull: false,

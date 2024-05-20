@@ -19,20 +19,6 @@
     flex-direction: column;
     min-height: 100vh;
   }
-  .home {
-    fill: #900C3F;
-    transition: fill 0.3s ease;
-}
-  .menu-hamburguesa {
-    display: none;
-  }
-    .cont-title{
-      
-      text-align: center;
-      justify-content: center;
-    
-      color: white;
-    }
   
   .search-container{
     display: flex;
@@ -61,6 +47,9 @@
     color: #000; /* Asegura que el texto sea visible */
     border-radius: 0 4px 4px 0;
     cursor: pointer;
+  }
+  .cont-title h1{
+    color: white;
   }
   
   .search-container button:hover {

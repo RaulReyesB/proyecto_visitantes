@@ -137,3 +137,6 @@ footer {
   width: 100%;
   margin-top: auto;
 }
+.navbar-nav .nav-item .nav-link {
+  color: white !important; /* Forzar el color blanco en los enlaces del navbar */
+}

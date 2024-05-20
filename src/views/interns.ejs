@@ -118,10 +118,22 @@
                         placeholder="Observaciones"></textarea>
                     <label for="img">Sube una imagen</label>
                     <input class="form-control" type="file" name="img" id="img">
-                    <button class="form-control btn-primary" type="submit">Registrar</button>
+                    <br>
+                    <button id="btn" class="btn form-control" type="submit">Registrar</button>
                 </form>
             </div>
         </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              const menuHamburguesa = document.querySelector('.menu-hamburguesa');
+              const enlaces = document.querySelector('.enlaces');
+          
+              menuHamburguesa.addEventListener('click', function() {
+                enlaces.classList.toggle('active');
+              });
+            });
+          </script>
 </body>
 
 

@@ -8,9 +8,6 @@
     transform: translateY(0);
   }
 }
-.baja{
-
-}
 .fade-in {
   animation: fadeIn 0.5s ease-in-out;
 }
@@ -103,7 +100,6 @@ table {
   width: 100%;
   table-layout: fixed;
   word-wrap: break-word;
-  text-align: center;
 }
 
 thead {
@@ -159,3 +155,11 @@ footer {
   width: 100%;
   margin-top: auto;
 }
+@media (max-width: 600px) {
+  .table-responsive-scroll {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  table {
+  }
+ }

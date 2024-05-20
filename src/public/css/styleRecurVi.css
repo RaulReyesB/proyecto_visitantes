@@ -176,19 +176,12 @@ footer {
 .navbar-toggler-icon {
   color: white;
 }
-@media (max-width: 768px) {
-  .navbar-collapse {
-      background-color: #32396c;
+@media (max-width: 600px) {
+  .table-responsive-scroll {
+    overflow-x: auto;
+    white-space: nowrap;
   }
-}
-.nav-link:hover {
-  color: #9931f1;
-}
-.home {
-  fill: white;
-  width: 40px;
-  height: 40px;
-}
-.home:hover {
-  fill: #9931f1;
-}
+  table {
+  table-layout: auto;
+  }
+ }

@@ -27,8 +27,8 @@
       <button type="button" onclick="search()"><i class="bi bi-search"></i></button>
     </div>
   </div>
-
-    <table id="tabla" class="fade-in table table-hover">
+   <div class="table-responsive table-responsive-scroll">
+    <table id="tabla" class="fade-in table ">
       <thead class="thead-gray">
         <tr>
           <th>Nombre</th>
@@ -88,7 +88,7 @@
           <% }); %>
       </tbody>
     </table>
-
+  </div>
     <script>
       function normalizeString(str) {
         return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();

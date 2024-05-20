@@ -39,6 +39,9 @@ body {
   align-items: center;
   flex-direction: column;
   margin: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
 }
 /* Contenedor del titulo */
 .cont-title {
@@ -109,6 +112,8 @@ table {
   word-wrap: break-word;
 }
 
+
+
 thead {
   background: #e8e8e8;
   font-family: Arial, Helvetica, sans-serif;
@@ -161,35 +166,15 @@ footer {
   width: 100%;
   margin-top: auto;
 }
-.navbar {
-  background-color: #1e3248;
-}
-.navbar-brand img {
-  height: 60px;
-  width: auto;
-}
-.navbar-nav .nav-item .nav-link {
-  color: white;
-}
-.navbar-toggler {
-  border-color: rgba(255, 255, 255, 0.1);
-}
-.navbar-toggler-icon {
-  color: white;
-}
-@media (max-width: 768px) {
-  .navbar-collapse {
-    background-color: #1e3248;
+ @media (max-width: 600px) {
+  .table-responsive-scroll {
+    overflow-x: auto;
+    white-space: nowrap;
   }
-}
-.nav-link:hover {
-  color: #9931f1;
-}
-.home {
-  fill: white;
-  width: 40px;
-  height: 40px;
-}
-.home:hover {
-  fill: #9931f1;
-}
+  table {
+  table-layout: auto;
+  }
+ }
+
+
+

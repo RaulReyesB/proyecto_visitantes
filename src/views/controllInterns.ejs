@@ -21,10 +21,9 @@
   <div class="cont-title">
     <h1><%- namePage %></h1>
   </div>
-  <table id="tabla">
-    <thead class="thead-gray">
-      <table class="table">
-        <thead>
+  <div class="table-responsive table-responsive-scroll">
+    <table id="tabla" class="fade-in table ">
+      <thead class="thead-gray">
           <tr>
             <th>Nombre</th>
             <th>Número de Folio</th>
@@ -60,8 +59,8 @@
           </tr>
           <% }); %>
         </tbody>
-      </table>
   </table>
+  </div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>

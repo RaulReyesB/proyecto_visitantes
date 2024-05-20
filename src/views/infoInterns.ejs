@@ -18,7 +18,7 @@
     </div>
     <div class="contenedor">
       <div class="contenedor-principal">
-        <p class="nombre"><strong>Informacion de:</strong>
+        <p class="nombre"><strong>Nombre:</strong>
           <%= intern.name %>
         </p>
         <p><strong>
@@ -53,7 +53,7 @@
             <%= intern.days %>
           </p>
         </div>
-        <div>
+        <div class="info">
           <p><strong>Horario:</strong>
             <%= intern.shedule %>
           </p>
@@ -75,10 +75,13 @@
           <p><strong>Servicio:</strong>
             <%= intern.service %>
           </p>
+
+          <a id="enlaces" href="/historialInternos">Volver al Historial de Pasantes</a>
+
         </div>
       </div>
     </div>
-    <a id="enlaces" href="/historialInternos">Volver al Historial de Pasantes</a>
+   
 </body>
 
 </html>

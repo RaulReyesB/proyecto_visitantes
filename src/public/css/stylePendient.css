@@ -247,7 +247,7 @@ footer {
     margin: 20px auto; /* Adjust margin for smaller screens */
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 850px) {
   .table-responsive-scroll {
     overflow-x: auto;
     white-space: nowrap;

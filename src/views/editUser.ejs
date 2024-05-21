@@ -7,6 +7,7 @@
   <title>
     <%= namePage %>
   </title>
+<!-- Este código incluye los archivos CSS y de fuentes necesarios para la vista editUser. Agrega la biblioteca Font Awesome, Bootstrap CSS, estilos de navegación y pie de página personalizados, y un favicon personalizado. También incluye un archivo CSS personalizado para diseñar la página editUser. -->
   <!-- Agregar la biblioteca Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
@@ -23,6 +24,34 @@
   <div class="fondo"></div>
   <%- include('templates/nav') %>
     <!-- contenedor principal -->
+  <!--
+    Este archivo representa la vista para editar un usuario en una aplicación web. Contiene un formulario con campos para actualizar el nombre de usuario, la contraseña y el tipo de usuario. El formulario se envía al punto final "/AdmistrarUsuario/<%= user.id %>" mediante el método POST.
+
+    Estructura HTML:
+    - El contenedor div contiene todo el contenido de la página.
+    -
+El div cont-title contiene el título de la página.
+    - El div contenedor-form contiene el formulario para editar el usuario.
+    - El div form-p representa un campo de formulario y su etiqueta.
+    - Los elementos de la etiqueta proporcionan una descripción para cada campo del formulario.
+    - Los elementos de entrada permiten a los usuarios ingresar valores para los campos del formulario correspondientes.
+    -
+El elemento de selección proporciona un menú desplegable para seleccionar el tipo de usuario.
+    - El elemento del botón se utiliza para alternar la visibilidad del campo de contraseña.
+    - El elemento de entrada con tipo="enviar" se utiliza para enviar el formulario.
+
+    Contenido dinámico:
+    - La expresión <%= namePage %> se utiliza para mostrar el nombre de la página.
+    - El <%= usuario.
+La expresión id %> se utiliza para establecer dinámicamente la URL de acción del formulario.
+    - La expresión <%= user.name %> se utiliza para completar previamente el campo de entrada del nombre.
+    - ¿El <%=user.type==='...'? 'seleccionado': '' Las expresiones %> se utilizan para preseleccionar la opción apropiada en el menú desplegable de tipo de usuario según el tipo actual del usuario.
+
+    Función de JavaScript:
+- La función togglePassword() se llama cuando se hace clic en el botón para alternar la visibilidad del campo de contraseña.
+
+    Nota: Este código está escrito en lenguaje de plantilla EJS (JavaScript integrado), que permite incrustar código JavaScript en plantillas HTML.
+    -->
     <div class="container">
       <div class="cont-title">
         <h1>

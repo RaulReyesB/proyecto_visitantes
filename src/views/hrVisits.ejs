@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 
+<!--
+    Este código HTML representa la sección principal de la vista "hrVisits".
+    Incluye metaetiquetas, título, hojas de estilo CSS y favicon para la página.
+    Las hojas de estilo CSS se utilizan para la navegación, el diseño de la página y el pie de página.
+    También incluye Bootstrap CSS y Bootstrap Icons para estilos e íconos.
+-->
 <head>
     <meta charset="UTF-8">
     <title><%= namePage %></title>
@@ -15,38 +21,61 @@
 </head>
 
 <body>
+<!--
+    Este archivo representa la vista de visitas de RR.HH. en el proyecto.
+    Contiene el marcado HTML para mostrar la página de visitas de RR.HH.
+
+    Estructura HTML:
+    - El elemento <div class="fondo"></div> representa el elemento de fondo.
+    - El <%- include('templates/nav') %> incluye la plantilla de navegación.
+    -
+    El elemento <div class="container"> contiene el contenido principal de la página.
+    - El elemento <div class="cont-title"> muestra el título de la página.
+    - <h1><%-namePage%></h1> muestra el nombre dinámico de la página.
+    - El elemento <div class="search-container"> contiene la entrada y el botón de búsqueda.
+    -
+    El <input type="text" id="searchInput" placeholder="Buscar..."> es el campo de entrada de búsqueda.
+    - El <button type="button" onclick="search()"><i class="bi bi-search"></i></button> es el botón de búsqueda.
+
+    Nota: <%-namePage%> es un valor dinámico que se reemplazará con el nombre de la página real cuando se represente.
+    -->
     <div class="fondo"></div>
 
     <%- include('templates/nav') %>
     <div class="container">
-    <div class="cont-title">
-        <h1><%-namePage%></h1>
-      </div>
+        <div class="cont-title">
+            <h1><%-namePage%></h1>
+        </div>
 
-    <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Buscar...">
-        <button type="button" onclick="search()"><i class="bi bi-search"></i></button>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Buscar...">
+            <button type="button" onclick="search()"><i class="bi bi-search"></i></button>
+        </div>
     </div>
-</div>
+<!--
+    Este código HTML representa una vista de tabla para las visitas de RR.HH.
+    Muestra información del visitante como nombre, número de teléfono, correo electrónico, etc.
+    Los datos se completan dinámicamente utilizando la matriz 'visitas'.
+-->
 <div class="container-2">
-<div class="table-responsive table-responsive-scroll">
-    <table id="tabla" class="fade-in table ">
-      <thead class="thead-gray">
-            <tr>
-                <th>Nombre</th>
-                <th>Teléfono</th>
-                <th>Correo electrónico</th>
-                <th>CURP</th>
-                <th>Identificación</th>
-                <th>Origen</th>
-                <th>Niños</th>
-                <th>Número de pase</th>
-                <th>Fecha de entrada</th>
-                <th>Fecha de salida</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% visits.forEach(visit=> { %>
+    <div class="table-responsive table-responsive-scroll">
+        <table id="tabla" class="fade-in table">
+            <thead class="thead-gray">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Teléfono</th>
+                    <th>Correo electrónico</th>
+                    <th>CURP</th>
+                    <th>Identificación</th>
+                    <th>Origen</th>
+                    <th>Niños</th>
+                    <th>Número de pase</th>
+                    <th>Fecha de entrada</th>
+                    <th>Fecha de salida</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% visits.forEach(visit => { %>
                 <tr>
                     <td>
                         <%= visit.name %>
@@ -80,9 +109,9 @@
                     </td>
                 </tr>
                 <% }); %>
-        </tbody>
-    </table>
-</div>
+            </tbody>
+        </table>
+    </div>
 </div>
 <div>
     <footer>   

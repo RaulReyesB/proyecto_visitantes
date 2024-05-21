@@ -19,6 +19,7 @@ const controllInterns = async (req, res) => {
     res.status(500).send("Error interno del servidor");
   }
 };
+
 const registrarEntrada = async (req, res) => {
   const internId = req.params.id;
 
@@ -34,6 +35,7 @@ const registrarEntrada = async (req, res) => {
     });
 
     intern.entrance = new Date();
+    intern.exit = null;  // Restablece la salida
     await intern.save();
 
     res.redirect("/controlPasantes");
@@ -56,6 +58,7 @@ const registrarSalida = async (req, res) => {
         fileNumber: intern.fileNumber,
         exit: null,
       },
+      order: [['entrance', 'DESC']],
     });
 
     if (!historyEntry) {
@@ -77,10 +80,10 @@ const registrarSalida = async (req, res) => {
   }
 };
 
+
 const getInternDetails = async (req, res) => {
   try {
     const intern = await Intern.findByPk(req.params.id);
-    const name = await Intern.findByPk(req.params.name);
     if (intern) {
       res.render("infoInterns", {
         namePage: "Informacion del pasante",

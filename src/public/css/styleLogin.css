@@ -148,7 +148,7 @@ body {
 
   .welcome-container {
     order: -1;
-    height: 120px;
+    height: 250px;
     padding: 1px;
     width: 300px ;
     margin-bottom: 2px;
@@ -164,9 +164,9 @@ body {
   }
 
   .logo-img {
-    margin-top: -25px;
+    margin-top: -40px;
     border-radius: 5%;
-    width: 150px;
+    width: 300px;
     height: auto;
     display: block;
     margin-left: auto;

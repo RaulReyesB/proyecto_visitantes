@@ -31,7 +31,7 @@
     <button type="button" onclick="search()"><i class="bi bi-search"></i></button>
   </div>
 </div>
-<br>
+<div class="container-2">
 <div class="table-responsive table-responsive-scroll">
   <table id="tabla" class="fade-in table">
     <thead class="thead-gray">
@@ -42,9 +42,9 @@
         <th>Curp</th>
         <th>Identificación</th>
         <th>Departamento</th>
+        <th>Subdepartamento</th>
         <th>Procedencia</th>
         <th>Niños</th>
-        <th>Gafete</th>
         <th>Numero De gafete</th>
         <th>Fecha y hora de entrada</th>
         <th>Finalizar registro</th>
@@ -71,6 +71,12 @@
       <% }); %>
     </tbody>
   </table>
+</div>
+</div>
+<div>
+  <footer>
+    <%- include('templates/footer') %>
+  </footer>
 </div>
 <script src="/src/controllers/pendingRecords.controllers.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -101,9 +107,4 @@
   });
 </script>
 </body>
-<div>
-  <footer>
-    <%- include('templates/footer') %>
-  </footer>
-</div>
 </html>

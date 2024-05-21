@@ -4,42 +4,32 @@
     <a href="/inicio" style="display: flex;">
       <img src="/img/rtyh_logo.webp" alt="Logo">
     </a class="enlaces">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <div>
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="/registroInternos">Pasantes</a>
-        </li>
-        <% if (user && user.type !== 'rh') { %>
-        <li class="nav-item">
-          <a class="nav-link" href="/registroVisitas">Registros</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/historial">Historial de visitantes</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/registrosPendientes">Pendientes de Salida</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/registroUsuario">Registrar Usuario</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/AdmistrarUsuario">Control de Usuarios</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/hr-visits">Recursos Humanos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/historialInternos">Historial de pasante</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/controlPasantes">Control de Pasantes</a>
-        </li>
-        <% } %>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <% if (user && user.type !== 'administrador') { %>
+            <a href="/registroVisitas">Registros</a>
+            <%if (user && user.type !== 'usuario') { %>
+            <a href="/registroInternos">Pasantes</a>
+            <a href="/hr-visits">Recursos Humanos</a>
+            <a href="/historialInternos">Historial de pasante</a>
+            <% } %>
+            <% } %>
+            <% if (user && user.type !== 'rh') { %>
+            <a href="/historial">Historial de visitantes</a>
+            <a href="/AdmistrarUsuario">Control de Usuarios</a>
+            <%if (user && user.type !== 'usuario') { %>
+            <a href="/registroUsuario">Registrar Usuario</a>
+            <%if (user && user.type !== 'administrador') { %>
+            <a href="/registrosPendientes">Pendientes de Salida</a>
+            <a href="/controlPasantes">Control de Pasantes</a>
+            <% } %>
+            <% } %>
+            <% } %>
       </ul>
     </div>
     </div>

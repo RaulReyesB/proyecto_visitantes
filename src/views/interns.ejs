@@ -12,6 +12,7 @@
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="/css/footer.css">
+    <link rel="icon" type="image/ico" href="/img/logohidalgo.ico">
 
     <!-- Estilos para ocultar los botones de incremento y decremento en campos de número -->
     <style>
@@ -123,6 +124,11 @@
                 </form>
             </div>
         </div>
+        <div>
+            <footer>   
+                 <%- include('templates/footer') %>
+            </footer>
+        </div>
 
         <script>
             document.getElementById('days').addEventListener('change', function () {
@@ -147,6 +153,6 @@
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-<%- include('templates/footer') %>
+
 
 </html>

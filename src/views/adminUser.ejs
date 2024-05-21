@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="/css/styleAdminUser.css">
   <link rel="stylesheet" href="/css/nav.css">
   <link rel="stylesheet" href="/css/footer.css">
-
+  <link rel="icon" type="image/ico" href="/img/logohidalgo.ico">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
@@ -21,7 +21,7 @@
       <h1><%-namePage%></h1>
     </div>
     </div>
-
+<div class="container-2">
     <table id="tabla" class="fade-in table table-hover">
       <thead class="thead-gray">
         <tr>
@@ -50,7 +50,7 @@
             </td>
             <td>
               <a href="/upd">
-                <button class="btn btn-danger " style="background-color: #3D3D3D; border-color: #3D3D3D;" id="toggleButton<%= item.id %>" onclick="toggleStatus('<%= item.id %>')">
+                <button class="btn btn-secondary " style="background: #808080;" id="toggleButton<%= item.id %>" onclick="toggleStatus('<%= item.id %>')">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg"
                     viewBox="0 0 16 16">
                     <path
@@ -62,7 +62,7 @@
               
             </td>
             <td>
-              <a href="/AdmistrarUsuario/<%= item.id %>"><button class="btn btn-warning editar" style="background-color: #3D3D3D; border-color: #3D3D3D;"><svg
+              <a href="/AdmistrarUsuario/<%= item.id %>"><button class="btn btn-secondary editar" style="background:  #808080;;"><svg
                 xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                 class="bi bi-pencil-square" viewBox="0 0 16 16">
                 <path
@@ -75,6 +75,12 @@
           <% }); %>
       </tbody>
     </table>
+  </div>
+  <div>
+    <footer>   
+         <%- include('templates/footer') %>
+    </footer>
+  </div>
 
     <script>
       function toggleStatus(userId) {
@@ -118,14 +124,9 @@
         }
       });
     </script>
-    
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<div>
-  <footer>   
-       <%- include('templates/footer') %>
-  </footer>
-</div>
+
 </html>

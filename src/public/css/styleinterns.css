@@ -94,6 +94,8 @@
   align-items: center;
   flex-direction: column;
   margin: auto;
+  min-height:80vh;/*importante*/
+  position:relative;
 }
 
 /* Contenedor del formulario */

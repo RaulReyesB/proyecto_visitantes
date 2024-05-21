@@ -12,7 +12,6 @@
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/nav.css">
   <link rel="stylesheet" href="/css/footer.css">
-
   <link rel="stylesheet" href="/css/styleAdminUser.css">
 </head>
 
@@ -36,12 +35,8 @@
       <tbody>
         <% interns.forEach(function(intern) { %>
         <tr>
-          <td>
-            <%= intern.name %>
-          </td>
-          <td>
-            <%= intern.fileNumber %>
-          </td>
+          <td><%= intern.name %></td>
+          <td><%= intern.fileNumber %></td>
           <td>
             <% if (intern.img) { %>
             <img src="<%= intern.img %>" alt="Imagen de <%= intern.name %>" style="width: 100px; height: auto;">
@@ -55,8 +50,8 @@
               <button type="submit" class="btn btn-primary">Registrar Entrada</button>
             </form>
             <% } else if (intern.entrance && !intern.exit) { %>
-            <form action="/interns/salida/<%= intern.id %>" method="POST">
-              <button type="submit" class="btn btn-primary">Registrar Salida</button>
+            <form id="salidaForm-<%= intern.id %>" action="/interns/salida/<%= intern.id %>" method="POST">
+              <button type="button" class="btn btn-primary" onclick="confirmarSalida(<%= intern.id %>)">Registrar Salida</button>
             </form>
             <% } %>
           </td>
@@ -74,8 +69,15 @@
       const enlaces = document.querySelector('.enlaces');
       enlaces.classList.toggle('active');
     });
+
+    function confirmarSalida(internId) {
+      if (confirm("¿Estás seguro de que quieres registrar la salida de este pasante?")) {
+        document.getElementById(`salidaForm-${internId}`).submit();
+      }
+    }
   </script>
 </body>
+
 <div>
   <footer>
     <%- include('templates/footer') %>

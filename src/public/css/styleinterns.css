@@ -263,11 +263,15 @@ form .btn:hover {
 }
 
 #btn{
-  border: #000;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+  /*background-color: #1e3740;*/
+  background-color: #3D3D3D;
   color: white;
-  /*background: #1e3740;*/
-  background-color: white;
-  border-radius: 30px;
+  width: 200px;
+  float: left;
+margin-left: 35%;
+margin-right: 35%;
 }
 .navbar-nav .nav-item .nav-link {
   color: white !important; /* Forzar el color blanco en los enlaces del navbar */

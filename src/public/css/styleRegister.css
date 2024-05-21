@@ -96,6 +96,8 @@ form .button {
   color: white;
   width: 200px;
   float: left;
+  margin-left: 35%;
+  margin-right: 35%;
 
 }
 
@@ -165,11 +167,9 @@ form .button:hover {
   .form-inputs select {
     width: 100%; /* Ajustar el ancho de los inputs y selects */
   }
-  .buttons-container {
-    justify-content: center;
+  form .button {
+    margin-left: 30%;
+    margin-right: 30%;
   }
 }
 
-.navbar-nav .nav-item .nav-link {
-  color: white !important; /* Forzar el color blanco en los enlaces del navbar */
-}

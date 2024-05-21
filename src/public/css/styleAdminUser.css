@@ -160,6 +160,8 @@ footer {
     overflow-x: auto;
     white-space: nowrap;
   }
-  table {
-  }
+  
  }
+ .navbar-nav .nav-item .nav-link {
+  color: white !important; /* Forzar el color blanco en los enlaces del navbar */
+}

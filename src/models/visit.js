@@ -41,8 +41,9 @@ const Visit = db.define("tb_visits", {
   },
   badge: {
     type: DataTypes.INTEGER,
-    allowNull: false,
-    defaultValue: 0,
+    allowNull: true,
+    defaultValue: null,
+    unique: true
   },
   entrance: {
     type: DataTypes.DATE,

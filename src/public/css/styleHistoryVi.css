@@ -70,21 +70,22 @@ body {
   margin: 50px auto;
   border-radius: 25px;
   overflow: hidden;
-  border: 1px solid #ccc;
-  margin-top: 25px;
+  border: 1px solid white;
+  
 }
 .search-container input[type="text"] {
   width: 100%;
   padding: 10px;
-  border: 1px solid black; /* Asegura el mismo borde que el botón */
+  border: 1px solid #ccc; /* Asegura el mismo borde que el botón */
   border-right: none; /* Quita el borde derecho */
   border-radius: 4px 0 0 4px;
   outline: none;
 }
 
+
 .search-container button {
   padding: 10px;
-  border: 1px solid black; /* Asegura el mismo borde que el input */
+  border: 1px solid #ccc; /* Asegura el mismo borde que el input */
   border-left: none; /* Quita el borde izquierdo */
   background-color: white;
   color: #000; /* Asegura que el texto sea visible */
@@ -158,6 +159,8 @@ tbody td {
   flex: 1;
 }
 
+
+ @media (max-width: 600px) {
 footer {
   background-color: #e8e8e8;
   color: black;
@@ -166,7 +169,7 @@ footer {
   width: 100%;
   margin-top: auto;
 }
- @media (max-width: 600px) {
+ @media (max-width: 850px) {
   .table-responsive-scroll {
     overflow-x: auto;
     white-space: nowrap;
@@ -178,3 +181,8 @@ footer {
 
 
 
+/* Estilo para el placeholder */
+.search-container input[type="text"]::placeholder {
+  color: black;
+}
+ }

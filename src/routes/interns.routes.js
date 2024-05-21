@@ -1,5 +1,10 @@
 import { Router } from "express";
-import { requireAuth, requireRH, requireSuperUserOrRH, requireUserOrRH } from "../middlewares/auth.js";
+import {
+  requireAuth,
+  requireRH,
+  requireSuperUserOrRH,
+  requireUserOrRH,
+} from "../middlewares/auth.js";
 import {
   controllInterns,
   registrarEntrada,
@@ -10,7 +15,12 @@ import Intern from "../models/Intern.js";
 
 const routesInterns = Router();
 
-routesInterns.get("/controlPasantes", requireAuth, requireUserOrRH, controllInterns);
+routesInterns.get(
+  "/controlPasantes",
+  requireAuth,
+  requireUserOrRH,
+  controllInterns
+);
 routesInterns.post(
   "/interns/entrada/:id",
   requireAuth,
@@ -23,6 +33,11 @@ routesInterns.post(
   requireUserOrRH,
   registrarSalida
 );
-routesInterns.get("/Pasante/info/:id", requireAuth, requireSuperUserOrRH, getInternDetails);
+routesInterns.get(
+  "/Pasante/info/:id",
+  requireAuth,
+  requireSuperUserOrRH,
+  getInternDetails
+);
 
 export default routesInterns;

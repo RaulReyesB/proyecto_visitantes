@@ -43,6 +43,13 @@ body {
   margin-left: auto;
   width: 100%;
 }
+.container-2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-height:65vh;/*importante*/
+  position:relative;
+}
 /* Contenedor del titulo */
 .cont-title {
   display: flex;
@@ -158,7 +165,16 @@ tbody td {
 #content-wrapper {
   flex: 1;
 }
+@media (max-width: 850px) {
+  .table-responsive-scroll {
+    overflow-x: auto;
+    white-space: nowrap;
 
+  }
+  table {
+  table-layout: auto;
+  }
+ }
 
  @media (max-width: 600px) {
 footer {
@@ -169,18 +185,6 @@ footer {
   width: 100%;
   margin-top: auto;
 }
- @media (max-width: 850px) {
-  .table-responsive-scroll {
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-  table {
-  table-layout: auto;
-  }
- }
-
-
-
 /* Estilo para el placeholder */
 .search-container input[type="text"]::placeholder {
   color: black;

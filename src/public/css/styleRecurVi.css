@@ -37,8 +37,10 @@ body {
   margin-right: auto;
   margin-left: auto;
   width: 100%;
-
-  
+}
+.container-2{
+  min-height:70vh;/*importante*/
+  position:relative;
 }
 /* Contenedor del titulo */
 .cont-title {

@@ -108,7 +108,7 @@ header a:hover {
   justify-content: center;
   padding: 20px;
   min-height:70vh;/*importante*/
-    position:relative;
+  position:relative;
 }
 
 .tarjeta {

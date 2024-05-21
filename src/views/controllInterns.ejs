@@ -23,6 +23,12 @@
   <div class="cont-title">
     <h1><%- namePage %></h1>
   </div>
+
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Buscar por nombre o número de folio...">
+    <button type="button" onclick="search()"><i class="bi bi-search"></i></button>
+  </div>
+
   <div class="container-2">
   <div class="table-responsive table-responsive-scroll">
     <table id="tabla" class="fade-in table">
@@ -79,6 +85,28 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script>
+    function normalizeString(str) {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  }
+
+  document.getElementById('searchInput').addEventListener('input', function () {
+    const searchValue = normalizeString(this.value);
+    const table = document.getElementById('tabla');
+    const rows = table.getElementsByTagName('tr');
+
+    for (let i = 1; i < rows.length; i++) {
+      const cells = rows[i].getElementsByTagName('td');
+      const name = normalizeString(cells[0].textContent || cells[0].innerText); // Nombre en la primera celda
+      const fileNumber = normalizeString(cells[1].textContent || cells[1].innerText); // Número de folio en la segunda celda
+
+      if (name.includes(searchValue) || fileNumber.includes(searchValue)) {
+        rows[i].style.display = '';
+      } else {
+        rows[i].style.display = 'none';
+      }
+    }
+  });
+
     document.getElementById('menuHamburguesa').addEventListener('click', function () {
       const enlaces = document.querySelector('.enlaces');
       enlaces.classList.toggle('active');

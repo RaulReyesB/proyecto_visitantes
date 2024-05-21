@@ -100,36 +100,35 @@
     filter: blur(8px);
     z-index: -1;
   }
-.formato{
-  display: flex; 
-  justify-content: center; 
-  margin-top: 10px; 
-  /*background-color:cadetblue; */
-  background-color: #3D3D3D;
-  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
-  width:100% ; 
-  margin-left: 50px; 
-  margin-left: auto;
-  border-radius: 20px;
   
-  padding: 10px;
-}
-.formato h1{
-  font-size: 30px;
-  color:white;
-}
-  .cont-title{
-    display: flex;
-    
-    justify-content: center;
-    
-    color: white;
+  
+  @keyframes slideInAndExpand {
+    0% {
+      opacity: 0;
+      transform: scaleY(0);
+    }
+    100% {
+      opacity: 1;
+      transform: scaleY(1);
+    }
   }
+  
+
+  .cont-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+    text-align: center; /* Centrar el texto */
+  }
+  
 
 .search-container{
   display: flex;
   align-items: center;
   width: 100%;
+  color:#000;
   max-width: 700px;
   margin: 50px auto;
   border-radius: 25px;
@@ -276,4 +275,46 @@ footer {
   .search-container {
     margin: 20px auto; /* Adjust margin for smaller screens */
   }
+}
+/* Ajustes generales */
+.container {
+  width: 90%; /* Ancho máximo del contenido */
+}
+
+/* Ajustes para pantallas pequeñas */
+@media only screen and (max-width: 768px) {
+  .container h1 {
+    font-size: 24px; /* Reducción del tamaño del título */
+  }
+
+  .search-container {
+    width: 90%; /* Ancho máximo del contenedor de búsqueda */
+    margin: 20px auto; /* Ajuste de márgenes */
+  }
+
+  .tarjeta-usuario {
+    width: 90%; /* Ancho máximo de la tarjeta de usuario */
+    font-size: 1em; /* Reducción del tamaño de fuente */
+  }
+}
+
+/* Ajustes para pantallas muy pequeñas */
+@media only screen and (max-width: 480px) {
+  .container h1 {
+    font-size: 20px; /* Reducción adicional del tamaño del título */
+  }
+
+  .search-container {
+    width: 95%; /* Ancho máximo del contenedor de búsqueda */
+    margin: 15px auto; /* Ajuste de márgenes */
+  }
+
+  .tarjeta-usuario {
+    width: 95%; /* Ancho máximo de la tarjeta de usuario */
+    font-size: 0.9em; /* Reducción adicional del tamaño de fuente */
+  }
+}
+/* Estilo para el placeholder */
+.search-container input[type="text"]::placeholder {
+  color: black;
 }

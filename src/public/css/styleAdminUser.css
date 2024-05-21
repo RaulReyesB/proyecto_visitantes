@@ -156,12 +156,6 @@ footer {
   margin-top: auto;
 }
 @media (max-width: 600px) {
-  .table-responsive-scroll {
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-  table {
-    table-layout: auto;
 
-  }
+
  }

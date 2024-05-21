@@ -228,38 +228,8 @@ footer {
   width: 100%;
   margin-top: auto;
 }
-.navbar {
-  background-color: #32396c;
-}
-.navbar-brand img {
-  height: 60px;
-  width: auto;
-}
-.navbar-nav .nav-item .nav-link {
-  color: white;
-}
-.navbar-toggler {
-  border-color: rgba(255, 255, 255, 0.1);
-}
-.navbar-toggler-icon {
-  color: white;
-}
-@media (max-width: 768px) {
-  .navbar-collapse {
-      background-color: #32396c;
-  }
-}
-.nav-link:hover {
-  color: #9931f1;
-}
-.home {
-  fill: white;
-  width: 40px;
-  height: 40px;
-}
-.home:hover {
-  fill: #9931f1;
-}/* Adjustments for smaller screens */
+
+/* Adjustments for smaller screens */
 @media only screen and (max-width: 768px) {
   .formato {
     width: 100%; /* Adjust width for smaller screens */
@@ -277,3 +247,12 @@ footer {
     margin: 20px auto; /* Adjust margin for smaller screens */
   }
 }
+@media (max-width: 600px) {
+  .table-responsive-scroll {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  table {
+  table-layout: auto;
+  }
+ }

@@ -43,8 +43,8 @@
                     onsubmit="return validateForm()">
                     <div class="form-inputs">
                         <div class="form-p">
-                            <label for="fileNumber">Ingresa tu folio</label>
-                            <input class="form-control" type="text" name="fileNumber" id="fileNumber"
+                            <label for="fileNumber" >Ingresa tu folio</label>
+                            <input min="001" max="050" class="form-control" type="number" name="fileNumber" id="fileNumber"
                                 placeholder="Folio" required>
                             <label for="service">Ingresa el tipo de servicio prestado</label>
                             <select class="form-control" name="service" id="service" required>

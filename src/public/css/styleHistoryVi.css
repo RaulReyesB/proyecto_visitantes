@@ -178,3 +178,7 @@ footer {
 
 
 
+/* Estilo para el placeholder */
+.search-container input[type="text"]::placeholder {
+  color: black;
+}

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <title><%= namePage %></title>
   <link rel="stylesheet" href="/css/stylePendient.css">
@@ -11,7 +10,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   
 </head>
-
 <body>
   <div class="fondo" style="background: url('/img/fachada1.webp') no-repeat center center/cover;"></div>
   <%- include('templates/nav') %>
@@ -20,18 +18,21 @@
     <h1><%-namePage%></h1>
   </div>
 
-<div class="alert alert-info d-none d-lg-block " style="background-color: #3D3D3D; border-color: #3D3D3D; color: white;">Buscar por nombre curp o fecha (DD/MM/AAAA).</div>
-
-
-<div class="search-container mt-2">
-  
-    <input type="text" id="searchInput" placeholder="Buscar...">
+  <!-- Aplicar estilos de tarjeta-usuario a la alerta 
+  <div class="alert alert-info tarjeta-usuario" style="background-color: #3D3D3D; border-color: #3D3D3D; color: white; border-radius:250px">
+    <div class="cuerpo">
+      <div class="user-info-details">Buscar por nombre, curp o fecha (DD/MM/AAAA).</div>
+    </div>
+  </div>
+-->
+  <div class="search-container mt-2">
+    <input type="text" id="searchInput" placeholder="Buscar por nombre, curp o fecha (DD/MM/AAAA)." style=" color: black">
     <button type="button" onclick="search()"><i class="bi bi-search"></i></button>
-</div>
+  </div>
 </div>
 <br>
 <div class="table-responsive table-responsive-scroll">
-  <table id="tabla" class="fade-in table ">
+  <table id="tabla" class="fade-in table">
     <thead class="thead-gray">
       <tr>
         <th>Nombre</th>
@@ -43,8 +44,8 @@
         <th>Subdepartamento</th>
         <th>Procedencia</th>
         <th>Niños</th>
-        <th>Numero De Gafete</th>
-        <th>Fecha y Hora de entrada</th>
+        <th>Numero De gafete</th>
+        <th>Fecha y hora de entrada</th>
         <th>Finalizar registro</th>
       </tr>
     </thead>
@@ -63,7 +64,7 @@
           <td><%= item.badge %></td>
           <td><%= item.entrance %></td>
           <td>
-            <a id="cerrar" class=" btn btn-success" style="background-color: #3D3D3D; border-color: #3D3D3D;" href="/finalizarRegistro/<%= item.id %>" class="finalizar-registro" data-id="<%= item.id %>" onclick="alert('visita completada')"><i class="bi bi-x-lg " ></i></a>
+            <a id="cerrar" class="btn btn-success" style="background-color: #3D3D3D; border-color: #3D3D3D;" href="/finalizarRegistro/<%= item.id %>" class="finalizar-registro" data-id="<%= item.id %>" onclick="alert('visita completada')"><i class="bi bi-x-lg"></i></a>
           </td>
         </tr>
       <% }); %>
@@ -76,32 +77,32 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
   function normalizeString(str) {
-            return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
-        }
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  }
 
-        document.getElementById('searchInput').addEventListener('input', function () {
-            const searchValue = normalizeString(this.value);
-            const table = document.getElementById('tabla');
-            const rows = table.getElementsByTagName('tr');
+  document.getElementById('searchInput').addEventListener('input', function () {
+    const searchValue = normalizeString(this.value);
+    const table = document.getElementById('tabla');
+    const rows = table.getElementsByTagName('tr');
 
-            for (let i = 1; i < rows.length; i++) {
-                const cells = rows[i].getElementsByTagName('td');
-                const name = normalizeString(cells[0].textContent || cells[0].innerText);
-                const curp = normalizeString(cells[3].textContent || cells[3].innerText);
-                const entranceDate = normalizeString(cells[10].textContent || cells[8].innerText);
+    for (let i = 1; i < rows.length; i++) {
+      const cells = rows[i].getElementsByTagName('td');
+      const name = normalizeString(cells[0].textContent || cells[0].innerText);
+      const curp = normalizeString(cells[3].textContent || cells[3].innerText);
+      const entranceDate = normalizeString(cells[10].textContent || cells[8].innerText);
 
-                if (name.includes(searchValue) || curp.includes(searchValue) || entranceDate.includes(searchValue)) {
-                    rows[i].style.display = '';
-                } else {
-                    rows[i].style.display = 'none';
-                }
-            }
-        });
+      if (name.includes(searchValue) || curp.includes(searchValue) || entranceDate.includes(searchValue)) {
+        rows[i].style.display = '';
+      } else {
+        rows[i].style.display = 'none';
+      }
+    }
+  });
 </script>
 </body>
 <div>
-  <footer>   
-       <%- include('templates/footer') %>
+  <footer>
+    <%- include('templates/footer') %>
   </footer>
 </div>
 </html>

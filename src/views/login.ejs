@@ -23,7 +23,7 @@
       <p>Sistema de Registro y Acceso a Radio y Televisión Hidalgo</p>
       <form action="/inicio" method="post">
         <div class="form-group">
-          <input type="text" onkeyup="this.value = this.value.toUpperCase();" class="form-control" name="name" placeholder="Nombre de usuario" required>
+          <input type="text" onkeyup="this.value = this.value.toUpperCase();" class="form-control" name="name" value="<%= typeof formData !== 'undefined' && formData.name ? formData.name : '' %>" placeholder="Nombre de usuario" required>
         </div>
         <div class="form-group">
           <input type="password" class="form-control" name="password" placeholder="Contraseña" required>

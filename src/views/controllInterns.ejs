@@ -12,7 +12,6 @@
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/nav.css">
   <link rel="stylesheet" href="/css/footer.css">
-
   <link rel="stylesheet" href="/css/styleAdminUser.css">
 </head>
 
@@ -24,63 +23,64 @@
     <h1><%- namePage %></h1>
   </div>
   <div class="table-responsive table-responsive-scroll">
-    <table id="tabla" class="fade-in table ">
+    <table id="tabla" class="fade-in table">
       <thead class="thead-gray">
-          <tr>
-            <th>Nombre</th>
-            <th>Número de Folio</th>
-            <th>Imagen</th>
-            <th>Control de Entrada y Salida</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% interns.forEach(function(intern) { %>
-          <tr>
-            <td>
-              <%= intern.name %>
-            </td>
-            <td>
-              <%= intern.fileNumber %>
-            </td>
-            <td>
-              <% if (intern.img) { %>
-                <img src="<%= intern.img %>" alt="Imagen de <%= intern.name %>" style="width: 100px; height: auto;">
-                <% } else { %>
-                  No hay imagen disponible
-                  <% } %>
-            </td>
-            <td>
-              <% if (!intern.entrance) { %>
-                <form action="/interns/entrada/<%= intern.id %>" method="POST">
-                  <button type="submit" class="btn btn-primary">Registrar Entrada</button>
-                </form>
-                <% } else if (!intern.exit) { %>
-                  <form action="/interns/salida/<%= intern.id %>" method="POST">
-                    <button type="submit" class="btn btn-primary">Registrar Salida</button>
-                  </form>
-                  <% } else { %>
-                    Registrado
-                    <% } %>
-            </td>
-          </tr>
-          <% }); %>
-        </tbody>
-  </table>
+        <tr>
+          <th>Nombre</th>
+          <th>Número de Folio</th>
+          <th>Imagen</th>
+          <th>Control de Entrada y Salida</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% interns.forEach(function(intern) { %>
+        <tr>
+          <td><%= intern.name %></td>
+          <td><%= intern.fileNumber %></td>
+          <td>
+            <% if (intern.img) { %>
+            <img src="<%= intern.img %>" alt="Imagen de <%= intern.name %>" style="width: 100px; height: auto;">
+            <% } else { %>
+            No hay imagen disponible
+            <% } %>
+          </td>
+          <td>
+            <% if (!intern.entrance || (intern.entrance && intern.exit)) { %>
+            <form action="/interns/entrada/<%= intern.id %>" method="POST">
+              <button type="submit" class="btn btn-primary">Registrar Entrada</button>
+            </form>
+            <% } else if (intern.entrance && !intern.exit) { %>
+            <form id="salidaForm-<%= intern.id %>" action="/interns/salida/<%= intern.id %>" method="POST">
+              <button type="button" class="btn btn-primary" onclick="confirmarSalida(<%= intern.id %>)">Registrar Salida</button>
+            </form>
+            <% } %>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
   </div>
- 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-      document.getElementById('menuHamburguesa').addEventListener('click', function () {
-        const enlaces = document.querySelector('.enlaces');
-        enlaces.classList.toggle('active');
-      });
-    </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    document.getElementById('menuHamburguesa').addEventListener('click', function () {
+      const enlaces = document.querySelector('.enlaces');
+      enlaces.classList.toggle('active');
+    });
+
+    function confirmarSalida(internId) {
+      if (confirm("¿Estás seguro de que quieres registrar la salida de este pasante?")) {
+        document.getElementById(`salidaForm-${internId}`).submit();
+      }
+    }
+  </script>
 </body>
+
 <div>
-  <footer>   
-       <%- include('templates/footer') %>
+  <footer>
+    <%- include('templates/footer') %>
   </footer>
 </div>
 </html>

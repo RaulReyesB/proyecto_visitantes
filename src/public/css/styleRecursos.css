@@ -136,4 +136,7 @@
   h1{
     text-align: center;
   }
-  
+  /* Estilo para el placeholder */
+.search-container input[type="text"]::placeholder {
+  color: black;
+}

@@ -1,4 +1,4 @@
-/* Estilos generales del regitros */
+/* Estilos generales del registros */
 .fondo {
   position: fixed;
   top: 0;
@@ -18,10 +18,12 @@
   flex-direction: column;
   margin-top: 10px;
 }
-.container-2{
-  min-height:40vh;/*importante*/
-  position:relative;
+
+.container-2 {
+  min-height: 40vh; /* importante */
+  position: relative;
 }
+
 /* Contenedor del formulario */
 .container-form {
   display: flex;
@@ -34,6 +36,7 @@
   width: 1200px;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
 }
+
 /* Contenedor del titulo */
 .cont-title {
   display: flex;
@@ -52,17 +55,20 @@
   color: white;
   font-size: 50px; /* Ajuste de tamaño de fuente */
 }
+
 /* Estilo de los label */
 label {
   display: block;
   color: #000;
 }
+
 .form-p input {
   display: block;
   margin-bottom: 20px;
   border-radius: 5px;
   background: #d9d9d9;
 }
+
 /* Estilo de los botones */
 form .button {
   margin-top: 25px;
@@ -70,34 +76,35 @@ form .button {
   padding: 5px;
   border-radius: 50px;
   transition: background-color 0.3s ease;
-  /*background-color: #900c3f;*/
-  background-color: #3D3D3D;
+  background-color: #3d3d3d;
   color: white;
   width: 200px;
 }
 
 form .button:hover {
-  /*background-color: #4fa3fc;*/
-  background-color: #3D3D3D;
-  /*border: 1px solid #0078f8;*/
+  background-color: #3d3d3d;
 }
 
-/* estilo de los selects*/
+/* Estilo de los selects */
 select {
   display: block;
   margin-bottom: 20px;
 }
+
 .form-p {
   display: flex;
   flex-direction: column;
   width: 950px;
 }
+
 .btn-password {
   flex-direction: row;
 }
+
 .btn-password input {
   width: 20px;
 }
+
 .ojo {
   display: flex;
   align-items: center;
@@ -118,20 +125,42 @@ select {
   margin-bottom: 20px;
 }
 
-@media screen and (max-width: 850px) {
-  .cont-title {
-    width: 450px;
-  }
+@media screen and (max-width: 1200px) {
   .container-form {
-    width: 600px;
+    width: 90%;
+    padding: 20px;
   }
   .form-p {
-    width: 500px;
+    width: 100%;
   }
   form .button {
-    margin-left: 30%;
+    margin-left: 0;
+    align-self: center;
   }
-  .enlaces {
-    display: none;
+}
+
+@media screen and (max-width: 850px) {
+  .cont-title {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+  .container-form {
+    width: 100%;
+    padding: 20px;
+    box-shadow: none;
+  }
+  .form-p {
+    width: 100%;
+  }
+  form .button {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container h1 {
+    font-size: 35px;
   }
 }

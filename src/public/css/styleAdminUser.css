@@ -8,9 +8,6 @@
     transform: translateY(0);
   }
 }
-.baja{
-
-}
 .fade-in {
   animation: fadeIn 0.5s ease-in-out;
 }
@@ -31,8 +28,30 @@ body {
   filter: blur(8px);
   z-index: -1;
 }
-.cont-title h1{
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px;
+}
+/* Contenedor del titulo */
+.cont-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.cont-title div {
+  margin-right: 50px;
+}
+
+/* Titulo del formulario */
+.container h1 {
   color: white;
+  font-size: 50px; /* Ajuste de tamaño de fuente */
 }
 .search-container{
   display: flex;
@@ -81,7 +100,6 @@ table {
   width: 100%;
   table-layout: fixed;
   word-wrap: break-word;
-  text-align: center;
 }
 
 thead {
@@ -136,4 +154,14 @@ footer {
   padding: 10px 0;
   width: 100%;
   margin-top: auto;
+}
+@media (max-width: 600px) {
+  .table-responsive-scroll {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  
+ }
+ .navbar-nav .nav-item .nav-link {
+  color: white !important; /* Forzar el color blanco en los enlaces del navbar */
 }

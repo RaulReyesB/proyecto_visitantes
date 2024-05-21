@@ -13,6 +13,8 @@ const index = (req, res) => {
     namePage: "Inicio",
     description: "Bienvenido a Radio y Television Hidalgo",
     user: req.session.user,
+    errors: [],  // Asegurando que errors siempre está definido
+    msg: ""      // Asegurando que msg siempre está definido
   });
 };
 
@@ -175,10 +177,22 @@ const insertVisit = async (req, res) => {
       badge: req.body.badge,
     });
     console.log("Registro exitoso");
-    res.redirect(`/inicio`);
+    res.render("index", {
+      namePage: "Inicio",
+      description: "Bienvenido a Radio y Television Hidalgo",
+      user: req.session.user,
+      msg: "Registro exitoso",
+      errors: []
+    });
   } catch (error) {
     console.error(error);
-    res.status(500).send("Error interno del servidor");
+    res.render("index", {
+      namePage: "Inicio",
+      description: "Bienvenido a Radio y Television Hidalgo",
+      user: req.session.user,
+      errors: [{msg: "No se pudo completar la operación"}],
+      msg: ""
+    });
   }
 };
 
@@ -231,7 +245,13 @@ const insertIntern = async (req, res) => {
     res.redirect("/controlPasantes");
   } catch (error) {
     console.error("Error al insertar pasante:", error);
-    res.status(500).send("Error al insertar pasante");
+    res.render("index", {
+      namePage: "Inicio",
+      description: "Bienvenido a Radio y Television Hidalgo",
+      user: req.session.user,
+      errors: [{msg: "No se pudo completar la operación"}],
+      msg: ""
+    });
   }
 };
 
@@ -249,45 +269,41 @@ const authenticateUser = async (req, res) => {
       .withMessage("La contraseña debe tener entre 8 y 20 caracteres")
       .run(req);
 
-    const { name, password } = req.body;
-
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
       return res.render("login", {
         namePage: "Iniciar Sesión en Radio y Television Hidalgo",
         errors: errors.array(),
+        user: null
       });
     }
 
+    const { name, password } = req.body;
     const user = await User.findOne({ where: { name } });
 
     if (!user) {
       return res.render("login", {
         namePage: "Iniciar Sesión en Radio y Television Hidalgo",
         errors: [{ msg: "Usuario no encontrado en el sistema" }],
+        user: null
       });
     }
 
-    // Comparar la contraseña proporcionada con la contraseña hasheada almacenada
     const passwordMatch = await bcrypt.compare(password, user.password);
-
     if (!passwordMatch) {
       return res.render("login", {
         namePage: "Iniciar Sesión en Radio y Television Hidalgo",
         errors: [{ msg: "Contraseña incorrecta" }],
+        user: null
       });
     }
 
-    // Verificar si el usuario está inactivo
     if (!user.status) {
       return res.render("login", {
         namePage: "Iniciar Sesión en Radio y Television Hidalgo",
-        errors: [
-          {
-            msg: "Tu cuenta está inactiva. Por favor, ponte en contacto con el administrador.",
-          },
-        ],
+        errors: [{ msg: "Tu cuenta está inactiva. Por favor, ponte en contacto con el administrador." }],
+        user: null
       });
     }
 
@@ -298,12 +314,22 @@ const authenticateUser = async (req, res) => {
       namePage: "Bienvenido a Radio y Television",
       description: "Página de inicio",
       user: req.session.user,
+      errors: [],
+      msg: ""
     });
   } catch (error) {
     console.error(error);
-    res.status(500).send("Error interno del servidor");
+    res.render("index", {
+      namePage: "Bienvenido a Radio y Television",
+      description: "Página de inicio",
+      user: req.session.user,
+      errors: [{msg: "No se pudo completar la operación"}],
+      msg: ""
+    });
+    
   }
 };
+
 
 // Función para renderizar la página de inicio de sesión
 const login = (req, res) => {
@@ -366,10 +392,22 @@ const registerUser = async (req, res) => {
     });
 
     console.log("Usuario Guardado");
-    res.redirect(`/inicio`);
+    res.render("index", {
+      namePage: "Inicio",
+      description: "Bienvenido a Radio y Television Hidalgo",
+      user: req.session.user,
+      msg: "Usuario creado correctamente",
+      errors: []
+    });
   } catch (error) {
     console.error(error);
-    res.status(500).send("Error interno del servidor");
+    res.render("index", {
+      namePage: "Inicio",
+      description: "Bienvenido a Radio y Television Hidalgo",
+      user: req.session.user,
+      errors: [{msg: "No se pudo completar la operación"}],
+      msg: ""
+    });
   }
 };
 

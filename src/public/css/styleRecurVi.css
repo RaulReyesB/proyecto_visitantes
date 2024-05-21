@@ -29,42 +29,35 @@ body {
   filter: blur(8px);
   z-index: -1;
 }
-.home {
-  fill: #900C3F;
-  transition: fill 0.3s ease;
-}
-
-a:hover .home {
-  fill: #4fa3fc;
-  width: 110px;
-  height: auto;
-}
-h1{
-  position: relative;
-}
-svg{
-  position: relative;
-}
-.enlaces {
+.container {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+
+  
+}
+/* Contenedor del titulo */
+.cont-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
 }
 
-.enlaces a {
-  
-  margin-right: 0.5%;
-  margin-bottom: 10px; 
-  text-align: center;
+.cont-title div {
+  margin-right: 50px;
 }
-.menu-hamburguesa {
-  display: none;
+
+/* Titulo del formulario */
+.container h1 {
+  color: white;
+  font-size: 50px; /* Ajuste de tamaño de fuente */
 }
-  .cont-title{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 600px;
-    color: white;
-  }
 
 .search-container{
   display: flex;
@@ -183,19 +176,12 @@ footer {
 .navbar-toggler-icon {
   color: white;
 }
-@media (max-width: 768px) {
-  .navbar-collapse {
-      background-color: #32396c;
+@media (max-width: 600px) {
+  .table-responsive-scroll {
+    overflow-x: auto;
+    white-space: nowrap;
   }
-}
-.nav-link:hover {
-  color: #9931f1;
-}
-.home {
-  fill: white;
-  width: 40px;
-  height: 40px;
-}
-.home:hover {
-  fill: #9931f1;
-}
+  table {
+  table-layout: auto;
+  }
+ }

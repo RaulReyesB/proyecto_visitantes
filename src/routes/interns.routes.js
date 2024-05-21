@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { requireAuth, requireRH, requireUserOrRH } from "../middlewares/auth.js";
+import { requireAuth, requireRH, requireSuperUserOrRH, requireUserOrRH } from "../middlewares/auth.js";
 import {
   controllInterns,
   registrarEntrada,
@@ -23,6 +23,6 @@ routesInterns.post(
   requireUserOrRH,
   registrarSalida
 );
-routesInterns.get("/Pasante/info/:id", requireAuth, requireRH, getInternDetails);
+routesInterns.get("/Pasante/info/:id", requireAuth, requireSuperUserOrRH, getInternDetails);
 
 export default routesInterns;

@@ -1,5 +1,5 @@
 import Intern from "../models/Intern.js";
-import HistoryIntern from "../models/history_I.js"; // Cambié el nombre del modelo para que coincida con el archivo
+import HistoryIntern from "../models/history_I.js";
 
 const controllInterns = async (req, res) => {
   try {
@@ -19,7 +19,6 @@ const controllInterns = async (req, res) => {
     res.status(500).send("Error interno del servidor");
   }
 };
-
 const registrarEntrada = async (req, res) => {
   const internId = req.params.id;
 
@@ -34,6 +33,9 @@ const registrarEntrada = async (req, res) => {
       entrance: new Date(),
     });
 
+    intern.entrance = new Date();
+    await intern.save();
+
     res.redirect("/controlPasantes");
   } catch (error) {
     console.error("Error al registrar entrada:", error);
@@ -43,11 +45,15 @@ const registrarEntrada = async (req, res) => {
 
 const registrarSalida = async (req, res) => {
   const internId = req.params.id;
-
   try {
+    const intern = await Intern.findByPk(internId);
+    if (!intern) {
+      return res.status(404).send("Pasante no encontrado");
+    }
+
     const historyEntry = await HistoryIntern.findOne({
       where: {
-        fileNumber: internId,
+        fileNumber: intern.fileNumber,
         exit: null,
       },
     });
@@ -60,6 +66,9 @@ const registrarSalida = async (req, res) => {
 
     historyEntry.exit = new Date();
     await historyEntry.save();
+
+    intern.exit = new Date();
+    await intern.save();
 
     res.redirect("/controlPasantes");
   } catch (error) {
@@ -76,7 +85,7 @@ const getInternDetails = async (req, res) => {
       res.render("infoInterns", {
         namePage: "Informacion del pasante",
         intern,
-        user:req.session.user
+        user: req.session.user,
       });
     } else {
       res.status(404).send("Pasante no encontrado");

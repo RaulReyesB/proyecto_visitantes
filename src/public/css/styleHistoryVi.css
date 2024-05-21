@@ -159,6 +159,15 @@ tbody td {
 
 
  @media (max-width: 600px) {
+footer {
+  background-color: #e8e8e8;
+  color: black;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+  margin-top: auto;
+}
+ @media (max-width: 850px) {
   .table-responsive-scroll {
     overflow-x: auto;
     white-space: nowrap;

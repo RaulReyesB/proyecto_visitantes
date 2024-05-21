@@ -18,6 +18,10 @@
   flex-direction: column;
   margin-top: 10px;
 }
+.container-2{
+  min-height:40vh;/*importante*/
+  position:relative;
+}
 /* Contenedor del formulario */
 .container-form {
   display: flex;

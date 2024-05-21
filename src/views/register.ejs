@@ -10,9 +10,8 @@
     <link rel="stylesheet" href="/css/nav.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <link rel="stylesheet" href="/css/footer.css">
-        <style>
-
+    <link rel="stylesheet" href="/css/footer.css">
+    <style>
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
             -webkit-appearance: none;
@@ -22,156 +21,168 @@
         input[id="childrenInput"] {
             -moz-appearance: textfield;
         }
-        </style>
+    </style>
 </head>
 
 <body style="font-family: 'Poppins', sans-serif;">
     <div class="fondo"></div>
     <%- include('templates/nav') %>
-        <!--  Contenedor principal  -->
-        <div class="container">
-            <div class="cont-title">
-                <h1>
-                    <%= namePage %>
-                </h1>
-            </div>
-            <!--  Contenedor del formulario  -->
-            <div class="container-form">
-                <form action="/registroVisitas" method="POST">
-                    <div class="form-inputs">
-                        <div class="form-p">
-                            <label for="">Ingresa tu nombre</label>
-                            <input class="form-control" type="text" name="name" id="" placeholder="Nombre">
-                            <label for="">Telefono con 10 caracteres</label>
-                            <input class="form-control" type="text" name="phone" placeholder="Telefono">
-                            <label for="">Correo electronico</label>
-                            <input class="form-control" type="text" name="email" placeholder="Correo electronico">
-                        </div>
-                        <div class="form-p">
-                            <label for="">CURP</label>
-                            <input class="form-control" type="text" name="CURP" placeholder="Curp">
-                            <label for="">Identificación</label>
-                            <select class="form-control" name="identification" required>
-                                <option selected disabled>-- Seleccione una opción</option>
-                                <option value="INE">INE</option>
-                                <option value="Pasaporte">Pasaporte</option>
-                                <option value="Licencia">Licencia</option>
-                            </select>
-                            <label for="">Numero de gafete</label>
-                            <select class="form-control" name="badge">
-                                <% for(let i = 1; i <= 50; i++) { %>
-                                  <option value="<%= String(i).padStart(3, '0') %>"><%= String(i).padStart(3, '0') %></option>
-                                <% } %>
-                              </select>
-                        </div>
-                        <div class="form-p" style="margin-right: 0;">
-                            <label for="">Procedencia</label>
-                            <input class="form-control" type="text" name="origin" placeholder="Procedencia">
-                            <label for="">Numero de niños</label>
-                            <!--  Botones para incrementar y decrementar el numero de niños  -->
-                            <div class="buttons-container">
-                                <input class="minus-button btn mb-1" onclick="decrement()" value="-">
-                                <input style="width: 56px;" class="children-input form-control mb-1" type="number"
-                                    name="children" id="childrenInput" placeholder="Cuantos niños" value="<%= ninos %>">
-                                <input class="plus-button btn mb-1" onclick="increment()" value="+">
-                            </div>
-
-                            <label for="">Departamento al que se dirige</label>
-                            <select class="form-control mb-2" id="mainSelect" name="department" required>
-                                <option selected disabled>-- Seleccione una opción --</option>
-                                <option value="DG">Direccion General</option>
-                                <option value="DCFP">Direccion de coordinacion financiera y planeacion</option>
-                                <option value="DT">Direccion de television</option>
-                                <option value="DN">Direccion de noticias</option>
-                                <option value="DR">Direccion de radio</option>
-                                <option value="DI">Direccion de ingenieria</option>
-                                <option value="DPE">Direccion de proyectos estrategicos</option>
-                                <option value="DC">Direccion de contraloria</option>
-                                <option value="DPI">Direccion de promocion e intercambio</option>
-                                <option value="DJ">Direccion juridica</option>
-                                <option value="IMG">Imagen</option>
-                                <option value="RH">Recursos Humanos</option>
-                                <option value="ER">Estaciones de radio</option>
-                            </select>
-                            <select id="subSelect" class="form-control p-0" name="subDepartment" required>
-                                <option selected disabled>-- Seleccione una opción --</option>
-                            </select>
-                        </div>
-                    </div>
-                                                    <!--boton de guardado-->
-                                                    <input  class="btn button" type="submit" value="Guardar">
-                    
-                    
-                    <script>
-
-                        // Definir las opciones correspondientes de cada dpto
-                        var subOptions = {
-                            "DG": ["Director general", "Asistente de la direccion general", "Auxiliar del dpto. de la direccion general",
-                                "Recepcion de entrada principal"
-                            ],
-                            "DCFP": ["DIR. de coordinacion financiera y plan.", "Subdirector de administracion", "Auxiliar Dir. de coordinacion financiera y plan.",
-                                "Recursos humanos", "Servicios generales", "Almacen", "Archivo", "Tecnologias de la informacion"
-                            ],
-                            "DT": ["Director de television", "Subdirector de contenidos", "Subdireccion de produccion", "Encargada de DPTO de Videoteca", "Encargado de area de deportes",
-                                "Isla edicion de television", "Cabina de video", "Master", "Jefa de planeacion y posproduccion", "Encargado de Staff y equipos portatiles",
-                                "Departamento de contenido", "Programacion y videoteca", "Departamento de realizacion", "Departamento de evaluacion y seguimiento",
-                                "Departamento de produccion", "departamento de eventos"
-                            ],
-                            "DN": ["Directora de noticias", "Asistente de redaccion de noticias", "Encargado de la isla de noticias", "Reportero"
-                            ],
-                            "DR": ["Director de red estatal de radio", "Secretaria particular DIR. Radio", "Radio Produccion", "Subdirector de radio",
-                                "Gerente de radio", "Sub. Coord. de noticias de radio", "Cabina de grabacion", "Recepcion entrada principal"
-                            ],
-                            "DI": ["Director de ingenieria", "Subdirector de ingenieria", "Estacion terrena", "aula de medios", "central de aparatos"],
-                            "DPE": ["Director de proyectos estrategicos"],
-                            "DC": ["Directora de contraloria"],
-                            "DPI": ["Director de promocion e intercambio"],
-                            "DJ": ["Director juridico"],
-                            "IMG": ["Subdirector de imagen"],
-                            "ER": ["Estacion de radio Jacala", "Estacion de radio Tlanchinol", "Estacion de radio huejutla", "Red estatal de radio"],
-                            "RH": ["Recursos Humanos"],
-                        };
-
-                        var mainSelect = document.getElementById('mainSelect');
-                        var subSelect = document.getElementById('subSelect');
-
-                        mainSelect.addEventListener('change', function () {
-                            subSelect.innerHTML = '';
-
-                            subSelect.disabled = false;
-                            var options = subOptions[this.value];
-
-                            for (var i = 0; i < options.length; i++) {
-                                var opt = document.createElement('option');
-                                opt.value = options[i];
-                                opt.innerHTML = options[i];
-                                subSelect.appendChild(opt);
-                            }
-                        });
-
-
-                        document.querySelector('input[name="Curp"]').addEventListener('input', function (e) {
-                            if (e.target.value.length !== 18) {
-                                e.target.setCustomValidity('El campo Curp debe tener exactamente 18 caracteres.');
-                            } else {
-                                e.target.setCustomValidity('');
-                            }
-                        });
-                        // Funciones para incrementar y decrementar el numero de niños
-                        function increment() {
-                            var input = document.getElementById("childrenInput");
-                            input.value = parseInt(input.value) + 1;
-                        }
-                        function decrement() {
-                            var input = document.getElementById("childrenInput");
-                            if (parseInt(input.value) > 0) {
-                                input.value = parseInt(input.value) - 1;
-                            }
-                        }
-                    </script>
-                </form>
-            </div>
+    <!--  Contenedor principal  -->
+    <div class="container">
+        <div class="cont-title">
+            <h1>
+                <%= namePage %>
+            </h1>
         </div>
+        <!--  Contenedor del formulario  -->
+        <div class="container-form">
+            <form action="/registroVisitas" method="POST">
+                <div class="form-inputs">
+                    <div class="form-p">
+                        <label for="">Ingresa tu nombre</label>
+                        <input class="form-control" type="text" name="name" id="" placeholder="Nombre">
+                        <label for="">Telefono con 10 caracteres</label>
+                        <input class="form-control" type="text" name="phone" placeholder="Telefono">
+                        <label for="">Correo electronico</label>
+                        <input class="form-control" type="text" name="email" placeholder="Correo electronico">
+                    </div>
+                    <div class="form-p">
+                        <label for="">CURP</label>
+                        <input class="form-control" type="text" name="CURP" placeholder="Curp">
+                        <label for="">Identificación</label>
+                        <select class="form-control" name="identification" required>
+                            <option selected disabled>-- Seleccione una opción</option>
+                            <option value="INE">INE</option>
+                            <option value="Pasaporte">Pasaporte</option>
+                            <option value="Licencia">Licencia</option>
+                        </select>
+                        <label for="">Numero de gafete</label>
+                        <select class="form-control" name="badge" id="badgeSelect">
+                            <% for(let i = 1; i <= 50; i++) { %>
+                            <option value="<%= String(i).padStart(3, '0') %>"><%= String(i).padStart(3, '0') %></option>
+                            <% } %>
+                        </select>
+                    </div>
+                    <div class="form-p" style="margin-right: 0;">
+                        <label for="">Procedencia</label>
+                        <input class="form-control" type="text" name="origin" placeholder="Procedencia">
+                        <label for="">Numero de niños</label>
+                        <!--  Botones para incrementar y decrementar el numero de niños  -->
+                        <div class="buttons-container">
+                            <input class="minus-button btn mb-1" onclick="decrement()" value="-">
+                            <input style="width: 56px;" class="children-input form-control mb-1" type="number"
+                                name="children" id="childrenInput" placeholder="Cuantos niños" value="<%= ninos %>">
+                            <input class="plus-button btn mb-1" onclick="increment()" value="+">
+                        </div>
+
+                        <label for="">Departamento al que se dirige</label>
+                        <select class="form-control mb-2" id="mainSelect" name="department" required>
+                            <option selected disabled>-- Seleccione una opción --</option>
+                            <option value="DG">Direccion General</option>
+                            <option value="DCFP">Direccion de coordinacion financiera y planeacion</option>
+                            <option value="DT">Direccion de television</option>
+                            <option value="DN">Direccion de noticias</option>
+                            <option value="DR">Direccion de radio</option>
+                            <option value="DI">Direccion de ingenieria</option>
+                            <option value="DPE">Direccion de proyectos estrategicos</option>
+                            <option value="DC">Direccion de contraloria</option>
+                            <option value="DPI">Direccion de promocion e intercambio</option>
+                            <option value="DJ">Direccion juridica</option>
+                            <option value="IMG">Imagen</option>
+                            <option value="RH">Recursos Humanos</option>
+                            <option value="ER">Estaciones de radio</option>
+                        </select>
+                        <select id="subSelect" class="form-control p-0" name="subDepartment" required>
+                            <option selected disabled>-- Seleccione una opción --</option>
+                        </select>
+                    </div>
+                </div>
+                <!--boton de guardado-->
+                <input class="btn button" type="submit" value="Guardar">
+
+                <script>
+                    // Obtener badges ocupados y deshabilitar opciones
+                    fetch('/badges/occupied')
+                    .then(response => response.json())
+                    .then(data => {
+                        const badgeSelect = document.getElementById('badgeSelect');
+                        data.forEach(badge => {
+                            const option = badgeSelect.querySelector(`option[value="${badge}"]`);
+                            if (option) {
+                                option.disabled = true;
+                            }
+                        });
+                    })
+                    .catch(error => console.error('Error al obtener badges ocupados:', error));
+                    
+                    // Definir las opciones correspondientes de cada dpto
+                    var subOptions = {
+                        "DG": ["Director general", "Asistente de la direccion general", "Auxiliar del dpto. de la direccion general",
+                            "Recepcion de entrada principal"
+                        ],
+                        "DCFP": ["DIR. de coordinacion financiera y plan.", "Subdirector de administracion", "Auxiliar Dir. de coordinacion financiera y plan.",
+                            "Recursos humanos", "Servicios generales", "Almacen", "Archivo", "Tecnologias de la informacion"
+                        ],
+                        "DT": ["Director de television", "Subdirector de contenidos", "Subdireccion de produccion", "Encargada de DPTO de Videoteca", "Encargado de area de deportes",
+                            "Isla edicion de television", "Cabina de video", "Master", "Jefa de planeacion y posproduccion", "Encargado de Staff y equipos portatiles",
+                            "Departamento de contenido", "Programacion y videoteca", "Departamento de realizacion", "Departamento de evaluacion y seguimiento",
+                            "Departamento de produccion", "departamento de eventos"
+                        ],
+                        "DN": ["Directora de noticias", "Asistente de redaccion de noticias", "Encargado de la isla de noticias", "Reportero"
+                        ],
+                        "DR": ["Director de red estatal de radio", "Secretaria particular DIR. Radio", "Radio Produccion", "Subdirector de radio",
+                            "Gerente de radio", "Sub. Coord. de noticias de radio", "Cabina de grabacion", "Recepcion entrada principal"
+                        ],
+                        "DI": ["Director de ingenieria", "Subdirector de ingenieria", "Estacion terrena", "aula de medios", "central de aparatos"],
+                        "DPE": ["Director de proyectos estrategicos"],
+                        "DC": ["Directora de contraloria"],
+                        "DPI": ["Director de promocion e intercambio"],
+                        "DJ": ["Director juridico"],
+                        "IMG": ["Subdirector de imagen"],
+                        "ER": ["Estacion de radio Jacala", "Estacion de radio Tlanchinol", "Estacion de radio huejutla", "Red estatal de radio"],
+                        "RH": ["Recursos Humanos"],
+                    };
+
+                    var mainSelect = document.getElementById('mainSelect');
+                    var subSelect = document.getElementById('subSelect');
+
+                    mainSelect.addEventListener('change', function () {
+                        subSelect.innerHTML = '';
+
+                        subSelect.disabled = false;
+                        var options = subOptions[this.value];
+
+                        for (var i = 0; i < options.length; i++) {
+                            var opt = document.createElement('option');
+                            opt.value = options[i];
+                            opt.innerHTML = options[i];
+                            subSelect.appendChild(opt);
+                        }
+                    });
+
+                    document.querySelector('input[name="Curp"]').addEventListener('input', function (e) {
+                        if (e.target.value.length !== 18) {
+                            e.target.setCustomValidity('El campo Curp debe tener exactamente 18 caracteres.');
+                        } else {
+                            e.target.setCustomValidity('');
+                        }
+                    });
+                    // Funciones para incrementar y decrementar el numero de niños
+                    function increment() {
+                        var input = document.getElementById("childrenInput");
+                        input.value = parseInt(input.value) + 1;
+                    }
+
+                    function decrement() {
+                        var input = document.getElementById("childrenInput");
+                        if (parseInt(input.value) > 0) {
+                            input.value = parseInt(input.value) - 1;
+                        }
+                    }
+                </script>
+            </form>
+        </div>
+    </div>
 </body>
 <%- include('templates/footer') %>
 

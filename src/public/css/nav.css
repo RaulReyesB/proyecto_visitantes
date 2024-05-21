@@ -2,7 +2,7 @@
 #var {
   /*background: #1e3740;*/
   background: #808080;
-  padding: 15px;
+  padding: 1%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,7 +19,7 @@
 }
 
 #var .enlaces a {
-  color: black;  /* Asegurar que el color sea negro */
+    /* Asegurar que el color sea negro */
   text-align: center;
   text-decoration: none;
   margin-left: 15px;

@@ -22,4 +22,4 @@ const checkAndUpdateServiceStatus = async () => {
 };
 
 // Programar la tarea para que se ejecute todos los días a la medianoche
-cron.schedule("* * * * *", checkAndUpdateServiceStatus);
+cron.schedule("0 0 * * *", checkAndUpdateServiceStatus);

@@ -35,6 +35,10 @@ body {
   flex-direction: column;
   margin: 10px;
 }
+.container-2 {
+  min-height:70vh;/*importante*/
+  position:relative;
+}
 /* Contenedor del titulo */
 .cont-title {
   display: flex;

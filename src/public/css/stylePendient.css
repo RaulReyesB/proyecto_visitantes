@@ -25,6 +25,15 @@
   align-items: center;
   flex-direction: column;
   margin: auto;
+  
+}
+.container-2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  min-height:65vh;/*importante*/
+  position:relative;
 }
 /* Contenedor del titulo */
 .cont-title {
@@ -255,3 +264,7 @@ footer {
   table-layout: auto;
   }
  }
+ /* Estilo para el placeholder */
+.search-container input[type="text"]::placeholder {
+  color: black;
+}

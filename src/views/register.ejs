@@ -13,6 +13,16 @@
         <link rel="stylesheet" href="/css/footer.css">
         <link rel="icon" type="image/ico" href="/img/logohidalgo.ico">
         <style>
+            /*
+           Este bloque de código contiene el estilo para la vista de registro. Incluye estilos para los elementos de entrada 
+           con tipo "number" para eliminar los botones de seleccion  predeterminada. La apariencia de los botones de giro se modifica
+            para los navegadores webkit utilizando los elementos -webkit-outer-spin-button y -webkit-inner-spin-button. 
+            */
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
 
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
@@ -98,89 +108,8 @@
                             <option selected disabled>-- Seleccione una opción --</option>
                         </select>
                     </div>
-                </div>
-                <!--boton de guardado-->
-                <input class="btn button" type="submit" value="Guardar">
-
-                <script>
-                    // Obtener badges ocupados y deshabilitar opciones
-                    fetch('/badges/occupied')
-                    .then(response => response.json())
-                    .then(data => {
-                        const badgeSelect = document.getElementById('badgeSelect');
-                        data.forEach(badge => {
-                            const option = badgeSelect.querySelector(`option[value="${badge}"]`);
-                            if (option) {
-                                option.disabled = true;
-                            }
-                        });
-                    })
-                    .catch(error => console.error('Error al obtener badges ocupados:', error));
-                    
-                    // Definir las opciones correspondientes de cada dpto
-                    var subOptions = {
-                        "DG": ["Director general", "Asistente de la direccion general", "Auxiliar del dpto. de la direccion general",
-                            "Recepcion de entrada principal"
-                        ],
-                        "DCFP": ["DIR. de coordinacion financiera y plan.", "Subdirector de administracion", "Auxiliar Dir. de coordinacion financiera y plan.",
-                            "Recursos humanos", "Servicios generales", "Almacen", "Archivo", "Tecnologias de la informacion"
-                        ],
-                        "DT": ["Director de television", "Subdirector de contenidos", "Subdireccion de produccion", "Encargada de DPTO de Videoteca", "Encargado de area de deportes",
-                            "Isla edicion de television", "Cabina de video", "Master", "Jefa de planeacion y posproduccion", "Encargado de Staff y equipos portatiles",
-                            "Departamento de contenido", "Programacion y videoteca", "Departamento de realizacion", "Departamento de evaluacion y seguimiento",
-                            "Departamento de produccion", "departamento de eventos"
-                        ],
-                        "DN": ["Directora de noticias", "Asistente de redaccion de noticias", "Encargado de la isla de noticias", "Reportero"
-                        ],
-                        "DR": ["Director de red estatal de radio", "Secretaria particular DIR. Radio", "Radio Produccion", "Subdirector de radio",
-                            "Gerente de radio", "Sub. Coord. de noticias de radio", "Cabina de grabacion", "Recepcion entrada principal"
-                        ],
-                        "DI": ["Director de ingenieria", "Subdirector de ingenieria", "Estacion terrena", "aula de medios", "central de aparatos"],
-                        "DPE": ["Director de proyectos estrategicos"],
-                        "DC": ["Directora de contraloria"],
-                        "DPI": ["Director de promocion e intercambio"],
-                        "DJ": ["Director juridico"],
-                        "IMG": ["Subdirector de imagen"],
-                        "ER": ["Estacion de radio Jacala", "Estacion de radio Tlanchinol", "Estacion de radio huejutla", "Red estatal de radio"],
-                        "RH": ["Recursos Humanos"],
-                    };
-
-                    var mainSelect = document.getElementById('mainSelect');
-                    var subSelect = document.getElementById('subSelect');
-
-                    mainSelect.addEventListener('change', function () {
-                        subSelect.innerHTML = '';
-
-                        subSelect.disabled = false;
-                        var options = subOptions[this.value];
-
-                        for (var i = 0; i < options.length; i++) {
-                            var opt = document.createElement('option');
-                            opt.value = options[i];
-                            opt.innerHTML = options[i];
-                            subSelect.appendChild(opt);
-                        }
-                    });
-
-                        document.querySelector('input[name="Curp"]').addEventListener('input', function (e) {
-                            if (e.target.value.length !== 18) {
-                                e.target.setCustomValidity('El campo Curp debe tener exactamente 18 caracteres.');
-                            } else {
-                                e.target.setCustomValidity('');
-                            }
-                        });
-                        // Funciones para incrementar y decrementar el numero de niños
-                        function increment() {
-                            var input = document.getElementById("childrenInput");
-                            input.value = parseInt(input.value) + 1;
-                        }
-                        function decrement() {
-                            var input = document.getElementById("childrenInput");
-                            if (parseInt(input.value) > 0) {
-                                input.value = parseInt(input.value) - 1;
-                            }
-                        }
-                    </script>
+                                                    <!--boton de guardado-->
+                                                    <input  class="btn button" type="submit" value="Guardar">
                 </form>
             </div>
         </div>
@@ -194,5 +123,91 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+
+    // Definir las opciones correspondientes de cada dpto
+    /*\
+    Este bloque de código define una función de JavaScript que rellena un menú 
+    desplegable en función del valor seleccionado de otro menú desplegable.
+    La función escucha un evento de cambio en el menú desplegable 'mainSelect'. 
+    Cuando el valor de 'mainSelect' cambia, la función borra las opciones en el menú 
+    desplegable 'subSelect' y lo rellena con nuevas opciones basadas en el valor seleccionado.
+    El objeto 'subOptions' almacena las opciones disponibles para cada posible valor de 
+    'mainSelect'. Cada clave en el objeto corresponde a un valor en 'mainSelect', y el valor asociado es una matriz de
+    opciones para 'subSelect'.
+    Las variables 'mainSelect' y 'subSelect' son referencias a los elementos HTML con los ID correspondientes.
+    La función itera sobre la matriz de opciones para el valor seleccionado de 'mainSelect' y 
+    crea un nuevo elemento de opción para cada opción. El valor y el innerHTML de cada opción se establecen
+     en el valor correspondiente de la matriz de opciones. Los nuevos elementos de opción se agregan al menú desplegable 'subSelect'.
+    Este código se utiliza típicamente en un formulario web donde las opciones en un menú desplegable 
+    dependen de la selección realizada en otro menú desplegable.
+    Ejemplo de uso:
+    - Cuando el usuario selecciona "DG" en el menú desplegable 'mainSelect', el menú desplegable 'subSelect' se rellenará con opciones como "Director general", "Asistente de la dirección general", etc.
+    - Cuando el usuario selecciona "DCFP" en el menú desplegable
+        */
+    var subOptions = {
+        "DG": ["Director general", "Asistente de la direccion general", "Auxiliar del dpto. de la direccion general",
+            "Recepcion de entrada principal"
+        ],
+        "DCFP": ["DIR. de coordinacion financiera y plan.", "Subdirector de administracion", "Auxiliar Dir. de coordinacion financiera y plan.",
+            "Recursos humanos", "Servicios generales", "Almacen", "Archivo", "Tecnologias de la informacion"
+        ],
+        "DT": ["Director de television", "Subdirector de contenidos", "Subdireccion de produccion", "Encargada de DPTO de Videoteca", "Encargado de area de deportes",
+            "Isla edicion de television", "Cabina de video", "Master", "Jefa de planeacion y posproduccion", "Encargado de Staff y equipos portatiles",
+            "Departamento de contenido", "Programacion y videoteca", "Departamento de realizacion", "Departamento de evaluacion y seguimiento",
+            "Departamento de produccion", "departamento de eventos"
+        ],
+        "DN": ["Directora de noticias", "Asistente de redaccion de noticias", "Encargado de la isla de noticias", "Reportero"
+        ],
+        "DR": ["Director de red estatal de radio", "Secretaria particular DIR. Radio", "Radio Produccion", "Subdirector de radio",
+            "Gerente de radio", "Sub. Coord. de noticias de radio", "Cabina de grabacion", "Recepcion entrada principal"
+        ],
+        "DI": ["Director de ingenieria", "Subdirector de ingenieria", "Estacion terrena", "aula de medios", "central de aparatos"],
+        "DPE": ["Director de proyectos estrategicos"],
+        "DC": ["Directora de contraloria"],
+        "DPI": ["Director de promocion e intercambio"],
+        "DJ": ["Director juridico"],
+        "IMG": ["Subdirector de imagen"],
+        "ER": ["Estacion de radio Jacala", "Estacion de radio Tlanchinol", "Estacion de radio huejutla", "Red estatal de radio"],
+        "RH": ["Recursos Humanos"],
+    };
+
+    var mainSelect = document.getElementById('mainSelect');
+    var subSelect = document.getElementById('subSelect');
+
+    mainSelect.addEventListener('change', function () {
+        subSelect.innerHTML = '';
+
+        subSelect.disabled = false;
+        var options = subOptions[this.value];
+
+        for (var i = 0; i < options.length; i++) {
+            var opt = document.createElement('option');
+            opt.value = options[i];
+            opt.innerHTML = options[i];
+            subSelect.appendChild(opt);
+        }
+    });
+
+
+    document.querySelector('input[name="Curp"]').addEventListener('input', function (e) {
+        if (e.target.value.length !== 18) {
+            e.target.setCustomValidity('El campo Curp debe tener exactamente 18 caracteres.');
+        } else {
+            e.target.setCustomValidity('');
+        }
+    });
+    // Funciones para incrementar y decrementar el numero de niños
+    function increment() {
+        var input = document.getElementById("childrenInput");
+        input.value = parseInt(input.value) + 1;
+    }
+    function decrement() {
+        var input = document.getElementById("childrenInput");
+        if (parseInt(input.value) > 0) {
+            input.value = parseInt(input.value) - 1;
+        }
+    }
+</script>
 
 </html>

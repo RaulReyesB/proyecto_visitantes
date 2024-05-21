@@ -1,4 +1,5 @@
 .footer {
+    background-color: #3D3D3D;
    /* background-color: #1E3740;*/
     background-color: #808080;
     color: #ffffff;
@@ -8,6 +9,9 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     border-radius: 10px 10px 0 0;
     font-family: Arial, sans-serif;
+    animation: slideIn 1s ease forwards;
+
+
 }
 
 .footer-content {
@@ -19,8 +23,10 @@
 }
 
 .footer-logo img {
-    max-width: 100px;
-    margin-bottom: 10px;
+    max-width: 200px;  /* Ajusta el tamaño máximo de la imagen del logo */
+    height: auto;     /* Mantiene la proporción de la imagen */
+    margin-bottom: -20px;
+    margin-top: -50px;
 }
 
 .footer-info p {
@@ -28,8 +34,9 @@
 }
 
 .footer-credits {
+    background-color: #3D3D3D;
     /*background-color: #16252a;*/
-    background-color:#808080 ;
+    
     padding: 10px 0;
     width: 100%;
 }
@@ -47,6 +54,28 @@
 }
 
 .footer-credits img {
-    max-width: 20px;
+    max-width: 30px;  /* Ajusta el tamaño máximo de la imagen en los créditos */
+    height: auto;     /* Mantiene la proporción de la imagen */
     margin-left: 10px;
 }
+/* Efecto de entrada */
+@keyframes slideInAndExpand {
+    0% {
+        opacity: 0;
+        transform: scaleY(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+  }
+  @keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }

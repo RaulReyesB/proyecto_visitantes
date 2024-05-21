@@ -8,6 +8,8 @@
   <!-- Agregar los enlaces de Bootstrap CSS -->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/css/styleLogin.css">
+  <link rel="stylesheet" href="/css/footer.css">
+
 </head>
 <body>
   <div class="custom-background"></div>
@@ -39,13 +41,11 @@
       <% } %>
     </div>
   </div>
-  <footer class="footer-container">
-    <div class="footer-content">
-      <img src="/img/logotipo.png" alt="Logo Footer" class="footer-logo">
-      <p>Todos los derechos reservados.</p>
-      <p>Desarrollado por TICS</p>
-    </div>
-  </footer>
+  <div>
+    <footer>   
+         <%- include('templates/footer') %>
+    </footer>
+</div>
   <!-- Agregar los scripts de Bootstrap JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>

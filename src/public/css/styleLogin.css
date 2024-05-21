@@ -125,40 +125,10 @@ body {
   }
 }
 
-.footer-container {
-  width: 100%;
-  padding: 20px;
-  background-color: rgba(45, 80, 92, 0.9);
-  border-radius: 10px 10px 0 0;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  animation-name: slideUp;
-  animation-duration: 1s;
-  animation-timing-function: ease-in-out;
-}
 
-.footer-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
-.footer-logo {
-  max-width: 150px;
-  margin-bottom: 10px;
-}
 
-.footer-container p {
-  color: #fff;
-  font-family: 'Arial', sans-serif;
-  font-size: 30px;
-}
 
-.footer-container h3 {
-  color: #fff;
-  font-family: 'Arial', sans-serif;
-  font-size: 20px;
-}
 
 @keyframes slideUp {
   from {
@@ -178,16 +148,28 @@ body {
 
   .welcome-container {
     order: -1;
+    height: 120px;
+    padding: 1px;
+    width: 300px ;
+    margin-bottom: 2px;
+    border-radius: 10px 90px 10px 90px;
+    text-align: center;
+
   }
 
-  .login-container,
-  .welcome-container {
+  .login-container {
     width: 90%;
     padding: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
   }
 
   .logo-img {
-    margin-top: 0;
+    margin-top: -25px;
+    border-radius: 5%;
+    width: 150px;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

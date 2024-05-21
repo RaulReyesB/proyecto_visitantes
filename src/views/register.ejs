@@ -58,9 +58,11 @@
                                 <option value="Licencia">Licencia</option>
                             </select>
                             <label for="">Numero de gafete</label>
-                            <input min="001" max="050" class="form-control " type="number" name="badge"
-                                placeholder="inserte el numero de gafete">
-
+                            <select class="form-control" name="badge">
+                                <% for(let i = 1; i <= 50; i++) { %>
+                                  <option value="<%= String(i).padStart(3, '0') %>"><%= String(i).padStart(3, '0') %></option>
+                                <% } %>
+                              </select>
                         </div>
                         <div class="form-p" style="margin-right: 0;">
                             <label for="">Procedencia</label>

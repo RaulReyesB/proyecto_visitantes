@@ -227,38 +227,8 @@ footer {
   width: 100%;
   margin-top: auto;
 }
-.navbar {
-  background-color: #32396c;
-}
-.navbar-brand img {
-  height: 60px;
-  width: auto;
-}
-.navbar-nav .nav-item .nav-link {
-  color: white;
-}
-.navbar-toggler {
-  border-color: rgba(255, 255, 255, 0.1);
-}
-.navbar-toggler-icon {
-  color: white;
-}
-@media (max-width: 768px) {
-  .navbar-collapse {
-      background-color: #32396c;
-  }
-}
-.nav-link:hover {
-  color: #9931f1;
-}
-.home {
-  fill: white;
-  width: 40px;
-  height: 40px;
-}
-.home:hover {
-  fill: #9931f1;
-}/* Adjustments for smaller screens */
+
+/* Adjustments for smaller screens */
 @media only screen and (max-width: 768px) {
   .formato {
     width: 100%; /* Adjust width for smaller screens */
@@ -276,45 +246,12 @@ footer {
     margin: 20px auto; /* Adjust margin for smaller screens */
   }
 }
-/* Ajustes generales */
-.container {
-  width: 90%; /* Ancho máximo del contenido */
-}
-
-/* Ajustes para pantallas pequeñas */
-@media only screen and (max-width: 768px) {
-  .container h1 {
-    font-size: 24px; /* Reducción del tamaño del título */
+@media (max-width: 850px) {
+  .table-responsive-scroll {
+    overflow-x: auto;
+    white-space: nowrap;
   }
-
-  .search-container {
-    width: 90%; /* Ancho máximo del contenedor de búsqueda */
-    margin: 20px auto; /* Ajuste de márgenes */
+  table {
+  table-layout: auto;
   }
-
-  .tarjeta-usuario {
-    width: 90%; /* Ancho máximo de la tarjeta de usuario */
-    font-size: 1em; /* Reducción del tamaño de fuente */
-  }
-}
-
-/* Ajustes para pantallas muy pequeñas */
-@media only screen and (max-width: 480px) {
-  .container h1 {
-    font-size: 20px; /* Reducción adicional del tamaño del título */
-  }
-
-  .search-container {
-    width: 95%; /* Ancho máximo del contenedor de búsqueda */
-    margin: 15px auto; /* Ajuste de márgenes */
-  }
-
-  .tarjeta-usuario {
-    width: 95%; /* Ancho máximo de la tarjeta de usuario */
-    font-size: 0.9em; /* Reducción adicional del tamaño de fuente */
-  }
-}
-/* Estilo para el placeholder */
-.search-container input[type="text"]::placeholder {
-  color: black;
-}
+ }

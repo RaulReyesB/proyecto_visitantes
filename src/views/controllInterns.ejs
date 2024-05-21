@@ -26,44 +26,46 @@
   <div class="table-responsive table-responsive-scroll">
     <table id="tabla" class="fade-in table">
       <thead class="thead-gray">
-        <tr>
-          <th>Nombre</th>
-          <th>Número de Folio</th>
-          <th>Imagen</th>
-          <th>Control de Entrada y Salida</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% interns.forEach(function(intern) { %>
-        <tr>
-          <td>
-            <%= intern.name %>
-          </td>
-          <td>
-            <%= intern.fileNumber %>
-          </td>
-          <td>
-            <% if (intern.img) { %>
-            <img src="<%= intern.img %>" alt="Imagen de <%= intern.name %>" style="width: 100px; height: auto;">
-            <% } else { %>
-            No hay imagen disponible
-            <% } %>
-          </td>
-          <td>
-            <% if (!intern.entrance || (intern.entrance && intern.exit)) { %>
-            <form action="/interns/entrada/<%= intern.id %>" method="POST">
-              <button type="submit" class="btn btn-primary">Registrar Entrada</button>
-            </form>
-            <% } else if (intern.entrance && !intern.exit) { %>
-            <form action="/interns/salida/<%= intern.id %>" method="POST">
-              <button type="submit" class="btn btn-primary">Registrar Salida</button>
-            </form>
-            <% } %>
-          </td>
-        </tr>
-        <% }); %>
-      </tbody>
-    </table>
+          <tr>
+            <th>Nombre</th>
+            <th>Número de folio</th>
+            <th>Imagen</th>
+            <th>Control de entrada y salida</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% interns.forEach(function(intern) { %>
+          <tr>
+            <td>
+              <%= intern.name %>
+            </td>
+            <td>
+              <%= intern.fileNumber %>
+            </td>
+            <td>
+              <% if (intern.img) { %>
+                <img src="<%= intern.img %>" alt="Imagen de <%= intern.name %>" style="width: 100px; height: auto;">
+                <% } else { %>
+                  No hay imagen disponible
+                  <% } %>
+            </td>
+            <td>
+              <% if (!intern.entrance) { %>
+                <form action="/interns/entrada/<%= intern.id %>" method="POST">
+                  <button type="submit" class="btn btn-primary">Registrar Entrada</button>
+                </form>
+                <% } else if (!intern.exit) { %>
+                  <form action="/interns/salida/<%= intern.id %>" method="POST">
+                    <button type="submit" class="btn btn-primary">Registrar Salida</button>
+                  </form>
+                  <% } else { %>
+                    Registrado
+                    <% } %>
+            </td>
+          </tr>
+          <% }); %>
+        </tbody>
+  </table>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

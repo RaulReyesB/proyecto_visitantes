@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="/css/styleRecursos.css">
   <link rel="stylesheet" href="/css/nav.css">
   <link rel="stylesheet" href="/css/footer.css">
+  <link rel="icon" type="image/ico" href="/img/logohidalgo.ico">
 
 <body>
   <div class="fondo"></div>
@@ -27,6 +28,7 @@
         <button type="button" onclick="search()"><i class="bi bi-search"></i></button>
       </div>
     </div>
+    <div  class="container-2">
     <table id="tabla">
       <thead class="thead-gray">
         <tr>
@@ -48,12 +50,16 @@
             <td>
               <%= item.hoursFulfilled %>
             </td>
-            <td><a href="/Pasante/info/<%= item.id %>">Ver mas</a></td>
+            <td><a class="btn btn-secondary" href="/Pasante/info/<%= item.id %>">Ver mas</a></td>
 
           </tr>
           <% }); %>
       </tbody>
     </table>
+  </div>
+    <footer>
+      <%- include('templates/footer') %>
+    </footer>
     
     <script>
       function normalizeString(str) {
@@ -83,8 +89,6 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<footer>
-  <%- include('templates/footer') %>
-</footer>
+
 
 </html>

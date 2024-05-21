@@ -2,6 +2,7 @@
 <html lang="es">
 
 <head>
+
   <title>
     <%= namePage %>
   </title>
@@ -11,7 +12,7 @@
   <link rel="stylesheet" href="/css/styleHistoryVi.css">
   <link rel="stylesheet" href="/css/nav.css">
   <link rel="stylesheet" href="/css/footer.css">
-
+  <link rel="icon" type="image/ico" href="/img/logohidalgo.ico">
 </head>
 
 <body>
@@ -29,6 +30,7 @@
       <button type="button" onclick="search()"><i class="bi bi-search"></i></button>
     </div>
   </div>
+  <div class="container-2">
    <div class="table-responsive table-responsive-scroll">
     <table id="tabla" class="fade-in table ">
       <thead class="thead-gray">
@@ -91,6 +93,12 @@
       </tbody>
     </table>
   </div>
+</div>
+  <div>
+    <footer>   
+         <%- include('templates/footer') %>
+    </footer>
+</div>
     <script>
       function normalizeString(str) {
         return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
@@ -115,15 +123,11 @@
         }
       });
     </script>
-    <br>
+
     
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<div>
-  <footer>   
-       <%- include('templates/footer') %>
-  </footer>
-</div>
+
 </html>

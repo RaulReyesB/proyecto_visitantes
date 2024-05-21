@@ -271,22 +271,24 @@ const authenticateUser = async (req, res) => {
 
     const errors = validationResult(req);
 
+    const { name, password } = req.body;
+    const user = await User.findOne({ where: { name } });
+
     if (!errors.isEmpty()) {
       return res.render("login", {
         namePage: "Iniciar Sesión en Radio y Television Hidalgo",
         errors: errors.array(),
-        user: null
+        user: null,
+        formData: {name: name}
       });
     }
-
-    const { name, password } = req.body;
-    const user = await User.findOne({ where: { name } });
 
     if (!user) {
       return res.render("login", {
         namePage: "Iniciar Sesión en Radio y Television Hidalgo",
         errors: [{ msg: "Usuario no encontrado en el sistema" }],
-        user: null
+        user: null,
+        formData: {name: name}
       });
     }
 
@@ -295,7 +297,8 @@ const authenticateUser = async (req, res) => {
       return res.render("login", {
         namePage: "Iniciar Sesión en Radio y Television Hidalgo",
         errors: [{ msg: "Contraseña incorrecta" }],
-        user: null
+        user: null,
+        formData: {name: name}
       });
     }
 
@@ -303,7 +306,8 @@ const authenticateUser = async (req, res) => {
       return res.render("login", {
         namePage: "Iniciar Sesión en Radio y Television Hidalgo",
         errors: [{ msg: "Tu cuenta está inactiva. Por favor, ponte en contacto con el administrador." }],
-        user: null
+        user: null,
+        formData: {name: name}
       });
     }
 

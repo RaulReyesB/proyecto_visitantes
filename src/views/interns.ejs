@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/css/footer.css">
 
     <!-- Estilos para ocultar los botones de incremento y decremento en campos de número -->
     <style>
@@ -43,8 +44,8 @@
                     onsubmit="return validateForm()">
                     <div class="form-inputs">
                         <div class="form-p">
-                            <label for="fileNumber">Ingresa tu folio</label>
-                            <input class="form-control" type="text" name="fileNumber" id="fileNumber"
+                            <label for="fileNumber" >Ingresa tu folio</label>
+                            <input min="001" max="050" class="form-control" type="number" name="fileNumber" id="fileNumber"
                                 placeholder="Folio" required>
                             <label for="service">Ingresa el tipo de servicio prestado</label>
                             <select class="form-control" name="service" id="service" required>
@@ -79,7 +80,8 @@
                                 <option value="SabyDom">Sábado y domingo</option>
                                 <option value="otro">Otro(Especifique)</option>
                             </select>
-                            <input disabled id="other" class="form-control" type="text" name="other" placeholder="Especifique">
+                            <input disabled id="other" class="form-control" type="text" name="other"
+                                placeholder="Especifique">
                             <label for="shedule">Horario</label>
                             <select class="form-control" name="shedule" id="shedule" required>
                                 <option selected disabled>-- Seleccione un horario --</option>
@@ -98,10 +100,12 @@
                         <div class="form-p">
                             <label for="startService">Inicio de servicio</label>
                             <input class="form-control" type="date" name="startService" id="startService"
-                                placeholder="Inicio de servicio" min="<%= new Date().toISOString().split('T')[0] %>" required>
+                                placeholder="Inicio de servicio" min="<%= new Date().toISOString().split('T')[0] %>"
+                                required>
                             <label for="endService">Fin de servicio</label>
                             <input class="form-control" type="date" name="endService" id="endService"
-                                placeholder="Fin de servicio" min="<%= new Date().toISOString().split('T')[0] %>" required>
+                                placeholder="Fin de servicio" min="<%= new Date().toISOString().split('T')[0] %>"
+                                required>
                             <label for="totHours">Total de horas</label>
                             <input class="form-control" type="number" name="totHours" id="totHours"
                                 placeholder="Total de horas" required>
@@ -121,28 +125,28 @@
         </div>
 
         <script>
-          document.getElementById('days').addEventListener('change', function() {
-            if (this.value === 'otro') {
-              document.getElementById('other').disabled = false;
-            } else {
-              document.getElementById('other').disabled = true;
-            }
-          });
-
-
-          document.addEventListener('DOMContentLoaded', function() {
-            const menuHamburguesa = document.querySelector('.menu-hamburguesa');
-            const enlaces = document.querySelector('.enlaces');
-
-            menuHamburguesa.addEventListener('click', function() {
-              enlaces.classList.toggle('active');
+            document.getElementById('days').addEventListener('change', function () {
+                if (this.value === 'otro') {
+                    document.getElementById('other').disabled = false;
+                } else {
+                    document.getElementById('other').disabled = true;
+                }
             });
-          </script>
-          <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const menuHamburguesa = document.querySelector('.menu-hamburguesa');
+                const enlaces = document.querySelector('.enlaces');
+
+                menuHamburguesa.addEventListener('click', function () {
+                    enlaces.classList.toggle('active');
+                });
+            })
+        </script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-
+<%- include('templates/footer') %>
 
 </html>

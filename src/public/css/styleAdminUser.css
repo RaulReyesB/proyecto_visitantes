@@ -77,7 +77,7 @@ body {
   border: 1px solid #ccc; /* Asegura el mismo borde que el input */
   border-left: none; /* Quita el borde izquierdo */
   background-color: white;
-  color: #000; /* Asegura que el texto sea visible */
+  color: white; /* Asegura que el texto sea visible */
   border-radius: 0 4px 4px 0;
   cursor: pointer;
 }
@@ -87,7 +87,7 @@ body {
 }
 
 i {
-  color: #000;
+  color: white;
 }
 
 #searchType {
@@ -156,6 +156,15 @@ footer {
   margin-top: auto;
 }
 @media (max-width: 600px) {
-
-
+  .table-responsive-scroll {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  
  }
+ .navbar-nav .nav-item .nav-link {
+  color: white !important; /* Forzar el color blanco en los enlaces del navbar */
+}
+h1{
+  color: white;
+}

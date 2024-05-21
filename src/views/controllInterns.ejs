@@ -52,14 +52,14 @@
             <td>
               <% if (!intern.entrance) { %>
                 <form action="/interns/entrada/<%= intern.id %>" method="POST">
-                  <button type="submit" class="btn btn-primary">Registrar Entrada</button>
+                  <button type="submit" class="btn btn-secondary" style="background: #808080;">Registrar <br> Entrada</button>
                 </form>
                 <% } else if (!intern.exit) { %>
                   <form action="/interns/salida/<%= intern.id %>" method="POST">
-                    <button type="submit" class="btn btn-primary">Registrar Salida</button>
+                    <button type="submit" class="btn btn-secondary" style="background: #808080;">Registrar <br> Salida</button>
                   </form>
                   <% } else { %>
-                    Registrado
+                    Registrado 
                     <% } %>
             </td>
           </tr>

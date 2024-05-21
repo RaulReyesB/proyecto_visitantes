@@ -15,7 +15,7 @@
   <%- include('templates/nav') %>
 <div class="container">
   <div class="cont-title">
-    <h1><%-namePage%></h1>
+    <h1> Historial de visitas pendientes</h1>
   </div>
 
   <!-- Aplicar estilos de tarjeta-usuario a la alerta 
@@ -64,7 +64,7 @@
           <td><%= item.badge %></td>
           <td><%= item.entrance %></td>
           <td>
-            <a id="cerrar" class="btn btn-success" style="background-color: #3D3D3D; border-color: #3D3D3D;" href="/finalizarRegistro/<%= item.id %>" class="finalizar-registro" data-id="<%= item.id %>" onclick="alert('visita completada')"><i class="bi bi-x-lg"></i></a>
+            <a id="cerrar" class="btn btn-secondary" style="background: #808080;" href="/finalizarRegistro/<%= item.id %>" class="finalizar-registro" data-id="<%= item.id %>" onclick="alert('visita completada')"><i style="color: white;" class="bi bi-x-lg"></i></a>
           </td>
         </tr>
       <% }); %>

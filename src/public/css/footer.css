@@ -58,6 +58,7 @@
     height: auto;     /* Mantiene la proporción de la imagen */
     margin-left: 10px;
 }
+
 /* Efecto de entrada */
 @keyframes slideInAndExpand {
     0% {

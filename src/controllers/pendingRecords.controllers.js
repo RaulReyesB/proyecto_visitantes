@@ -13,7 +13,7 @@ const finishRegistration = async (req, res) => {
 
         // Actualiza la fecha de salida con la fecha actual
         visit.exit = new Date();
-
+        visit.badge = null;
         // Guarda los cambios en la base de datos
         await visit.save();
 

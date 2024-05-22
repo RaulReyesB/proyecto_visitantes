@@ -13,6 +13,7 @@
       <div>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
+            <!--  por el amor de dios dejen de eliminar estas limitaciones -->
             <% if (user && user.type !== 'administrador') { %>
             <a href="/registroVisitas">Registros</a>
             <%if (user && user.type !== 'usuario') { %>

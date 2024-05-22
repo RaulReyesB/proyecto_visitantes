@@ -1,29 +1,10 @@
-<!-- views/registro.ejs -->
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Este código HTML representa la sección principal de la vista "createusers" en una aplicación web. Incluye el título de la página, enlaces a CSS externos y archivos de fuentes, así como el favicon del sitio web. -->
-
-  <!-- La etiqueta de título muestra el valor de la variable "namePage", que se genera dinámicamente. -->
-
-  <!--
-La biblioteca Font Awesome se agrega mediante un enlace CDN (Content Delivery Network). Proporciona una colección de iconos vectoriales escalables que se pueden personalizar y diseñar fácilmente. -->
-
-  <!-- La versión 4.1.3 del marco CSS Bootstrap se agrega mediante un enlace CDN. Bootstrap es un marco de interfaz de usuario popular que proporciona
-Componentes y estilos creados para crear páginas web responsivas. -->
-
-  <!-- Se vinculan varios archivos CSS personalizados, incluido "styleEdituser.css" para diseñar la vista "createusers", "nav.css" para diseñar la barra de navegación y "footer.css" para diseñar la sección del pie de página. -->
-
-  <!-- El favicon está configurado en "/img/logohidalgo.ico",
-que es la ruta al archivo favicon del sitio web. -->
-
-  <!-- Nota: El comentario FILEPATH indica la ruta del archivo del bloque de código actual. -->
-  <title>
-    <%= namePage %>
-  </title>
+  <title><%= namePage %></title>
   <!-- Agregar la biblioteca Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <!-- Agregar Bootstrap 4.1.3 -->
@@ -33,102 +14,76 @@ que es la ruta al archivo favicon del sitio web. -->
   <link rel="stylesheet" href="/css/nav.css">
   <link rel="stylesheet" href="/css/footer.css">
   <link rel="icon" type="image/ico" href="/img/logohidalgo.ico">
-
 </head>
 
-<body style="font-family: 'Poppins', sans-serif; ">
+<body style="font-family: 'Poppins', sans-serif;">
   <!-- contenido del encabezado -->
   <div class="fondo"></div>
   <%- include('templates/nav') %>
-    <!-- contenedor principal -->
-    <div class="container">
-      <div class="cont-title">
-        <h1><%-namePage%></h1>
-      </div>
-      <!-- contenedor del formulario -->
-      <div class="container-form">
-<!--
-    Este archivo representa la vista para editar un usuario en una aplicación web. Contiene un formulario con campos para actualizar el nombre de usuario, la contraseña y el tipo de usuario. El formulario se envía al punto final "/AdmistrarUsuario/<%= user.id %>" mediante el método POST.
-
-    Estructura HTML:
-    - El contenedor div contiene todo el contenido de la página.
-    -
-El div cont-title contiene el título de la página.
-    - El div contenedor-form contiene el formulario para editar el usuario.
-    - El div form-p representa un campo de formulario y su etiqueta.
-    - Los elementos de la etiqueta proporcionan una descripción para cada campo del formulario.
-    - Los elementos de entrada permiten a los usuarios ingresar valores para los campos del formulario correspondientes.
-    -
-El elemento de selección proporciona un menú desplegable para seleccionar el tipo de usuario.
-    - El elemento del botón se utiliza para alternar la visibilidad del campo de contraseña.
-    - El elemento de entrada con tipo="enviar" se utiliza para enviar el formulario.
-
-    Contenido dinámico:
-    - La expresión <%= namePage %> se utiliza para mostrar el nombre de la página.
-    - El <%= usuario.
-La expresión id %> se utiliza para establecer dinámicamente la URL de acción del formulario.
-    - La expresión <%= user.name %> se utiliza para completar previamente el campo de entrada del nombre.
-    - ¿El <%=user.type==='...'? 'seleccionado': '' Las expresiones %> se utilizan para preseleccionar la opción apropiada en el menú desplegable de tipo de usuario según el tipo actual del usuario.
-
-    Función de JavaScript:
-- La función togglePassword() se llama cuando se hace clic en el botón para alternar la visibilidad del campo de contraseña.
-
-    Nota: Este código está escrito en lenguaje de plantilla EJS (JavaScript integrado), que permite incrustar código JavaScript en plantillas HTML.
-    -->
-        <form action="/registroUsuario" method="POST">
-          <div class="form-p">
-            <label for="name">Nombre:</label>
-            <input class="form-control" type="text" onkeyup="this.value = this.value.toUpperCase();" id="name"
-              name="name" required>
+  
+  <!-- contenedor principal -->
+  <div class="container">
+    <div class="cont-title">
+      <h1><%- namePage %></h1>
+    </div>
+    <!-- contenedor del formulario -->
+    <div class="container-form">
+      <form action="/registroUsuario" method="POST">
+        <div class="form-p">
+          <label for="name">Nombre:</label>
+          <input class="form-control" type="text" onkeyup="this.value = this.value.toUpperCase();" id="name"
+            name="name" required>
+        </div>
+        <div class="form-p">
+          <label for="password">Contraseña:</label>
+          <div class="ojo">
+            <input class="form-control" type="password" id="password" name="password" required>
+            <button type="button" onclick="togglePassword()">
+              <i id="eyeIcon" class="far fa-eye"></i>
+            </button>
           </div>
-          <div class="form-p">
-            <label for="password">Contraseña:</label>
-            <!-- Usar un icono de ojo abierto/cerrado para la contraseña-->
-            <div class="ojo">
-              <input class="form-control" type="password" id="password" name="password" required>
-              <button type="button" onclick="togglePassword()">
-                <i id="eyeIcon" class="far fa-eye"></i>
-              </button>
-            </div>
-          </div>
-          <div class="form-p">
-            <label for="type">Tipo:</label>
-            <select class="form-control" id="type" name="type">
-              <option value="usuario" selected>Usuario</option>
-              <option value="superUsuario">Super Usuario</option>
-              <option value="administrador">Supervisor</option>
-              <option value="rh">Recursos Humanos</option>
-            </select>
-          </div>
-          <input class="btn btn-lg button" type="submit" value=" Registrar">
-        </form>
-        <!-- script para mostrar/ocultar la contraseña -->
-        <script>
-          function togglePassword() {
-            const passwordInput = document.getElementById('password');
-            const eyeIcon = document.getElementById('eyeIcon');
-            if (passwordInput.type === 'password') {
-              passwordInput.type = 'text';
-              eyeIcon.classList.remove('far', 'fa-eye');
-              eyeIcon.classList.add('far', 'fa-eye-slash');
-            } else {
-              passwordInput.type = 'password';
-              eyeIcon.classList.remove('far', 'fa-eye-slash');
-              eyeIcon.classList.add('far', 'fa-eye');
-            }
+        </div>
+        <div class="form-p">
+          <label for="type">Tipo:</label>
+          <select class="form-control" id="type" name="type">
+            <option value="usuario" selected>Usuario</option>
+            <option value="superUsuario">Super Usuario</option>
+            <option value="administrador">Supervisor</option>
+            <option value="rh">Recursos Humanos</option>
+          </select>
+        </div>
+        <input class="btn btn-lg button" type="submit" value="Registrar">
+      </form>
+      <!-- script para mostrar/ocultar la contraseña -->
+      <script>
+        function togglePassword() {
+          const passwordInput = document.getElementById('password');
+          const eyeIcon = document.getElementById('eyeIcon');
+          if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            eyeIcon.classList.remove('far', 'fa-eye');
+            eyeIcon.classList.add('far', 'fa-eye-slash');
+          } else {
+            passwordInput.type = 'password';
+            eyeIcon.classList.remove('far', 'fa-eye-slash');
+            eyeIcon.classList.add('far', 'fa-eye');
           }
-        </script>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-      </div>
+        }
+      </script>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </div>
-    <div class="container-2"></div>
-    <div>
-      <footer>   
-           <%- include('templates/footer') %>
-      </footer>
-    </div>
+    <!-- cerrar contenedor principal -->
+  </div>
+  
+  <!-- contenedor extra (puede ser innecesario) -->
+  <div class="container-2"></div>
+  
+  <!-- pie de página -->
+  <footer>
+    <%- include('templates/footer') %>
+  </footer>
 </body>
 
 </html>

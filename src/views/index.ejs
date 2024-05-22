@@ -1,90 +1,97 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Bienvenido</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/footer.css">
-    <link rel="icon" type="image/ico" href="/img/logohidalgo.ico">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-</head>
-<body>
-    <div class="custom-background"></div>
-    <header>
-        <h1 class="header-title">Bienvenid<span id="changing-letter" class="rotate-on-change">o</span></h1> <!-- Cambio de letra -->
-        <h2 class="header-subtitle">Sistema de Registro y Aceso a Radio y Televisión Hidalgo</h2>
-        <div class="user-info-container">
-            <a href="/logout" class="btn btn-close">
-                <i class="bi bi-box-arrow-in-right"></i> Salir
-            </a>
-        </div>
-    </header>
+    <head>
+        <title>Bienvenido</title>
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/footer.css">
+        <link rel="icon" type="image/ico" href="/img/logohidalgo.ico">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    </head>
+    <body>
+        <div class="custom-background"></div>
+        <header>
+            <h1 class="header-title">Bienvenid<span id="changing-letter" class="rotate-on-change">o</span></h1> <!-- Cambio de letra -->
+            <h2 class="header-subtitle">Sistema de Registro y Aceso a Radio y Televisión Hidalgo</h2>
+            <div class="user-info-container">
+                <a href="/logout" class="btn btn-close">
+                    <i class="bi bi-box-arrow-in-right"></i> Salir
+                </a>
+            </div>
+        </header>
 
-    <% if (errors && errors.length > 0) { %>
-        <div class="mt-3 alert alert-danger" id="errors-container">
-          <ul class="list-group">
-            <% errors.forEach(error => { %>
-              <li class="list-group-item list-group-item-danger"><%= error.msg %></li>
-            <% }); %>
-          </ul>
+        <% if (errors && errors.length > 0) { %>
+        <div class="alert alert-danger show" id="errors-container">
+            <div class="alert-icon"></div>
+            <ul>
+                <% errors.forEach(error => { %>
+                <li><%= error.msg %></li>
+                <% }); %>
+            </ul>
         </div>
-    <% } %>
+        <% } %>
 
-    <% if (msg) { %>
-        <div class="alert alert-success" id="msg-container">
-          <%= msg %>
+        <% if (msg) { %>
+        <div class="alert alert-success show" id="msg-container">
+            <div class="alert-icon"></div>
+            <span><%= msg %></span>
         </div>
-    <% } %>
+        <% } %>
 
-    <div class="user-info-side">
-        <div class="user-icon-container">
-            <i class="bi" id="user-icon"></i>
-        </div>
-        <div class="user-type" id="user-type">[Tipo de Usuario]</div>
-        <div class="tarjeta-usuario">
-            <div class="cuerpo">
-                <div class="user-info-details" id="username">Usuario Actual: [Nombre del usuario]</div>
+        <div class="user-info-side">
+            <div class="user-icon-container">
+                <i class="bi" id="user-icon"></i>
+            </div>
+            <div class="user-type" id="user-type">[Tipo de Usuario]</div>
+            <div class="tarjeta-usuario">
+                <div class="cuerpo">
+                    <div class="user-info-details" id="username">Usuario Actual: [Nombre del usuario]</div>
+                </div>
             </div>
         </div>
-    </div>
-<!--
+        <!--
     <div class="tarjeta-usuario">
         <div class="cuerpo">
             <div class="user-info-details" id="username">Usuario Actual: [Nombre del usuario]</div>
         </div>
     </div>
 -->
-    <div class="container">
-        <% if (user.type==='superUsuario' || user.type==='rh' ) { %>
+        <div class="container">
+            <% if (user.type==='superUsuario' || user.type==='rh' ) { %>
             <div class="tarjeta" onclick="location.href='/registroInternos'">
                 <div class="tarjeta-icono">
                     <i class="bi bi-person-circle"></i>
                 </div>
                 <div class="tarjeta-titulo">Pasante</div>
-                <div class="tarjeta-descripcion">Acceder a registros de pasantes</div>
+                <div class="tarjeta-descripcion">Acceder a registros de
+                    pasantes</div>
             </div>
-        <% } %>
+            <% } %>
 
-        <% if (user.type==='superUsuario' || user.type==='usuario' || user.type==='rh' ) { %>
+            <% if (user.type==='superUsuario' || user.type==='usuario' ||
+            user.type==='rh' ) { %>
             <div class="tarjeta" onclick="location.href='/registroVisitas'">
                 <div class="tarjeta-icono">
                     <i class="bi bi-journal"></i>
                 </div>
                 <div class="tarjeta-titulo">Visitas</div>
-                <div class="tarjeta-descripcion">Acceder a registros de visitas</div>
+                <div class="tarjeta-descripcion">Acceder a registros de
+                    visitas</div>
             </div>
-        <% } %>
+            <% } %>
 
-        <% if (user.type==='superUsuario' || user.type==='administrador' ) { %>
+            <% if (user.type==='superUsuario' || user.type==='administrador' ) {
+            %>
             <div class="tarjeta" onclick="location.href='/historial'">
                 <div class="tarjeta-icono">
                     <i class="bi bi-clock"></i>
                 </div>
                 <div class="tarjeta-titulo">Historial</div>
-                <div class="tarjeta-descripcion">Acceder a historial completo</div>
+                <div class="tarjeta-descripcion">Acceder a historial
+                    completo</div>
             </div>
-        <% } %>
+            <% } %>
 
-        <% if (user.type==='superUsuario' || user.type==='usuario' ) { %>
+            <% if (user.type==='superUsuario' || user.type==='usuario' ) { %>
             <div class="tarjeta" onclick="location.href='/registrosPendientes'">
                 <div class="tarjeta-icono">
                     <i class="bi bi-exclamation-circle"></i>
@@ -92,39 +99,44 @@
                 <div class="tarjeta-titulo">Historial Pendiente</div>
                 <div class="tarjeta-descripcion">Ver registros pendientes</div>
             </div>
-        <% } %>
+            <% } %>
 
-        <% if (user.type==='superUsuario' || user.type==='rh' ) { %>
+            <% if (user.type==='superUsuario' || user.type==='rh' ) { %>
             <div class="tarjeta" onclick="location.href='/hr-visits'">
                 <div class="tarjeta-icono">
                     <i class="bi bi-people"></i>
                 </div>
                 <div class="tarjeta-titulo">Recursos Humanos</div>
-                <div class="tarjeta-descripcion">Gestionar recursos humanos</div>
+                <div class="tarjeta-descripcion">Gestionar recursos
+                    humanos</div>
             </div>
-        <% } %>
+            <% } %>
 
-        <% if (user.type==='superUsuario' || user.type==='administrador' ) { %>
+            <% if (user.type==='superUsuario' || user.type==='administrador' ) {
+            %>
             <div class="tarjeta" onclick="location.href='/AdmistrarUsuario'">
                 <div class="tarjeta-icono">
                     <i class="bi bi-person-check"></i>
                 </div>
                 <div class="tarjeta-titulo">Control de Usuarios</div>
-                <div class="tarjeta-descripcion">Administrar usuarios del sistema</div>
+                <div class="tarjeta-descripcion">Administrar usuarios del
+                    sistema</div>
             </div>
-        <% } %>
+            <% } %>
 
-        <% if (user.type==='superUsuario' || user.type==='rh' ) { %>
+            <% if (user.type==='superUsuario' || user.type==='rh' ) { %>
             <div class="tarjeta" onclick="location.href='/historialInternos'">
                 <div class="tarjeta-icono">
                     <i class="bi bi-folder"></i>
                 </div>
                 <div class="tarjeta-titulo">Historial de Pasante</div>
-                <div class="tarjeta-descripcion">Acceder a historial de pasantes</div>
+                <div class="tarjeta-descripcion">Acceder a historial de
+                    pasantes</div>
             </div>
-        <% } %>
+            <% } %>
 
-        <% if (user.type==='superUsuario' || user.type==='usuario' || user.type==='rh' ) { %>
+            <% if (user.type==='superUsuario' || user.type==='usuario' ||
+            user.type==='rh' ) { %>
             <div class="tarjeta" onclick="location.href='/controlPasantes'">
                 <div class="tarjeta-icono">
                     <i class="bi bi-card-checklist"></i>
@@ -132,9 +144,10 @@
                 <div class="tarjeta-titulo">Control de Pasantes</div>
                 <div class="tarjeta-descripcion">Gestionar pasantes</div>
             </div>
-        <% } %>
+            <% } %>
 
-        <% if (user.type==='superUsuario' || user.type==='administrador' ) { %>
+            <% if (user.type==='superUsuario' || user.type==='administrador' ) {
+            %>
             <div class="tarjeta" onclick="location.href='/registroUsuario'">
                 <div class="tarjeta-icono">
                     <i class="bi bi-person-plus"></i>
@@ -142,14 +155,14 @@
                 <div class="tarjeta-titulo">Registrar Usuarios</div>
                 <div class="tarjeta-descripcion">Registrar nuevos usuarios</div>
             </div>
-        <% } %>
-    </div>
-    <div>
-        <footer>   
-             <%- include('templates/footer') %>
-        </footer>
-    </div>
-    <script>
+            <% } %>
+        </div>
+        <div>
+            <footer>
+                <%- include('templates/footer') %>
+            </footer>
+        </div>
+        <script>
         setInterval(() => {
             const changingLetter = document.getElementById("changing-letter");
             changingLetter.classList.remove('rotate-on-change');
@@ -201,5 +214,5 @@
             }
         }, 3000);
     </script>
-</body>
+    </body>
 </html>

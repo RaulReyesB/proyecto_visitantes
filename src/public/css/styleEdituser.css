@@ -82,13 +82,15 @@ form .button {
   padding: 5px;
   border-radius: 50px;
   transition: background-color 0.3s ease;
-  background-color: #3d3d3d;
+  /*background-color: #3d3d3d;*/
+  background-color: #691B31;
   color: white;
   width: 200px;
 }
 
 form .button:hover {
-  background-color: #3d3d3d;
+  /*background-color: #3d3d3d;*/
+  background-color: #A02142;
 }
 
 /* Estilo de los selects */

@@ -88,11 +88,11 @@ Nota: El código está escrito en sintaxis EJS (JavaScript integrado), que permi
             <td>
               <% if (!intern.entrance || (intern.entrance && intern.exit)) { %>
                 <form action="/interns/entrada/<%= intern.id %>" method="POST">
-                  <button type="submit" class="btn btn-secondary" style="background: #808080;">Registrar <br> Entrada</button>
+                  <button type="submit" class="btn btn-secondary" style="background: #691b31;">Registrar <br> Entrada</button>
                 </form>
                 <% } else if (intern.entrance && !intern.exit) { %>
                 <form id="salidaForm-<%= intern.id %>" action="/interns/salida/<%= intern.id %>" method="POST">
-                  <button type="button" class="btn btn-secondary" style="background: #808080;" onclick="confirmarSalida(<%= intern.id %>)">Registrar <br> Salida</button>
+                  <button type="button" class="btn btn-secondary" style="background: #691b31;" onclick="confirmarSalida(<%= intern.id %>)">Registrar <br> Salida</button>
                 </form>
                 <% } %>
             </td>

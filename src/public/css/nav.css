@@ -14,21 +14,31 @@
 
 #var .enlaces {
   display: flex;
-  
+}
+
+#var .enlaces a {
+  position: relative;
+  text-decoration: none;
+  color: white;
+  margin: 0 15px; /* Espaciado entre los enlaces */
+  transition: color 0.3s;
 }
 
 #var .enlaces a::after {
-  
+  content: "";
   display: block;
-  width: 100%;
+  width: 0;
   height: 2px;
-  background-color: transparent;
-  
+  background-color: white;
+  position: absolute;
   bottom: -5px;
   left: 0;
-  transition: background-color 0.3s;
+  transition: width 0.3s;
 }
 
+#var .enlaces a:hover::after {
+  width: 100%; /* Línea dorada que aparece al pasar el mouse */
+}
 
 /* Estilos del Menú Hamburguesa */
 .menu-hamburguesa {
@@ -60,13 +70,46 @@
 
   .enlaces.active {
     display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .enlaces a {
+    padding: 10px 15px;
+    width: 100%;
+    text-align: left;
+    border-top: 1px solid #444;
   }
 }
+
 #color {
-  color:white;
+  color: white;
 }
 
+.nav-link {
+  position: relative;
+  color: white; /* Color de texto por defecto */
+}
 
+.nav-link:hover {
+  color: white; /* Color de texto al pasar el cursor */
+}
+
+.nav-link::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: gold;
+  transition: width 0.3s;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
 
 
 

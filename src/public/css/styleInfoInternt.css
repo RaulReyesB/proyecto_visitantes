@@ -2,7 +2,7 @@
 en cualquier parte del código solo utilizando el nombre de ellos*/
 
 :root {
-  --bg-color: #f0f2f5;
+  --bg-color: #f0f2f5; /* Color de fondo */
   --primary-text-color: #333;
   --secondary-text-color: #555;
   --border-color: #ccc;
@@ -71,20 +71,23 @@ Ancho de la imagen,alto,definición de bordes,margen superior,borde de la imagen
   transition: transform 0.3s ease, border-color 0.3s ease; /* Se añade una transición para las imágenes */
 }
 
+/* Efecto hover (cuando pasas con el cursor sobre la imagen ) */
 .contenedor-principal img:hover {
-  transform: scale(1.2);
-  border-color: var(--hover-color);
+  transform: scale(1.2); /*Aumento de tamaño*/
+  border-color: var(--hover-color); /*Cambio de color del borde */
 }
 
+/* Contenedor secundario con elementos flexibles */
 .contenedor-secundario {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Elementos en múltiples líneas */
   justify-content: center;
   width: 100%;
   padding: 20px 0;
   margin-top: 20px;
 }
 
+/* Estilo de los bloques de información */
 .info {
   width: 45%;
   max-width: 400px;
@@ -94,21 +97,25 @@ Ancho de la imagen,alto,definición de bordes,margen superior,borde de la imagen
   border: 1px solid var(--border-color);
   border-radius: 8px;
   box-shadow: 0 2px 6px var(--shadow-color);
-  box-sizing: border-box;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  box-sizing: border-box;  /* Caja de borde */
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Transiciones */
+
 }
 
+/*Efecto hover (cuando pasas con el cursor sobre la información) */
 .info:hover {
   box-shadow: 0 4px 12px var(--shadow-color);
-  transform: translateY(-5px);
+  transform: translateY(-5px); /* Desplazamiento hacia arriba */
 }
 
+/* Estilo del párrafo dentro de los bloques de información */
 .info p {
   margin: 10px 0;
   line-height: 1.6;
   color: var(--secondary-text-color);
 }
 
+/* Estilo del nombre */
 .nombre {
   font-size: 26px;
   margin-top: 10px;
@@ -116,52 +123,53 @@ Ancho de la imagen,alto,definición de bordes,margen superior,borde de la imagen
   font-weight: 600;
 }
 
+
+/* Estilo del enlace */
 #enlaces {
   display: block;
-  padding: 12px 25px;
+  padding: 12px 25px; /* Relleno interno */
   background-color: var(--button-bg);
-  text-decoration: none;
+  text-decoration: none; /* Sin subrayado */
   color: white;
   border-radius: 5px;
   margin-top: 20px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transiciones */
   box-shadow: 0 2px 4px var(--shadow-color);
-  width: fit-content;
-  align-self: center;
+  width: fit-content;  /* Ancho ajustado al contenido */
+  align-self: center; /* Alineación centrada */
 }
 
+/* Efecto hover para el enlace */
 #enlaces:hover {
-  background-color: var(--button-hover-bg);
-  transform: translateY(-2px);
+  background-color: var(--button-hover-bg);  /* Cambio de color de fondo */
+  transform: translateY(-2px); /* Desplazamiento hacia arriba */
 }
 
+/* Media query para dispositivos con ancho máximo de 768px */
 @media (max-width: 768px) {
   .contenedor {
-    padding: 20px;
+    padding: 20px; /* Relleno interno */
   }
-
   .contenedor-principal img {
-    width: 120px;
-    height: 120px;
+    width: 120px; /* Ancho de la imagen */
+    height: 120px; /* Alto de la imagen */
   }
-
   .info {
-    width: 100%;
-    max-width: none;
-    margin: 10px 0;
+    width: 100%; /* Ancho total */
+    max-width: none; /* Sin ancho máximo */
+    margin: 10px 0; /* Margen superior e inferior */
   }
-
   #enlaces {
-    width: 70%;
+    width: 70%; /* Ancho relativo */
   }
 }
 
+/* Media query para dispositivos con ancho máximo de 480px */
 @media (max-width: 480px) {
   .info {
-    font-size: 16px;
+  font-size: 16px; /* Tamaño de fuente */
   }
-
   #enlaces {
-    width: 90%;
+  width: 90%; /* Ancho relativo */
   }
 }

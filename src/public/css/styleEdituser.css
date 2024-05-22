@@ -27,7 +27,7 @@
 
 .container-2 {
   min-height: 40vh; /* importante */
-  position: relative;
+  position: relative;/*mantiene el footer abajo*/
 }
 
 /* Contenedor del formulario */

@@ -145,6 +145,8 @@ header a:hover {
   flex-wrap: wrap;
   justify-content: center;
   padding: 20px;
+  min-height:70vh;/*importante*/
+  position:relative;/*mantiene el footer abajo*/
 }
 
 .tarjeta {

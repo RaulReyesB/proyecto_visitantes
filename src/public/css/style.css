@@ -245,7 +245,7 @@ footer p {
   margin-right: auto; /* Centra el contenedor en el lado derecho */
   margin-left: auto; /* Centra el contenedor en el lado izquierdo */
   margin-top: 12px;
-  background-color: rgba(99, 99, 99, 0.7);
+  background-color: rgba(99, 99, 99, 0.3);
   border-radius: 150px;
   display: flex;
   align-items: center;
@@ -271,8 +271,8 @@ footer p {
   width: 70px;
   height: 70px;
   border-radius: 100%;
-  /*background-color: rgba(255, 255, 255, 0.2);*/
-  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+  background-color: rgba(99, 99, 99, 0.3);
+  box-shadow: 0 0 0px 5px rgba(0, 0, 0, 0.3);
   margin-bottom: 10px;
   display: flex;
   align-items: center;
@@ -283,6 +283,7 @@ footer p {
   margin-top: 5px;
   font-size: 48px;
   color: #ffffff;
+
 }
 
 .user-type {
@@ -290,7 +291,7 @@ footer p {
   width: auto; /* Cambiar el ancho a "auto" */
   height: auto; /* Cambiar el alto a "auto" */
   margin-top: 12px;
-  background-color: rgba(99, 99, 99, 0.7);
+  background-color: rgba(99, 99, 99, 0.3);
   border-radius: 150px;
   display: flex;
   align-items: center;
@@ -349,6 +350,7 @@ footer p {
       width: 90%;
       margin-left: auto;
       margin-right: auto;
+      
   }
   .tarjeta {
       width: 100%;
@@ -385,7 +387,8 @@ footer p {
     align-items: center; /* Centra los elementos verticalmente */
     justify-content: center; /* Centra los elementos horizontalmente */
     margin-left: 0;
-    margin-top: 10px;
+    margin-top: 1px;
+    
   }
 
   .tarjeta-usuario {
@@ -393,6 +396,7 @@ footer p {
     margin-left: 90px;
     margin-right: 90px;
     margin-top: 10px;
+    
   }
 
   .tarjeta {
@@ -429,4 +433,64 @@ footer p {
   .tarjeta:last-child .tarjeta-descripcion {
     font-size: 14px;
   }
+}
+
+
+/* ESTILOS PARA LAS ALERTAS */
+/* ESTILOS PARA LAS ALERTAS */
+.alert {
+  position: fixed;
+  top: 160px;
+  left: 20px;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transform: translateX(-100%);
+}
+
+.alert.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.alert-danger, .alert-success {
+  display: flex;
+  align-items: center;
+  gap: 19px;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 2px solid #f5c6cb;
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border: 2px solid #c3e6cb;
+}
+
+.alert-icon {
+  font-size: 24px;
+}
+
+.alert ul {
+  list-style: none;
+  padding: 0;
+}  
+
+
+/*Iconos a las alertas */
+.alert-danger .alert-icon::before {
+  content: "⚠"; 
+}
+
+.alert-success .alert-icon::before {
+  content: "✅"; 
 }

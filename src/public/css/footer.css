@@ -1,11 +1,12 @@
 .footer {
-    background-color: #3D3D3D;
    /* background-color: #1E3740;*/
-    background-color: #808080;
+    /*background-color: #808080;*/
+    background-color: #691B31;
     color: #ffffff;
     padding: 20px 0;
     text-align: center;
-    border-top: 2px solid #3D3D3D;
+    /*border-top: 2px solid #3D3D3D;*/
+    border-top: 2px solid #A02142;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     border-radius: 10px 10px 0 0;
     font-family: Arial, sans-serif;
@@ -34,7 +35,8 @@
 }
 
 .footer-credits {
-    background-color: #3D3D3D;
+    background-color: #BC955B;
+    /*background-color: #3D3D3D;*/
     /*background-color: #16252a;*/
     
     padding: 10px 0;

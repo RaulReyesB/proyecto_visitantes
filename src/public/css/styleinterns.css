@@ -86,8 +86,8 @@ label {
 }
 
 /* Estilo de los botones */
-form .btn:hover {
-  background-color: #4fa3fc;
+form #btn:hover {
+  background-color: #A02142;
   
 }
 
@@ -159,13 +159,20 @@ form .btn:hover {
 #btn{
   border-radius: 50px;
   transition: background-color 0.3s ease;
-  /*background-color: #1e3740;*/
-  background-color: #3D3D3D;
+  /*background-color: #3D3D3D;*/
+  background-color: #691B31;
   color: white;
   width: 200px;
   float: left;
 margin-left: 35%;
 margin-right: 35%;
+}
+@media (max-width: 800px) {
+  #btn{
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 .navbar-nav .nav-item .nav-link {
   color: white !important; /* Forzar el color blanco en los enlaces del navbar */

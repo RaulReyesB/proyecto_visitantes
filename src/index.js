@@ -22,7 +22,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Configuración de dotenv
-dotenv.config({ path: ".env" });
+dotenv.config({ path: "var.env" });
 
 const app = express();
 

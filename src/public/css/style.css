@@ -434,3 +434,63 @@ footer p {
     font-size: 14px;
   }
 }
+
+
+/* ESTILOS PARA LAS ALERTAS */
+/* ESTILOS PARA LAS ALERTAS */
+.alert {
+  position: fixed;
+  top: 160px;
+  left: 20px;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transform: translateX(-100%);
+}
+
+.alert.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.alert-danger, .alert-success {
+  display: flex;
+  align-items: center;
+  gap: 19px;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 2px solid #f5c6cb;
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border: 2px solid #c3e6cb;
+}
+
+.alert-icon {
+  font-size: 24px;
+}
+
+.alert ul {
+  list-style: none;
+  padding: 0;
+}  
+
+
+/*Iconos a las alertas */
+.alert-danger .alert-icon::before {
+  content: "⚠"; 
+}
+
+.alert-success .alert-icon::before {
+  content: "✅"; 
+}

@@ -63,7 +63,7 @@
                             <input class="form-control" type="text" name="Mat" id="Mat" placeholder="N° control" required>
                             <label for="service">Ingresa el tipo de servicio prestado</label>
                             <select class="form-control" name="service" id="service" required>
-                                <option selected disabled>-- Seleccione un servicio --</option>
+                                <option value="">-- Seleccione un servicio --</option>
                                 <option value="dual">Dual</option>
                                 <option value="estadia">Estadia</option>
                                 <option value="estancia">Estancia</option>
@@ -77,7 +77,7 @@
                             <input class="form-control" type="text" name="adviser" id="adviser" placeholder="Asesor" required>
                             <label for="days">Días (Horario)</label>
                             <select class="form-control" name="days" id="days" required>
-                                <option selected disabled>-- Seleccione un día --</option>
+                                <option value="">-- Seleccione un día --</option>
                                 <option value="LuyVie">Lunes a viernes</option>
                                 <option value="SabyDom">Sábado y domingo</option>
                                 <option value="otro">Otro(Especifique)</option>
@@ -86,7 +86,7 @@
                             <input disabled id="other" class="form-control" type="text" name="other" placeholder="Especifique">
                             <label for="shedule">Horario</label>
                             <select class="form-control" name="shedule" id="shedule" required>
-                                <option selected disabled>-- Seleccione un horario --</option>
+                                <option value="">-- Seleccione un horario --</option>
                                 <option value="09:00-16:00">09:00-16:00</option>
                                 <option value="10:00-17:00">10:00-17:00</option>
                                 <option value="11:00-18:00">11:00-18:00</option>
@@ -110,9 +110,9 @@
                         </div>
                     </div>
                     <label for="Program">Programa</label>
-                    <input class="form-control" type="text" name="Program" id="Program" placeholder="Programa">
+                    <input class="form-control" type="text" name="Program" id="Program" placeholder="Programa" required>
                     <label for="Observations">Observaciones</label>
-                    <textarea class="form-control" name="Observations" id="Observations" placeholder="Observaciones"></textarea>
+                    <textarea class="form-control" name="Observations" id="Observations" placeholder="Observaciones" required></textarea>
                     <label for="img">Sube una imagen</label>
                     <input class="form-control" type="file" name="img" id="img">
                     <br>
@@ -127,6 +127,18 @@
         </div>
 
         <script>
+            document.querySelector('form').addEventListener('submit', function(event) {
+            var selects = ['days', 'shedule', 'service'];
+            for (var i = 0; i < selects.length; i++) {
+                var select = document.getElementById(selects[i]);
+                if (select && (select.value === null || select.value === undefined || select.value === '')) {
+                    event.preventDefault();
+                    alert('Por favor, selecciona una opción');
+                    return;
+                }
+            }
+        });
+
             document.getElementById('days').addEventListener('change', function () {
                 if (this.value === 'otro') {
                     document.getElementById('other').disabled = false;

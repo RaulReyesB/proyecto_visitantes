@@ -66,18 +66,18 @@
                     <div class="form-inputs">
                         <div class="form-p">
                             <label for="">Ingresa tu nombre completo</label>
-                            <input class="form-control" type="text" name="name" id="" placeholder="Nombre Completo">
+                            <input class="form-control" type="text" name="name" id="" placeholder="Nombre Completo" required>
                             <label for="">Telefono con 10 caracteres</label>
-                            <input class="form-control" type="text" name="phone" placeholder="Telefono">
+                            <input class="form-control" type="text" name="phone" placeholder="Telefono" required>
                             <label for="">Correo electronico</label>
-                            <input class="form-control" type="text" name="email" placeholder="Correo electronico">
+                            <input class="form-control" type="email" name="email" placeholder="Correo electronico" required>
                         </div>
                         <div class="form-p">
                             <label for="">CURP</label>
-                            <input class="form-control" type="text" name="CURP" placeholder="Curp">
+                            <input class="form-control" type="text" name="CURP" placeholder="Curp" required>
                             <label for="">Identificación</label>
                             <select class="form-control" name="identification" required>
-                                <option selected disabled>-- Seleccione una opción</option>
+                                <option value="">-- Seleccione una opción</option>
                                 <option value="INE">INE</option>
                                 <option value="Pasaporte">Pasaporte</option>
                                 <option value="Licencia">Licencia</option>
@@ -93,7 +93,7 @@
                         </div>
                         <div class="form-p" style="margin-right: 0;">
                             <label for="">Procedencia</label>
-                            <input class="form-control" type="text" name="origin" placeholder="Procedencia">
+                            <input class="form-control" type="text" name="origin" placeholder="Procedencia" required>
                             <label for="">Numero de niños</label>
                             <!--  Botones para incrementar y decrementar el numero de niños  -->
                             <div class="buttons-container">
@@ -105,7 +105,7 @@
 
                             <label for="">Departamento al que se dirige</label>
                             <select class="form-control mb-2" id="mainSelect" name="department" required>
-                                <option selected disabled>-- Seleccione una opción --</option>
+                                <option value="">-- Seleccione una opción --</option>
                                 <option value="DG">Direccion General</option>
                                 <option value="DCFP">Direccion de coordinacion financiera y planeacion</option>
                                 <option value="DT">Direccion de television</option>
@@ -121,7 +121,7 @@
                                 <option value="ER">Estaciones de radio</option>
                             </select>
                             <select id="subSelect" class="form-control p-0" name="subDepartment" required>
-                                <option selected disabled>-- Seleccione una opción --</option>
+                                <option value="">-- Seleccione una opción --</option>
                             </select>
                         </div>
                     </div>

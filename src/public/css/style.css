@@ -147,8 +147,6 @@ header a:hover {
   flex-wrap: wrap;
   justify-content: center;
   padding: 20px;
-  min-height:70vh;/*importante*/
-  position:relative;
 }
 
 .tarjeta {
@@ -162,6 +160,7 @@ header a:hover {
   background-color: var(--tarjeta-bg);
   border-radius: 15px;
   box-shadow: var(--tarjeta-shadow);
+  transition: opacity 0.6s ease; 
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
   cursor: pointer;
   margin-right: 20px;
@@ -241,33 +240,35 @@ footer p {
 
 /* Tarjeta Usuario */
 .tarjeta-usuario {
-  position: relative;
-  width: 400px; /* Reducir el ancho */
-  height: 12px; /* Reducir el alto */
-  margin-right: 400px ;
+  width: auto; /* Cambiar el ancho a "auto" */
+  height: auto; /* Cambiar el alto a "auto" */
+  margin-right: auto; /* Centra el contenedor en el lado derecho */
+  margin-left: auto; /* Centra el contenedor en el lado izquierdo */
   margin-top: 12px;
   background-color: rgba(99, 99, 99, 0.7);
   border-radius: 150px;
   display: flex;
   align-items: center;
-  padding: 15px;
+  padding: 10px;
   opacity: 0;
-  animation: slideInAndExpand 1s forwards; /* Efecto de entrada */
+  animation: slideInAndExpand 0s forwards; /* Efecto de entrada */
   box-shadow: 0 0 0px 5px rgba(0, 0, 0, 0.3);
   font-size: 1.3em; /* Fuente más pequeña */
   overflow: hidden; /* Asegura que el contenido no se desborde */
 }
-
 .user-info-side {
   display: flex;
   align-items: center;
-  margin-left:450px; /* Añadido margen izquierdo para separarlo del icono */
+  margin-left: auto; /* Centra el contenedor en el lado izquierdo */
+  margin-right: auto; /* Centra el contenedor en el lado derecho */
 }
 
+
+
 .user-icon-container {
-  margin-top: 20px;
+  margin-top: 15px;
   margin-right: 10px;
-  width: 75px;
+  width: 70px;
   height: 70px;
   border-radius: 100%;
   /*background-color: rgba(255, 255, 255, 0.2);*/
@@ -286,19 +287,19 @@ footer p {
 
 .user-type {
   position: relative;
-  width: 150px; /* Reducir el ancho */
-  height: 12px; /* Reducir el alto */
+  width: auto; /* Cambiar el ancho a "auto" */
+  height: auto; /* Cambiar el alto a "auto" */
   margin-top: 12px;
   background-color: rgba(99, 99, 99, 0.7);
   border-radius: 150px;
   display: flex;
   align-items: center;
-  padding: 15px;
+  padding: 10px;
   opacity: 0;
-  animation: slideInAndExpand 1s forwards; /* Efecto de entrada */
+  animation: slideInAndExpand 0s forwards;
   box-shadow: 0 0 0px 5px rgba(0, 0, 0, 0.3);
-  font-size: 1.3em; /* Fuente más pequeña */
-  overflow: hidden; /* Asegura que el contenido no se desborde */
+  font-size: 1.3em;
+  overflow: hidden;
 }
 
 .tarjeta-usuario .cuerpo {
@@ -307,27 +308,25 @@ footer p {
   align-items: flex-start;
   justify-content: center;
   font-family: Arial;
-  font-size: 1.2em; /* Fuente más pequeña */
+  font-size: 1  em; /* Fuente más pequeña */
   color: #ffffff;
   text-align: center;
 }
 
 .tarjeta-usuario .user-info-details {
-  color: white;
-  text-align: center; /* Cambiar de left a center */
-  display: flex;
-  align-items: center;
-  justify-content: center; /* Agregado para centrar el texto horizontalmente */
-  width: 100%; /* Asegurar que el contenedor ocupe todo el ancho disponible */
-  overflow: hidden; /* Ocultar el texto desbordado */
-  white-space: nowrap; /* Prevenir quiebres de línea */
-  text-overflow: ellipsis; /* Añadir puntos suspensivos (...) al final del texto si se desborda */
-
+  width: 100%; /* Ocupar todo el ancho disponible */
+  text-align: center; /* Centrar el texto horizontalmente */
 }
 
+@media screen and (max-width: 600px) {
+  .user-info-details {
+    flex-direction: column; /* Cambiar a dirección column para ajustarse al ancho de la pantalla */
+  }
+}
+/* Estilos específicos para la última tarjeta */
 
 .accediste-como {
-  font-size: 1.2em; /* Fuente más pequeña */
+  font-size: 1.5em; /* Fuente más pequeña */
   margin-right: 10px;
  
 }
@@ -379,6 +378,7 @@ footer p {
   align-items: center;
   margin-left: 10px; /* Ajusta el margen izquierdo según sea necesario */
 }
+/* Responsive Adjustments */
 @media screen and (max-width: 600px) {
   .user-info-side {
     flex-direction: column;
@@ -390,8 +390,8 @@ footer p {
 
   .tarjeta-usuario {
     width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 90px;
+    margin-right: 90px;
     margin-top: 10px;
   }
 
@@ -399,10 +399,12 @@ footer p {
     width: 90%; /* Ajusta el ancho de las tarjetas al 90% del contenedor */
     margin: 10px auto; /* Centra las tarjetas horizontalmente */
   }
+
   header a {
     position: static; /* Cambia la posición del botón a estática */
     margin-top: 10px; /* Agrega un margen superior */
   }
+
   header {
     text-align: center; /* Ajusta el texto del encabezado al centro */
   }

@@ -1,3 +1,30 @@
+/**
+ * ARCHIVO: /C:/Users/campo/OneDrive/Escritorio/proyecto_visitantes/src/public/css/styleRegister.css
+ *
+ * Este archivo CSS contiene los estilos generales para el registro y las páginas internas de un sitio web.
+ * Incluye estilos para encabezado, fondo, contenedor, formulario, título, entradas, botones y consultas de medios.
+ *
+ * Estilos:
+ * - .
+fondo: Estilos para la imagen de fondo.
+ * - .container: Estilos para el contenedor principal.
+ * - .container-form: Estilos para el contenedor del formulario.
+ * - .cont-title: Estilos para el contenedor del título.
+ * - .form-inputs: Estilos para los contenedores de entrada.
+ * - .form-p: Estilos para los contenedores de entrada individuales.
+ * - etiqueta: Estilos para las etiquetas.
+ * - .forma-
+inputs input: Estilos para los campos de entrada.
+ * - form .button: Estilos para los botones.
+ * - .form-inputs select: Estilos para los campos seleccionados.
+ * - .buttons-container: Estilos para el contenedor de botones de agregar y quitar.
+ * - .minus-button, .plus-button: Estilos para los botones de agregar y quitar.
+ * - .niños-
+input: Estilos para el campo de entrada para el número de hijos.
+ * - .v-img: Estilos para las imágenes.
+ * - @media (ancho máximo: 1150px): estilos para pantallas pequeñas.
+ * - .nav-link: Estilos para los enlaces de navegación.
+ */
 /* Estilos generales del register y interns */
 /* estilos del header */
 

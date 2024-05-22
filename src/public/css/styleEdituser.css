@@ -1,3 +1,9 @@
+/**
+ * FILEPATH: /C:/Users/campo/OneDrive/Escritorio/proyecto_visitantes/src/public/css/styleEdituser.css
+ * 
+ * This CSS file contains styles for the user edit form page.
+ */
+
 /* Estilos generales del registros */
 .fondo {
   position: fixed;
@@ -21,7 +27,7 @@
 
 .container-2 {
   min-height: 40vh; /* importante */
-  position: relative;
+  position: relative;/*mantiene el footer abajo*/
 }
 
 /* Contenedor del formulario */
@@ -113,7 +119,7 @@ select {
 .ojo input.form-control {
   margin-right: 10px; /* Ajusta el margen entre el input y el botón según lo necesites */
 }
-
+/* Estilos del botón del password */
 .ojo button {
   background: #d9d9d9;
   border: none;
@@ -124,7 +130,7 @@ select {
   height: 35px;
   margin-bottom: 20px;
 }
-
+/* Estilos para pantallas de 1200px */
 @media screen and (max-width: 1200px) {
   .container-form {
     width: 90%;
@@ -138,7 +144,7 @@ select {
     align-self: center;
   }
 }
-
+/* Estilos para pantallas de 850px */
 @media screen and (max-width: 850px) {
   .cont-title {
     width: 100%;

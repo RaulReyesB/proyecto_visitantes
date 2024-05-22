@@ -40,7 +40,7 @@ body {
 }
 .container-2{
   min-height:70vh;/*importante*/
-  position:relative;
+  position:relative;/*mantiene el footer abajo*/
 }
 /* Contenedor del titulo */
 .cont-title {

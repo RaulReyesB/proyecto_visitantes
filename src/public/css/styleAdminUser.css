@@ -11,7 +11,6 @@
 .fade-in {
   animation: fadeIn 0.5s ease-in-out;
 }
-
 body {
   background-color: gray;
   display: flex;
@@ -28,6 +27,7 @@ body {
   filter: blur(8px);
   z-index: -1;
 }
+/* Contenedor principal */
 .container {
   display: flex;
   justify-content: center;
@@ -35,9 +35,10 @@ body {
   flex-direction: column;
   margin: 10px;
 }
+
 .container-2 {
   min-height:70vh;/*importante*/
-  position:relative;
+  position:relative;/*mantiene el footer abajo*/
 }
 /* Contenedor del titulo */
 .cont-title {
@@ -159,6 +160,7 @@ footer {
   width: 100%;
   margin-top: auto;
 }
+/* Estilos para la tabla responsiva */
 @media (max-width: 600px) {
   .table-responsive-scroll {
     overflow-x: auto;

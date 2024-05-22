@@ -17,6 +17,14 @@
 </head>
 
 <body>
+  <!--
+    Este archivo representa la vista para controlar a los pasantes en una aplicación web.
+    Incluye una plantilla de navegación, un título y un contenedor de búsqueda.
+
+    El contenedor de búsqueda consta de un campo de entrada para buscar por nombre o número de folio,
+    y un botón para activar la función de búsqueda.
+Nota: La función de búsqueda no está definida en este fragmento de código.
+  -->
   <div class="fondo"></div>
   <%- include('templates/nav') %>
 
@@ -29,6 +37,22 @@
     <button type="button" onclick="search()"><i class="bi bi-search"></i></button>
   </div>
 
+<!--
+  Este código HTML representa una vista de tabla para controlar a los pasantes. Muestra una lista de pasantes con sus nombres, números de expediente, imágenes y opciones para controlar su entrada y salida.
+
+  Estructura de la tabla:
+  - La tabla tiene cuatro columnas: "Nombre", "Número de folio", "Imagen",
+y "Control de entrada y salida".
+  - La tabla responde y se puede desplazar.
+
+  Datos de la tabla:
+  - Los datos de la tabla se generan dinámicamente utilizando la matriz "internos".
+  - Para cada pasante en la matriz "pasantes", se crea una fila de la tabla con su nombre, número de archivo, imagen (si está disponible) y opciones de control.
+Opciones de control:
+  - Si un pasante no tiene registro de ingreso o tiene registros de ingreso y salida, se muestra un botón de "Registrar Entrada".
+  - Si un pasante tiene registro de ingreso pero no de salida, se muestra un botón de "Registrar Salida". Al hacer clic en el botón se activa un cuadro de diálogo de confirmación.
+Nota: El código está escrito en sintaxis EJS (JavaScript integrado), que permite incrustar código JavaScript en plantillas HTML.
+  -->
   <div class="container-2">
   <div class="table-responsive table-responsive-scroll">
     <table id="tabla" class="fade-in table">

@@ -17,7 +17,7 @@ const Visit = db.define("tb_visits", {
   },
   CURP: {
     type: DataTypes.STRING(18),
-    allowNull: false,
+    allowNull: true,
   },
   identification: {
     type: DataTypes.STRING,

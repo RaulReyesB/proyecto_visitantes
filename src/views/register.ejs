@@ -81,6 +81,7 @@
                                 <option value="INE">INE</option>
                                 <option value="Pasaporte">Pasaporte</option>
                                 <option value="Licencia">Licencia</option>
+                                <option value="Nue">Numero unico de extranjero</option>
                             </select>
                             <label for="">Numero de gafete</label>
                             <select class="form-control" name="badge" id="badgeSelect">
@@ -146,6 +147,22 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
 
+document.addEventListener('DOMContentLoaded', function() {
+    var select = document.querySelector('select[name="identification"]');
+    var curpInput = document.querySelector('input[name="CURP"]');
+    
+    select.addEventListener('change', function() {
+        if (this.value === 'Nue') {
+            curpInput.disabled = true;
+            curpInput.removeAttribute('required');
+            curpInput.value = 'N/A'; 
+        } else {
+            curpInput.disabled = false;
+            curpInput.setAttribute('required', '');
+            curpInput.value = ''; 
+        }
+    });
+});
     // Definir las opciones correspondientes de cada dpto
     /*\
     Este bloque de código define una función de JavaScript que rellena un menú 

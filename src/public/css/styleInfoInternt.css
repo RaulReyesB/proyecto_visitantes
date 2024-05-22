@@ -50,6 +50,8 @@ los definición de bordes que este caso son redondeados,sombra y su ancho*/
   box-shadow: 0 4px 12px var(--shadow-color);
   max-width: 900px;
   width: 90%;
+  min-height:80vh;/*importante*/
+  position:relative;
 }
 
 /* Contenedor para los elementos principales*/

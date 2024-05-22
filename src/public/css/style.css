@@ -470,3 +470,24 @@ footer p {
   content: "✅"; 
 }
 
+
+/* Estilos específicos para la última tarjeta */
+@media screen and (max-width: 600px) {
+  .tarjeta:last-child {
+    width: 370px;
+    height: 150px;
+    margin: 10px 0;
+    padding: 20px; 
+ /* Agrega padding para mejor visualización en pantallas pequeñas */
+  }
+  .tarjeta:last-child .tarjeta-icono {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+  .tarjeta:last-child .tarjeta-titulo {
+    font-size: 18px;
+  }
+  .tarjeta:last-child .tarjeta-descripcion {
+    font-size: 14px;
+  }
+}

@@ -15,21 +15,21 @@
           <li class="nav-item">
             <!--  por el amor de dios dejen de eliminar estas limitaciones -->
             <% if (user && user.type !== 'administrador') { %>
-            <a href="/registroVisitas">Registros</a>
+            <a class="nav-link" href="/registroVisitas">Registros</a>
             <%if (user && user.type !== 'usuario') { %>
-            <a href="/registroInternos">Pasantes</a>
-            <a href="/hr-visits">Recursos Humanos</a>
-            <a href="/historialInternos">Historial de pasante</a>
+            <a class="nav-link" href="/registroInternos">Pasantes</a>
+            <a class="nav-link" href="/hr-visits">Recursos Humanos</a>
+            <a class="nav-link" href="/historialInternos">Historial de pasante</a>
             <% } %>
             <% } %>
             <% if (user && user.type !== 'rh') { %>
-            <a href="/historial">Historial de visitantes</a>
-            <a href="/AdmistrarUsuario">Control de Usuarios</a>
+            <a class="nav-link" class="nav-link" href="/historial">Historial de visitantes</a>
+            <a class="nav-link" href="/AdmistrarUsuario">Control de Usuarios</a>
             <%if (user && user.type !== 'usuario') { %>
-            <a href="/registroUsuario">Registrar Usuario</a>
+            <a class="nav-link" href="/registroUsuario">Registrar Usuario</a>
             <%if (user && user.type !== 'administrador') { %>
-            <a href="/registrosPendientes">Pendientes de Salida</a>
-            <a href="/controlPasantes">Control de Pasantes</a>
+            <a class="nav-link" href="/registrosPendientes">Pendientes de Salida</a>
+            <a class="nav-link" href="/controlPasantes">Control de Pasantes</a>
             <% } %>
             <% } %>
             <% } %>

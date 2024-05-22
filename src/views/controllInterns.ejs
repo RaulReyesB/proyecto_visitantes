@@ -7,6 +7,7 @@
   <title>
     <%= namePage %>
   </title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -34,7 +35,7 @@ Nota: La función de búsqueda no está definida en este fragmento de código.
 
   <div class="search-container">
     <input type="text" id="searchInput" placeholder="Buscar por nombre o número de folio...">
-    <button type="button" onclick="search()"><i class="bi bi-search"></i></button>
+    <button type="button" onclick="search()"><i class="bi bi-search" style="color:black;"></i></button>
   </div>
 
 <!--
@@ -87,11 +88,11 @@ Nota: El código está escrito en sintaxis EJS (JavaScript integrado), que permi
             <td>
               <% if (!intern.entrance || (intern.entrance && intern.exit)) { %>
                 <form action="/interns/entrada/<%= intern.id %>" method="POST">
-                  <button type="submit" class="btn btn-primary">Registrar Entrada</button>
+                  <button type="submit" class="btn btn-secondary" style="background: #808080;">Registrar <br> Entrada</button>
                 </form>
                 <% } else if (intern.entrance && !intern.exit) { %>
                 <form id="salidaForm-<%= intern.id %>" action="/interns/salida/<%= intern.id %>" method="POST">
-                  <button type="button" class="btn btn-primary" onclick="confirmarSalida(<%= intern.id %>)">Registrar Salida</button>
+                  <button type="button" class="btn btn-secondary" style="background: #808080;" onclick="confirmarSalida(<%= intern.id %>)">Registrar <br> Salida</button>
                 </form>
                 <% } %>
             </td>

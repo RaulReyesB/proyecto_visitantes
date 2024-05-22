@@ -62,10 +62,8 @@ body {
 }
 
 header {
-  background-color: #808080;
-  /*
-  background-color: #1E3740;
-  */
+  /*background-color: #808080;*/
+  background-color: #691B31;
   padding: 10px;
   text-align: center;
   position: relative;
@@ -79,8 +77,8 @@ header a {
   right: 10px;
   text-decoration: none;
   color: #ffffff;
-  /*background-color: #e74c3c;*/
-  background-color:#3D3D3D ;
+  background-color: #BC955B;
+  /*background-color:#3D3D3D ;*/
   padding: 10px 20px;
   border-radius: 50px;
   font-size: 18px;
@@ -94,8 +92,8 @@ header a i {
 }
 
 header a:hover {
-  /*background-color: #c0392b;*/
-  background-color: #3D3D3D;
+  background-color: #eab566;
+  /*background-color: #3D3D3D;*/
   transform: scale(1.1);
 }
 
@@ -111,8 +109,8 @@ header a:hover {
 .header-subtitle {
   font-size: 20px;
   font-style: normal;
-  /*color: #c2c4d4;*/
-  color: #3D3D3D;
+  color: #c2c4d4;
+  /*color: #3D3D3D;*/
   opacity: 0;
   animation: scaleIn 1s ease forwards;
 }
@@ -412,82 +410,3 @@ footer p {
 
 }
 
-/* ESTILOS PARA LAS ALERTAS */
-.alert {
-  position: fixed;
-  top: 160px;
-  left: 20px;
-  padding: 20px 30px;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.3s ease-in-out;
-  transform: translateX(-100%);
-}
-
-.alert.show {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(0);
-}
-
-.alert-danger, .alert-success {
-  display: flex;
-  align-items: center;
-  gap: 19px;
-}
-
-.alert-danger {
-  color: #721c24;
-  background-color: #f8d7da;
-  border: 2px solid #f5c6cb;
-}
-
-.alert-success {
-  color: #155724;
-  background-color: #d4edda;
-  border: 2px solid #c3e6cb;
-}
-
-.alert-icon {
-  font-size: 24px;
-}
-
-.alert ul {
-  list-style: none;
-  padding: 0;
-}  
-
-
-/*Iconos a las alertas */
-.alert-danger .alert-icon::before {
-  content: "⚠️"; 
-}
-
-.alert-success .alert-icon::before {
-  content: "✅"; 
-}
-
-
-/* Estilos específicos para la última tarjeta */
-@media screen and (max-width: 600px) {
-  .tarjeta:last-child {
-    width: 370px;
-    height: 150px;
-    margin: 10px 0;
-    padding: 20px; 
- /* Agrega padding para mejor visualización en pantallas pequeñas */
-  }
-  .tarjeta:last-child .tarjeta-icono {
-    font-size: 36px;
-    margin-bottom: 10px;
-  }
-  .tarjeta:last-child .tarjeta-titulo {
-    font-size: 18px;
-  }
-  .tarjeta:last-child .tarjeta-descripcion {
-    font-size: 14px;
-  }
-}

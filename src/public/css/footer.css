@@ -56,7 +56,7 @@
 }
 
 .footer-credits img {
-    max-width: 30px;  /* Ajusta el tamaño máximo de la imagen en los créditos */
+    max-width: 40px;  /* Ajusta el tamaño máximo de la imagen en los créditos */
     height: auto;     /* Mantiene la proporción de la imagen */
     margin-left: 10px;
 }

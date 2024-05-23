@@ -1,179 +1,183 @@
-/* estilops del fondo */
+/* Estilos del fondo */
 .fondo {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('/img/fachada1.webp') no-repeat center center/cover;
-  filter: blur(8px);
-  z-index: -1;
+  position: fixed; /* Fija la posición */
+  top: 0; /* Posición superior */
+  left: 0; /* Posición izquierda */
+  width: 100%; /* Ancho completo */
+  height: 100%; /* Altura completa */
+  background: url('/img/fachada1.webp') no-repeat center center/cover; /* Imagen de fondo centrada y cubierta */
+  filter: blur(8px); /* Filtro de desenfoque */
+  z-index: -1; /* Enviar al fondo */
 }
 
 /* Contenedor de todo el cuerpo */
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin: auto;
-  min-height:80vh;/*importante*/
-  position:relative;
+  display: flex; /* Uso de flexbox */
+  justify-content: center; /* Centrar contenido horizontalmente */
+  align-items: center; /* Centrar contenido verticalmente */
+  flex-direction: column; /* Dirección de los elementos en columna */
+  margin: auto; /* Márgenes automáticos */
+  min-height: 80vh; /* Altura mínima del 80% de la ventana */
+  position: relative; /* Posición relativa */
 }
 
 /* Contenedor del formulario */
 .container-form {
-  display: flex;
-  align-items: center;
-  background: white;
-  margin-bottom: 50px;
-  padding: 25px;
-  padding-bottom: 20px;
-  border-radius: 50px;
-  flex-direction: column;
-  width: 800px; /* Ajuste de ancho */
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+  display: flex; /* Uso de flexbox */
+  align-items: center; /* Centrar contenido verticalmente */
+  background: white; /* Fondo blanco */
+  margin-bottom: 50px; /* Margen inferior */
+  padding: 25px; /* Relleno */
+  padding-bottom: 20px; /* Relleno inferior */
+  border-radius: 50px; /* Bordes redondeados */
+  flex-direction: column; /* Dirección de los elementos en columna */
+  width: 800px; /* Ancho fijo */
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2); /* Sombra */
 }
 
-/* Contenedor del titulo */
+/* Contenedor del título */
 .cont-title {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-  margin-top: 10px;
+  display: flex; /* Uso de flexbox */
+  flex-direction: row; /* Dirección de los elementos en fila */
+  justify-content: center; /* Centrar contenido horizontalmente */
+  width: 100%; /* Ancho completo */
+  margin-top: 10px; /* Margen superior */
 }
 
 .cont-title div {
-  margin-right: 50px;
+  margin-right: 50px; /* Margen derecho */
 }
 
-/* Titulo del formulario */
+/* Título del formulario */
 .container h1 {
-  color: white;
-  font-size: 50px; /* Ajuste de tamaño de fuente */
+  color: white; /* Color del texto */
+  font-size: 50px; /* Tamaño de la fuente */
 }
 
 /* Contenedor de los inputs */
 .form-inputs {
-  display: flex;
-  flex-direction: row;
-  width: 100%; /* Ajuste de ancho */
-  height: auto; /* Ajuste de altura */
+  display: flex; /* Uso de flexbox */
+  flex-direction: row; /* Dirección de los elementos en fila */
+  width: 100%; /* Ancho completo */
+  height: auto; /* Altura automática */
 }
 
 .form-p {
-  display: flex;
-  flex-direction: column;
-  margin-right: 20px; /* Ajuste de margen */
-  width: 100%; /* Ajuste de ancho */
+  display: flex; /* Uso de flexbox */
+  flex-direction: column; /* Dirección de los elementos en columna */
+  margin-right: 20px; /* Margen derecho */
+  width: 100%; /* Ancho completo */
 }
 
 /* Estilo de los label */
 label {
-  display: block;
-  color: #000;
+  display: block; /* Mostrar como bloque */
+  color: #000; /* Color del texto */
 }
 
 /* Estilo de los inputs */
 .form-inputs input {
-  display: block;
-  margin-bottom: 15px; /* Ajuste de margen */
-  padding: 10px; /* Añadir padding */
-  border-radius: 5px;
-  background: #D9D9D9;
-  width: 100%; /* Ajuste de ancho */
+  display: block; /* Mostrar como bloque */
+  margin-bottom: 15px; /* Margen inferior */
+  padding: 10px; /* Relleno */
+  border-radius: 5px; /* Bordes redondeados */
+  background: #D9D9D9; /* Fondo gris claro */
+  width: 100%; /* Ancho completo */
 }
 
 /* Estilo de los botones */
 form #btn:hover {
-  background-color: #A02142;
-  
+  background-color: #A02142; /* Fondo rojo oscuro al pasar el ratón */
 }
 
 /* Estilo de los selects */
 .form-inputs select {
-  display: block;
-  margin-bottom: 15px; /* Ajuste de margen */
-  padding: 10px; /* Añadir padding */
-  width: 100%; /* Ajuste de ancho */
+  display: block; /* Mostrar como bloque */
+  margin-bottom: 15px; /* Margen inferior */
+  padding: 10px; /* Relleno */
+  width: 100%; /* Ancho completo */
 }
 
 /* Contenedor de los botones de agregar y quitar */
 .buttons-container {
-  display: flex;
-  align-items: center;
+  display: flex; /* Uso de flexbox */
+  align-items: center; /* Centrar contenido verticalmente */
 }
 
 /* Estilo de los botones de agregar y quitar */
 .minus-button,
 .plus-button {
-  width: 35px;
-  height: 30px;
-  border: none;
-  background-color: #f0f0f0;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  margin: 0 5px;
+  width: 35px; /* Ancho */
+  height: 30px; /* Altura */
+  border: none; /* Sin borde */
+  background-color: #f0f0f0; /* Fondo gris claro */
+  color: white; /* Color del texto */
+  font-size: 16px; /* Tamaño de la fuente */
+  cursor: pointer; /* Cursor de puntero */
+  margin: 0 5px; /* Margen horizontal */
 }
 
 /* Input de cantidad de hijos */
 .children-input {
-  width: 50px;
-  height: 30px;
-  border: 1px solid #ccc;
-  padding: 5px 10px;
-  font-size: 16px;
+  width: 50px; /* Ancho */
+  height: 30px; /* Altura */
+  border: 1px solid #ccc; /* Borde gris claro */
+  padding: 5px 10px; /* Relleno */
+  font-size: 16px; /* Tamaño de la fuente */
 }
 
+/* Estilo de las imágenes */
 .v-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 20px;
+  max-width: 100%; /* Ancho máximo del 100% */
+  height: auto; /* Altura automática */
+  border-radius: 20px; /* Bordes redondeados */
 }
 
 /* Estilos para pantallas pequeñas */
 @media (max-width: 1150px) {
   .container-form {
-    width: 90%; /* Ajustar el ancho del contenedor del formulario */
+    width: 90%; /* Ancho del 90% */
   }
   .form-inputs {
-    flex-direction: column;
-    width: 100%; /* Ajustar el ancho del contenedor de inputs */
-    height: auto; /* Ajustar la altura */
+    flex-direction: column; /* Dirección de los elementos en columna */
+    width: 100%; /* Ancho completo */
+    height: auto; /* Altura automática */
   }
   .form-p {
-    width: 100%; /* Ajustar el ancho de los contenedores individuales */
-    margin-right: 0; /* Remover el margen derecho */
+    width: 100%; /* Ancho completo */
+    margin-right: 0; /* Sin margen derecho */
   }
   .form-inputs input,
   .form-inputs select {
-    width: 100%; /* Ajustar el ancho de los inputs y selects */
+    width: 100%; /* Ancho completo */
   }
   .buttons-container {
-    justify-content: center;
+    justify-content: center; /* Centrar contenido horizontalmente */
   }
 }
 
-#btn{
-  border-radius: 50px;
-  transition: background-color 0.3s ease;
-  /*background-color: #3D3D3D;*/
-  background-color: #691B31;
-  color: white;
-  width: 200px;
-  float: left;
-margin-left: 35%;
-margin-right: 35%;
+/* Estilo del botón principal */
+#btn {
+  border-radius: 50px; /* Bordes redondeados */
+  transition: background-color 0.3s ease; /* Transición de color de fondo */
+  background-color: #691B31; /* Color de fondo */
+  color: white; /* Color del texto */
+  width: 200px; /* Ancho */
+  float: left; /* Flotar a la izquierda */
+  margin-left: 35%; /* Margen izquierdo */
+  margin-right: 35%; /* Margen derecho */
 }
+
+/* Estilo del botón principal en pantallas pequeñas */
 @media (max-width: 800px) {
-  #btn{
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
+  #btn {
+    width: 100%; /* Ancho completo */
+    margin-left: 0; /* Sin margen izquierdo */
+    margin-right: 0; /* Sin margen derecho */
   }
 }
+
+/* Estilo de los enlaces del navbar */
 .navbar-nav .nav-item .nav-link {
-  color: white !important; /* Forzar el color blanco en los enlaces del navbar */
+  color: white !important; /* Forzar color blanco */
 }

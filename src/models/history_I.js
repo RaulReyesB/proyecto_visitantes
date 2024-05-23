@@ -42,5 +42,6 @@ const History_I = db.define("tb_historyInterns", {
     }
 });
 
+
 // Exportación del modelo para su uso en otras partes de la aplicación
 export default History_I;

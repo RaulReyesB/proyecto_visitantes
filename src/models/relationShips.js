@@ -1,7 +1,6 @@
 import Intern from "./Intern.js";
 import HistoryIntern from "./history_I.js";
 
-
 // Un Intern puede tener muchos registros de historial
 Intern.hasMany(HistoryIntern, {
   foreignKey: "fileNumber",  // Clave foránea en HistoryIntern que se refiere a fileNumber en Intern

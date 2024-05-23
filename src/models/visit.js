@@ -5,6 +5,7 @@ import { DataTypes } from "sequelize";
 // Importación de la conexión a la base de datos
 import db from "../conecction.js";
 
+
 // Definición del modelo tb_visits
 const Visit = db.define("tb_visits", {
   // Nombre del visitante

@@ -13,25 +13,16 @@
       <div>
         <ul class="navbar-nav ml-auto">
             <!--  por el amor de dios dejen de eliminar estas limitaciones -->
-            <% if (user && user.type !== 'administrador') { %>
+            <% if (user.type==='superUsuario' || user.type==='rh' ) { %>
+              <a id="color" class="nav-link" href="/registroInternos">Pasantes</a>
+              <% } %>
             <a id="color" class="nav-link" href="/registroVisitas">Registros</a>
-            <%if (user && user.type !== 'usuario') { %>
-            <a id="color" class="nav-link" href="/registroInternos">Pasantes</a>
-            <a id="color" class="nav-link" href="/hr-visits">Recursos Humanos</a>
             <a id="color" class="nav-link" href="/historialInternos">Historial de pasante</a>
-            <% } %>
-            <% } %>
-            <% if (user && user.type !== 'rh') { %>
             <a id="color" class="nav-link" class="nav-link" href="/historial">Historial de visitantes</a>
             <a id="color" class="nav-link" href="/AdmistrarUsuario">Control de Usuarios</a>
-            <%if (user && user.type !== 'usuario') { %>
             <a id="color" class="nav-link" href="/registroUsuario">Registrar Usuario</a>
-            <%if (user && user.type !== 'administrador') { %>
             <a id="color" class="nav-link" href="/registrosPendientes">Pendientes de Salida</a>
             <a id="color" class="nav-link" href="/controlPasantes">Control de Pasantes</a>
-            <% } %>
-            <% } %>
-            <% } %>
       </ul>
     </div>
     </div>

@@ -146,6 +146,7 @@ const login = (req, res) => {
   });
 };
 
+// Funcion de recarga de pagina para visualizar cambios automaticamente
 const rechargeUser = async (req, res) => {
   res.redirect("/AdmistrarUsuario");
 };

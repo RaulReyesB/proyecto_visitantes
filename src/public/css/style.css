@@ -486,7 +486,7 @@ footer p {
 }  
 
 
-/*Iconos a las alertas */
+/*Iconos a las alertas purbea */
 .alert-danger .alert-icon::before {
   content: "⚠"; 
 }

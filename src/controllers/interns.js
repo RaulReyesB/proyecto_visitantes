@@ -1,5 +1,6 @@
 import Intern from "../models/Intern.js";
 import HistoryIntern from "../models/history_I.js";
+import moment from "moment/moment.js";
 
 const controllInterns = async (req, res) => {
   try {
@@ -45,8 +46,30 @@ const registrarEntrada = async (req, res) => {
   }
 };
 
+const calcularHorasTotales = async (fileNumber) => {
+  const historyEntries = await HistoryIntern.findAll({
+    where: {
+      fileNumber: fileNumber,
+    },
+  });
+
+  let totalSeconds = 0;
+
+  historyEntries.forEach(entry => {
+    const entrance = moment(entry.entrance, "DD/MM/YYYY HH:mm:ss");
+    const exit = moment(entry.exit, "DD/MM/YYYY HH:mm:ss");
+
+    if (entrance.isValid() && exit.isValid()) {
+      totalSeconds += exit.diff(entrance, 'seconds');
+    }
+  });
+
+  return Math.floor(totalSeconds / 3600); // Total de horas completas
+};
+
 const registrarSalida = async (req, res) => {
   const internId = req.params.id;
+
   try {
     const intern = await Intern.findByPk(internId);
     if (!intern) {
@@ -62,15 +85,18 @@ const registrarSalida = async (req, res) => {
     });
 
     if (!historyEntry) {
-      return res
-        .status(404)
-        .send("Entrada no encontrada para registrar salida");
+      return res.status(404).send("Entrada no encontrada para registrar salida");
     }
 
     historyEntry.exit = new Date();
     await historyEntry.save();
 
     intern.exit = new Date();
+    await intern.save();
+
+    // Calcular las horas totales cumplidas y actualizar el campo hoursFulfilled
+    const totalHours = await calcularHorasTotales(intern.fileNumber);
+    intern.hoursFulfilled = totalHours;
     await intern.save();
 
     res.redirect("/controlPasantes");

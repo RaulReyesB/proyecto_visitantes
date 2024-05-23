@@ -2,6 +2,65 @@ import Intern from "../models/Intern.js";
 import HistoryIntern from "../models/history_I.js";
 import moment from "moment/moment.js";
 
+const insertIntern = async (req, res) => {
+  const {
+    fileNumber,
+    name,
+    school,
+    Mat,
+    career,
+    asignementDirec,
+    adviser,
+    numberHours,
+    days,
+    shedule,
+    hoursxDay,
+    startService,
+    endService,
+    totHours,
+    Program,
+    Observations,
+    service,
+  } = req.body;
+
+  const img = req.file ? `/uploads/${req.file.filename}` : null; // Guarda la URL relativa del archivo de imagen
+
+  try {
+    // Insertar el nuevo pasante en la base de datos
+    await Intern.create({
+      fileNumber,
+      name,
+      img,
+      school,
+      Mat,
+      career,
+      asignementDirec,
+      adviser,
+      numberHours,
+      days,
+      shedule,
+      hoursxDay,
+      startService,
+      endService,
+      totHours,
+      hoursFulfilled: 0, // Valor por defecto
+      Program,
+      Observations,
+      service,
+    });
+    res.redirect("/controlPasantes");
+  } catch (error) {
+    console.error("Error al insertar pasante:", error);
+    res.render("index", {
+      namePage: "Inicio",
+      description: "Bienvenido a Radio y Television Hidalgo",
+      user: req.session.user,
+      errors: [{msg: "No se pudo completar la operación"}],
+      msg: ""
+    });
+  }
+};
+
 const controllInterns = async (req, res) => {
   try {
     const interns = await Intern.findAll({
@@ -125,4 +184,4 @@ const getInternDetails = async (req, res) => {
   }
 };
 
-export { controllInterns, registrarEntrada, registrarSalida, getInternDetails };
+export { controllInterns, registrarEntrada, registrarSalida, getInternDetails, insertIntern, };

@@ -1,4 +1,5 @@
 import { Router } from "express";
+import multerConfig from "../middlewares/multerConfig.js"; // Asegúrate de actualizar el path
 import {
   requireAuth,
   requireRH,
@@ -10,7 +11,8 @@ import {
   registrarEntrada,
   registrarSalida,
   getInternDetails,
-} from "../controllers/interns.js";
+  insertIntern,
+} from "../controllers/interns.controller.js";
 import Intern from "../models/Intern.js";
 
 const routesInterns = Router();
@@ -39,5 +41,11 @@ routesInterns.get(
   requireSuperUserOrRH,
   getInternDetails
 );
+routesInterns.post(
+  "/registroInternos",
+  requireAuth,
+  requireSuperUserOrRH,
+  multerConfig.single("img"),
+  insertIntern);
 
 export default routesInterns;

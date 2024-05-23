@@ -15,8 +15,9 @@
         <h1 class="header-title">Bienvenid<span id="changing-letter" class="rotate-on-change">o</span></h1>
         <!-- Cambio de letra -->
         <h2 class="header-subtitle">Sistema de Registro y Aceso a Radio y Televisión Hidalgo</h2>
+        
         <div class="user-info-container">
-            <a href="/logout" class="btn btn-close">
+            <a href="/logout" class="btn btn-close" onclick="return confirmLogout()">
                 <i class="bi bi-box-arrow-in-right"></i> Salir
             </a>
         </div>
@@ -171,6 +172,11 @@
                         </footer>
                     </div>
                     <script>
+                        
+                      function confirmLogout() {
+                        return confirm('¿Estás seguro de que quieres salir?');
+                      }
+
                         setInterval(() => {
                             const changingLetter = document.getElementById("changing-letter");
                             changingLetter.classList.remove('rotate-on-change');

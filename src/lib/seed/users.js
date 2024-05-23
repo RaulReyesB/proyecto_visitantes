@@ -1,4 +1,6 @@
 import bcrypt from "bcryptjs"
+
+// Arreglo de usuarios llamado a traves del archivo startSeed actuan como datos precargados 
 const users=[
     {
         name:"user",

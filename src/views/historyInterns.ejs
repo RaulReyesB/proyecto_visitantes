@@ -64,13 +64,14 @@
             <td>
               <%= item.hoursFulfilled %>
             </td>
-            <td><a class="btn btn-secondary" href="/Pasante/info/<%= item.id %>">Ver mas</a></td>
+            <td><a class="btn btn-secondary" style="background: #691b31;" href="/Pasante/info/<%= item.id %>">Ver mas</a></td>
 
           </tr>
           <% }); %>
       </tbody>
     </table>
   </div>
+  <br>
     <!-- Inclusión del pie de página desde un archivo externo -->
     <footer>
       <%- include('templates/footer') %>

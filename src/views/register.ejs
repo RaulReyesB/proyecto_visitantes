@@ -2,7 +2,9 @@
 <html>
 
 <head>
-    <title><%= namePage %></title>
+    <title>
+        <%= namePage %>
+    </title>
     <!-- Comentarios sobre los recursos incluidos -->
     <link rel="stylesheet" href="/css/styleRegister.css">
     <link rel="stylesheet" href="/css/nav.css">
@@ -26,111 +28,149 @@
 <body style="font-family: 'Poppins', sans-serif;">
     <div class="fondo"></div>
     <%- include('templates/nav') %>
-    <div class="container">
-        <div class="cont-title">
-            <h1><%= namePage %></h1>
-        </div>
-        <div class="container-form">
-            <form action="/registroVisitas" method="POST">
-                <div class="form-inputs">
-                    <div class="form-p">
-                        <label for="">Ingresa tu nombre completo</label>
-                        <input class="form-control" type="text" name="name" id="" placeholder="Nombre Completo" required>
-                        <label for="">Teléfono con 10 caracteres</label>
-                        <input class="form-control" type="text" name="phone" placeholder="Teléfono" required>
-                        <label for="">Correo electrónico</label>
-                        <input class="form-control" type="email" name="email" placeholder="Correo electrónico" required>
-                    </div>
-                    <div class="form-p">
-                        <label for="">CURP</label>
-                        <input class="form-control" type="text" name="CURP" placeholder="CURP" required pattern="[A-Z0-9]{18}">
-                        <label for="">Identificación</label>
-                        <select class="form-control" name="identification" required>
-                            <option selected disabled>-- Seleccione una opción</option>
-                            <option value="INE">INE</option>
-                            <option value="Pasaporte">Pasaporte</option>
-                            <option value="Licencia">Licencia</option>
-                        </select>
-                        <label for="">Número de gafete</label>
-                        <select class="form-control" name="badge" id="badgeSelect" required>
-                            <% for(let i=1; i <=50; i++) { %>
-                                <option value="<%= String(i).padStart(3, '0') %>">
-                                    <%= String(i).padStart(3, '0' ) %>
-                                </option>
-                            <% } %>
-                        </select>
-                    </div>
-                    <div class="form-p" style="margin-right: 0;">
-                        <label for="">Procedencia</label>
-                        <input class="form-control" type="text" name="origin" placeholder="Procedencia" required>
-                        <label for="">Número de niños</label>
-                        <div class="buttons-container">
-                            <button type="button" class="minus-button btn mb-1" onclick="decrement()">-</button>
-                            <input style="width: 56px;" class="children-input form-control mb-1" type="number"
-                                name="children" id="childrenInput" placeholder="Cuántos niños" value="0" min="0">
-                            <button type="button" class="plus-button btn mb-1" onclick="increment()">+</button>
+        <!--  Contenedor principal  -->
+        <div class="container">
+            <div class="cont-title">
+                <h1>
+                    <%= namePage %>
+                </h1>
+            </div>
+            <!--  Contenedor del formulario  -->
+            <!--
+                Este código HTML representa un formulario de registro para los visitantes.
+                Incluye varios campos de ingreso como nombre, teléfono, correo electrónico, CURP, identificación, credencial, origen, número de hijos, departamento y subdepartamento.
+                El formulario también incluye botones para aumentar y disminuir el número de niños.
+                El usuario puede seleccionar el departamento y subdepartamento en los menús desplegables.
+                Tras el envío, los datos del formulario se envían al punto final "/registroVisitas" mediante el método POST.
+            -->
+            <div class="container-form">
+                <form action="/registroVisitas" method="POST">
+                    <!--  Contenedor de los campos del formulario  -->
+                    <div class="form-inputs">
+                        <div class="form-p">
+                            <label for="">Ingresa tu nombre completo</label>
+                            <input class="form-control" type="text" name="name" id="" placeholder="Nombre Completo">
+                            <label for="">Telefono con 10 caracteres</label>
+                            <input class="form-control" type="text" name="phone" placeholder="Telefono">
+                            <label for="">Correo electronico</label>
+                            <input class="form-control" type="text" name="email" placeholder="Correo electronico">
                         </div>
-                        <label for="">Departamento al que se dirige</label>
-                        <select class="form-control mb-2" id="mainSelect" name="department" required>
-                            <option selected disabled>-- Seleccione una opción --</option>
-                            <option value="DG">Dirección General</option>
-                            <option value="DCFP">Dirección de coordinación financiera y planeación</option>
-                            <option value="DT">Dirección de televisión</option>
-                            <option value="DN">Dirección de noticias</option>
-                            <option value="DR">Dirección de radio</option>
-                            <option value="DI">Dirección de ingeniería</option>
-                            <option value="DPE">Dirección de proyectos estratégicos</option>
-                            <option value="DC">Dirección de contraloría</option>
-                            <option value="DPI">Dirección de promoción e intercambio</option>
-                            <option value="DJ">Dirección jurídica</option>
-                            <option value="IMG">Imagen</option>
-                            <option value="RH">Recursos Humanos</option>
-                            <option value="ER">Estaciones de radio</option>
-                        </select>
-                        <select id="subSelect" class="form-control p-0" name="subDepartment" required>
-                            <option selected disabled>-- Seleccione una opción --</option>
-                        </select>
+                        <div class="form-p">
+                            <label for="">CURP</label>
+                            <input class="form-control" type="text" name="CURP" placeholder="Curp">
+                            <label for="">Identificación</label>
+                            <select class="form-control" name="identification" required>
+                                <option selected disabled>-- Seleccione una opción</option>
+                                <option value="INE">INE</option>
+                                <option value="Pasaporte">Pasaporte</option>
+                                <option value="Licencia">Licencia</option>
+                            </select>
+                            <label for="">Numero de gafete</label>
+                            <select class="form-control" name="badge" id="badgeSelect">
+                                <% for(let i=1; i <=50; i++) { %>
+                                    <option value="<%= String(i).padStart(3, '0') %>">
+                                        <%= String(i).padStart(3, '0' ) %>
+                                    </option>
+                                    <% } %>
+                            </select>
+                        </div>
+                        <div class="form-p" style="margin-right: 0;">
+                            <label for="">Procedencia</label>
+                            <input class="form-control" type="text" name="origin" placeholder="Procedencia">
+                            <label for="">Numero de niños</label>
+                            <!--  Botones para incrementar y decrementar el numero de niños  -->
+                            <div class="buttons-container">
+                                <input class="minus-button btn mb-1" onclick="decrement()" value="-">
+                                <input style="width: 56px;" class="children-input form-control mb-1" type="number"
+                                    name="children" id="childrenInput" placeholder="Cuantos niños" value="<%= ninos %>">
+                                <input class="plus-button btn mb-1" onclick="increment()" value="+">
+                            </div>
+
+                            <label for="">Departamento al que se dirige</label>
+                            <select class="form-control mb-2" id="mainSelect" name="department" required>
+                                <option selected disabled>-- Seleccione una opción --</option>
+                                <option value="DG">Direccion General</option>
+                                <option value="DCFP">Direccion de coordinacion financiera y planeacion</option>
+                                <option value="DT">Direccion de television</option>
+                                <option value="DN">Direccion de noticias</option>
+                                <option value="DR">Direccion de radio</option>
+                                <option value="DI">Direccion de ingenieria</option>
+                                <option value="DPE">Direccion de proyectos estrategicos</option>
+                                <option value="DC">Direccion de contraloria</option>
+                                <option value="DPI">Direccion de promocion e intercambio</option>
+                                <option value="DJ">Direccion juridica</option>
+                                <option value="IMG">Imagen</option>
+                                <option value="RH">Recursos Humanos</option>
+                                <option value="ER">Estaciones de radio</option>
+                            </select>
+                            <select id="subSelect" class="form-control p-0" name="subDepartment" required>
+                                <option selected disabled>-- Seleccione una opción --</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <input class="btn button" type="submit" value="Guardar">
-            </form>
+                    <!--boton de guardado-->
+                    <input class="btn button" type="submit" value="Guardar">
+                </form>
+            </div>
         </div>
-    </div>
-    <footer>
-        <%- include('templates/footer') %>
-    </footer>
+        <!--
+            Este código representa la vista de registro del proyecto.
+            Incluye la plantilla de pie de página utilizando la directiva de inclusión EJS.
+        -->
+        <div>
+            <footer>
+                <%- include('templates/footer') %>
+            </footer>
+        </div>
 </body>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
-    // Obtener badges ocupados y deshabilitar opciones
-    fetch('/badges/occupied')
-                    .then(response => response.json())
-                    .then(data => {
-                        const badgeSelect = document.getElementById('badgeSelect');
-                        data.forEach(badge => {
-                            const option = badgeSelect.querySelector(`option[value="${badge}"]`);
-                            if (option) {
-                                option.disabled = true;
-                            }
-                        });
-                    })
-                    .catch(error => console.error('Error al obtener badges ocupados:', error));
-                    
 
-    const subOptions = {
-        "DG": ["Director general", "Asistente de la dirección general", "Auxiliar del dpto. de la dirección general", "Recepción de entrada principal"],
-        "DCFP": ["DIR. de coordinación financiera y plan.", "Subdirector de administración", "Auxiliar Dir. de coordinación financiera y plan.", "Recursos humanos", "Servicios generales", "Almacén", "Archivo", "Tecnologías de la información"],
-        "DT": ["Director de televisión", "Subdirector de contenidos", "Subdirección de producción", "Encargada de DPTO de Videoteca", "Encargado de área de deportes", "Isla edición de televisión", "Cabina de video", "Master", "Jefa de planeación y posproducción", "Encargado de Staff y equipos portátiles", "Departamento de contenido", "Programación y videoteca", "Departamento de realización", "Departamento de evaluación y seguimiento", "Departamento de producción", "Departamento de eventos"],
-        "DN": ["Directora de noticias", "Asistente de redacción de noticias", "Encargado de la isla de noticias", "Reportero"],
-        "DR": ["Director de red estatal de radio", "Secretaria particular DIR. Radio", "Radio Producción", "Subdirector de radio", "Gerente de radio", "Sub. Coord. de noticias de radio", "Cabina de grabación", "Recepción entrada principal"],
-        "DI": ["Director de ingeniería", "Subdirector de ingeniería", "Estación terrena", "Aula de medios", "Central de aparatos"],
-        "DPE": ["Director de proyectos estratégicos"],
-        "DC": ["Directora de contraloría"],
-        "DPI": ["Director de promoción e intercambio"],
-        "DJ": ["Director jurídico"],
+    // Definir las opciones correspondientes de cada dpto
+    /*\
+    Este bloque de código define una función de JavaScript que rellena un menú 
+    desplegable en función del valor seleccionado de otro menú desplegable.
+    La función escucha un evento de cambio en el menú desplegable 'mainSelect'. 
+    Cuando el valor de 'mainSelect' cambia, la función borra las opciones en el menú 
+    desplegable 'subSelect' y lo rellena con nuevas opciones basadas en el valor seleccionado.
+    El objeto 'subOptions' almacena las opciones disponibles para cada posible valor de 
+    'mainSelect'. Cada clave en el objeto corresponde a un valor en 'mainSelect', y el valor asociado es una matriz de
+    opciones para 'subSelect'.
+    Las variables 'mainSelect' y 'subSelect' son referencias a los elementos HTML con los ID correspondientes.
+    La función itera sobre la matriz de opciones para el valor seleccionado de 'mainSelect' y 
+    crea un nuevo elemento de opción para cada opción. El valor y el innerHTML de cada opción se establecen
+    en el valor correspondiente de la matriz de opciones. Los nuevos elementos de opción se agregan al menú desplegable 'subSelect'.
+    Este código se utiliza típicamente en un formulario web donde las opciones en un menú desplegable 
+    dependen de la selección realizada en otro menú desplegable.
+    Ejemplo de uso:
+    - Cuando el usuario selecciona "DG" en el menú desplegable 'mainSelect', el menú desplegable 'subSelect' se rellenará con opciones como "Director general", "Asistente de la dirección general", etc.
+    - Cuando el usuario selecciona "DCFP" en el menú desplegable
+        */
+    var subOptions = {
+        "DG": ["Director general", "Asistente de la direccion general", "Auxiliar del dpto. de la direccion general",
+            "Recepcion de entrada principal"
+        ],
+        "DCFP": ["DIR. de coordinacion financiera y plan.", "Subdirector de administracion", "Auxiliar Dir. de coordinacion financiera y plan.",
+            "Recursos humanos", "Servicios generales", "Almacen", "Archivo", "Tecnologias de la informacion"
+        ],
+        "DT": ["Director de television", "Subdirector de contenidos", "Subdireccion de produccion", "Encargada de DPTO de Videoteca", "Encargado de area de deportes",
+            "Isla edicion de television", "Cabina de video", "Master", "Jefa de planeacion y posproduccion", "Encargado de Staff y equipos portatiles",
+            "Departamento de contenido", "Programacion y videoteca", "Departamento de realizacion", "Departamento de evaluacion y seguimiento",
+            "Departamento de produccion", "departamento de eventos"
+        ],
+        "DN": ["Directora de noticias", "Asistente de redaccion de noticias", "Encargado de la isla de noticias", "Reportero"
+        ],
+        "DR": ["Director de red estatal de radio", "Secretaria particular DIR. Radio", "Radio Produccion", "Subdirector de radio",
+            "Gerente de radio", "Sub. Coord. de noticias de radio", "Cabina de grabacion", "Recepcion entrada principal"
+        ],
+        "DI": ["Director de ingenieria", "Subdirector de ingenieria", "Estacion terrena", "aula de medios", "central de aparatos"],
+        "DPE": ["Director de proyectos estrategicos"],
+        "DC": ["Directora de contraloria"],
+        "DPI": ["Director de promocion e intercambio"],
+        "DJ": ["Director juridico"],
         "IMG": ["Subdirector de imagen"],
         "ER": ["Estación de radio Jacala", "Estación de radio Tlanchinol", "Estación de radio Huejutla", "Red estatal de radio"],
         "RH": ["Recursos Humanos"]

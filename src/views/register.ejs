@@ -125,6 +125,20 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
+   // Obtener badges ocupados y deshabilitar opciones
+   fetch('/badges/occupied')
+                    .then(response => response.json())
+                    .then(data => {
+                        const badgeSelect = document.getElementById('badgeSelect');
+                        data.forEach(badge => {
+                            const option = badgeSelect.querySelector(`option[value="${badge}"]`);
+                            if (option) {
+                                option.disabled = true;
+                            }
+                        });
+                    })
+                    .catch(error => console.error('Error al obtener badges ocupados:', error));
+
   document.addEventListener('DOMContentLoaded', function() {
     var select = document.querySelector('select[name="identification"]');
     var curpInput = document.querySelector('input[name="CURP"]');

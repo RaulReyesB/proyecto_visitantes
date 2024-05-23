@@ -2,39 +2,38 @@
 <html>
 
 <head>
-    <title><%= namePage %></title>
-    <!-- Comentarios sobre los recursos incluidos -->
-    <link rel="stylesheet" href="/css/styleRegister.css">
-    <link rel="stylesheet" href="/css/nav.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/footer.css">
-    <link rel="icon" type="image/ico" href="/img/logohidalgo.ico">
-    <style>
-        input::-webkit-outer-spin-button,
-        input::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
+  <title><%= namePage %></title>
+  <!-- Comentarios sobre los recursos incluidos -->
+  <link rel="stylesheet" href="/css/styleRegister.css">
+  <link rel="stylesheet" href="/css/nav.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/footer.css">
+  <link rel="icon" type="image/ico" href="/img/logohidalgo.ico">
+  <style>
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
 
-        input[id="childrenInput"] {
-            -moz-appearance: textfield;
-        }
-    </style>
+    input[id="childrenInput"] {
+      -moz-appearance: textfield;
+    }
+  </style>
 </head>
 
 <body style="font-family: 'Poppins', sans-serif;">
-    <div class="fondo"></div>
-    <%- include('templates/nav') %>
-        <!--  Contenedor principal  -->
-        <div class="container">
-            <div class="cont-title">
-                <h1>
-                    <%= namePage %>
-                </h1>
-            </div>
-            <!--  Contenedor del formulario  -->
-            <!--
+  <div class="fondo"></div>
+  <%- include('templates/nav') %>
+  <!--  Contenedor principal  -->
+  <div class="container">
+    <div class="cont-title">
+      <h1>
+        <%= namePage %>
+      </h1>
+    </div>
+    <!--  Contenedor del formulario  -->
+    <!--
                 Este código HTML representa un formulario de registro para los visitantes.
                 Incluye varios campos de ingreso como nombre, teléfono, correo electrónico, CURP, identificación, credencial, origen, número de hijos, departamento y subdepartamento.
                 El formulario también incluye botones para aumentar y disminuir el número de niños.
@@ -114,32 +113,45 @@
             Este código representa la vista de registro del proyecto.
             Incluye la plantilla de pie de página utilizando la directiva de inclusión EJS.
         -->
-        <div>
-            <footer>
-                <%- include('templates/footer') %>
-            </footer>
-        </div>
+  <div>
+    <footer>
+      <%- include('templates/footer') %>
+    </footer>
+  </div>
 </body>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
+   // Obtener badges ocupados y deshabilitar opciones
+   fetch('/badges/occupied')
+                    .then(response => response.json())
+                    .then(data => {
+                        const badgeSelect = document.getElementById('badgeSelect');
+                        data.forEach(badge => {
+                            const option = badgeSelect.querySelector(`option[value="${badge}"]`);
+                            if (option) {
+                                option.disabled = true;
+                            }
+                        });
+                    })
+                    .catch(error => console.error('Error al obtener badges ocupados:', error));
 
-document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function() {
     var select = document.querySelector('select[name="identification"]');
     var curpInput = document.querySelector('input[name="CURP"]');
-    
+
     select.addEventListener('change', function() {
-        if (this.value === 'Nue') {
-            curpInput.disabled = true;
-            curpInput.removeAttribute('required');
-            curpInput.value = 'N/A'; 
-        } else {
-            curpInput.disabled = false;
-            curpInput.setAttribute('required', '');
-            curpInput.value = ''; 
-        }
+      if (this.value === 'Nue') {
+        curpInput.disabled = true;
+        curpInput.removeAttribute('required');
+        curpInput.value = 'N/A';
+      } else {
+        curpInput.disabled = false;
+        curpInput.setAttribute('required', '');
+        curpInput.value = '';
+      }
     });
 });
     // Definir las opciones correspondientes de cada dpto
@@ -187,41 +199,41 @@ document.addEventListener('DOMContentLoaded', function() {
         "IMG": ["Subdirector de Imagen"],
     };
 
-    const mainSelect = document.getElementById('mainSelect');
-    const subSelect = document.getElementById('subSelect');
+  const mainSelect = document.getElementById('mainSelect');
+  const subSelect = document.getElementById('subSelect');
 
-    mainSelect.addEventListener('change', function () {
-        subSelect.innerHTML = '';
-        subSelect.disabled = false;
-        const options = subOptions[this.value];
+  mainSelect.addEventListener('change', function() {
+    subSelect.innerHTML = '';
+    subSelect.disabled = false;
+    const options = subOptions[this.value];
 
-        options.forEach(option => {
-            const opt = document.createElement('option');
-            opt.value = option;
-            opt.innerHTML = option;
-            subSelect.appendChild(opt);
-        });
+    options.forEach(option => {
+      const opt = document.createElement('option');
+      opt.value = option;
+      opt.innerHTML = option;
+      subSelect.appendChild(opt);
     });
+  });
 
-    document.querySelector('input[name="CURP"]').addEventListener('input', function (e) {
-        if (e.target.value.length !== 18) {
-            e.target.setCustomValidity('El campo CURP debe tener exactamente 18 caracteres.');
-        } else {
-            e.target.setCustomValidity('');
-        }
-    });
-
-    function increment() {
-        const input = document.getElementById("childrenInput");
-        input.value = parseInt(input.value) + 1;
+  document.querySelector('input[name="CURP"]').addEventListener('input', function(e) {
+    if (e.target.value.length !== 18) {
+      e.target.setCustomValidity('El campo CURP debe tener exactamente 18 caracteres.');
+    } else {
+      e.target.setCustomValidity('');
     }
+  });
 
-    function decrement() {
-        const input = document.getElementById("childrenInput");
-        if (parseInt(input.value) > 0) {
-            input.value = parseInt(input.value) - 1;
-        }
+  function increment() {
+    const input = document.getElementById("childrenInput");
+    input.value = parseInt(input.value) + 1;
+  }
+
+  function decrement() {
+    const input = document.getElementById("childrenInput");
+    if (parseInt(input.value) > 0) {
+      input.value = parseInt(input.value) - 1;
     }
+  }
 </script>
 
 </html>

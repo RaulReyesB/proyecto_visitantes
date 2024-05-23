@@ -1,174 +1,189 @@
+/* Estilos generales del body */
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Arial', sans-serif;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  margin: 0; /* Elimina el margen predeterminado */
+  padding: 0; /* Elimina el relleno predeterminado */
+  font-family: 'Arial', sans-serif; /* Define la fuente del texto */
+  display: flex; /* Usa el modelo de caja flexible */
+  flex-direction: column; /* Coloca los elementos en columna */
+  min-height: 100vh; /* Establece la altura mínima del cuerpo al 100% del viewport */
 }
 
+/* Estilo del fondo personalizado */
 .custom-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('/img/fachada1.webp') no-repeat center center/cover;
-  filter: blur(8px);
-  z-index: -1;
+  position: fixed; /* Fija la posición del fondo */
+  top: 0; /* Coloca el fondo en la parte superior */
+  left: 0; /* Coloca el fondo en la parte izquierda */
+  width: 100%; /* Establece el ancho del fondo al 100% */
+  height: 100%; /* Establece la altura del fondo al 100% */
+  background: url('/img/fachada1.webp') no-repeat center center/cover; /* Define la imagen de fondo */
+  filter: blur(8px); /* Aplica un efecto de desenfoque al fondo */
+  z-index: -1; /* Coloca el fondo detrás de otros elementos */
 }
 
+/* Contenedor principal */
 .container {
-  flex: 1;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  flex: 1; /* Permite que el contenedor ocupe todo el espacio disponible */
+  display: flex; /* Usa el modelo de caja flexible */
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan en múltiples líneas si es necesario */
+  justify-content: center; /* Centra los elementos horizontalmente */
+  align-items: center; /* Centra los elementos verticalmente */
 }
 
+/* Contenedor de login */
 .login-container {
-  width: 90%;
-  max-width: 500px;
-  padding: 100px 20px;
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 20px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  margin: 10px;
-  animation-duration: 1s;
-  animation-timing-function: ease-in-out;
+  width: 90%; /* Establece el ancho del contenedor al 90% */
+  max-width: 500px; /* Establece el ancho máximo del contenedor */
+  padding: 100px 20px; /* Añade relleno al contenedor */
+  background-color: rgba(255, 255, 255, 0.5); /* Establece el color de fondo con transparencia */
+  border-radius: 20px; /* Define el radio de borde */
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Agrega una sombra al contenedor */
+  text-align: center; /* Alinea el texto al centro */
+  margin: 10px; /* Establece el margen del contenedor */
+  animation-duration: 1s; /* Duración de la animación */
+  animation-timing-function: ease-in-out; /* Función de temporización de la animación */
 }
 
+/* Contenedor de bienvenida */
 .welcome-container {
-  width: 100%;
-  max-width: 500px;
-  padding: 80px 20px;
-  background-color: rgba(105, 27, 49, 0.7);
-  border-radius: 10px 150px 10px 150px;
-  box-shadow: 0px 0px 20px rgba(105, 27, 49, 0);
-  text-align: center;
-  margin: 10px;
-  animation-duration: 1s;
-  animation-timing-function: ease-in-out;
+  width: 100%; /* Establece el ancho del contenedor al 100% */
+  max-width: 500px; /* Establece el ancho máximo del contenedor */
+  padding: 80px 20px; /* Añade relleno al contenedor */
+  background-color: rgba(105, 27, 49, 0.7); /* Establece el color de fondo con transparencia */
+  border-radius: 10px 150px 10px 150px; /* Define el radio de borde */
+  box-shadow: 0px 0px 20px rgba(105, 27, 49, 0); /* Agrega una sombra al contenedor */
+  text-align: center; /* Alinea el texto al centro */
+  margin: 10px; /* Establece el margen del contenedor */
+  animation-duration: 1s; /* Duración de la animación */
+  animation-timing-function: ease-in-out; /* Función de temporización de la animación */
 }
 
+/* Estilo del encabezado del contenedor de login */
 .login-container h2 {
-  font-size: 45px;
-  margin-bottom: 10px;
-  color: #000000;
-  font-family: 'Arial', sans-serif;
+  font-size: 45px; /* Establece el tamaño del texto */
+  margin-bottom: 10px; /* Establece el margen inferior */
+  color: #000000; /* Establece el color del texto */
+  font-family: 'Arial', sans-serif; /* Define la fuente del texto */
 }
 
+/* Estilo del encabezado del contenedor de bienvenida */
 .welcome-container h1 {
-  font-size: 0px;
-  margin-bottom: 1px;
-  color: #fff;
-  font-family: 'Arial', sans-serif;
+  font-size: 0px; /* Establece el tamaño del texto a cero (oculto) */
+  margin-bottom: 1px; /* Establece el margen inferior */
+  color: #fff; /* Establece el color del texto */
+  font-family: 'Arial', sans-serif; /* Define la fuente del texto */
 }
 
+/* Estilo del párrafo del contenedor de bienvenida */
 .welcome-container p {
-  margin-bottom: 1px;
-  color: #fff;
-  font-family: 'Arial', sans-serif;
-  font-size: 0px;
+  margin-bottom: 1px;/* Establece el margen inferior */
+  color: #fff;/* Establece el color del texto */
+  font-family: 'Arial', sans-serif;/* Define la fuente del texto */
+  font-size: 0px; /*Tamaño de la fuente*/
 }
 
+/* Estilo de la imagen del logo */
 .logo-img {
-  max-width: 100%;
-  height: auto;
-  margin-top: -100px;
-  border-radius: 10px;
+  max-width: 100%; /* Establece el ancho máximo de la imagen */
+  height: auto; /* Establece la altura automática de la imagen */
+  margin-top: -100px; /* Desplaza la imagen hacia arriba */
+  border-radius: 10px; /* Define el radio de borde */
 }
 
+/* Estilo del grupo de formularios */
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 20px; /* Establece el margen inferior */
 }
 
+/* Estilo de los controles del formulario */
 .form-control {
-  border-radius: 25px;
-  padding: 15px;
-  font-size: 16px;
+  border-radius: 25px; /* Define el radio de borde */
+  padding: 15px; /* Añade relleno */
+  font-size: 16px; /* Establece el tamaño del texto */
 }
 
+/* Estilo del botón primario */
 .btn-primary {
-  border-radius: 25px;
-  padding: 10px;
-  font-size: 18px;
-  color: #F2F2F3;
-  transition: background-color 0.3s ease;
-  background-color: #BC955B;
-  border: 2px solid #F2F2F3;
+  border-radius: 25px; /* Define el radio de borde */
+  padding: 10px; /* Añade relleno */
+  font-size: 18px; /* Establece el tamaño del texto */
+  color: #F2F2F3; /* Establece el color del texto */
+  transition: background-color 0.3s ease; /* Agrega una transición al color de fondo */
+  background-color: #BC955B; /* Establece el color de fondo */
+  border: 2px solid #F2F2F3; /* Establece el borde */
 }
 
+/* Estilo del botón primario al pasar el cursor */
 .btn-primary:hover {
-  background-color: #A02142;
-  border-color: #4fa3fc;
+  background-color: #A02142; /* Cambia el color de fondo al pasar el cursor */
+  border-color: #4fa3fc; /* Cambia el color del borde al pasar el cursor */
 }
 
+/* Animación de entrada para el contenedor de login */
 .login-container {
-  animation-name: fadeIn;
+  animation-name: fadeIn; /* Nombre de la animación */
 }
 
+/* Animación de entrada para el contenedor de bienvenida */
 .welcome-container {
-  animation-name: fadeIn;
+  animation-name: fadeIn; /* Nombre de la animación */
 }
 
+/* Keyframes para la animación de entrada */
 @keyframes fadeIn {
   from {
-    opacity: 0;
-    transform: translateY(50px);
+    opacity: 0; /* Establece la opacidad inicial en cero */
+    transform: translateY(50px); /* Desplaza hacia abajo */
   }
   to {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1; /* Establece la opacidad final en uno */
+    transform: translateY(0); /* Sin desplazamiento */
   }
 }
 
-
-
-
-
-
+/* Keyframes para la animación de deslizamiento hacia arriba */
 @keyframes slideUp {
   from {
-    opacity: 0;
-    transform: translateY(100%);
+    opacity: 0; /* Establece la opacidad inicial en cero */
+    transform: translateY(100%); /* Desplaza hacia arriba */
   }
   to {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1; /* Establece la opacidad final en uno */
+    transform: translateY(0); /* Sin desplazamiento */
   }
 }
-
+/* Estilos para pantallas con un ancho máximo de 768px */
 @media (max-width: 768px) {
+  /* Cambia la dirección de los elementos en el contenedor principal a columna inversa */
   .container {
     flex-direction: column-reverse;
   }
 
+  /* Cambia el orden del contenedor de bienvenida */
   .welcome-container {
-    order: -1;
-    height: 250px;
-    padding: 1px;
-    width: 300px ;
-    margin-bottom: 2px;
-    border-radius: 10px 90px 10px 90px;
-    text-align: center;
-
+    order: -1; /* Mueve el contenedor de bienvenida al principio */
+    height: 250px; /* Establece la altura */
+    padding: 1px; /* Añade relleno */
+    width: 300px; /* Establece el ancho */
+    margin-bottom: 2px; /* Establece el margen inferior */
+    border-radius: 10px 90px 10px 90px; /* Define el radio de borde */
+    text-align: center; /* Alinea el contenido al centro */
   }
 
+  /* Estilo del contenedor de inicio de sesión */
   .login-container {
-    width: 90%;
-    padding: 20px;
-    margin-bottom: 50px;
+    width: 90%; /* Establece el ancho */
+    padding: 20px; /* Añade relleno */
+    margin-bottom: 50px; /* Establece el margen inferior */
   }
 
+  /* Estilo de la imagen del logo */
   .logo-img {
-    margin-top: -40px;
-    border-radius: 5%;
-    width: 300px;
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin-top: -40px; /* Desplaza hacia arriba */
+    border-radius: 5%; /* Define el radio de borde */
+    width: 300px; /* Establece el ancho */
+    height: auto; /* Establece la altura automática */
+    display: block; /* Muestra como bloque */
+    margin-left: auto; /* Margen izquierdo automático */
+    margin-right: auto; /* Margen derecho automático */
   }
 }

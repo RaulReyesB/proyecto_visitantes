@@ -46,7 +46,7 @@ input: Estilos para el campo de entrada para el número de hijos.
   align-items: center;
   flex-direction: column;
   margin: auto;
-  min-height:80vh;/*importante*/
+  min-height: 80vh;/*importante*/
   position:relative;
 }
 
@@ -147,29 +147,42 @@ form .button:hover {
 .buttons-container {
   display: flex;
   align-items: center;
+  justify-content: center; /* Centra los elementos horizontalmente */
+  gap: 20px; /* Espacio entre los elementos */
+  margin-left: 30px; 
+  margin-right: 30px; 
 }
 
 /* Estilo de los botones de agregar y quitar */
 .minus-button,
 .plus-button {
-  width: 35px;
-  height: 30px;
+  position: relative;
   border: none;
   background-color: #f0f0f0;
   color: #333;
-  font-size: 16px;
+  font-size: 50px;
   cursor: pointer;
-  margin: 0 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilo de hover para los botones */
+.minus-button:hover,
+.plus-button:hover {
+  background-color: #BC955B;
 }
 
 /* Input de cantidad de hijos */
 .children-input {
-  width: 50px;
-  height: 30px;
+  width: 56px;
+  height: 35px;
   border: 1px solid #ccc;
-  padding: 5px 10px;
+  text-align: center; /* Centra el texto dentro del input */
   font-size: 16px;
+  padding: 0; /* Ajusta el padding para centrar el texto verticalmente */
 }
+
 
 .v-img {
   max-width: 100%;

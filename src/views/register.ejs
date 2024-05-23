@@ -46,25 +46,25 @@
                     <!--  Contenedor de los campos del formulario  -->
                     <div class="form-inputs">
                         <div class="form-p">
-                            <label for="">Ingresa tu nombre completo</label>
+                            <label for="">Ingresa Nombre Completo</label>
                             <input class="form-control" type="text" name="name" id="" placeholder="Nombre Completo" required>
-                            <label for="">Telefono con 10 caracteres</label>
-                            <input class="form-control" type="text" name="phone" placeholder="Telefono" required>
-                            <label for="">Correo electronico</label>
-                            <input class="form-control" type="email" name="email" placeholder="Correo electronico" required>
+                            <label for="">Teléfono</label>
+                            <input class="form-control" type="text" name="phone" placeholder="Teléfono" maxlength="10" required onkeypress="return /[0-9]/i.test(event.key)">
+                            <label for="">Correo Electrónico</label>
+                            <input class="form-control" type="email" name="email" placeholder="Correo Electrónico" required>
                         </div>
                         <div class="form-p">
                             <label for="">CURP</label>
-                            <input class="form-control" type="text" name="CURP" placeholder="Curp" required>
+                            <input class="form-control" type="text" name="CURP" placeholder="CURP" maxlength="18" required>
                             <label for="">Identificación</label>
                             <select class="form-control" name="identification" required>
-                                <option value="">-- Seleccione una opción</option>
+                                <option value="">Seleccione una opción</option>
                                 <option value="INE">INE</option>
                                 <option value="Pasaporte">Pasaporte</option>
                                 <option value="Licencia">Licencia</option>
                                 <option value="Nue">Numero unico de extranjero</option>
                             </select>
-                            <label for="">Numero de gafete</label>
+                            <label for="">N° de Gafete</label>
                             <select class="form-control" name="badge" id="badgeSelect">
                                 <% for(let i=1; i <=50; i++) { %>
                                     <option value="<%= String(i).padStart(3, '0') %>">
@@ -79,31 +79,29 @@
                             <label for="">Numero de niños</label>
                             <!--  Botones para incrementar y decrementar el numero de niños  -->
                             <div class="buttons-container">
-                                <input class="minus-button btn mb-1" onclick="decrement()" value="-">
-                                <input style="width: 56px;" class="children-input form-control mb-1" type="number"
-                                    name="children" id="childrenInput" placeholder="Cuantos niños" value="<%= ninos %>">
-                                <input class="plus-button btn mb-1" onclick="increment()" value="+">
+                                <input class="minus-button btn mb-1" onclick="decrement()" value="-" type="button">
+                                <input class="children-input form-control mb-1" type="number" name="children" id="childrenInput" placeholder="Cuantos niños" value="<%= ninos %>" readonly>
+                                <input class="plus-button btn mb-1" onclick="increment()" value="+" type="button">
                             </div>
+                                                      
 
-                            <label for="">Departamento al que se dirige</label>
+                            <label for="">Área y Departamento al que se dirige</label>
                             <select class="form-control mb-2" id="mainSelect" name="department" required>
-                                <option value="">-- Seleccione una opción --</option>
-                                <option value="DG">Direccion General</option>
-                                <option value="DCFP">Direccion de coordinacion financiera y planeacion</option>
-                                <option value="DT">Direccion de television</option>
-                                <option value="DN">Direccion de noticias</option>
-                                <option value="DR">Direccion de radio</option>
-                                <option value="DI">Direccion de ingenieria</option>
-                                <option value="DPE">Direccion de proyectos estrategicos</option>
-                                <option value="DC">Direccion de contraloria</option>
-                                <option value="DPI">Direccion de promocion e intercambio</option>
-                                <option value="DJ">Direccion juridica</option>
+                                <option value=""  disabled selected>Seleccione un Área </option>
+                                <option value="DG">Dirección General</option>
+                                <option value="DCFP">Dirección de Coordinación Financiera y Planeación</option>
+                                <option value="DT">Dirección de Televisión</option>
+                                <option value="DN">Dirección de Noticias</option>
+                                <option value="DR">Dirección de Radio</option>
+                                <option value="DI">Dirección de Ingeniería</option>
+                                <option value="DPE">Dirección de Proyectos Estratégicos</option>
+                                <option value="DC">Dirección de Contraloría</option>
+                                <option value="DPI">Dirección de Promoción e Intercambio</option>
+                                <option value="DJ">Dirección jurídica</option>
                                 <option value="IMG">Imagen</option>
-                                <option value="RH">Recursos Humanos</option>
-                                <option value="ER">Estaciones de radio</option>
                             </select>
                             <select id="subSelect" class="form-control p-0" name="subDepartment" required>
-                                <option value="">-- Seleccione una opción --</option>
+                                <option value="">Seleccione un Departamento </option>
                             </select>
                         </div>
                     </div>
@@ -165,30 +163,28 @@ document.addEventListener('DOMContentLoaded', function() {
     - Cuando el usuario selecciona "DCFP" en el menú desplegable
         */
     var subOptions = {
-        "DG": ["Director general", "Asistente de la direccion general", "Auxiliar del dpto. de la direccion general",
-            "Recepcion de entrada principal"
+        "DG": ["Director General", "Asistente de la Dirección General", "Auxiliar del Dpto. de la Dirección General",
+            "Recepción de Entrada Principal"
         ],
-        "DCFP": ["DIR. de coordinacion financiera y plan.", "Subdirector de administracion", "Auxiliar Dir. de coordinacion financiera y plan.",
-            "Recursos humanos", "Servicios generales", "Almacen", "Archivo", "Tecnologias de la informacion"
+        "DCFP": ["Dir. de Coordinación Financiera y Plan.", "Subdirector de Administración", "Auxiliar Dir. de Coordinación Financiera y Plan.",
+            "Recursos humanos", "Servicios Generales", "Almacén", "Archivo", "Tecnologías de la Información"
         ],
-        "DT": ["Director de television", "Subdirector de contenidos", "Subdireccion de produccion", "Encargada de DPTO de Videoteca", "Encargado de area de deportes",
-            "Isla edicion de television", "Cabina de video", "Master", "Jefa de planeacion y posproduccion", "Encargado de Staff y equipos portatiles",
-            "Departamento de contenido", "Programacion y videoteca", "Departamento de realizacion", "Departamento de evaluacion y seguimiento",
-            "Departamento de produccion", "departamento de eventos"
+        "DT": ["Director de Televisión", "Subdirector de Contenidos", "Subdirección de Producción", "Encargada de Dpto. de Videoteca", "Encargado de Área de Deportes",
+            "Isla Edición de Televisión", "Cabina de Video", "Master", "Jefa de Planeación y Posproducción", "Encargado de Staff y Equipos Portatiles",
+            "Departamento de Contenido", "Programación y Videoteca", "Departamento de Realización", "Departamento de Evaluación y Seguimiento",
+            "Departamento de Producción", "Departamento de Eventos"
         ],
-        "DN": ["Directora de noticias", "Asistente de redaccion de noticias", "Encargado de la isla de noticias", "Reportero"
+        "DN": ["Directora de Noticias", "Asistente de Redacción de Noticias", "Encargado de la Isla de Noticias", "Reportero"
         ],
-        "DR": ["Director de red estatal de radio", "Secretaria particular DIR. Radio", "Radio Produccion", "Subdirector de radio",
-            "Gerente de radio", "Sub. Coord. de noticias de radio", "Cabina de grabacion", "Recepcion entrada principal"
+        "DR": ["Director de Red Estatal de Radio", "Secretaría Particular Dir. Radio", "Radio Producción", "Subdirector de Radio",
+            "Gerente de Radio", "Sub. Coord. de Noticias de Radio", "Cabina de Grabación", "Recepción Entrada Principal"
         ],
-        "DI": ["Director de ingenieria", "Subdirector de ingenieria", "Estacion terrena", "aula de medios", "central de aparatos"],
-        "DPE": ["Director de proyectos estrategicos"],
-        "DC": ["Directora de contraloria"],
-        "DPI": ["Director de promocion e intercambio"],
-        "DJ": ["Director juridico"],
-        "IMG": ["Subdirector de imagen"],
-        "ER": ["Estación de radio Jacala", "Estación de radio Tlanchinol", "Estación de radio Huejutla", "Red estatal de radio"],
-        "RH": ["Recursos Humanos"]
+        "DI": ["Director de Ingeniería", "Subdirector de Ingeniería", "Estación terrena", "Aula de Medios", "Central de Aparatos"],
+        "DPE": ["Director de Proyectos Estrategicos"],
+        "DC": ["Directora de Contraloría"],
+        "DPI": ["Director de Promoción e Intercambio"],
+        "DJ": ["Director Jurídico"],
+        "IMG": ["Subdirector de Imagen"],
     };
 
     const mainSelect = document.getElementById('mainSelect');

@@ -1,5 +1,5 @@
 #var {
-  /*background: #1e3740;*/
+  
   background: #691b31;
   padding: 1%;
   display: flex;
@@ -75,6 +75,7 @@
   }
 
   .enlaces a {
+    text-align: center;
     padding: 10px 15px;
     width: 100%;
     text-align: left;
@@ -111,7 +112,12 @@
   width: 100%;
 }
 
-
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end; /* Asegura que los elementos se alineen a la derecha */
+  width: 100%;
+}
 
 
 /* Estilos Generales del Navbar 
@@ -220,5 +226,11 @@
 }
 #color {
   color:white;
+}
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end; 
+  width: 100%;
 }
 */

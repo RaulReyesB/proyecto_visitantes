@@ -1,37 +1,51 @@
-
-<!-- una navegacion implementada de bootstrap-->
 <nav id="var" class="navbar navbar-expand-lg navbar-dark">
   <div class="container-fluid">
-    <!--iamgen de la institicion logueada al inicio de la pagina-->
+    <!-- Imagen de la institución logueada al inicio de la página -->
     <a href="/inicio" style="display: flex;">
       <img src="/img/rtyh_logo.webp" alt="Logo">
-    </a class="enlaces">
+    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <div>
-        <ul class="navbar-nav ml-auto">
-            <!--  por el amor de dios dejen de eliminar estas limitaciones -->
-            <% if (user.type==='superUsuario' || user.type==='rh' ) { %>
-              <a id="color" class="nav-link" href="/registroInternos">Pasantes</a>
-              <a id="color" class="nav-link" href="/historialInternos">Historial de pasante</a>
-            <% } %>
-            <% if (user.type==='superUsuario' || user.type==='usuario' ) { %>
-              <a id="color" class="nav-link" href="/registroVisitas">Registrar visitas</a>
-              <a id="color" class="nav-link" href="/registrosPendientes">Pendientes de Salida</a>
-              <a id="color" class="nav-link" href="/controlPasantes">Control de Pasantes</a>
-            <% } %>
-            <% if (user.type==='superUsuario' || user.type==='administrador' ) { %>
-              <a id="color" class="nav-link" class="nav-link" href="/historial">Historial de visitantes</a>
-              <a id="color" class="nav-link" href="/controlPasantes">Control de Pasantes</a>
-            <% } %>
-            <% if (user.type==='superUsuario') { %>
+      <ul class="navbar-nav ml-auto">
+        <!-- Por el amor de Dios dejen de eliminar estas limitaciones -->
+        <% if (user.type==='superUsuario' || user.type==='rh' ) { %>
+          <li class="nav-item">
+            <a id="color" class="nav-link" href="/registroInternos">Pasantes</a>
+          </li>
+          <li class="nav-item">
+            <a id="color" class="nav-link" href="/historialInternos">Historial de pasante</a>
+          </li>
+        <% } %>
+        <% if (user.type==='superUsuario' || user.type==='usuario' ) { %>
+          <li class="nav-item">
+            <a id="color" class="nav-link" href="/registroVisitas">Registrar visitas</a>
+          </li>
+          <li class="nav-item">
+            <a id="color" class="nav-link" href="/registrosPendientes">Pendientes de Salida</a>
+          </li>
+          <li class="nav-item">
+            <a id="color" class="nav-link" href="/controlPasantes">Control de Pasantes</a>
+          </li>
+        <% } %>
+        <% if (user.type==='superUsuario' || user.type==='administrador' ) { %>
+          <li class="nav-item">
+            <a id="color" class="nav-link" href="/historial">Historial de visitantes</a>
+          </li>
+          <li class="nav-item">
+            <a id="color" class="nav-link" href="/controlPasantes">Control de Pasantes</a>
+          </li>
+        <% } %>
+        <% if (user.type==='superUsuario') { %>
+          <li class="nav-item">
             <a id="color" class="nav-link" href="/AdmistrarUsuario">Control de Usuarios</a>
+          </li>
+          <li class="nav-item">
             <a id="color" class="nav-link" href="/registroUsuario">Registrar Usuario</a>
-            <% } %>
-        </ul>
-    </div>
+          </li>
+        <% } %>
+      </ul>
     </div>
   </div>
 </nav>

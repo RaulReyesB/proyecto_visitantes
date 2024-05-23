@@ -14,6 +14,7 @@ import routesInterns from "./routes/interns.routes.js";
 import { fileURLToPath } from "url";
 import path from "path";
 import { Intern, HistoryIntern } from "./models/relationShips.js";
+import visit from "./routes/visits.routes.js";
 
 // Define __dirname para módulos ES
 const __filename = fileURLToPath(import.meta.url);
@@ -53,6 +54,7 @@ app.use("/", router);
 app.use("/", pdR);
 app.use("/", user);
 app.use("/", routesInterns);
+app.use("/", visit)
 
 // Se autentica a la base de datos y sincroniza los modelos
 try {

@@ -1,13 +1,13 @@
 /* Define el estado inicial de la animación */
-from {
-  opacity: 0; /* Opacidad inicial */
-  transform: translateY(20px); /* Desplazamiento vertical inicial */
-}
-
-/* Define el estado final de la animación */
-to {
-  opacity: 1; /* Opacidad final */
-  transform: translateY(0); /* Desplazamiento vertical final */
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Opacidad inicial */
+    transform: translateY(20px); /* Desplazamiento vertical inicial */
+  }
+  to {
+    opacity: 1; /* Opacidad final */
+    transform: translateY(0); /* Desplazamiento vertical final */
+  }
 }
 
 /* Aplica la animación fadeIn a elementos con la clase .fade-in */
@@ -45,11 +45,11 @@ body {
   margin: 10px; /* Margen exterior */
 }
 
-
 .container-2 {
-  min-height:70vh;/*importante*/
-  position:relative;/*mantiene el footer abajo*/
+  min-height: 70vh; /* Importante */
+  position: relative; /* Mantiene el footer abajo */
 }
+
 /* Contenedor del titulo */
 .cont-title {
   display: flex; /* Utiliza el modelo de caja flexible */
@@ -169,6 +169,7 @@ tbody td {
 #tabla tbody tr:last-child td:last-child {
   border-bottom-right-radius: 20px; /* Radio de borde inferior derecho */
 }
+
 #content-wrapper {
   flex: 1; /* Permite que el contenedor se expanda y contraiga, ocupando el espacio disponible */
 }
@@ -187,14 +188,38 @@ footer {
 @media (max-width: 600px) {
   .table-responsive-scroll {
     overflow-x: auto; /* Habilita el desplazamiento horizontal */
-    white-space: nowrap; /* Evita que las celdas se ajusten en múltiples líneas */
+    -webkit-overflow-scrolling: touch; /* Suaviza el desplazamiento en dispositivos táctiles */
+  }
+
+  table {
+    width: 100%; /* Ancho completo */
+    display: block; /* Display en block para habilitar scroll horizontal */
+  }
+
+  thead, tbody, th, td, tr {
+    display: table; /* Display table para mantener estructura de tabla */
+  }
+
+  thead {
+    display: table-header-group; /* Asegura que el encabezado se mantenga en la parte superior */
+  }
+
+  tbody {
+    display: table-row-group; /* Asegura que las filas del cuerpo se mantengan en su lugar */
+  }
+
+  tr {
+    display: table-row; /* Display en fila de tabla */
+  }
+
+  th, td {
+    display: table-cell; /* Display en celda de tabla */
   }
 }
 
 .navbar-nav .nav-item .nav-link {
-  color: white !important; /* Forzar el color blanco en los enlaces del navbar */
+  color: white !
 }
-
-h1 {
-  color: white; /* Color blanco para los títulos <h1> */
+h1{
+  color: white;
 }

@@ -29,88 +29,88 @@ input: Estilos para el campo de entrada para el número de hijos.
 /* estilos del header */
 
 .fondo {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('/img/fachada1.webp') no-repeat center center/cover;
-  filter: blur(8px);
-  z-index: -1;
+  position: fixed; /* Mantiene una posición de la imagen de fondo en estatico*/
+  top: 0; /* Desplaza un valor 0 el fondo */
+  left: 0;  /* Posiciona en un valor 0 al fondo */
+  width: 100%;  /* Asigna un valor de 100% el ancho del fondo */
+  height: 100%; /* Asigna un valor de 100% el ancho del fondo */
+  background: url('/img/fachada1.webp') no-repeat center center/cover;  /* Agrega una imagen para el fondo, que no se repita y se centre */
+  filter: blur(8px);  /* Agrega un filtro de desenfoque de 8 pixeles a la imagen de fondo */
+  z-index: -1;  /* Indica el valor de -1 de posicionamiento de la imagen */
 }
 
 /* Contenedor de todo el cuerpo */
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin: auto;
-  min-height: 80vh;/*importante*/
-  position:relative;
+  display: flex;  /* Establece una visualización flexible del contenedor */
+  justify-content: center;  /* Distribuye el contenido entre y alrededor del contenedor */
+  align-items: center;  /* Controla la alineación de forma central el contenedor */
+  flex-direction: column; /* Coloca el contenedor en columna */
+  margin: auto; /* Asigna un valor automatico de margen al contenedor del cuerpo de la pagina */
+  min-height:80vh;  /*importante*/  /* Define la altura minima de 80 de viewport height */
+  position:relative;  /* Ajusta una posición relativa al contenedor del cuerpo del sitio */
 }
 
 /* Contenedor del formulario */
 .container-form {
-  display: flex;
-  align-items: center;
-  background: white;
-  margin-bottom: 50px;
-  padding: 25px;
-  padding-bottom: 20px;
-  border-radius: 50px;
-  flex-direction: column;
-  width: 800px; /* Ajuste de ancho */
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+  display: flex;  /* Establece una visualización flexible al contenedor del formulario */
+  align-items: center;  /* Alineación en centro al contenido */
+  background: white;  /* Añade un fondo blanco */
+  margin-bottom: 50px;  /* Añadir margen inferior en 50% */
+  padding: 25px; /* Añade un espacio de 25 pixeles */
+  padding-bottom: 20px; /* Añade un espacio inferior en 20 pixeles */
+  border-radius: 50px;  /* Añadir un radio de borde en 50 pixeles */
+  flex-direction: column; /* Coloca el contenedor del formulario en columna */
+  width: 800px; /* Ajuste de ancho en 800 pixeles */
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);  /* Añade una caja de sombra de color negro */
 }
 
 /* Contenedor del titulo */
 .cont-title {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-  margin-top: 10px;
+  display: flex;  /* Establece una visualización flexible en el contenedor del titulo */
+  flex-direction: row;  /* Coloca el contenedor del titulo en fila */
+  justify-content: center;  /* Distribuye el contenido entre y alrededor del contenedor del titulo */
+  width: 100%;  /* Asigna un valor de 100% el ancho del contenedor del titulo */
+  margin-top: 10px; /* Añadir margen superior en 10 pixeles */
 }
 
 .cont-title div {
-  margin-right: 50px;
+  margin-right: 50px; /* Añadir margen derecho en 50 pixeles */
 }
 
 /* Titulo del formulario */
 .container h1 {
-  color: white;
+  color: white; /* Añade color blanco a la fuente de letra */
   font-size: 50px; /* Ajuste de tamaño de fuente */
 }
 
 /* Contenedor de los inputs */
 .form-inputs {
-  display: flex;
-  flex-direction: row;
+  display: flex;  /* Establece una visualización flexible para los inputs del formulario*/
+  flex-direction: row;  /* Coloca el contenedor del titulo en fila */
   width: 100%; /* Ajuste de ancho */
   height: auto; /* Ajuste de altura */
 }
 
 .form-p {
-  display: flex;
-  flex-direction: column;
+  display: flex;  /* Establece una visualización flexible del parrafo del formulario*/
+  flex-direction: column; /* Coloca el contenedor del titulo en columna */
   margin-right: 20px; /* Ajuste de margen */
   width: 100%; /* Ajuste de ancho */
 }
 
 /* Estilo de los label */
 label {
-  display: block;
-  color: #000;
+  display: block; /* Establece una visualización bloqueo de los inputs */
+  color: #000;  /* Añade color negro a la fuente de letra */
 }
 
 /* Estilo de los inputs */
 .form-inputs input {
-  display: block;
-  margin-bottom: 15px; /* Ajuste de margen */
-  padding: 10px; /* Añadir padding */
-  border-radius: 5px;
-  background: #D9D9D9;
+  display: block; /* Establece una visualización bloqueo de los inputs */
+  margin-bottom: 15px; /* Ajuste de margen de 15 pixeles */
+  padding: 10px; /* Añadir espacio de 10 pixeles*/
+  border-radius: 5px; /* Añade un radio de borde en 5 pixeles*/
+  background: #D9D9D9;  /* Añade un fondo blanco suave */
   width: 100%; /* Ajuste de ancho */
 }
 
@@ -118,26 +118,26 @@ label {
 /* Estilo de los botones */
 form .button {
  
-  border-radius: 50px;
-  transition: background-color 0.3s ease;
-  background-color: #691B31;
-  /*background-color: #3D3D3D;*/
-  color: white;
-  width: 200px;
-  float: left;
-  margin-left: 35%;
-  margin-right: 35%;
+  border-radius: 50px; /*Añadir un radio de borde en 50 pixeles */
+  transition: background-color 0.3s ease; /*Agregar transacción de color de fondo en 0.3 segundos */
+  background-color: #691B31; /* Añade color guinda oscuro a los botones */
+  /*background-color: #3D3D3D;*/  /* Añade color gris a los botones */
+  color: white; /* Agregar color blanco a la fuente de letra a los botones */
+  width: 200px; /* Proporciona el ancho de 200 pixeles de los botones */
+  float: left; /* Posicionar los botones a la izquierda */
+  margin-left: 35%; /* Añadir margen izquierdo en 35% */
+  margin-right: 35%;  /* Añadir margen derecho en 35% */
 
 }
 
 form .button:hover {
-  /*background-color: #3D3D3D;*/
-  background-color: #A02142;
+  /*background-color: #3D3D3D;*/ /* Añade color gris al boton que se va a interactuar */
+  background-color: #A02142; /* Añade color guinda al boton que se va a interactuar */
 }
 
 /* Estilo de los selects */
 .form-inputs select {
-  display: block;
+  display: block; /* Establece una visualización bloqueo (estatico) al seleccionar los inputs */
   margin-bottom: 15px; /* Ajuste de margen */
   padding: 10px; /* Añadir padding */
   width: 100%; /* Ajuste de ancho */
@@ -145,49 +145,37 @@ form .button:hover {
 
 /* Contenedor de los botones de agregar y quitar */
 .buttons-container {
-  display: flex;
-  align-items: center;
-  justify-content: center; /* Centra los elementos horizontalmente */
-  gap: 20px; /* Espacio entre los elementos */
-  margin-left: 30px; 
-  margin-right: 30px; 
+  display: flex;  /* Establece una visualización flexible en los botones */
+  align-items: center;  /* Asignar una alineación centrar a los botones */
 }
 
 /* Estilo de los botones de agregar y quitar */
 .minus-button,
 .plus-button {
-  position: relative;
-  border: none;
-  background-color: #f0f0f0;
-  color: #333;
-  font-size: 50px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Estilo de hover para los botones */
-.minus-button:hover,
-.plus-button:hover {
-  background-color: #BC955B;
+  width: 35px;  /* Proporciona el ancho de 35 pixeles de los botones + y - */
+  height: 30px; /* Proporciona la altura de 35 pixeles de los botones + y - */
+  border: none; /* Remover el borde de los botones */
+  background-color: #f0f0f0;  /* Color blanco en los botones */
+  color: #333;  /* Define color gris oscuro al fuente de la letra de los botones */
+  font-size: 16px;  /* Definir el tamaño de la letra en 16 pixeles */
+  cursor: pointer;  /* Transforma el cursor del mouse en una mano señalando el boton que se va a seleccionar */
+  margin: 0 5px;  /* Añade un margen de 0x15 pixeles */
 }
 
 /* Input de cantidad de hijos */
 .children-input {
-  width: 56px;
-  height: 35px;
-  border: 1px solid #ccc;
-  text-align: center; /* Centra el texto dentro del input */
-  font-size: 16px;
-  padding: 0; /* Ajusta el padding para centrar el texto verticalmente */
+  width: 50px;  /* Ajustar el ancho de los inputs hijos en 50 pixeles */
+  height: 30px; /* Ajustar la altura de los inputs hijos en 30 pixeles */
+  border: 1px solid #ccc; /*Agrega un borde de 1 pixel solido de color gris claro*/
+  padding: 5px 10px;  /* Añadir espacio de los inputs de 5x10 pixeles */
+  font-size: 16px;  /* Definir el tamaño de la letra en 16 pixeles */
 }
 
 
 .v-img {
   max-width: 100%;
-  height: auto;
-  border-radius: 20px;
+  height: auto; /* Ajustar la altura de la imagen en automatico */
+  border-radius: 20px;  /* Ajustar el radio de borde de la imagen en 20 pixeles */
 }
 
 /* Estilos para pantallas pequeñas */
@@ -196,9 +184,9 @@ form .button:hover {
     width: 90%; /* Ajustar el ancho del contenedor del formulario */
   }
   .form-inputs {
-    flex-direction: column;
+    flex-direction: column; /* Coloca los inputs en columna */
     width: 100%; /* Ajustar el ancho del contenedor de inputs */
-    height: auto; /* Ajustar la altura */
+    height: auto; /* Ajustar la altura en automatico*/
   }
   .form-p {
     width: 100%; /* Ajustar el ancho de los contenedores individuales */
@@ -209,17 +197,17 @@ form .button:hover {
     width: 100%; /* Ajustar el ancho de los inputs y selects */
   }
   form .button {
-    margin-left: 30%;
-    margin-right: 30%;
+    margin-left: 30%; /* Ajustar el margen izquierdo en 30% */
+    margin-right: 30%;  /* Ajustar el margen derecho en 30% */
   }
 }
 @media (max-width: 800px) {
   form .button{
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
+    width: 100%;  /* Ajustar el ancho de los botones */
+    margin-left: 0; /* Remover el margen izquierdo */
+    margin-right: 0;  /* Remover el margen derecho */
   }
 }
 .nav-link{
-  color: white !important;
+  color: white !important;  /*cambiar color blanco al texto del link del nav */
 }

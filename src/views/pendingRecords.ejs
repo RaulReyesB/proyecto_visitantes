@@ -34,73 +34,73 @@
     </div>
   </div>
 -->
-    <!-- Contenedor del buscador -->
-    <div class="search-container mt-2">
-      <input type="text" id="searchInput" placeholder="Buscar por nombre, curp o fecha (DD/MM/AAAA)." style=" color: black">
-      <button type="button" onclick="search()"><i class="bi bi-search"></i></button>
-    </div>
+<!-- Contenedor del buscador -->
+  <div class="search-container mt-2">
+    <input type="text" id="searchInput" placeholder="Buscar por nombre, curp o fecha (DD/MM/AAAA)." style=" color: black">
+    <button type="button" onclick="search()"><i class="bi bi-search"></i></button>
   </div>
-  <div class="container-2">
-    <!-- Tabla de datos con scroll horizontal -->
-    <div class="table-responsive table-responsive-scroll">
-      <table id="tabla" class="fade-in table">
-        <!-- Encabezado de la tabla -->
-        <thead class="thead-gray">
-          <tr>
-            <th>Nombre</th>
-            <th>Teléfono</th>
-            <th>Correo</th>
-            <th>Curp</th>
-            <th>Identificación</th>
-            <th>Departamento</th>
-            <th>Subdepartamento</th>
-            <th>Procedencia</th>
-            <th>Niños</th>
-            <th>Numero De gafete</th>
-            <th>Fecha y hora de entrada</th>
-            <th>Finalizar registro</th>
-          </tr>
-        </thead>
-        <!-- Cuerpo de la tabla que se llena dinámicamente -->
-        <tbody>
-          <% registros.forEach(function(item) { %>
-          <tr>
-            <td><%= item.name %></td>
-            <td><%= item.phone %></td>
-            <td><%= item.email %></td>
-            <td><%= item.CURP %></td>
-            <td><%= item.identification %></td>
-            <td><%= item.department %></td>
-            <td><%= item.subDepartment %></td>
-            <td><%= item.origin %></td>
-            <td><%= item.children %></td>
-            <td><%= item.badge %></td>
-            <td><%= item.entrance %></td>
-            <td>
-              <a id="cerrar" class="btn " style="background: #691b31;" href="/finalizarRegistro/<%= item.id %>" class="finalizar-registro" data-id="<%= item.id %>" onclick="alert('visita completada')"><i style="color: white;" class="bi bi-x-lg"></i></a>
-            </td>
-          </tr>
-          <% }); %>
-        </tbody>
-      </table>
-    </div>
-  </div>
-  <!-- Inclusión del pie de página -->
-  <div>
-    <footer>
-      <%- include('templates/footer') %>
-    </footer>
-  </div>
-  <!--scripts para funcion del nav importados desde bootstrap-->
-  <script src="/src/controllers/pendingRecords.controllers.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <!--funcion para busqueda en la tabla-->
-  <script>
-    function normalizeString(str) {
-      return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
-    }
+</div>
+<div class="container-2">
+  <!-- Tabla de datos con scroll horizontal -->
+<div class="table-responsive table-responsive-scroll">
+  <table id="tabla" class="fade-in table">
+    <!-- Encabezado de la tabla -->
+    <thead class="thead-gray">
+     <tr>   
+        <th>Nombre Completo</th>
+        <th>Teléfono</th>
+        <th>Correo</th>
+        <th>CURP</th>
+        <th>Identificación</th>
+        <th>Área</th>
+        <th>Departamento</th>
+        <th>Procedencia</th>
+        <th>Niños</th>
+        <th>N°. de Gafete</th>
+        <th>Fecha y hora de entrada</th>
+        <th>Finalizar registro</th>
+      </tr>
+    </thead>
+     <!-- Cuerpo de la tabla que se llena dinámicamente -->
+    <tbody>
+      <% registros.forEach(function(item) { %>
+        <tr>
+          <td><%= item.name %></td>
+          <td><%= item.phone %></td>
+          <td><%= item.email %></td>
+          <td><%= item.CURP %></td>
+          <td><%= item.identification %></td>
+          <td><%= item.department %></td>
+          <td><%= item.subDepartment %></td>
+          <td><%= item.origin %></td>
+          <td><%= item.children %></td>
+          <td><%= item.badge %></td>
+          <td><%= item.entrance %></td>
+          <td>
+            <a id="cerrar" class="btn " style="background: #691b31;" href="/finalizarRegistro/<%= item.id %>" class="finalizar-registro" data-id="<%= item.id %>" onclick="alert('visita completada')"><i style="color: white;" class="bi bi-x-lg"></i></a>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</div>
+</div>
+<!-- Inclusión del pie de página -->
+<div>
+  <footer>
+    <%- include('templates/footer') %>
+  </footer>
+</div>
+<!--scripts para funcion del nav importados desde bootstrap-->
+<script src="/src/controllers/pendingRecords.controllers.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!--funcion para busqueda en la tabla-->
+<script>
+  function normalizeString(str) {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  }
 
     document.getElementById('searchInput').addEventListener('input', function() {
       const searchValue = normalizeString(this.value);

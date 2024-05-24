@@ -2,232 +2,249 @@
 <html>
 
 <head>
-    <title>Bienvenido</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/footer.css">
-    <link rel="icon" type="image/ico" href="/img/logohidalgo.ico">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <title>Bienvenido</title>
+  <!-- Incluye SweetAlert2 CSS libreria para personalizar alertas-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+  <!-- Incluye SweetAlert2 JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/footer.css">
+  <link rel="icon" type="image/ico" href="/img/logohidalgo.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body>
-    <div class="custom-background"></div>
-    <header>
-        <h1 class="header-title">Bienvenid<span id="changing-letter" class="rotate-on-change">o</span></h1>
-        <!-- Cambio de letra -->
-        <h2 class="header-subtitle">Sistema de Registro y Aceso a Radio y Televisión Hidalgo</h2>
-        
-        <div class="user-info-container">
-            <a href="/logout" class="btn btn-close" onclick="return confirmLogout()">
-                <i class="bi bi-box-arrow-in-right"></i> Salir
-            </a>
-        </div>
-    </header>
+  <div class="custom-background"></div>
+  <header>
+    <h1 class="header-title">Bienvenid<span id="changing-letter" class="rotate-on-change">o</span></h1>
+    <!-- Cambio de letra -->
+    <h2 class="header-subtitle">Sistema de Registro y Aceso a Radio y Televisión Hidalgo</h2>
 
-    <% if (errors && errors.length> 0) { %>
-        <div class="alert alert-danger show" id="errors-container">
-            <div class="alert-icon"></div>
-            <ul>
-                <% errors.forEach(error=> { %>
-                    <li>
-                        <%= error.msg %>
-                    </li>
-                    <% }); %>
-            </ul>
-        </div>
-        <% } %>
+    <div class="user-info-container">
+      <a href="/logout" class="btn btn-close" onclick="return confirmLogout()">
+        <i class="bi bi-box-arrow-in-right"></i> Salir
+      </a>
+    </div>
+  </header>
 
-            <% if (msg) { %>
-                <div class="alert alert-success show" id="msg-container">
-                    <div class="alert-icon"></div>
-                    <span>
-                        <%= msg %>
-                    </span>
-                </div>
-                <% } %>
+  <% if (errors && errors.length> 0) { %>
+  <div class="alert alert-danger show" id="errors-container">
+    <div class="alert-icon"></div>
+    <ul>
+      <% errors.forEach(error=> { %>
+      <li>
+        <%= error.msg %>
+      </li>
+      <% }); %>
+    </ul>
+  </div>
+  <% } %>
 
-                    <div class="user-info-side">
-                        <div class="user-icon-container">
-                            <i class="bi" id="user-icon"></i>
-                        </div>
-                        <div class="user-type" id="user-type">[Tipo de Usuario]</div>
-                        <div class="tarjeta-usuario">
-                            <div class="cuerpo">
-                                <div class="user-info-details" id="username">Usuario Actual: [Nombre del usuario]</div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--
+  <% if (msg) { %>
+  <div class="alert alert-success show" id="msg-container">
+    <div class="alert-icon"></div>
+    <span>
+      <%= msg %>
+    </span>
+  </div>
+  <% } %>
+
+  <div class="user-info-side">
+    <div class="user-icon-container">
+      <i class="bi" id="user-icon"></i>
+    </div>
+    <div class="user-type" id="user-type">[Tipo de Usuario]</div>
+    <div class="tarjeta-usuario">
+      <div class="cuerpo">
+        <div class="user-info-details" id="username">Usuario Actual: [Nombre del usuario]</div>
+      </div>
+    </div>
+  </div>
+  <!--
     <div class="tarjeta-usuario">
         <div class="cuerpo">
             <div class="user-info-details" id="username">Usuario Actual: [Nombre del usuario]</div>
         </div>
     </div>
 -->
-                    <div class="container">
-                        <% if (user.type==='superUsuario' || user.type==='rh' ) { %>
-                            <div class="tarjeta" onclick="location.href='/registroInternos'">
-                                <div class="tarjeta-icono">
-                                    <i class="bi bi-person-circle"></i>
-                                </div>
-                                <div class="tarjeta-titulo">Registrar Pasante</div>
-                                <div class="tarjeta-descripcion">Acceder a registros de
-                                    pasantes</div>
-                            </div>
-                            <% } %>
+  <div class="container">
+    <% if (user.type==='superUsuario' || user.type==='rh' ) { %>
+    <div class="tarjeta" onclick="location.href='/registroInternos'">
+      <div class="tarjeta-icono">
+        <i class="bi bi-person-circle"></i>
+      </div>
+      <div class="tarjeta-titulo">Registrar Pasante</div>
+      <div class="tarjeta-descripcion">Acceder a registros de
+        pasantes</div>
+    </div>
+    <% } %>
 
-                                <% if (user.type==='superUsuario' || user.type==='usuario' ) { %>
-                                    <div class="tarjeta" onclick="location.href='/registroVisitas'">
-                                        <div class="tarjeta-icono">
-                                            <i class="bi bi-journal"></i>
-                                        </div>
-                                        <div class="tarjeta-titulo">Registrar Visitas</div>
-                                        <div class="tarjeta-descripcion">Acceder a registros de
-                                            visitas</div>
-                                    </div>
-                                    <% } %>
+    <% if (user.type==='superUsuario' || user.type==='usuario' ) { %>
+    <div class="tarjeta" onclick="location.href='/registroVisitas'">
+      <div class="tarjeta-icono">
+        <i class="bi bi-journal"></i>
+      </div>
+      <div class="tarjeta-titulo">Registrar Visitas</div>
+      <div class="tarjeta-descripcion">Acceder a registros de
+        visitas</div>
+    </div>
+    <% } %>
 
-                                        <% if (user.type==='superUsuario' || user.type==='administrador' ) { %>
-                                            <div class="tarjeta" onclick="location.href='/historial'">
-                                                <div class="tarjeta-icono">
-                                                    <i class="bi bi-clock"></i>
-                                                </div>
-                                                <div class="tarjeta-titulo">Historial</div>
-                                                <div class="tarjeta-descripcion">Acceder a historial
-                                                    completo</div>
-                                            </div>
-                                            <% } %>
+    <% if (user.type==='superUsuario' || user.type==='administrador' ) { %>
+    <div class="tarjeta" onclick="location.href='/historial'">
+      <div class="tarjeta-icono">
+        <i class="bi bi-clock"></i>
+      </div>
+      <div class="tarjeta-titulo">Historial</div>
+      <div class="tarjeta-descripcion">Acceder a historial
+        completo</div>
+    </div>
+    <% } %>
 
-                                                <% if (user.type==='superUsuario' || user.type==='usuario' ) { %>
-                                                    <div class="tarjeta" onclick="location.href='/registrosPendientes'">
-                                                        <div class="tarjeta-icono">
-                                                            <i class="bi bi-exclamation-circle"></i>
-                                                        </div>
-                                                        <div class="tarjeta-titulo">Registros de vistas pendientes</div>
-                                                        <div class="tarjeta-descripcion">Ver registros pendientes</div>
-                                                    </div>
-                                                    <% } %>
-                                                        <% if (user.type==='superUsuario' ) { %>
-                                                            <div class="tarjeta"
-                                                                onclick="location.href='/AdmistrarUsuario'">
-                                                                <div class="tarjeta-icono">
-                                                                    <i class="bi bi-person-check"></i>
-                                                                </div>
-                                                                <div class="tarjeta-titulo">Control de Usuarios
-                                                                </div>
-                                                                <div class="tarjeta-descripcion">Administrar
-                                                                    usuarios del
-                                                                    sistema</div>
-                                                            </div>
-                                                            <% } %>
+    <% if (user.type==='superUsuario' || user.type==='usuario' ) { %>
+    <div class="tarjeta" onclick="location.href='/registrosPendientes'">
+      <div class="tarjeta-icono">
+        <i class="bi bi-exclamation-circle"></i>
+      </div>
+      <div class="tarjeta-titulo">Registros de vistas pendientes</div>
+      <div class="tarjeta-descripcion">Ver registros pendientes</div>
+    </div>
+    <% } %>
+    <% if (user.type==='superUsuario' ) { %>
+    <div class="tarjeta" onclick="location.href='/AdmistrarUsuario'">
+      <div class="tarjeta-icono">
+        <i class="bi bi-person-check"></i>
+      </div>
+      <div class="tarjeta-titulo">Control de Usuarios
+      </div>
+      <div class="tarjeta-descripcion">Administrar
+        usuarios del
+        sistema</div>
+    </div>
+    <% } %>
 
-                                                                <% if (user.type==='superUsuario' || user.type==='rh' ||
+    <% if (user.type==='superUsuario' || user.type==='rh' ||
                                                                     user.type==='administrador' ) { %>
-                                                                    <div class="tarjeta"
-                                                                        onclick="location.href='/historialInternos'">
-                                                                        <div class="tarjeta-icono">
-                                                                            <i class="bi bi-folder"></i>
-                                                                        </div>
-                                                                        <div class="tarjeta-titulo">Historial de
-                                                                            Pasante</div>
-                                                                        <div class="tarjeta-descripcion">Acceder
-                                                                            a historial de
-                                                                            pasantes</div>
-                                                                    </div>
-                                                                    <% } %>
+    <div class="tarjeta" onclick="location.href='/historialInternos'">
+      <div class="tarjeta-icono">
+        <i class="bi bi-folder"></i>
+      </div>
+      <div class="tarjeta-titulo">Historial de
+        Pasante</div>
+      <div class="tarjeta-descripcion">Acceder
+        a historial de
+        pasantes</div>
+    </div>
+    <% } %>
 
-                                                                        <% if (user.type==='superUsuario' ||
+    <% if (user.type==='superUsuario' ||
                                                                             user.type==='usuario' ) { %>
-                                                                            <div class="tarjeta"
-                                                                                onclick="location.href='/controlPasantes'">
-                                                                                <div class="tarjeta-icono">
-                                                                                    <i class="bi bi-card-checklist"></i>
-                                                                                </div>
-                                                                                <div class="tarjeta-titulo">
-                                                                                    Control de Pasantes</div>
-                                                                                <div class="tarjeta-descripcion">
-                                                                                    Gestionar pasantes</div>
-                                                                            </div>
-                                                                            <% } %>
+    <div class="tarjeta" onclick="location.href='/controlPasantes'">
+      <div class="tarjeta-icono">
+        <i class="bi bi-card-checklist"></i>
+      </div>
+      <div class="tarjeta-titulo">
+        Control de Pasantes</div>
+      <div class="tarjeta-descripcion">
+        Gestionar pasantes</div>
+    </div>
+    <% } %>
 
-                                                                                <% if (user.type==='superUsuario' ) { %>
-                                                                                    <div class="tarjeta"
-                                                                                        onclick="location.href='/registroUsuario'">
-                                                                                        <div class="tarjeta-icono">
-                                                                                            <i
-                                                                                                class="bi bi-person-plus"></i>
-                                                                                        </div>
-                                                                                        <div class="tarjeta-titulo">
-                                                                                            Registrar Usuarios
-                                                                                        </div>
-                                                                                        <div
-                                                                                            class="tarjeta-descripcion">
-                                                                                            Registrar nuevos
-                                                                                            usuarios</div>
-                                                                                    </div>
-                                                                                    <% } %>
-                    </div>
-                    <div>
-                        <footer>
-                            <%- include('templates/footer') %>
-                        </footer>
-                    </div>
-                    <script>
-                        
-                      function confirmLogout() {
-                        return confirm('¿Estás seguro de que quieres salir?');
-                      }
+    <% if (user.type==='superUsuario' ) { %>
+    <div class="tarjeta" onclick="location.href='/registroUsuario'">
+      <div class="tarjeta-icono">
+        <i class="bi bi-person-plus"></i>
+      </div>
+      <div class="tarjeta-titulo">
+        Registrar Usuarios
+      </div>
+      <div class="tarjeta-descripcion">
+        Registrar nuevos
+        usuarios</div>
+    </div>
+    <% } %>
+  </div>
+  <div>
+    <footer>
+      <%- include('templates/footer') %>
+    </footer>
+  </div>
+  <script>
+    function confirmLogout() {
+      Swal.fire({
+        title: '¿Estás seguro?',
+        text: '¿Estás seguro de que quieres salir?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí',
+        cancelButtonText: 'Cancelar',
+        // Personalizar tamaño y estilo
+        width: '400px',
+        padding: '20px', // Ajusta el padding según sea necesario
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Lógica para cerrar sesión
+          window.location.href = '/logout'; // Ejemplo: redirigir a la página de cierre de sesión
+        }
+      });
+      // Prevenir el comportamiento por defecto del formulario
+      return false;
+    }
 
-                        setInterval(() => {
-                            const changingLetter = document.getElementById("changing-letter");
-                            changingLetter.classList.remove('rotate-on-change');
-                            setTimeout(() => {
-                                changingLetter.textContent = changingLetter.textContent === "o" ? "a" : "o";
-                                changingLetter.classList.add('rotate-on-change');
-                            }, 1); // Cambia el contenido en el medio de la animación
-                        }, 5700);
 
-                        var userType = '<%= user.type %>';
-                        var userName = '<%= user.name %>';
+    setInterval(() => {
+      const changingLetter = document.getElementById("changing-letter");
+      changingLetter.classList.remove('rotate-on-change');
+      setTimeout(() => {
+        changingLetter.textContent = changingLetter.textContent === "o" ? "a" : "o";
+        changingLetter.classList.add('rotate-on-change');
+      }, 1); // Cambia el contenido en el medio de la animación
+    }, 5700);
 
-                        function setUserInfo(userType, userName) {
-                            var userIcon = document.getElementById('user-icon');
-                            var username = document.getElementById('username');
-                            var userTypeText = document.getElementById('user-type');
-                            username.textContent = 'Usuario Actual: ' + userName;
+    var userType = '<%= user.type %>';
+    var userName = '<%= user.name %>';
 
-                            switch (userType) {
-                                case 'superUsuario':
-                                    userIcon.className = 'bi bi-shield-lock';
-                                    userTypeText.textContent = 'Super Usuario';
-                                    break;
-                                case 'administrador':
-                                    userIcon.className = 'bi bi-person-badge';
-                                    userTypeText.textContent = 'Supervisor';
-                                    break;
-                                case 'rh':
-                                    userIcon.className = 'bi bi-people';
-                                    userTypeText.textContent = 'Recursos Humanos';
-                                    break;
-                                case 'usuario':
-                                    userIcon.className = 'bi bi-person';
-                                    userTypeText.textContent = 'Usuario';
-                                    break;
-                            }
-                        }
+    function setUserInfo(userType, userName) {
+      var userIcon = document.getElementById('user-icon');
+      var username = document.getElementById('username');
+      var userTypeText = document.getElementById('user-type');
+      username.textContent = 'Usuario Actual: ' + userName;
 
-                        setUserInfo(userType, userName);
+      switch (userType) {
+        case 'superUsuario':
+          userIcon.className = 'bi bi-shield-lock';
+          userTypeText.textContent = 'Super Usuario';
+          break;
+        case 'administrador':
+          userIcon.className = 'bi bi-person-badge';
+          userTypeText.textContent = 'Supervisor';
+          break;
+        case 'rh':
+          userIcon.className = 'bi bi-people';
+          userTypeText.textContent = 'Recursos Humanos';
+          break;
+        case 'usuario':
+          userIcon.className = 'bi bi-person';
+          userTypeText.textContent = 'Usuario';
+          break;
+      }
+    }
 
-                        setTimeout(() => {
-                            const msgContainer = document.getElementById('msg-container');
-                            const errorsContainer = document.getElementById('errors-container');
-                            if (msgContainer) {
-                                msgContainer.style.display = 'none';
-                            }
-                            if (errorsContainer) {
-                                errorsContainer.style.display = 'none';
-                            }
-                        }, 3000);
-                    </script>
+    setUserInfo(userType, userName);
+
+    setTimeout(() => {
+      const msgContainer = document.getElementById('msg-container');
+      const errorsContainer = document.getElementById('errors-container');
+      if (msgContainer) {
+        msgContainer.style.display = 'none';
+      }
+      if (errorsContainer) {
+        errorsContainer.style.display = 'none';
+      }
+    }, 3000);
+  </script>
 </body>
 
 </html>

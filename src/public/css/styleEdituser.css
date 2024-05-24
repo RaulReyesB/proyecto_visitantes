@@ -6,169 +6,172 @@
 
 /* Estilos generales del registros */
 .fondo {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("/img/fachada1.webp") no-repeat center center/cover;
-  filter: blur(8px);
-  z-index: -1;
+  position: fixed; /* Fija el fondo para que no se desplace con el contenido */
+  top: 0; /* Alinea el fondo en la parte superior */
+  left: 0; /* Alinea el fondo en la parte izquierda */
+  width: 100%; /* Ancho completo de la pantalla */
+  height: 100%; /* Altura completa de la pantalla */
+  background: url("/img/fachada1.webp") no-repeat center center/cover; /* Imagen de fondo centrada y ajustada */
+  filter: blur(8px); /* Aplica un desenfoque de 8px */
+  z-index: -1; /* Coloca el fondo detrás de otros elementos */
 }
 
 /* Contenedor de todo el cuerpo */
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin-top: 10px;
+  display: flex; /* Flexbox para centrar contenido */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  flex-direction: column; /* Coloca los elementos en columna */
+  margin-top: 10px; /* Espacio superior de 10px */
 }
 
 .container-2 {
-  min-height: 40vh; /* importante */
-  position: relative;/*mantiene el footer abajo*/
+  min-height: 40vh; /* Altura mínima del 40% del viewport */
+  position: relative; /* Mantiene el footer en la parte inferior */
 }
 
 /* Contenedor del formulario */
 .container-form {
-  display: flex;
-  align-items: center;
-  background: white;
-  margin-bottom: 50px;
-  padding: 30px;
-  border-radius: 50px;
-  flex-direction: column;
-  width: 1200px;
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+  display: flex; /* Flexbox para el formulario */
+  align-items: center; /* Centra verticalmente */
+  background: white; /* Fondo blanco */
+  margin-bottom: 50px; /* Espacio inferior de 50px */
+  padding: 30px; /* Relleno de 30px */
+  border-radius: 50px; /* Bordes redondeados de 50px */
+  flex-direction: column; /* Elementos en columna */
+  width: 1200px; /* Ancho de 1200px */
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2); /* Sombra */
 }
 
 /* Contenedor del titulo */
 .cont-title {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-  margin-top: 10px;
+  display: flex; /* Flexbox para el título */
+  flex-direction: row; /* Elementos en fila */
+  justify-content: center; /* Centra horizontalmente */
+  width: 100%; /* Ancho completo */
+  margin-top: 10px; /* Espacio superior de 10px */
 }
 
 .cont-title div {
-  margin-right: 50px;
+  margin-right: 50px; /* Espacio a la derecha de 50px */
 }
 
 /* Titulo del formulario */
 .container h1 {
-  color: white;
-  font-size: 50px; /* Ajuste de tamaño de fuente */
+  color: white; /* Color del texto blanco */
+  font-size: 50px; /* Tamaño de fuente de 50px */
 }
 
 /* Estilo de los label */
 label {
-  display: block;
-  color: #000;
+  display: block; /* Bloque para ocupar ancho completo */
+  color: #000; /* Color del texto negro */
 }
 
 .form-p input {
-  display: block;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  background: #d9d9d9;
+  display: block; /* Bloque para ocupar ancho completo */
+  margin-bottom: 20px; /* Espacio inferior de 20px */
+  border-radius: 5px; /* Bordes redondeados de 5px */
+  background: #d9d9d9; /* Fondo gris claro */
 }
 
 /* Estilo de los botones */
 form .button {
-  margin-top: 25px;
-  margin-left: 40%;
-  padding: 5px;
-  border-radius: 50px;
-  transition: background-color 0.3s ease;
-  /*background-color: #3d3d3d;*/
-  background-color: #691B31;
-  color: white;
-  width: 200px;
+  margin-top: 25px; /* Espacio superior de 25px */
+  margin-left: 40%; /* Espacio izquierdo del 40% */
+  padding: 5px; /* Relleno de 5px */
+  border-radius: 50px; /* Bordes redondeados de 50px */
+  transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+  /*background-color: #3d3d3d;*/ /* Color de fondo comentado */
+  background-color: #691B31; /* Nuevo color de fondo */
+  color: white; /* Color del texto blanco */
+  width: 200px; /* Ancho de 200px */
 }
 
 form .button:hover {
   /*background-color: #3d3d3d;*/
-  background-color: #A02142;
+  background-color: #A02142; /* Cambia el color de fondo al pasar el cursor */
 }
 
 /* Estilo de los selects */
 select {
-  display: block;
-  margin-bottom: 20px;
+  display: block; /* Bloque para ocupar el ancho completo */
+  margin-bottom: 20px; /* Espacio inferior de 20px */
 }
 
 .form-p {
-  display: flex;
-  flex-direction: column;
-  width: 950px;
+  display: flex; /* Flexbox para el formulario */
+  flex-direction: column; /* Elementos en columna */
+  width: 950px; /* Ancho de 950px */
 }
 
 .btn-password {
-  flex-direction: row;
+  flex-direction: row; /* Elementos en fila */
 }
 
 .btn-password input {
-  width: 20px;
+  width: 20px; /* Ancho de 20px */
 }
 
 .ojo {
-  display: flex;
-  align-items: center;
+  display: flex; /* Flexbox para el contenedor */
+  align-items: center; /* Centra verticalmente */
 }
 
 .ojo input.form-control {
-  margin-right: 10px; /* Ajusta el margen entre el input y el botón según lo necesites */
+  margin-right: 10px; /* Ajusta el margen entre el input y el botón */
 }
+
 /* Estilos del botón del password */
 .ojo button {
-  background: #d9d9d9;
-  border: none;
-  cursor: pointer;
-  padding: 10;
-  border-radius: 5px;
-  width: 35px;
-  height: 35px;
-  margin-bottom: 20px;
+  background: #d9d9d9; /* Fondo gris claro */
+  border: none; /* Sin borde */
+  cursor: pointer; /* Cambia el cursor a pointer */
+  padding: 10px; /* Relleno de 10px */
+  border-radius: 5px; /* Bordes redondeados de 5px */
+  width: 35px; /* Ancho de 35px */
+  height: 35px; /* Altura de 35px */
+  margin-bottom: 20px; /* Espacio inferior de 20px */
 }
+
 /* Estilos para pantallas de 1200px */
 @media screen and (max-width: 1200px) {
   .container-form {
-    width: 90%;
-    padding: 20px;
+    width: 90%; /* Ancho del 90% */
+    padding: 20px; /* Relleno de 20px */
   }
   .form-p {
-    width: 100%;
+    width: 100%; /* Ancho completo */
   }
   form .button {
-    margin-left: 0;
-    align-self: center;
+    margin-left: 0; /* Sin margen izquierdo */
+    align-self: center; /* Alinea al centro */
   }
 }
 /* Estilos para pantallas de 850px */
 @media screen and (max-width: 850px) {
   .cont-title {
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
+    width: 100%; /* Ancho completo */
+    flex-direction: column; /* Dirección en columna */
+    align-items: center; /* Centra los elementos */
   }
   .container-form {
-    width: 100%;
-    padding: 20px;
-    box-shadow: none;
+    width: 100%; /* Ancho completo */
+    padding: 20px; /* Relleno de 20px */
+    box-shadow: none; /* Sin sombra */
   }
   .form-p {
-    width: 100%;
+    width: 100%; /* Ancho completo */
   }
   form .button {
-    width: 100%;
-    margin-left: 0;
+    width: 100%; /* Ancho completo */
+    margin-left: 0; /* Sin margen izquierdo */
   }
 }
 
+/* Estilos para pantallas de 600px */
 @media screen and (max-width: 600px) {
   .container h1 {
-    font-size: 35px;
+    font-size: 35px; /* Tamaño de fuente de 35px */
   }
 }

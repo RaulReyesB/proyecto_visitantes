@@ -1,84 +1,86 @@
+/* Estilos del pie de página */
 .footer {
-   /* background-color: #1E3740;*/
-    /*background-color: #808080;*/
-    background-color: #691B31;
-    color: #ffffff;
-    padding: 20px 0;
-    text-align: center;
-    /*border-top: 2px solid #3D3D3D;*/
-    border-top: 2px solid #A02142;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    border-radius: 10px 10px 0 0;
-    font-family: Arial, sans-serif;
-    animation: slideIn 1s ease forwards;
-
-
+    background-color: #691B31; /* Color de fondo */
+    color: #ffffff; /* Color del texto */
+    padding: 20px 0; /* Padding superior e inferior */
+    text-align: center; /* Centrar el texto */
+    border-top: 2px solid #A02142; /* Borde superior */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra del contenedor */
+    border-radius: 10px 10px 0 0; /* Bordes redondeados en la parte superior */
+    font-family: Arial, sans-serif; /* Fuente del texto */
+    animation: slideIn 1s ease forwards; /* Animación de entrada */
 }
 
+/* Contenedor del contenido del pie de página */
 .footer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
+    display: flex; /* Utiliza flexbox */
+    flex-direction: column; /* Coloca los elementos en columna */
+    align-items: center; /* Alinea horizontalmente al centro */
+    justify-content: center; /* Justifica verticalmente al centro */
+    margin-bottom: 20px; /* Margen inferior */
 }
 
+/* Estilo del logo en el pie de página */
 .footer-logo img {
-    max-width: 200px;  /* Ajusta el tamaño máximo de la imagen del logo */
-    height: auto;     /* Mantiene la proporción de la imagen */
-    margin-bottom: -20px;
-    margin-top: -50px;
+    max-width: 200px; /* Tamaño máximo de la imagen del logo */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin-bottom: -20px; /* Margen inferior negativo para ajustar la posición */
+    margin-top: -50px; /* Margen superior negativo para ajustar la posición */
 }
 
+/* Estilo del texto informativo en el pie de página */
 .footer-info p {
-    margin: 5px 0;
+    margin: 5px 0; /* Margen superior e inferior */
 }
 
+/* Estilo de la sección de créditos en el pie de página */
 .footer-credits {
-    background-color: #BC955B;
-    /*background-color: #3D3D3D;*/
-    /*background-color: #16252a;*/
-    
-    padding: 10px 0;
-    width: 100%;
+    background-color: #BC955B; /* Color de fondo */
+    padding: 10px 0; /* Padding superior e inferior */
+    width: 100%; /* Ancho completo */
 }
 
+/* Estilo del texto en la sección de créditos */
 .footer-credits p {
-    margin: 0;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin: 0; /* Sin margen */
+    font-size: 14px; /* Tamaño de fuente */
+    display: flex; /* Utiliza flexbox */
+    align-items: center; /* Alinea verticalmente al centro */
+    justify-content: center; /* Justifica horizontalmente al centro */
 }
 
+/* Estilo de los elementos destacados en la sección de créditos */
 .footer-credits span {
-    font-weight: bold;
+    font-weight: bold; /* Negrita */
 }
 
+/* Estilo de las imágenes en la sección de créditos */
 .footer-credits img {
-    max-width: 40px;  /* Ajusta el tamaño máximo de la imagen en los créditos */
-    height: auto;     /* Mantiene la proporción de la imagen */
-    margin-left: 10px;
+    max-width: 40px; /* Tamaño máximo de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin-left: 10px; /* Margen izquierdo */
 }
 
-/* Efecto de entrada */
+/* Animación de entrada y expansión */
 @keyframes slideInAndExpand {
     0% {
-        opacity: 0;
-        transform: scaleY(0);
+        opacity: 0; /* Inicialmente transparente */
+        transform: scaleY(0); /* Escala vertical de 0 */
     }
     100% {
-        opacity: 1;
-        transform: scaleY(1);
+        opacity: 1; /* Totalmente opaco */
+        transform: scaleY(1); /* Escala vertical normal */
     }
-  }
-  @keyframes slideIn {
+}
+
+/* Animación de deslizamiento */
+@keyframes slideIn {
     from {
-        opacity: 0;
-        transform: translateY(100%);
+        opacity: 0; /* Inicialmente transparente */
+        transform: translateY(100%); /* Comienza fuera de la vista hacia abajo */
     }
     to {
-        opacity: 1;
-        transform: translateY(0);
+        opacity: 1; /* Totalmente opaco */
+        transform: translateY(0); /* Desliza hacia la posición normal */
     }
-  }
+}

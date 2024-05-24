@@ -1,123 +1,133 @@
+/* Estilos del contenedor del encabezado */
 #var {
-  
-  background: #691b31;
-  padding: 1%;
+  background: #691b31; /* Color de fondo */
+  padding: 1%; 
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center;/* Padding alrededor del contenedor */
 }
 
+/* Estilo de la imagen dentro del encabezado */
 #var img {
-  width: 100px;
-  height: auto;
+  max-height: 90px; /* Altura máxima para la imagen */
+  margin-right:90px; /* Espacio a la derecha para separar la imagen de los enlaces */
 }
 
+
+/* Estilo del contenedor de los enlaces */
 #var .enlaces {
-  display: flex;
+  display: flex; /* Utiliza flexbox */
+  justify-content: flex-end; /* Alinea los enlaces al final */
+  align-items: center; /* Alinea verticalmente al centro */
 }
 
+/* Estilo de los enlaces dentro del contenedor de enlaces */
 #var .enlaces a {
-  position: relative;
-  text-decoration: none;
-  color: white;
+  position: relative; /* Posición relativa para permitir el uso de pseudo-elementos */
+  text-decoration: none; /* Quita el subrayado de los enlaces */
+  color: white; /* Color del texto */
   margin: 0 15px; /* Espaciado entre los enlaces */
-  transition: color 0.3s;
+  transition: color 0.3s; /* Transición suave para el color */
 }
 
+/* Estilo de pseudo-elemento ::after de los enlaces */
 #var .enlaces a::after {
-  content: "";
-  display: block;
-  width: 0;
-  height: 2px;
-  background-color: white;
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  transition: width 0.3s;
+  content: ""; /* Contenido vacío */
+  display: block; /* Se comporta como un elemento de bloque */
+  width: 0; /* Ancho inicial */
+  height: 2px; /* Altura de la línea */
+  background-color: white; /* Color de la línea */
+  position: absolute; /* Posición absoluta para colocar la línea debajo del texto */
+  bottom: -5px; /* Posición de la línea */
+  left: 0; /* Alinea a la izquierda */
+  transition: width 0.3s; /* Transición suave para el ancho */
 }
 
+/* Estilo al pasar el ratón sobre los enlaces */
 #var .enlaces a:hover::after {
-  width: 100%; /* Línea dorada que aparece al pasar el mouse */
+  width: 100%; /* La línea se expande al ancho completo */
 }
 
-/* Estilos del Menú Hamburguesa */
+/* Estilos del ícono del menú hamburguesa */
 .menu-hamburguesa {
-  display: none;
-  cursor: pointer;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  height: 24px;
-  width: 30px;
+  display: none; /* Oculto por defecto */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el ícono */
+  flex-direction: column; /* Coloca las líneas en columna */
+  align-items: center; /* Alinea horizontalmente al centro */
+  justify-content: space-around; /* Distribuye el espacio entre las líneas */
+  height: 24px; /* Altura del ícono */
+  width: 30px; /* Ancho del ícono */
 }
 
+/* Estilo de las líneas del ícono del menú hamburguesa */
 .hamburguesa-icono {
-  width: 100%;
-  height: 3px;
-  background-color: white;
+  width: 100%; /* Ancho completo */
+  height: 3px; /* Altura de cada línea */
+  background-color: white; /* Color de las líneas */
 }
 
-/* Estilos Responsivos */
+/* Estilos responsivos */
 @media (max-width: 768px) {
   #var {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: column; /* Coloca los elementos en columna */
+    align-items: flex-start; /* Alinea los elementos al inicio */
   }
 
   .menu-hamburguesa {
-    display: flex;
+    display: flex; /* Muestra el ícono del menú hamburguesa */
   }
 
-  .enlaces.active {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+  .navbar-collapse {
+    flex-direction: column; /* Coloca los elementos en columna */
   }
 
-  .enlaces a {
-    text-align: center;
-    padding: 10px 15px;
-    width: 100%;
-    text-align: left;
-    border-top: 1px solid #444;
+  .navbar-nav {
+    width: 100%; /* Ancho completo */
+    flex-direction: column; /* Coloca los enlaces en columna */
+  }
+
+  .nav-link {
+    text-align: left; /* Alinea el texto a la izquierda */
+    width: 100%; /* Ancho completo */
+    padding: 10px 15px; /* Padding alrededor del enlace */
+    border-top: 1px solid #444; /* Borde superior para separar los enlaces */
   }
 }
 
+/* Estilo del texto con id "color" */
 #color {
-  color: white;
+  color: white; /* Color del texto */
 }
 
+/* Estilo de los enlaces de navegación */
 .nav-link {
-  position: relative;
-  color: white; /* Color de texto por defecto */
+  position: relative; /* Posición relativa para permitir el uso de pseudo-elementos */
+  color: white; /* Color del texto */
 }
 
+/* Estilo al pasar el ratón sobre los enlaces de navegación */
 .nav-link:hover {
-  color: white; /* Color de texto al pasar el cursor */
+  color: white; /* Color del texto al pasar el cursor */
 }
 
+/* Estilo del pseudo-elemento ::after de los enlaces de navegación */
 .nav-link::after {
-  content: '';
-  display: block;
-  width: 0;
-  height: 2px;
-  background: gold;
-  transition: width 0.3s;
-  position: absolute;
-  left: 0;
-  bottom: 0;
+  content: ''; /* Contenido vacío */
+  display: block; /* Se comporta como un elemento de bloque */
+  width: 0; /* Ancho inicial */
+  height: 2px; /* Altura de la línea */
+  background: gold; /* Color de la línea */
+  transition: width 0.3s; /* Transición suave para el ancho */
+  position: absolute; /* Posición absoluta para colocar la línea debajo del texto */
+  left: 0; /* Alinea a la izquierda */
+  bottom: 0; /* Posición de la línea */
 }
 
+/* Estilo al pasar el ratón sobre los enlaces de navegación */
 .nav-link:hover::after {
-  width: 100%;
+  width: 100%; /* La línea se expande al ancho completo */
 }
 
-.navbar-nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end; /* Asegura que los elementos se alineen a la derecha */
-  width: 100%;
-}
 
 
 /* Estilos Generales del Navbar 

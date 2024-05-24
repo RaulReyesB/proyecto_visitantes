@@ -143,7 +143,7 @@
     var curpInput = document.querySelector('input[name="CURP"]');
 
     select.addEventListener('change', function() {
-      if (this.value === 'Nue') {
+      if (this.value === 'Nue' || this.value === 'Pasaporte') {
         curpInput.disabled = true;
         curpInput.removeAttribute('required');
         curpInput.value = 'N/A';

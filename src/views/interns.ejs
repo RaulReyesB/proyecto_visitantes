@@ -2,41 +2,41 @@
 <html>
 
 <head>
-    <title>
-        <%= namePage %>
-    </title>
-    <!--
+  <title>
+    <%= namePage %>
+  </title>
+  <!--
         Este código incluye las hojas de estilo CSS y Bootstrap necesarias para la vista de registro.
         También incluye un archivo CSS personalizado para diseñar la página de registro, un archivo CSS de navegación,
         y un archivo CSS de pie de página.
         Además, incluye un favicon para el sitio web.
-    -->    <link rel="stylesheet" href="/css/styleinterns.css">
-    <link rel="stylesheet" href="/css/nav.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="/css/footer.css">
-    <link rel="icon" type="image/ico" href="/img/logohidalgo.ico">
+    -->
+  <link rel="stylesheet" href="/css/styleinterns.css">
+  <link rel="stylesheet" href="/css/nav.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="/css/footer.css">
+  <link rel="icon" type="image/ico" href="/img/logohidalgo.ico">
 
-    <!-- Estilos para ocultar los botones de incremento y decremento en campos de número -->
-    <style>
-        input::-webkit-outer-spin-button,
-        input::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
+  <!-- Estilos para ocultar los botones de incremento y decremento en campos de número -->
+  <style>
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
 
-        input[type="number"] {
-            -moz-appearance: textfield;
-        }
-    </style>
+    input[type="number"] {
+      -moz-appearance: textfield;
+    }
+  </style>
 </head>
 
 <body style="font-family: 'Poppins', sans-serif;">
-    <!-- Contenido del encabezado -->
-    <div class="fondo"></div>
-    <%- include('templates/nav') %>
-        <!--
+  <!-- Contenido del encabezado -->
+  <div class="fondo"></div>
+  <%- include('templates/nav') %>
+  <!--
             Este archivo contiene el código HTML para la página de visualización de pasantes.
             Incluye un formulario para registrar pasantes y capturar su información.
             El formulario incluye campos de entrada para el número de expediente del pasante, tipo de servicio, nombre, escuela, número de control, carrera, asesor, días, horario, horas por día,
@@ -53,17 +53,17 @@
                 <form action="/registroInternos" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
                     <div class="form-inputs">
                         <div class="form-p">
-                            <label for="fileNumber">Ingresa tu folio</label>
+                            <label for="fileNumber">Ingresa Folio</label>
                             <input min="001" max="050" class="form-control" type="number" name="fileNumber" id="fileNumber" placeholder="Folio" required>
-                            <label for="name">Ingresa tu nombre completo</label>
+                            <label for="name">Ingresa Nombre Completo</label>
                             <input class="form-control" type="text" name="name" id="name" placeholder="Nombre Completo" required>
-                            <label for="school">Ingresa tu escuela</label>
+                            <label for="school">Ingresa Escuela</label>
                             <input class="form-control" type="text" name="school" id="school" placeholder="Escuela" required>
-                            <label for="Mat">N° control</label>
-                            <input class="form-control" type="text" name="Mat" id="Mat" placeholder="N° control" required>
+                            <label for="Mat">N° de Gafete</label>
+                            <input class="form-control" type="text" name="Mat" id="Mat" placeholder="N° Interno" required>
                             <label for="service">Ingresa el tipo de servicio prestado</label>
                             <select class="form-control" name="service" id="service" required>
-                                <option value="">-- Seleccione un servicio --</option>
+                                <option value="">Seleccione un Servicio</option>
                                 <option value="dual">Dual</option>
                                 <option value="estadia">Estadia</option>
                                 <option value="estancia">Estancia</option>
@@ -77,16 +77,16 @@
                             <input class="form-control" type="text" name="adviser" id="adviser" placeholder="Asesor" required>
                             <label for="days">Días (Horario)</label>
                             <select class="form-control" name="days" id="days" required>
-                                <option value="">-- Seleccione un día --</option>
-                                <option value="LuyVie">Lunes a viernes</option>
-                                <option value="SabyDom">Sábado y domingo</option>
+                                <option value=""> Seleccione un día </option>
+                                <option value="LuyVie">Lunes a Viernes</option>
+                                <option value="SabyDom">Sábado y Domingo</option>
                                 <option value="otro">Otro(Especifique)</option>
                             </select>
                             <br>
                             <input disabled id="other" class="form-control" type="text" name="other" placeholder="Especifique">
                             <label for="shedule">Horario</label>
                             <select class="form-control" name="shedule" id="shedule" required>
-                                <option value="">-- Seleccione un horario --</option>
+                                <option value=""> Seleccione un horario </option>
                                 <option value="09:00-16:00">09:00-16:00</option>
                                 <option value="10:00-17:00">10:00-17:00</option>
                                 <option value="11:00-18:00">11:00-18:00</option>
@@ -97,11 +97,11 @@
 
                         </div>
                         <div class="form-p">
-                            <label for="startService">Inicio de servicio</label>
+                            <label for="startService">Inicio de Servicio</label>
                             <input class="form-control" type="date" name="startService" id="startService" placeholder="Inicio de servicio" min="<%= new Date().toISOString().split('T')[0] %>" required>
-                            <label for="endService">Fin de servicio</label>
+                            <label for="endService">Fin de Servicio</label>
                             <input class="form-control" type="date" name="endService" id="endService" placeholder="Fin de servicio" min="<%= new Date().toISOString().split('T')[0] %>" required>
-                            <label for="totHours">Total de horas</label>
+                            <label for="totHours">Total de Horas</label>
                             <input class="form-control" type="number" name="totHours" id="totHours" placeholder="Total de horas" required>
                             <label for="career">Carrera</label>
                             <input class="form-control" type="text" name="career" id="career" placeholder="Carrera" required>  
@@ -113,7 +113,7 @@
                     <input class="form-control" type="text" name="Program" id="Program" placeholder="Programa" required>
                     <label for="Observations">Observaciones</label>
                     <textarea class="form-control" name="Observations" id="Observations" placeholder="Observaciones" required></textarea>
-                    <label for="img">Sube una imagen</label>
+                    <label for="img">Sube una Imagen</label>
                     <input class="form-control" type="file" name="img" id="img">
                     <br>
                     <button id="btn" class="btn form-control" type="submit">Registrar</button>
@@ -126,40 +126,40 @@
             </footer>
         </div>
 
-        <script>
-            document.querySelector('form').addEventListener('submit', function(event) {
-            var selects = ['days', 'shedule', 'service'];
-            for (var i = 0; i < selects.length; i++) {
-                var select = document.getElementById(selects[i]);
-                if (select && (select.value === null || select.value === undefined || select.value === '')) {
-                    event.preventDefault();
-                    alert('Por favor, selecciona una opción');
-                    return;
-                }
-            }
-        });
+  <script>
+    document.querySelector('form').addEventListener('submit', function(event) {
+      var selects = ['days', 'shedule', 'service'];
+      for (var i = 0; i < selects.length; i++) {
+        var select = document.getElementById(selects[i]);
+        if (select && (select.value === null || select.value === undefined || select.value === '')) {
+          event.preventDefault();
+          alert('Por favor, selecciona una opción');
+          return;
+        }
+      }
+    });
 
-            document.getElementById('days').addEventListener('change', function () {
-                if (this.value === 'otro') {
-                    document.getElementById('other').disabled = false;
-                } else {
-                    document.getElementById('other').disabled = true;
-                }
-            });
+    document.getElementById('days').addEventListener('change', function() {
+      if (this.value === 'otro') {
+        document.getElementById('other').disabled = false;
+      } else {
+        document.getElementById('other').disabled = true;
+      }
+    });
 
 
-            document.addEventListener('DOMContentLoaded', function () {
-                const menuHamburguesa = document.querySelector('.menu-hamburguesa');
-                const enlaces = document.querySelector('.enlaces');
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuHamburguesa = document.querySelector('.menu-hamburguesa');
+      const enlaces = document.querySelector('.enlaces');
 
-                menuHamburguesa.addEventListener('click', function () {
-                    enlaces.classList.toggle('active');
-                });
-            })
-        </script>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      menuHamburguesa.addEventListener('click', function() {
+        enlaces.classList.toggle('active');
+      });
+    })
+  </script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 

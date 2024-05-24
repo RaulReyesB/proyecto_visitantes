@@ -1,241 +1,239 @@
 /* Estilo para la transición de la letra cambiante */
 #changing-letter {
   display: inline-block;
-  transition: transform 7s ease, opacity 7s ease;
+  transition: transform 7s ease, opacity 7s ease;/* Transición suave de transform y opacity */
 }
 
 /* Animación para el cambio de letra */
 .rotate-on-change {
-  animation: changeLetter 8s infinite;
+  animation: changeLetter 8s infinite;/* Animación infinita que dura 8 segundos */
 }
 
 @keyframes changeLetter {
   0%, 100% {
-      transform: rotateY(0deg);
-      opacity: 1;
+      transform: rotateY(0deg);/* Sin rotación */
+      opacity: 1; /* Totalmente opaco */
   }
   50% {
-      transform: rotateY(180deg);
-      opacity: 0;
+      transform: rotateY(180deg);/* Rotación 180 grados */
+      opacity: 0; /* Totalmente transparente */
   }
 }
 
 
 /* Nuevos estilos para alinear icono y detalles de usuario */
 .user-info-side {
-  display: flex;
-  align-items: center;
+  display: flex;/* Utiliza flexbox */
+  align-items: center; /* Alinea verticalmente al centro */
   gap: 10px; /* Ajusta el espacio entre el icono y los detalles del usuario si es necesario */
 }
 
 .user-icon-container {
-  display: flex;
-  align-items: center;
+  display: flex; /*Utiliza flexbox */
+  align-items: center; /* Alinea verticalmente al centro */
 }
 
 .tarjeta-usuario {
-  display: flex;
-  align-items: center;
+  display: flex;/* Utiliza flexbox */
+  align-items: center; /* Alinea verticalmente al centro */
 }
 
 :root {
-  --user-color-verde: rgb(59, 239, 59);
-  --user-color-anaranjado: #EBC668;
-  --user-color-azul: rgb(47, 203, 231);
-  --user-color-rojo: rgb(229, 53, 53);
-  --tarjeta-bg: rgba(255, 255, 255, 0.8);
-  --tarjeta-hover-bg: rgba(255, 255, 255, 0.95);
-  --tarjeta-color: #333;
-  --tarjeta-hover-color: #000;
-  --tarjeta-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  --tarjeta-hover-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  --user-color-verde: rgb(59, 239, 59); /* Color verde */
+  --user-color-anaranjado: #EBC668; /* Color anaranjado */
+  --user-color-azul: rgb(47, 203, 231); /* Color azul */
+  --user-color-rojo: rgb(229, 53, 53); /* Color rojo */
+  --tarjeta-bg: rgba(255, 255, 255, 0.8); /* Fondo de la tarjeta */
+  --tarjeta-hover-bg: rgba(255, 255, 255, 0.95); /* Fondo de la tarjeta al pasar el mouse */
+  --tarjeta-color: #333; /* Color del texto de la tarjeta */
+  --tarjeta-hover-color: #000; /* Color del texto de la tarjeta al pasar el mouse */
+  --tarjeta-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra de la tarjeta */
+  --tarjeta-hover-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra de la tarjeta al pasar el mouse */
 }
 
 body {
-  font-family: Arial, sans-serif;
-  color: #ffffff;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  font-family: Arial, sans-serif; /* Fuente del texto */
+  color: #ffffff; /* Color del texto */
+  margin: 0; /* Sin margen */
+  padding: 0; /* Sin padding */
+  display: flex; /* Utiliza flexbox */
+  flex-direction: column; /* Dirección de la flexbox en columna */
+  min-height: 100vh; /* Altura mínima de la ventana gráfica */
 }
 
 header {
-  /*background-color: #808080;*/
-  background-color: #691B31;
-  padding: 10px;
-  text-align: center;
-  position: relative;
-  border-radius: 0% 0% 20% 20%;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  background-color: #691B31; /* Color de fondo del encabezado */
+  padding: 10px; /* Padding del encabezado */
+  text-align: center; /* Centrar el texto */
+  position: relative; /* Posición relativa */
+  border-radius: 0% 0% 20% 20%; /* Bordes redondeados */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra del contenedor */
 }
 
 header a {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  text-decoration: none;
-  color: #ffffff;
-  background-color: #BC955B;
-  /*background-color:#3D3D3D ;*/
-  padding: 10px 20px;
-  border-radius: 50px;
-  font-size: 18px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  display: flex;
-  align-items: center;
+  position: absolute; /* Posición absoluta */
+  top: 10px; /* A 10px de la parte superior */
+  right: 10px; /* A 10px del lado derecho */
+  text-decoration: none; /* Sin subrayado */
+  color: #ffffff; /* Color del texto */
+  background-color: #BC955B; /* Color de fondo */
+  padding: 10px 20px; /* Padding */
+  border-radius: 50px; /* Bordes redondeados */
+  font-size: 18px; /* Tamaño de la fuente */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave */
+  display: flex; /* Utiliza flexbox */
+  align-items: center; /* Alinea verticalmente al centro */
 }
 
 header a i {
-  margin-right: 8px;
+  margin-right: 8px; /* Margen derecho */
 }
 
 header a:hover {
-  background-color: #eab566;
+  background-color: #eab566;/* Color de fondo al pasar el mouse */
   /*background-color: #3D3D3D;*/
-  transform: scale(1.1);
+  transform: scale(1.1);/* Aumenta el tamaño al pasar el mouse */
 }
 
 .header-title {
-  font-size: 44px;
-  font-weight: bold;
-  color: #ffffff;
-  margin-bottom: -10px;
-  opacity: 0;
-  animation: scaleIn 1s ease forwards;
+  font-size: 44px; /* Tamaño de la fuente */
+  font-weight: bold; /* Negrita */
+  color: #ffffff; /* Color del texto */
+  margin-bottom: -10px; /* Margen inferior negativo */
+  opacity: 0; /* Inicialmente transparente */
+  animation: scaleIn 1s ease forwards; /* Animación de entrada */
 }
 
 .header-subtitle {
-  font-size: 20px;
-  font-style: normal;
-  color: #c2c4d4;
+  font-size: 20px;/* */
+  font-style: normal;/*Estilo normal */
+  color: #c2c4d4;/* Color del texto */
   /*color: #3D3D3D;*/
-  opacity: 0;
-  animation: scaleIn 1s ease forwards;
+  opacity: 0;/* Inicialmente transparente */
+  animation: scaleIn 1s ease forwards; /* Animación de entrada */
 }
 
 .user-info-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: flex; /* Utiliza flexbox */
+  flex-direction: column; /* Dirección de la flexbox en columna */
+  align-items: center; /* Alinea horizontalmente al centro */
 }
 
 .user-info {
-  margin-right: 2000px;
+  margin-right: 2000px;/* Margen derecho */
 }
 
 .logout-link {
-  margin-left: 10px;
+  margin-left: 10px; /* Margen izquierdo */
 }
 
 @keyframes scaleIn {
   from {
-      opacity: 0;
-      transform: scale(0.8);
+      opacity: 0;/* Inicialmente transparente */
+      transform: scale(0.8); /* Escala inicial */
   }
   to {
-      opacity: 1;
-      transform: scale(1);
+      opacity: 1;/* Totalmente opaco */
+      transform: scale(1); /* Escala final */
   }
 }
 
 .container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 20px;
-  min-height:70vh;/*importante*/
-  position:relative;/*mantiene el footer abajo*/
+  display: flex; /* Utiliza flexbox */
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+  justify-content: center; /* Centra los elementos horizontalmente */
+  padding: 20px; /* Padding del contenedor */
+  min-height: 70vh; /* Altura mínima */
+  position: relative; /* Posición relativa */
 }
 
 .tarjeta {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 240px;
-  height: 200px;
-  margin-bottom: 20px;
-  background-color: var(--tarjeta-bg);
-  border-radius: 15px;
-  box-shadow: var(--tarjeta-shadow);
-  transition: opacity 0.6s ease; 
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-  cursor: pointer;
-  margin-right: 20px;
+  display: flex; /* Utiliza flexbox */
+  flex-direction: column; /* Dirección de la flexbox en columna */
+  justify-content: center; /* Justifica verticalmente al centro */
+  align-items: center; /* Alinea horizontalmente al centro */
+  width: 240px; /* Ancho de la tarjeta */
+  height: 200px; /* Altura de la tarjeta */
+  margin-bottom: 20px; /* Margen inferior */
+  background-color: var(--tarjeta-bg); /* Color de fondo de la tarjeta */
+  border-radius: 15px; /* Bordes redondeados */
+  box-shadow: var(--tarjeta-shadow); /* Sombra de la tarjeta */
+  transition: opacity 0.6s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Transiciones suaves */
+  cursor: pointer; /* Cursor en forma de mano */
+  margin-right: 20px; /* Margen derecho */
 }
 
 .tarjeta:last-child {
-  margin-right: 0;
+  margin-right: 0; /*sin margen derecho */
 }
 
 .tarjeta:hover {
-  transform: scale(1.05);
-  box-shadow: var(--tarjeta-hover-shadow);
-  background-color: var(--tarjeta-hover-bg);
+  transform: scale(1.05); /* Aumenta el tamaño al pasar el mouse */
+  box-shadow: var(--tarjeta-hover-shadow); /* Sombra de la tarjeta al pasar el mouse */
+  background-color: var(--tarjeta-hover-bg);/* Color de fondo de la tarjeta al pasar el mouse */
 }
 
 .tarjeta-icono {
-  font-size: 48px;
-  margin-bottom: 10px;
-  color: var(--tarjeta-color);
-  transition: color 0.3s ease;
+  font-size: 48px; /* Tamaño de la fuente */
+  margin-bottom: 10px; /* Margen inferior */
+  color: var(--tarjeta-color); /* Color del icono */
+  transition: color 0.3s ease; /* Transición suave del color */
 }
 
 .tarjeta-titulo {
-  font-size: 22px;
-  font-weight: bold;
-  color: var(--tarjeta-color);
-  text-align: center;
-  margin-bottom: 5px;
-  transition: color 0.3s ease;
+  font-size: 22px; /* Tamaño de la fuente */
+  font-weight: bold; /* Negrita */
+  color: var(--tarjeta-color); /* Color del título */
+  text-align: center; /* Centrar el texto */
+  margin-bottom: 5px; /* Margen inferior */
+  transition: color 0.3s ease; /* Transición suave del color */
 }
 
 .tarjeta-descripcion {
-  font-size: 16px;
-  color: var(--tarjeta-color);
-  text-align: center;
-  transition: color 0.3s ease;
+  font-size: 16px; /* Tamaño de la fuente */
+  color: var(--tarjeta-color); /* Color del texto */
+  text-align: center; /* Centrar el texto */
+  transition: color 0.3s ease; /* Transición suave del color */
 }
 
 .tarjeta:hover .tarjeta-icono,
 .tarjeta:hover .tarjeta-titulo,
 .tarjeta:hover .tarjeta-descripcion {
-  color: var(--tarjeta-hover-color);
+  color: var(--tarjeta-hover-color); /* Color del texto al pasar el mouse */
 }
 
 @keyframes slideIn {
   from {
-      opacity: 0;
-      transform: translateY(100%);
+      opacity: 0;/* Inicialmente transparente */
+      transform: translateY(100%);/* Comienza fuera de la vista hacia abajo */
   }
   to {
-      opacity: 1;
-      transform: translateY(0);
+      opacity: 1;/* Totalmente opaco */
+      transform: translateY(0);/* Desliza hacia la posición normal */
   }
 }
 
 footer {
   /*background: #1E3740;*/
-  animation: slideIn 1s ease forwards;
+  animation: slideIn 1s ease forwards;/* Animación de entrada */
 }
 
 footer p {
-  margin: 0;
-  font-size: 18px;
-  line-height: 1.5;
+  margin: 0; /* Sin margen */
+  font-size: 18px; /* Tamaño de la fuente */
+  line-height: 1.5; /* Altura de línea */
 }
 
 .custom-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('/img/fachada1.webp') no-repeat center center/cover;
-  filter: blur(6px);
-  z-index: -1;
+  position: fixed; /* Posición fija */
+  top: 0; /* Parte superior */
+  left: 0; /* Lado izquierdo */
+  width: 100%; /* Ancho total */
+  height: 100%; /* Altura total */
+  background: url('/img/fachada1.webp') no-repeat center center/cover; /* Imagen de fondo */
+  filter: blur(6px); /* Desenfoque */
+  z-index: -1; /* Colocación detrás de otros elementos */
 }
 
 /* Tarjeta Usuario */
@@ -244,13 +242,13 @@ footer p {
   height: auto; /* Cambiar el alto a "auto" */
   margin-right: auto; /* Centra el contenedor en el lado derecho */
   margin-left: auto; /* Centra el contenedor en el lado izquierdo */
-  margin-top: 12px;
-  background-color: rgba(99, 99, 99, 0.3);
-  border-radius: 150px;
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  opacity: 0;
+  margin-top: 12px; /* Margen superior */
+  background-color: rgba(99, 99, 99, 0.3); /* Color de fondo */
+  border-radius: 150px; /* Bordes redondeados */
+  display: flex; /* Utiliza flexbox */
+  align-items: center; /* Alinea verticalmente al centro */
+  padding: 10px; /* Padding */
+  opacity: 0; /* Inicialmente transparente */
   animation: slideInAndExpand 0s forwards; /* Efecto de entrada */
   box-shadow: 0 0 0px 5px rgba(0, 0, 0, 0.3);
   font-size: 1.3em; /* Fuente más pequeña */
@@ -266,52 +264,52 @@ footer p {
 
 
 .user-icon-container {
-  margin-top: 15px;
-  margin-right: 10px;
-  width: 70px;
-  height: 70px;
-  border-radius: 100%;
-  background-color: rgba(99, 99, 99, 0.3);
-  box-shadow: 0 0 0px 5px rgba(0, 0, 0, 0.3);
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-top: 15px; /* Margen superior */
+  margin-right: 10px; /* Margen derecho */
+  width: 70px; /* Ancho */
+  height: 70px; /* Altura */
+  border-radius: 100%; /* Bordes redondeados */
+  background-color: rgba(99, 99, 99, 0.3); /* Color de fondo */
+  box-shadow: 0 0 0px 5px rgba(0, 0, 0, 0.3); /* Sombra */
+  margin-bottom: 10px; /* Margen inferior */
+  display: flex; /* Utiliza flexbox */
+  align-items: center; /* Alinea verticalmente al centro */
+  justify-content: center; /* Justifica horizontalmente al centro */
 }
 
 .user-icon-container .bi {
-  margin-top: 5px;
-  font-size: 48px;
-  color: #ffffff;
+  margin-top: 5px; /* Margen superior */
+  font-size: 48px; /* Tamaño de la fuente */
+  color: #ffffff; /* Color del icono */
 
 }
 
 .user-type {
-  position: relative;
-  width: auto; /* Cambiar el ancho a "auto" */
-  height: auto; /* Cambiar el alto a "auto" */
-  margin-top: 12px;
-  background-color: rgba(99, 99, 99, 0.3);
-  border-radius: 150px;
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  opacity: 0;
-  animation: slideInAndExpand 0s forwards;
-  box-shadow: 0 0 0px 5px rgba(0, 0, 0, 0.3);
-  font-size: 1.3em;
-  overflow: hidden;
+  position: relative; /* Posición relativa */
+  width: auto; /* Ancho automático */
+  height: auto; /* Altura automática */
+  margin-top: 12px; /* Margen superior */
+  background-color: rgba(99, 99, 99, 0.3); /* Color de fondo */
+  border-radius: 150px; /* Bordes redondeados */
+  display: flex; /* Utiliza flexbox */
+  align-items: center; /* Alinea verticalmente al centro */
+  padding: 10px; /* Padding */
+  opacity: 0; /* Inicialmente transparente */
+  animation: slideInAndExpand 0s forwards; /* Animación de entrada */
+  box-shadow: 0 0 0px 5px rgba(0, 0, 0, 0.3); /* Sombra */
+  font-size: 1.3em; /* Tamaño de la fuente */
+  overflow: hidden; /* Oculta el desbordamiento */
 }
 
 .tarjeta-usuario .cuerpo {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  font-family: Arial;
-  font-size: 1  em; /* Fuente más pequeña */
-  color: #ffffff;
-  text-align: center;
+  display: flex; /* Utiliza flexbox */
+  flex-direction: column; /* Dirección de la flexbox en columna */
+  align-items: flex-start; /* Alinea horizontalmente al inicio */
+  justify-content: center; /* Justifica verticalmente al centro */
+  font-family: Arial; /* Fuente del texto */
+  font-size: 1em; /* Tamaño de la fuente */
+  color: #ffffff; /* Color del texto */
+  text-align: center; /* Centrar el texto */
 }
 
 .tarjeta-usuario .user-info-details {
@@ -328,74 +326,75 @@ footer p {
 
 .accediste-como {
   font-size: 1.5em; /* Fuente más pequeña */
-  margin-right: 10px;
+  margin-right: 10px; /*margen derecho */
  
 }
 
 /* Efecto de entrada */
 @keyframes slideInAndExpand {
   0% {
-      opacity: 0;
-      transform: scaleY(0);
+      opacity: 0; /* Inicialmente transparente */
+      transform: scaleY(0);/* Escala inicial en Y */
   }
   100% {
-      opacity: 1;
-      transform: scaleY(1);
+      opacity: 1;/* Totalmente opaco */
+
+      transform: scaleY(1);/* Escala final en Y */
   }
 }
 
-/* Responsive Adjustments */
+/* Ajustes responsivos */
 @media screen and (max-width: 600px) {
   .tarjeta-usuario {
-      width: 90%;
-      margin-left: auto;
-      margin-right: auto;
+      width: 90%; /* Ancho del 90% */
+      margin-left: auto; /* Centrar a la izquierda */
+      margin-right: auto; /* Centrar a la derecha */
       
   }
   .tarjeta {
-      width: 100%;
-      margin: 10px 0;
+      width: 100%;/* Ancho del 100% */
+      margin: 10px 0;/* Margen vertical */
   }
 }
 
 @media screen and (min-width: 601px) {
   .contenedor-tarjetas {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      position: relative;
+      display: flex; /* Utiliza flexbox */
+      flex-direction: row; /* Dirección de la flexbox en fila */
+      justify-content: flex-start; /* Justificar al inicio */
+      position: relative; /* Posición relativa */
   }
   .tarjeta-usuario {
       width: 400px; /* Ajustar a nuevo ancho */
   }
   .tarjeta {
-      width: 240px;
-      margin: 20px;
+      width: 240px;/* Ancho de 240px */
+      margin: 20px;/* Margen vertical */
   }
 }
 
 
 .tarjeta-usuario {
-  display: flex;
-  align-items: center;
+  display: flex; /* Utiliza flexbox */
+  align-items: center;/*Alinea los items al centro */
   margin-left: 10px; /* Ajusta el margen izquierdo según sea necesario */
 }
-/* Responsive Adjustments */
+/* Ajustes responsivos */
 @media screen and (max-width: 600px) {
   .user-info-side {
-    flex-direction: column;
+    flex-direction: column;/* Dirección columna */
     align-items: center; /* Centra los elementos verticalmente */
     justify-content: center; /* Centra los elementos horizontalmente */
-    margin-left: 0;
-    margin-top: 1px;
+    margin-left: 0;/* Sin margen izquierdo */
+    margin-top: 1px;/* Margen superior */
     
   }
 
   .tarjeta-usuario {
-    width: 90%;
-    margin-left: 90px;
-    margin-right: 90px;
-    margin-top: 10px;
+    width: 90%; /* Ancho del 90% */
+    margin-left: 90px; /* Margen izquierdo */
+    margin-right: 90px; /* Margen derecho */
+    margin-top: 10px; /* Margen superior */
     
   }
 
@@ -418,79 +417,78 @@ footer p {
 
 @media screen and (max-width: 600px) {
   .tarjeta:last-child {
-    width: 360px;
-    height: 200px;
-    margin: 10px 0;
-    padding: 20px; /* Agrega padding para mejor visualización en pantallas pequeñas */
+    width: 360px; /* Ancho */
+    height: 200px; /* Altura */
+    margin: 10px 0; /* Margen vertical */
+    padding: 20px; /* Padding */
   }
   .tarjeta:last-child .tarjeta-icono {
-    font-size: 36px;
-    margin-bottom: 10px;
+    font-size: 36px; /* Tamaño de la fuente */
+    margin-bottom: 10px; /* Margen inferior */
   }
   .tarjeta:last-child .tarjeta-titulo {
-    font-size: 18px;
+    font-size: 18px; /* Tamaño de la fuente */
   }
   .tarjeta:last-child .tarjeta-descripcion {
-    font-size: 14px;
+    font-size: 14px; /* Tamaño de la fuente */
   }
 }
 
 
 /* ESTILOS PARA LAS ALERTAS */
-/* ESTILOS PARA LAS ALERTAS */
 .alert {
-  position: fixed;
-  top: 160px;
-  left: 20px;
-  padding: 20px 30px;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.3s ease-in-out;
-  transform: translateX(-100%);
+  position: fixed; /* Posición fija */
+  top: 160px; /* Posición desde la parte superior */
+  left: 20px; /* Posición desde la izquierda */
+  padding: 20px 30px; /* Padding */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Sombra */
+  z-index: 1000; /* Nivel z */
+  opacity: 0; /* Inicialmente transparente */
+  visibility: hidden; /* Inicialmente oculto */
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.3s ease-in-out; /* Transiciones */
+  transform: translateX(-100%); /* Posición inicial fuera de la vista */
 }
 
 .alert.show {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(0);
+  opacity: 1; /* Totalmente opaco */
+  visibility: visible; /* Visible */
+  transform: translateX(0); /* Posición final */
 }
 
 .alert-danger, .alert-success {
-  display: flex;
-  align-items: center;
-  gap: 19px;
+  display: flex; /* Utiliza flexbox */
+  align-items: center; /* Alinea verticalmente al centro */
+  gap: 19px; /* Espacio entre elementos */
 }
 
 .alert-danger {
-  color: #721c24;
-  background-color: #f8d7da;
-  border: 2px solid #f5c6cb;
+  color: #721c24; /* Color del texto */
+  background-color: #f8d7da; /* Color de fondo */
+  border: 2px solid #f5c6cb; /* Borde */
 }
 
 .alert-success {
-  color: #155724;
-  background-color: #d4edda;
-  border: 2px solid #c3e6cb;
+  color: #155724; /* Color del texto */
+  background-color: #d4edda; /* Color de fondo */
+  border: 2px solid #c3e6cb; /* Borde */
 }
 
 .alert-icon {
-  font-size: 24px;
+  font-size: 24px;/* Tamaño del icono */
 }
 
 .alert ul {
-  list-style: none;
-  padding: 0;
+  list-style: none; /* Sin estilo de lista */
+  padding: 0; /* Sin padding */
 }  
 
 
-/*Iconos a las alertas */
+/*Iconos a las alertas purbea */
 .alert-danger .alert-icon::before {
-  content: "⚠"; 
+  content: "⚠"; /* Icono de advertencia */
 }
 
 .alert-success .alert-icon::before {
-  content: "✅"; 
+  content: "✅"; /* Icono de éxito */
 }

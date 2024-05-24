@@ -14,8 +14,60 @@
 </head>
 
 <body>
+
+  <nav id="var" class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <!-- Imagen de la institución logueada al inicio de la página -->
+      <a href="/inicio" style="display: flex;">
+        <img src="/img/rtyh_logo.webp" alt="Logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <!-- Por el amor de Dios dejen de eliminar estas limitaciones -->
+          
+            <li style="color: white !important;" class="nav-item">
+              <a id="color" class="nav-link" href="/registroInternos">Pasantes</a>
+            </li>
+            <li class="nav-item">
+              <a id="color" class="nav-link" href="/historialInternos">Historial de pasante</a>
+            </li>
+          
+            <li class="nav-item">
+              <a id="color" class="nav-link" href="/registroVisitas">Registrar visitas</a>
+            </li>
+            <li class="nav-item">
+              <a id="color" class="nav-link" href="/registrosPendientes">Pendientes de Salida</a>
+            </li>
+            <li class="nav-item">
+              <a id="color" class="nav-link" href="/controlPasantes">Control de Pasantes</a>
+            </li>
+          
+            <li class="nav-item">
+              <a id="color" class="nav-link" href="/historial">Historial de visitantes</a>
+            </li>
+            <li class="nav-item">
+              <a id="color" class="nav-link" href="/controlPasantes">Control de Pasantes</a>
+            </li>
+  
+            <li class="nav-item">
+              <a id="color" class="nav-link" href="/AdmistrarUsuario">Control de Usuarios</a>
+            </li>
+            <li class="nav-item">
+              <a id="color" class="nav-link" href="/registroUsuario">Registrar Usuario</a>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+
   <div class="fondo"></div>
-  <%- include('templates/nav') %>
+  
+
   <div class="container">
     <div class="cont-title">
       <h1><%-namePage%></h1>

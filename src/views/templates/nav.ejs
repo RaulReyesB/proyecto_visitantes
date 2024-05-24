@@ -22,7 +22,7 @@
               <a id="color" class="nav-link" href="/registrosPendientes">Pendientes de Salida</a>
               <a id="color" class="nav-link" href="/controlPasantes">Control de Pasantes</a>
             <% } %>
-            <% if (user.type==='superUsuario' || user.type==='administrador' ) { %>
+            <% if ( user.type==='administrador' ) { %>
               <a id="color" class="nav-link" class="nav-link" href="/historial">Historial de visitantes</a>
               <a id="color" class="nav-link" href="/controlPasantes">Control de Pasantes</a>
             <% } %>

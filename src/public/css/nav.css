@@ -1,21 +1,24 @@
 /* Estilos del contenedor del encabezado */
 #var {
   background: #691b31; /* Color de fondo */
-  padding: 1%; /* Padding alrededor del contenedor */
-  display: flex; /* Utiliza flexbox */
-  justify-content: space-between; /* Distribuye el espacio entre los elementos */
-  align-items: center; /* Alinea los elementos verticalmente al centro */
+  padding: 1%; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;/* Padding alrededor del contenedor */
 }
 
-/* Estilo de las imágenes dentro del encabezado */
+/* Estilo de la imagen dentro del encabezado */
 #var img {
-  width: 100px; /* Ancho fijo de la imagen */
-  height: auto; /* Altura automática para mantener la proporción */
+  max-height: 90px; /* Altura máxima para la imagen */
+  margin-right:90px; /* Espacio a la derecha para separar la imagen de los enlaces */
 }
+
 
 /* Estilo del contenedor de los enlaces */
 #var .enlaces {
   display: flex; /* Utiliza flexbox */
+  justify-content: flex-end; /* Alinea los enlaces al final */
+  align-items: center; /* Alinea verticalmente al centro */
 }
 
 /* Estilo de los enlaces dentro del contenedor de enlaces */
@@ -74,17 +77,19 @@
     display: flex; /* Muestra el ícono del menú hamburguesa */
   }
 
-  .enlaces.active {
-    display: flex; /* Muestra los enlaces */
-    flex-direction: column; /* Coloca los enlaces en columna */
-    width: 100%; /* Ancho completo */
+  .navbar-collapse {
+    flex-direction: column; /* Coloca los elementos en columna */
   }
 
-  .enlaces a {
-    text-align: center; /* Centra el texto */
-    padding: 10px 15px; /* Padding alrededor del enlace */
+  .navbar-nav {
     width: 100%; /* Ancho completo */
+    flex-direction: column; /* Coloca los enlaces en columna */
+  }
+
+  .nav-link {
     text-align: left; /* Alinea el texto a la izquierda */
+    width: 100%; /* Ancho completo */
+    padding: 10px 15px; /* Padding alrededor del enlace */
     border-top: 1px solid #444; /* Borde superior para separar los enlaces */
   }
 }
@@ -123,13 +128,6 @@
   width: 100%; /* La línea se expande al ancho completo */
 }
 
-/* Estilo del contenedor de navegación */
-.navbar-nav {
-  display: flex; /* Utiliza flexbox */
-  flex-direction: row; /* Coloca los elementos en fila */
-  justify-content: flex-end; /* Alinea los elementos a la derecha */
-  width: 100%; /* Ancho completo */
-}
 
 
 /* Estilos Generales del Navbar 

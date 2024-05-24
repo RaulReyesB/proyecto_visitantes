@@ -1,142 +1,142 @@
 @keyframes fadeIn {
     from {
-      opacity: 0;
-      transform: translateY(20px);
+      opacity: 0; /* Remueve la opacidad */
+      transform: translateY(20px); /* Añade la transformación de opacidad en 20 pixeles */
     }
     to {
-      opacity: 1;
-      transform: translateY(0);
+      opacity: 1; /* Agrega la opacidad en 1 */
+      transform: translateY(0); /* Remueve la transformación en Y */
     }
   }
   
   .fade-in {
-    animation: fadeIn 0.5s ease-in-out;
+    animation: fadeIn 0.5s ease-in-out; /* Añade una animación que comienza lentamente durante .5 segundos */
   }
   
   body {
-    background-color: gray;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    background-color: gray; /* Añade color de fondo en gris */
+    display: flex;  /* Establece una visualización flexible el cuerpo de pagina */
+    flex-direction: column; /* Establece una dirección en columna */
+    min-height: 100vh; /* Define la altura minima de 80 de viewport height */
   }
   .fondo {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('/img/fachada1.webp') no-repeat center center/cover;
-    filter: blur(8px);
-    z-index: -1;
+    position: fixed; /* Mantiene una posición de la imagen de fondo en estatico */
+    top: 0; /* Remover la posición superior */
+    left: 0;  /* Remover la posición izquierda */
+    width: 100%;  /* Proporciona el ancho de 100% */
+    height: 100%; /* Proporciona la altura de 100% */
+    background: url('/img/fachada1.webp') no-repeat center center/cover; /* Agrega una imagen para el fondo, que no se repita y se centre */
+    filter: blur(8px);  /* Agrega un filtro de desenfoque de 8 pixeles a la imagen de fondo */
+    z-index: -1;  /* Indica el valor de -1 de posicionamiento de la imagen */
   }
   .search-container{
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 700px;
-    margin: 50px auto;
-    border-radius: 25px;
-    overflow: hidden;
-    border: 1px solid #ccc;
+    display: flex;  /* Establece una visualización flexible al seleccionar los inputs */
+    align-items: center;  /* Alineación de centro al contenido */
+    width: 100%;  /* Proporciona el ancho de 100% */
+    max-width: 700px; /* Propociorna el ancho maximo de 700 pixeles */
+    margin: 50px auto;  /* Añade un margen de 50 pixeles y automatico */
+    border-radius: 25px;  /* Añade un borde de radio de 25 pixeles */
+    overflow: hidden; /* ocultar el contenido que sale del contenedor */
+    border: 1px solid #ccc; /* Añade un borde solido de color gris suave */
   }
   .search-container input[type="text"] {
-    width: 100%;
-    padding: 10px;
+    width: 100%;  /* Proporciona el ancho de 100% */
+    padding: 10px;  /* Añade un espacio de 10 pixeles */
     border: 1px solid #ccc; /* Asegura el mismo borde que el botón */
     border-right: none; /* Quita el borde derecho */
-    border-radius: 4px 0 0 4px;
-    outline: none;
+    border-radius: 4px 0 0 4px; /* Agrega un borde de radio */
+    outline: none; /* Remueve el interlineado */
   }
   
   .search-container button {
-    padding: 10px;
+    padding: 10px;  /* Agrega un espacio de 10 pixeles */
     border: 1px solid #ccc; /* Asegura el mismo borde que el input */
     border-left: none; /* Quita el borde izquierdo */
-    background-color: white;
-    color: #000; /* Asegura que el texto sea visible */
-    border-radius: 0 4px 4px 0;
-    cursor: pointer;
+    background-color: white;  /* Añade color de fondo en blanco */
+    color: #000; /* Añade color de fuente de letra en negro */
+    border-radius: 0 4px 4px 0; /* Agrega un borde de radio */
+    cursor: pointer; /* Transforma el cursor del mouse en una mano señalando el boton que se va a seleccionar */
   }
   .cont-title h1{
-    color: white;
+    color: white; /* Añade color de fuente de letra en blanco */
   }
   
   .search-container button:hover {
-    background-color: #f0f0f0;
+    background-color: #f0f0f0;  /* Añade color blanco de fondo */
   }
   
   i {
-    color: #000;
+    color: #000; /* Añade color de fuente de letra en negro */
   }
   
   #searchType {
-    background: white;
+    background: white;  /* Añade un fondo blanco */
   }
   
   table {
-    border-spacing: 0;
-    border-radius: 20px;
-    width: 100%;
-    table-layout: fixed;
-    word-wrap: break-word;
+    border-spacing: 0; /* Remover el espaciado del borde */
+    border-radius: 20px; /* Añade un borde de radio a la tabla de 20 pixeles*/
+    width: 100%;  /* Asignar un ancho de 100% */
+    table-layout: fixed; /* Crea un diseño de tabla mas predecible */
+    word-wrap: break-word; /* Evita que el texto no se sobresalga de un contenedor o de la pagina */
   }
   
   thead {
-    background: #E8E8E8;
-    font-family: Arial, Helvetica, sans-serif;
+    background: #E8E8E8;  /* Añade un fondo blanco suave */
+    font-family: Arial, Helvetica, sans-serif;  /* Asignar fuente de letra en arial, helvetica y sans-serif */
   }
   
   thead th {
-    font-size: 15px;
+    font-size: 15px;  /* Ajustar fuente de letra a 15 pixeles */
     
-    background: #E8E8E8;
+    background: #E8E8E8;  /* Agrega un fondo blanco suave */
   }
   
   tbody tr {
-    background: white;
+    background: white; /* Añade un fondo blanco */
   }
   
   tbody td {
-    padding: 10px;
-    border-left: 0.5px solid #777777; /* Color suave */
-    border-right: 0.5px solid #777777; /* Color suave */
-    border-top: 0.5px solid #777777; /* Borde horizontal suave */
-    border-bottom: 0.5px solid #777777; /* Borde horizontal suave */
-    text-align: center;
+    padding: 10px;  /*Agregar espacio de 10 pixeles */
+    border-left: 0.5px solid #777777; /* Color gris suave */
+    border-right: 0.5px solid #777777; /* Color gris suave */
+    border-top: 0.5px solid #777777; /* Borde horizontal gris suave */
+    border-bottom: 0.5px solid #777777; /* Borde horizontal gris suave */
+    text-align: center; /* Alineación en centro al texto */
   }
   
   #tabla thead th:first-child {
-    border-top-left-radius: 20px;
+    border-top-left-radius: 20px; /* Agrega un borde de radio superior izquierda */
   }
   
   #tabla thead th:last-child {
-    border-top-right-radius: 20px;
+    border-top-right-radius: 20px; /* Agrega un borde de radio superior derecha */
   }
   
   #tabla tbody tr:last-child td:first-child {
-    border-bottom-left-radius: 20px;
+    border-bottom-left-radius: 20px;  /* Agrega un borde de radio inferior izquierda */
   }
   
   #tabla tbody tr:last-child td:last-child {
-    border-bottom-right-radius: 20px;
+    border-bottom-right-radius: 20px; /* Agrega un borde de radio superior derecha */
   }
   
   #content-wrapper {
-    flex: 1;
+    flex: 1;  /* Añade un espacio flexible */
   }
   
   footer {
-    background-color: #E8E8E8;
-    color: black;
-    text-align: center;
-    padding: 10px 0;
-    width: 100%;
-    margin-top: auto;
+    background-color: #E8E8E8;  /* Añade color de fondo en blanco */
+    color: black; /* Añade color de fuente de letra en negro */
+    text-align: center; /* Alineación en centro al texto */
+    padding: 10px 0; /*Añade un espacio de 10x0 pixeles */
+    width: 100%;  /* Asigna un valor de ancho de 100% */
+    margin-top: auto; /* Asigna un margen superior automatico */
   }
   h1{
-    text-align: center;
+    text-align: center; /* Alineación en centro al texto */
   }
   /* Estilo para el placeholder */
 .search-container input[type="text"]::placeholder {
-  color: black;
+  color: black; /* Agrega color negro a la fuente de letra */
 }

@@ -2,6 +2,7 @@ import User from "../models/user.js";
 import bcrypt from 'bcryptjs';
 import { validationResult, check } from "express-validator";
 
+// Función para registrar un nuevo usuario
 const registerUser = async (req, res) => {
   try {
     // Validar los datos del formulario utilizando express-validator
@@ -74,6 +75,7 @@ const registerUser = async (req, res) => {
   }
 };
 
+// Función para autenticar a un usuario
 const authenticateUser = async (req, res) => {
   try {
     // Validar los datos del formulario utilizando express-validator
@@ -153,6 +155,7 @@ const authenticateUser = async (req, res) => {
   }
 };
 
+// Función para administrar los usuarios de la aplicación
 const adminUser = async (req, res) => {
   try {
     const users = await User.findAll();
@@ -167,6 +170,7 @@ const adminUser = async (req, res) => {
   }
 };
 
+// Función para alternar el estado activo/inactivo de un usuario
 const toggleStatus = async (req, res) => {
   try {
     const userId = req.params.userId;
@@ -187,6 +191,7 @@ const toggleStatus = async (req, res) => {
   }
 };
 
+// Función para renderizar el formulario de edición de un usuario
 const editUser = async (req, res) => {
   try {
     const userId = req.params.userId;
@@ -208,6 +213,7 @@ const editUser = async (req, res) => {
   }
 };
 
+// Función para actualizar la información de un usuario
 const updateUser = async (req, res) => {
   try {
     const userId = req.params.userId;
@@ -244,12 +250,13 @@ const updateUser = async (req, res) => {
       namePage: "Inicio",
       description: "Bienvenido a Radio y Television Hidalgo",
       user: req.session.user,
-      errors: [{msg: "No se pudo completar la operacion"}],
+      errors: [{msg: "No se pudo completar la operación"}],
       msg: ""
     });
   }
 };
 
+// Función para cerrar la sesión del usuario
 const logout = (req, res) => {
   try {
     // Destruir la sesión del usuario
@@ -267,5 +274,4 @@ const logout = (req, res) => {
   }
 };
 
-
-export { adminUser, toggleStatus, editUser, updateUser, logout, registerUser, authenticateUser, };
+export { adminUser, toggleStatus, editUser, updateUser, logout, registerUser, authenticateUser };

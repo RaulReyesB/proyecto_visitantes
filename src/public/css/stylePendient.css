@@ -1,213 +1,224 @@
+/* Definición de una animación de entrada suave */
 @keyframes fadeIn {
   from {
-    opacity: 0;
-    transform: translateY(20px);
+    opacity: 0; /* Comienza totalmente transparente */
+    transform: translateY(20px); /* Desplazamiento hacia abajo */
   }
   to {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1; /* Termina completamente visible */
+    transform: translateY(0); /* Sin desplazamiento */
   }
-}  
+}
+
+/* Estilo de fondo */
 .fondo {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('/img/fachada1.webp') no-repeat center center/cover;
-  filter: blur(8px);
-  z-index: -1;
+  position: fixed; /* Fija la posición del elemento */
+  top: 0; /* Alinea al borde superior */
+  left: 0; /* Alinea al borde izquierdo */
+  width: 100%; /* Ocupa todo el ancho */
+  height: 100%; /* Ocupa toda la altura */
+  background: url('/img/fachada1.webp') no-repeat center center/cover; /* Imagen de fondo centrada y cubriendo toda el área */
+  filter: blur(8px); /* Aplica un desenfoque */
+  z-index: -1; /* Coloca el elemento detrás del contenido principal */
 }
-/* Contenedor de todo el cuerpo */
+
+/* Contenedor principal */
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin: auto;
-  
+  display: flex; /* Utiliza flexbox */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  flex-direction: column; /* Coloca los elementos en columna */
+  margin: auto; /* Centra el contenedor */
 }
+
+/* Segundo contenedor */
 .container-2 {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 20px;
-  min-height:65vh;/*importante*/
-  position:relative;/*mantiene el footer abajo*/
+  display: flex; /* Utiliza flexbox */
+  flex-wrap: wrap; /* Permite el ajuste de los elementos */
+  justify-content: center; /* Centra horizontalmente */
+  padding: 20px; /* Añade padding alrededor */
+  min-height: 65vh; /* Altura mínima del contenedor */
+  position: relative; /* Posición relativa para el footer */
 }
-/* Contenedor del titulo */
+
+/* Contenedor del título */
 .cont-title {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-  margin-top: 10px;
+  display: flex; /* Utiliza flexbox */
+  flex-direction: row; /* Coloca los elementos en fila */
+  justify-content: center; /* Centra horizontalmente */
+  width: 100%; /* Ocupa todo el ancho */
+  margin-top: 10px; /* Añade un margen superior */
 }
 
 .cont-title div {
-  margin-right: 50px;
+  margin-right: 50px; /* Añade un margen a la derecha */
 }
 
-/* Titulo del formulario */
+/* Estilo del título del formulario */
 .container h1 {
-  color: white;
-  font-size: 50px; /* Ajuste de tamaño de fuente */
+  color: white; /* Color del texto */
+  font-size: 50px; /* Tamaño de fuente */
 }
-  th {
-    background: #E8E8E8;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  .search-container{
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 700px;
-    margin: 50px auto;
-    border-radius: 25px;
-    overflow: hidden;
-    border: 1px solid #ccc;
-    margin-top: 10px;
-  }
-  .search-container input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc; /* Asegura el mismo borde que el botón */
-    border-right: none; /* Quita el borde derecho */
-    border-radius: 4px 0 0 4px;
-    outline: none;
-    
-  }
-  
-  .search-container button {
-    padding: 10px;
-    border: 1px solid #ccc; /* Asegura el mismo borde que el input */
-    border-left: none; /* Quita el borde izquierdo */
-    background-color: white;
-    color: #000; /* Asegura que el texto sea visible */
-    border-radius: 0 4px 4px 0;
-    cursor: pointer;
-  }
-  
-  .search-container button:hover {
-    background-color: #f0f0f0;
-  }
-  
-  i {
-    color: #000;
-  }
-  
-  #searchType {
-    background: white;
-  }
-  .fondo{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('/img/fachada1.jpg') no-repeat center center/cover;
-    filter: blur(8px);
-    z-index: -1;
-  }
-  
-  
-  @keyframes slideInAndExpand {
-    0% {
-      opacity: 0;
-      transform: scaleY(0);
-    }
-    100% {
-      opacity: 1;
-      transform: scaleY(1);
-    }
-  }
-  
 
-  .cont-title {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-    margin-top: 10px;
-    text-align: center; /* Centrar el texto */
-  }
-  
-
-.search-container{
-  display: flex;
-  align-items: center;
-  width: 100%;
-  color:#000;
-  max-width: 700px;
-  margin: 50px auto;
-  border-radius: 25px;
-  overflow: hidden;
-  border: 1px solid #ccc;
+th {
+  background: #E8E8E8; /* Color de fondo del encabezado de la tabla */
+  font-family: Arial, Helvetica, sans-serif; /* Fuente del texto */
 }
+
+/* Contenedor de búsqueda */
+.search-container {
+  display: flex; /* Utiliza flexbox */
+  align-items: center; /* Alinea verticalmente */
+  width: 100%; /* Ocupa todo el ancho */
+  max-width: 700px; /* Ancho máximo */
+  margin: 50px auto; /* Centra el contenedor y añade margen */
+  border-radius: 25px; /* Bordes redondeados */
+  overflow: hidden; /* Oculta desbordamiento */
+  border: 1px solid #ccc; /* Borde del contenedor */
+}
+
 .search-container input[type="text"] {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc; /* Asegura el mismo borde que el botón */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  padding: 10px; /* Añade padding */
+  border: 1px solid #ccc; /* Borde del input */
   border-right: none; /* Quita el borde derecho */
-  border-radius: 4px 0 0 4px;
-  outline: none;
+  border-radius: 4px 0 0 4px; /* Bordes redondeados */
+  outline: none; /* Quita el contorno */
 }
 
 .search-container button {
-  padding: 10px;
-  border: 1px solid #ccc; /* Asegura el mismo borde que el input */
+  padding: 10px; /* Añade padding */
+  border: 1px solid #ccc; /* Borde del botón */
   border-left: none; /* Quita el borde izquierdo */
-  background-color: white;
-  color: #000; /* Asegura que el texto sea visible */
-  border-radius: 0 4px 4px 0;
-  cursor: pointer;
+  background-color: white; /* Color de fondo */
+  color: #000; /* Color del texto */
+  border-radius: 0 4px 4px 0; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
 }
 
 .search-container button:hover {
-  background-color: #f0f0f0;
+  background-color: #f0f0f0; /* Cambia el fondo al pasar el ratón */
 }
 
 i {
-  color: #000;
+  color: #000; /* Color de los íconos */
 }
 
 #searchType {
-  background: white;
+  background: white; /* Color de fondo del select */
 }
 
+.fondo {
+  position: fixed; /* Fija la posición del elemento */
+  top: 0; /* Alinea al borde superior */
+  left: 0; /* Alinea al borde izquierdo */
+  width: 100%; /* Ocupa todo el ancho */
+  height: 100%; /* Ocupa toda la altura */
+  background: url('/img/fachada1.jpg') no-repeat center center/cover; /* Imagen de fondo centrada y cubriendo toda el área */
+  filter: blur(8px); /* Aplica un desenfoque */
+  z-index: -1; /* Coloca el elemento detrás del contenido principal */
+}
+
+/* Definición de otra animación de entrada */
+@keyframes slideInAndExpand {
+  0% {
+    opacity: 0; /* Comienza totalmente transparente */
+    transform: scaleY(0); /* Comienza con altura cero */
+  }
+  100% {
+    opacity: 1; /* Termina completamente visible */
+    transform: scaleY(1); /* Termina con altura completa */
+  }
+}
+
+/* Contenedor del título */
+.cont-title {
+  display: flex; /* Utiliza flexbox */
+  flex-direction: row; /* Coloca los elementos en fila */
+  justify-content: center; /* Centra horizontalmente */
+  width: 100%; /* Ocupa todo el ancho */
+  margin-top: 10px; /* Añade un margen superior */
+  text-align: center; /* Centra el texto */
+}
+
+/* Contenedor de búsqueda */
+.search-container {
+  display: flex; /* Utiliza flexbox */
+  align-items: center; /* Alinea verticalmente */
+  width: 100%; /* Ocupa todo el ancho */
+  color: #000; /* Color del texto */
+  max-width: 700px; /* Ancho máximo */
+  margin: 50px auto; /* Centra el contenedor y añade margen */
+  border-radius: 25px; /* Bordes redondeados */
+  overflow: hidden; /* Oculta desbordamiento */
+  border: 1px solid #ccc; /* Borde del contenedor */
+}
+
+.search-container input[type="text"] {
+  width: 100%; /* Ocupa todo el ancho disponible */
+  padding: 10px; /* Añade padding */
+  border: 1px solid #ccc; /* Borde del input */
+  border-right: none; /* Quita el borde derecho */
+  border-radius: 4px 0 0 4px; /* Bordes redondeados */
+  outline: none; /* Quita el contorno */
+}
+
+.search-container button {
+  padding: 10px; /* Añade padding */
+  border: 1px solid #ccc; /* Borde del botón */
+  border-left: none; /* Quita el borde izquierdo */
+  background-color: white; /* Color de fondo */
+  color: #000; /* Color del texto */
+  border-radius: 0 4px 4px 0; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+
+.search-container button:hover {
+  background-color: #f0f0f0; /* Cambia el fondo al pasar el ratón */
+}
+
+i {
+  color: #000; /* Color de los íconos */
+}
+
+#searchType {
+  background: white; /* Color de fondo del select */
+}
+
+/* Estilos para la tabla */
 table {
-  border-spacing: 0;
-  border-radius: 20px;
-  width: 100%;
-  table-layout: fixed;
-  word-wrap: break-word;
+  border-spacing: 0; /* Sin espacio entre celdas */
+  border-radius: 20px; /* Bordes redondeados */
+  width: 100%; /* Ocupa todo el ancho */
+  table-layout: fixed; /* Ancho fijo para las columnas */
+  word-wrap: break-word; /* Ajuste de palabra para evitar desbordamiento */
 }
-
-
 
 thead {
-  background: #E8E8E8;
-  font-family: Arial, Helvetica, sans-serif;
-} 
+  background: #E8E8E8; /* Color de fondo del encabezado */
+  font-family: Arial, Helvetica, sans-serif; /* Fuente del encabezado */
+}
+
 thead th {
-  padding: 15px;
-  font-size: 15px;
-  background: #E8E8E8;
+  padding: 15px; /* Padding de las celdas del encabezado */
+  font-size: 15px; /* Tamaño de fuente */
+  background: #E8E8E8; /* Color de fondo */
 }
 
 tbody tr {
-  background: white;
+  background: white; /* Color de fondo de las filas */
 }
 
 tbody td {
-  padding: 10px;
-  border-left: 0.5px solid #777777; /* Color suave */
-  border-right: 0.5px solid #777777; /* Color suave */
-  border-top: 0.5px solid #777777; /* Borde horizontal suave */
-  border-bottom: 0.5px solid #777777; /* Borde horizontal suave */
-  text-align: center;
+  padding: 10px; /* Padding de las celdas */
+  border-left: 0.5px solid #777777; /* Borde izquierdo suave */
+  border-right: 0.5px solid #777777; /* Borde derecho suave */
+  border-top: 0.5px solid #777777; /* Borde superior suave */
+  border-bottom: 0.5px solid #777777; /* Borde inferior suave */
+  text-align: center; /* Centra el texto */
 }
 
+/* Bordes redondeados de la tabla */
 #tabla thead th:first-child {
   border-top-left-radius: 20px;
 }
@@ -224,48 +235,52 @@ tbody td {
   border-bottom-right-radius: 20px;
 }
 
+/* Contenido principal */
 #content-wrapper {
-  flex: 1;
+  flex: 1; /* Flexibilidad para ocupar el espacio disponible */
 }
 
+/* Estilo del pie de página */
 footer {
-  background-color: #E8E8E8;
-  color: black;
-  text-align: center;
-  padding: 10px 0;
-  width: 100%;
-  margin-top: auto;
+  background-color: #E8E8E8; /* Color de fondo */
+  color: black; /* Color del texto */
+  text-align: center; /* Centra el texto */
+  padding: 10px 0; /* Padding superior e inferior */
+  width: 100%; /* Ocupa todo el ancho */
+  margin-top: auto; /* Empuja el footer hacia abajo */
 }
 
-/* Adjustments for smaller screens */
+/* Ajustes para pantallas pequeñas */
 @media only screen and (max-width: 768px) {
   .formato {
-    width: 100%; /* Adjust width for smaller screens */
-    margin-left: auto; /* Center the container */
-    margin-right: auto; /* Center the container */
-    margin-top: 20px; /* Adjust top margin */
-    margin-bottom: 20px; /* Adjust bottom margin */
+    width: 100%; /* Ancho completo */
+    margin-left: auto; /* Centra horizontalmente */
+    margin-right: auto; /* Centra horizontalmente */
+    margin-top: 20px; /* Margen superior */
+    margin-bottom: 20px; /* Margen inferior */
   }
 
   .formato h1 {
-    font-size: 24px; /* Decrease font size for smaller screens */
+    font-size: 24px; /* Reduce el tamaño de fuente */
   }
 
   .search-container {
-    margin: 20px auto; /* Adjust margin for smaller screens */
+    margin: 20px auto; /* Ajusta el margen */
   }
 }
-/* estilos para tabla responciva*/
+
+/* Estilos para tabla responsive */
 @media (max-width: 850px) {
   .table-responsive-scroll {
-    overflow-x: auto;
-    white-space: nowrap;
+    overflow-x: auto; /* Scroll horizontal para tablas anchas */
+    white-space: nowrap; /* Evita el ajuste automático de palabras */
   }
   table {
-  table-layout: auto;
+    table-layout: auto; /* Ancho automático para columnas */
   }
- }
- /* Estilo para el placeholder */
+}
+
+/* Estilo del placeholder del input de búsqueda */
 .search-container input[type="text"]::placeholder {
-  color: black;
+  color: black; /* Color del placeholder */
 }

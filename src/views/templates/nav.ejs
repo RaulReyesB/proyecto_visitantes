@@ -29,12 +29,15 @@
             <a id="color" class="nav-link" href="/controlPasantes">Control de Pasantes</a>
           </li>
         <% } %>
-        <% if (user.type==='superUsuario' || user.type==='administrador' ) { %>
+        <% if ( user.type==='administrador' ) { %>
           <li class="nav-item">
             <a id="color" class="nav-link" href="/historial">Historial de visitantes</a>
           </li>
           <li class="nav-item">
-            <a id="color" class="nav-link" href="/controlPasantes">Control de Pasantes</a>
+            <a id="color" class="nav-link" href="/serviciosCompletos">Servicios completos</a>
+          </li>
+          <li class="nav-item">
+            <a id="color" class="nav-link" href="/historialInternos">Historial de pasante</a>
           </li>
         <% } %>
         <% if (user.type==='superUsuario') { %>
@@ -43,6 +46,12 @@
           </li>
           <li class="nav-item">
             <a id="color" class="nav-link" href="/registroUsuario">Registrar Usuario</a>
+          </li>
+          <li class="nav-item">
+            <a id="color" class="nav-link" href="/historial">Historial de visitantes</a>
+          </li>
+          <li class="nav-item">
+            <a id="color" class="nav-link" href="/controlPasantes">Control de Pasantes</a>
           </li>
         <% } %>
       </ul>

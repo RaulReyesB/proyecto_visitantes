@@ -22,13 +22,8 @@
                 <!-- Encabezado de la tabla -->
                     <tr>
                         <th>Nombre</th>
-                        <th>Teléfono</th>
-                        <th>Correo electrónico</th>
-                        <th>CURP</th>
-                        <th>Identificación</th>
                         <th>Origen</th>
-                        <th>Niños</th>
-                        <th>Número de pase</th>
+                        <th>Número de folio</th>
                         <th>Fecha de entrada</th>
                         <th>Fecha de salida</th>
                     </tr>
@@ -38,34 +33,19 @@
                     <% registros.forEach(function(item) { %>
                         <tr>
                             <td>
-                                
+                              <%= item.name %>
                             </td>
                             <td>
-                                
+                              <%= item.school %>
                             </td>
                             <td>
-                                
+                              <%= item.fileNumber %>
                             </td>
                             <td>
-                                
+                              <%= item.startService %>
                             </td>
                             <td>
-                                
-                            </td>
-                            <td>
-                            
-                            </td>
-                            <td>
-                                
-                            </td>
-                            <td>
-                                
-                            </td>
-                            <td>
-                                
-                            </td>
-                            <td>
-                                
+                              <%= item.endService %>
                             </td>
                         </tr>
                         <% }); %>

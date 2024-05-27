@@ -5,12 +5,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="/css/stylenewVisit.css">
 </head>
 <body>
-    <div class="fondo"></div>
+    <div id="fondo"></div>
     <%- include('templates/nav') %>
-
+<br>
+<h1></h1>
+<br>
     <div class="container-2">
         <div class="table-responsive table-responsive-scroll">
             <table id="tabla" class="fade-in table ">
@@ -31,7 +35,7 @@
                 </thead>
                 <!-- Cuerpo de la tabla con datos dinámicos -->
                 <tbody>
-                    
+                    <% registros.forEach(function(item) { %>
                         <tr>
                             <td>
                                 
@@ -64,7 +68,7 @@
                                 
                             </td>
                         </tr>
-                        
+                        <% }); %>
                     </tbody>
                 </table>
             </div>

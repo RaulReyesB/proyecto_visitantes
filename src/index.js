@@ -9,6 +9,7 @@ import modelo from "./models/visit.js";
 import User from "./models/user.js";
 import checkAndCompleteService from "./utils/checkAndCompleteService.js";
 import user from "./routes/users.routes.js";
+import hsc from "./routes/hsc.routes.js";
 import cron from "node-cron";
 import routesInterns from "./routes/interns.routes.js";
 import { fileURLToPath } from "url";
@@ -55,6 +56,7 @@ app.use("/", pdR);
 app.use("/", user);
 app.use("/", routesInterns);
 app.use("/", visit)
+app.use("/", hsc)
 
 // Se autentica a la base de datos y sincroniza los modelos
 try {

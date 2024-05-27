@@ -53,16 +53,16 @@
                             <input class="form-control" type="email" name="email" placeholder="Correo Electrónico" required>
                         </div>
                         <div class="form-p">
+                          <label for="">Identificación</label>
+                          <select class="form-control" name="identification" required>
+                              <option value="">Seleccione una opción</option>
+                              <option value="INE">INE</option>
+                              <option value="Pasaporte">Pasaporte</option>
+                              <option value="Licencia">Licencia</option>
+                              <option value="Nue">Numero unico de extranjero</option>
+                          </select>
                             <label for="">CURP</label>
                             <input class="form-control" type="text" name="CURP" placeholder="CURP" maxlength="18" required>
-                            <label for="">Identificación</label>
-                            <select class="form-control" name="identification" required>
-                                <option value="">Seleccione una opción</option>
-                                <option value="INE">INE</option>
-                                <option value="Pasaporte">Pasaporte</option>
-                                <option value="Licencia">Licencia</option>
-                                <option value="Nue">Numero unico de extranjero</option>
-                            </select>
                             <label for="">N° de Gafete</label>
                             <select class="form-control" name="badge" id="badgeSelect">
                                 <% for(let i=1; i <=50; i++) { %>
@@ -150,6 +150,7 @@
       } else {
         curpInput.disabled = false;
         curpInput.setAttribute('required', '');
+        curpInput.value = '';
       }
     });
 });

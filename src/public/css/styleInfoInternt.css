@@ -175,3 +175,20 @@ Ancho de la imagen,alto,definición de bordes,margen superior,borde de la imagen
   width: 90%; /* Ancho relativo */
   }
 }
+
+.boton-pdf {
+  display: inline-block;
+  background-color: #691B31;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  margin-top: 10px; /* Espacio adicional entre botones */
+}
+
+.boton-pdf:hover {
+  background-color: #8e2543;
+}

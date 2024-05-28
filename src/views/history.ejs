@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="/css/footer.css">
   <!-- Icono de la página -->
   <link rel="icon" type="image/ico" href="/img/logohidalgo.ico">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
 </head>
 
 <body>
@@ -36,6 +37,7 @@
       <input type="text" id="searchInput" placeholder="Buscar...">
       <button type="button" onclick="search()"><i class="bi bi-search"></i></button>
     </div>
+    <button onclick="descargarTabla()">Descargar Tabla</button>
   </div>
   <div class="container-2">
    <div class="table-responsive table-responsive-scroll">
@@ -130,6 +132,42 @@
           }
         }
       });
+      
+      // Función para descargar la tabla en formato CSV
+      function descargarTabla() {
+    // Crear un nuevo libro de trabajo de Excel
+    var wb = XLSX.utils.book_new();
+
+    // Crear una hoja de trabajo y asignar los datos de la tabla a ella
+    var ws = XLSX.utils.table_to_sheet(document.getElementById('tabla'));
+
+    // Agregar la hoja de trabajo al libro de trabajo
+    XLSX.utils.book_append_sheet(wb, ws, "Tabla");
+
+    // Generar un archivo de Excel binario
+    var wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'binary' });
+
+    // Convertir el archivo de Excel binario a Blob
+    function s2ab(s) {
+        var buf = new ArrayBuffer(s.length);
+        var view = new Uint8Array(buf);
+        for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+        return buf;
+    }
+
+    var blob = new Blob([s2ab(wbout)], { type: 'application/octet-stream' });
+
+    // Crear un enlace para el archivo Blob
+    var link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'tabla.xlsx';
+
+    // Simular clic en el enlace para iniciar la descarga
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+  
     </script>
 
     

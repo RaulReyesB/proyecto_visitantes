@@ -285,3 +285,21 @@
     color: black; /* Color del placeholder */
   }
   
+  /* Estilos para el botón Descargar Tabla */
+button {
+  background-color: #691B31; /* Color de fondo dorado oscuro */
+  color: #fff; /* Color del texto */
+  border: none; /* Sin borde */
+  padding: 10px 20px; /* Espaciado interno */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cursor de apuntador al pasar el mouse */
+  transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+}
+
+button:hover {
+  background-color: #8e2543; /* Cambio de color de fondo al pasar el mouse */
+}
+
+button:focus {
+  outline: none; /* Eliminar el contorno al hacer foco */
+} 

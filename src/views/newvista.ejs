@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -12,6 +13,18 @@
 <body>
     <div id="fondo"></div>
     <%- include('templates/nav') %>
+    <div class="container">
+      <!-- Título de la página -->
+          <div class="cont-title">
+            <h1><%-namePage%></h1>
+          </div>
+      <!-- Contenedor del buscador -->
+          <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Buscar...">
+            <button type="button"><i class="bi bi-search"></i></button>
+          </div>
+          <button onclick="descargarTabla()">Descargar Tabla</button>
+        </div>
 <br>
 <h1></h1>
 <br>
@@ -54,18 +67,77 @@
             </div>
         </div>
 
-
-
-
     <div>
         <footer>
           <%- include('templates/footer') %>
         </footer>
       </div>
 
-
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+
+      <script>
+        // Función para descargar la tabla en formato Excel
+        function descargarTabla() {
+            // Crear un nuevo libro de trabajo de Excel
+            var wb = XLSX.utils.book_new();
+
+            // Crear una hoja de trabajo y asignar los datos de la tabla a ella
+            var ws = XLSX.utils.table_to_sheet(document.getElementById('tabla'));
+
+            // Agregar la hoja de trabajo al libro de trabajo
+            XLSX.utils.book_append_sheet(wb, ws, "Tabla");
+
+            // Generar un archivo de Excel binario
+            var wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'binary' });
+
+            // Convertir el archivo de Excel binario a Blob
+            function s2ab(s) {
+                var buf = new ArrayBuffer(s.length);
+                var view = new Uint8Array(buf);
+                for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+                return buf;
+            }
+
+            var blob = new Blob([s2ab(wbout)], { type: 'application/octet-stream' });
+
+            // Crear un enlace para el archivo Blob
+            var link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'tabla.xlsx';
+
+            // Simular clic en el enlace para iniciar la descarga
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+            // Función para filtrar la tabla mientras se escribe en el campo de búsqueda
+    document.getElementById('searchInput').addEventListener('input', function() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("tabla");
+        tr = table.getElementsByTagName("tr");
+
+        // Iterar sobre todas las filas y ocultar aquellas que no coinciden con la búsqueda
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td");
+            for (var j = 0; j < td.length; j++) {
+                if (td[j]) {
+                    txtValue = td[j].textContent || td[j].innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                        break;
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    });
+    </script>
 </body>
 </html>

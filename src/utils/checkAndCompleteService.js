@@ -23,12 +23,16 @@ const checkAndCompleteService = async () => {
       },
     });
 
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth() + 1;
+
     // Itera sobre cada intern encontrado en la consulta anterior
     for (const intern of interns) {
       // Marca el servicio del intern como completado
       intern.serviceCompleted = true;
       // Elimina el número de folio del intern
-      intern.fileNumber = null;
+      intern.fileNumber += `/${month}/${year}`;
       // Guarda los cambios en la base de datos
       await intern.save();
       // Imprime un mensaje indicando que el intern ha completado su servicio
